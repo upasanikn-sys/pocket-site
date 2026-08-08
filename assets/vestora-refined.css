@@ -1,0 +1,160 @@
+/* ============================================================================
+   VESTORA — REFINEMENT LAYER
+   Loaded AFTER vestora.css. Maps the existing components onto the token system
+   from vestora-tokens.css so all 15 pages share one language.
+
+   Deliberately CSS-only: no markup or script changes, so no page can break
+   functionally. Every rule here exists to fix something specific that was
+   measured in the audit, and each is annotated with the reason.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1. GROUND & VALUE RANGE
+   Audit: the whole site sat in a narrow band (#070d18 ground, panels barely
+   lighter), which reads flat rather than deep. Premium dark UI needs a true
+   void plus genuinely lit surfaces.
+   --------------------------------------------------------------------------- */
+:root{
+  --bg:      #04070E;
+  --bg2:     #070B14;
+  --panel:   #0B1220;
+  --panel2:  #111A2C;
+  --side:    #080D18;
+  --border:  #1A2540;
+  --border2: #131C2E;
+  --text:    #EDF0F7;
+  --muted:   #8C95AA;
+  --muted2:  #A9B1C4;
+  /* radius: collapse the old 21 values onto the token scale */
+  --r:  var(--v-r-lg);
+  --r2: var(--v-r-md);
+  --r3: var(--v-r-sm);
+  --maxw: var(--v-maxw);
+}
+
+body{ background:var(--bg); }
+
+/* one fixed grain layer — breaks digital flatness without per-section noise */
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:var(--v-z-grain);
+  opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
+   2. THE DISPLAY VOICE
+   Audit: Fraunces was used at default axes, so it read as "a Google Font".
+   WONK swaps in the alternate single-storey forms and SOFT rounds terminals —
+   uncommon settings that give the site letterforms of its own.
+   --------------------------------------------------------------------------- */
+h1, h2, h3, .serif, .sec-title, .legal h1, .legal h2{
+  font-family:var(--v-serif);
+  font-variation-settings:var(--v-serif-head);
+  text-wrap:balance;
+}
+h1, .legal h1{ font-variation-settings:var(--v-serif-display); letter-spacing:var(--v-track-display); }
+h3{ font-variation-settings:var(--v-serif-small); }
+
+/* a wider, more confident display scale (was a compressed 37px everywhere) */
+.sec-title{ font-size:var(--v-h2); line-height:var(--v-lh-head); letter-spacing:var(--v-track-head); }
+.legal h1{ font-size:var(--v-h1); line-height:1.06; }
+.legal h2{ font-size:var(--v-h3); letter-spacing:-.018em; margin-top:var(--v-10); }
+
+/* running text: a readable measure and honest line-height */
+.sec-sub{ font-size:var(--v-body); line-height:var(--v-lh-body); color:var(--muted2); text-wrap:pretty; }
+.legal p, .legal li{ font-size:var(--v-body-sm); line-height:var(--v-lh-body); color:var(--muted2); }
+
+/* the single micro-label treatment */
+.eyebrow, .sec-label{ font-size:var(--v-micro); letter-spacing:var(--v-track-micro); font-weight:600; }
+
+/* money and data align in columns */
+.amt, .prow b, .num, td, th{ font-variant-numeric:tabular-nums; }
+
+/* ---------------------------------------------------------------------------
+   3. BUTTONS
+   Audit: gold was a 135° gradient (dated, and it fought the flat UI) with no
+   focus ring and a harsh scale(.97) press. Solid gold + a lift reads richer.
+   --------------------------------------------------------------------------- */
+.btn{
+  border-radius:var(--v-r-sm);
+  transition:transform var(--v-t-fast) var(--v-ease),
+             box-shadow var(--v-t-base) var(--v-ease),
+             background var(--v-t-base) var(--v-ease),
+             border-color var(--v-t-base) var(--v-ease);
+}
+.btn-gold{
+  background:var(--v-gold); color:#080C14;
+  box-shadow:var(--v-e-1);
+}
+.btn-gold:hover{ background:var(--v-gold-lit); transform:translateY(-1px); box-shadow:var(--v-glow-gold); }
+.btn:active{ transform:translateY(1px) scale(.995); }   /* physical, not squashy */
+.btn-ghost{ background:transparent; border-color:var(--border); }
+.btn-ghost:hover{ background:rgba(255,255,255,.045); border-color:var(--v-gold); color:var(--v-gold-lit); }
+
+/* ---------------------------------------------------------------------------
+   4. SURFACES
+   Audit: 10 ad-hoc shadows, mostly generic black blur. Replaced with the
+   4-step light-based elevation (tinted shadow + inner top highlight).
+   --------------------------------------------------------------------------- */
+.card, .mod, .panel, .plan, .supcard, .rmcol, .band{
+  border-radius:var(--v-r-lg);
+  box-shadow:var(--v-e-2);
+  transition:transform var(--v-t-base) var(--v-ease), box-shadow var(--v-t-base) var(--v-ease),
+             border-color var(--v-t-base) var(--v-ease);
+}
+/* lift on hover only where the card is actually interactive */
+a.card:hover, .card.tap:hover, a.mod:hover, .supcard:hover{
+  transform:translateY(-2px); box-shadow:var(--v-e-3); border-color:var(--border);
+}
+.legal .lsum{ border-radius:var(--v-r-md); box-shadow:var(--v-e-1); }
+
+/* badges: square-ish, not pills — pill "New/Beta" chips are the generic tell */
+.bdg{ border-radius:var(--v-r-xs); letter-spacing:.05em; }
+
+/* ---------------------------------------------------------------------------
+   5. NAV
+   Sticky bar gets the token blur + hairline instead of a hard border.
+   --------------------------------------------------------------------------- */
+header{
+  background:color-mix(in srgb, var(--bg) 84%, transparent);
+  backdrop-filter:blur(14px) saturate(150%);
+  border-bottom:1px solid var(--border2);
+  z-index:var(--v-z-sticky);
+}
+.navlinks a{ transition:color var(--v-t-base) var(--v-ease); }
+.navlinks a:hover{ color:var(--text); }
+
+/* ---------------------------------------------------------------------------
+   6. RHYTHM
+   Audit: uniform padding everywhere made eight sections read as one stack.
+   Alternating bands give the page a pulse without touching any markup.
+   --------------------------------------------------------------------------- */
+.sec{ padding:var(--v-16) 0; }
+.sec:nth-of-type(even){ background:linear-gradient(180deg, var(--bg2), var(--bg)); }
+.wrap{ padding:0 var(--v-gutter); }
+
+/* hairline dividers instead of heavy borders (Linear's discipline) */
+hr, .divider{ border:0; border-top:1px solid var(--border2); }
+
+/* ---------------------------------------------------------------------------
+   7. FOOTER — quieter, so the page ends rather than shouting
+   --------------------------------------------------------------------------- */
+footer{ border-top:1px solid var(--border2); background:var(--bg); }
+footer .discl, .disc{ color:var(--v-text-4); }
+
+/* ---------------------------------------------------------------------------
+   8. IMAGERY — product shots get real elevation and a hairline edge
+   --------------------------------------------------------------------------- */
+.shot, .shotwrap, .frame, .heroshot{
+  border-radius:var(--v-r-lg); border:1px solid var(--border);
+  box-shadow:var(--v-e-4); overflow:hidden;
+}
+
+/* ---------------------------------------------------------------------------
+   9. RESPONSIVE — nothing should merely "fit"
+   --------------------------------------------------------------------------- */
+@media (max-width:760px){
+  .sec{ padding:var(--v-12) 0; }
+  .sec-title{ letter-spacing:-.02em; }
+  .wrap{ padding:0 var(--v-5); }
+}

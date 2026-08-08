@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="Vestora">
+  <defs>
+    <linearGradient id="vg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAD08A"/>
+      <stop offset="1" stop-color="#B98F38"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="9" fill="#0B1220"/>
+  <path d="M8.6 9.4 L20 32 L28.6 14.6" fill="none" stroke="url(#vg)" stroke-width="4.6"
+        stroke-linejoin="miter" stroke-linecap="butt"/>
+  <path d="M26.9 9.4 L32.6 9.4" fill="none" stroke="url(#vg)" stroke-width="2.8"
+        stroke-linecap="butt" opacity=".92"/>
+</svg>

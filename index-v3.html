@@ -61,7 +61,11 @@ header{position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--in
 #field{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:.85}
 .hero::before{content:""; position:absolute; left:-12%; top:-30%; width:76%; height:150%;
   background:radial-gradient(46% 42% at 42% 46%, rgba(32,58,116,.42), rgba(4,7,14,0) 70%); pointer-events:none}
-.hgrid{position:relative; display:grid; grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr); gap:52px; align-items:center}
+/* Single column: the text block sits left, then the product runs the full container width beneath it —
+   complete and large. (An earlier version bled it off the right edge; that cropped real panels away,
+   which reads as broken rather than art-directed.) */
+.hgrid{position:relative; display:block}
+.hcopy{max-width:62ch}
 .kicker{display:inline-flex; align-items:center; gap:9px; font-size:11px; font-weight:600;
   letter-spacing:.17em; text-transform:uppercase; color:var(--gold); margin-bottom:26px}
 .kicker i{width:5px;height:5px;border-radius:50%;background:var(--gold)}
@@ -75,11 +79,14 @@ h1 em{font-style:normal; color:var(--gold); display:block}
 .hnote{margin-top:30px; font-size:13px; color:var(--muted); display:flex; gap:20px; flex-wrap:wrap}
 .hnote span{display:inline-flex; align-items:center; gap:7px}
 .hnote b{width:4px;height:4px;border-radius:50%;background:var(--pos)}
-.shot{position:relative; margin-right:-24vw; border-radius:16px 0 0 16px; overflow:hidden;
-  border:1px solid var(--line); border-right:0;
-  box-shadow:-30px 50px 110px -50px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.05)}
-.shotcap{margin-top:12px; font-size:11.5px; color:var(--muted); letter-spacing:.03em}
-@media(max-width:980px){ .hgrid{grid-template-columns:1fr; gap:44px} .shot{margin-right:-28px; border-radius:14px} .hero{padding:78px 0 64px} }
+/* the product: complete, full container width, lifted off the page */
+.shot{position:relative; margin-top:64px; border-radius:16px; overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 70px 130px -60px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.03),
+             inset 0 1px 0 rgba(255,255,255,.06)}
+.shot img{width:100%; height:auto}
+.shotcap{margin-top:14px; font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-align:right}
+@media(max-width:980px){ .hero{padding:78px 0 64px} .shot{margin-top:46px} }
 
 /* ---- statement ---- */
 .statement{position:relative; padding:112px 0; border-top:1px solid var(--line-soft);
@@ -183,7 +190,7 @@ footer{border-top:1px solid var(--line-soft); padding:38px 0; font-size:13px; co
     <!-- custom generative art: the compounding curves the product actually computes -->
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="wrap hgrid">
-      <div class="rv">
+      <div class="hcopy rv">
         <span class="kicker"><i></i> Private finance software for Windows</span>
         <h1 class="d">Your whole financial life.<em>One private app.</em></h1>
         <p class="sub">Cash flow, investments, goals, debt, retirement and documents — planned in one
@@ -198,7 +205,7 @@ footer{border-top:1px solid var(--line-soft); padding:38px 0; font-size:13px; co
         </div>
       </div>
       <div class="rv">
-        <div class="shot"><img src="assets/shot-dashboard.png" alt="The Vestora dashboard showing net worth, eight financial-health factors and this month's cash flow"></div>
+        <div class="shot"><img src="assets/shot-dashboard.png" alt="The Vestora dashboard showing total net worth, the eight financial-health factors, this week's summary and asset tiles"></div>
         <div class="shotcap">Real product screenshot · sample data</div>
       </div>
     </div>

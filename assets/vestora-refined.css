@@ -96,14 +96,14 @@ h3{ font-variation-settings:var(--v-serif-small); }
    Audit: 10 ad-hoc shadows, mostly generic black blur. Replaced with the
    4-step light-based elevation (tinted shadow + inner top highlight).
    --------------------------------------------------------------------------- */
-.card, .mod, .panel, .plan, .supcard, .rmcol, .band{
+.card, .mod, .modcard, .panel, .plan, .supcard, .rmcol, .band{
   border-radius:var(--v-r-lg);
   box-shadow:var(--v-e-2);
   transition:transform var(--v-t-base) var(--v-ease), box-shadow var(--v-t-base) var(--v-ease),
              border-color var(--v-t-base) var(--v-ease);
 }
 /* lift on hover only where the card is actually interactive */
-a.card:hover, .card.tap:hover, a.mod:hover, .supcard:hover{
+a.card:hover, .card.tap:hover, a.mod:hover, .modcard:hover, .supcard:hover{
   transform:translateY(-2px); box-shadow:var(--v-e-3); border-color:var(--border);
 }
 .legal .lsum{ border-radius:var(--v-r-md); box-shadow:var(--v-e-1); }
@@ -151,7 +151,47 @@ footer .discl, .disc{ color:var(--v-text-4); }
 }
 
 /* ---------------------------------------------------------------------------
-   9. RESPONSIVE — nothing should merely "fit"
+   9. FEATURES — break the uniform grid
+   A module grid is the right pattern here (people compare capabilities), but a
+   perfectly even 4-column repeat is the generic tell. Promoting the first two
+   modules to double-width creates hierarchy and rhythm without touching markup.
+   --------------------------------------------------------------------------- */
+@media (min-width:1000px){
+  .modgrid > .modcard:nth-child(1),
+  .modgrid > .modcard:nth-child(2){ grid-column:span 2; }
+  .modgrid > .modcard:nth-child(1) .modtitle h3,
+  .modgrid > .modcard:nth-child(2) .modtitle h3{ font-size:var(--v-h4); }
+}
+/* the module preview is the valuable part — give it room and a hairline frame */
+.modcard .prow, .mod .prow{ font-variant-numeric:tabular-nums; }
+.modcard:hover, .mod:hover{ border-color:var(--border); }
+
+/* trust strip: hairline-separated row, not five more boxes */
+@media (min-width:860px){
+  .fti{ border:0 !important; background:transparent !important; box-shadow:none !important;
+        border-left:1px solid var(--border2) !important; border-radius:0 !important;
+        padding-left:var(--v-4) !important; }
+  .fti:first-child{ border-left:0 !important; padding-left:0 !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   10. PRICING — the recommended tier should win on emphasis, not on height
+   --------------------------------------------------------------------------- */
+.plan{ border-radius:var(--v-r-lg); }
+.plan.pop{
+  border-color:rgba(201,164,78,.42);
+  background:linear-gradient(180deg, rgba(201,164,78,.055), var(--panel) 42%);
+  box-shadow:var(--v-e-3), 0 0 0 1px rgba(201,164,78,.12);
+}
+.plan.pop:hover{ box-shadow:var(--v-e-4), 0 0 0 1px rgba(201,164,78,.2); }
+/* prices are the number people scan — make them typographically serious */
+.plan .price, .plan [data-price]{ font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+/* CTAs land on one line regardless of copy length above them */
+.plan{ display:flex; flex-direction:column; }
+.plan .plan-foot{ margin-top:auto; }
+
+/* ---------------------------------------------------------------------------
+   11. RESPONSIVE — nothing should merely "fit"
    --------------------------------------------------------------------------- */
 @media (max-width:760px){
   .sec{ padding:var(--v-12) 0; }

@@ -103,6 +103,34 @@ h1 em{font-style:normal; color:var(--gold); display:block}
   margin-top:26px; max-width:52ch; margin-inline:auto; font-family:Inter,sans-serif;
   font-variation-settings:normal; letter-spacing:0; line-height:1.6}
 
+
+/* ---- device framing ----
+   Every serious fintech case study presents the product in a device body, not as a bare
+   screenshot in a rectangle. Pure CSS frame (no extra image weight) wrapping the real
+   800x1880 app capture, overlapping the desktop shot so the two read as one product. */
+.devices{position:relative}
+/* The bezel lives on .phone (padding, no clipping) and the screen clips separately, so the
+   speaker grille sits IN the bezel instead of on top of the app's greeting row. */
+.phone{position:absolute; right:24px; bottom:-56px; width:206px; z-index:2;
+  padding:13px 9px 12px; border-radius:30px; background:#0C1220;
+  box-shadow:0 40px 80px -28px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.07),
+             inset 0 1px 0 rgba(255,255,255,.09)}
+.phonescreen{position:relative; border-radius:19px; overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
+.phonescreen img{display:block; width:100%; height:auto}
+/* speaker grille, centred in the 13px top bezel */
+.phone::after{content:""; position:absolute; top:5px; left:50%; transform:translateX(-50%);
+  width:44px; height:3.5px; border-radius:99px; background:rgba(255,255,255,.14)}
+/* side button, the detail that stops it reading as a rounded rectangle */
+.phone::before{content:""; position:absolute; right:-2px; top:86px; width:2px; height:30px;
+  border-radius:2px; background:linear-gradient(180deg,#1E2A44,#141C2E)}
+.devcap{margin-top:70px; font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-align:right}
+@media(max-width:900px){
+  /* below the fold on small screens the overlap stops working — stack instead */
+  .phone{position:relative; right:auto; bottom:auto; width:190px; margin:26px auto 0}
+  .devcap{margin-top:18px; text-align:center}
+}
+
 /* ---- showcase ---- */
 .showcase{padding:112px 0 100px}
 .sc-head{display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:end; margin-bottom:52px}
@@ -234,9 +262,17 @@ footer{border-top:1px solid var(--line-soft); padding:38px 0; font-size:13px; co
         <p>Net worth, portfolio and financial health computed from your own numbers — never estimated,
         never invented. When a price feed is down, Vestora says so.</p>
       </div>
-      <div class="frame rv">
-        <img src="assets/shot-investments.png" alt="Vestora's investments view with asset allocation, holdings and performance">
+      <div class="devices rv">
+        <div class="frame">
+          <img src="assets/shot-investments.png" alt="Vestora's investments view with asset allocation, holdings and performance">
+        </div>
+        <div class="phone">
+          <div class="phonescreen">
+            <img src="assets/shot-app-home.png" alt="The Vestora mobile app home screen showing net worth, financial health and this month's cash flow">
+          </div>
+        </div>
       </div>
+      <div class="devcap">The same numbers, on the desktop app and on your phone</div>
     </div>
   </section>
 

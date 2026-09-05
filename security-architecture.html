@@ -73,13 +73,13 @@
     <li><b>Data harvesting and resale</b> — eliminated structurally. There is no telemetry, no
     analytics SDK, no advertising, and no account system.</li>
     <li><b>Network interception</b> — the app makes no outbound requests carrying personal data (see
-    §7 for the complete list of connections).</li>
+    §8 for the complete list of connections).</li>
     <li><b>Casual local snooping</b> — an app-lock PIN and OS biometrics gate the interface, and
     vault/backup contents are encrypted under keys only you can derive.</li>
   </ul>
   <p>Explicitly <b>outside</b> the threat model: an attacker who controls your device while you are
   logged in (malware, keyloggers), or who has physical access to an unencrypted disk. No desktop
-  application can defend against a compromised operating system — see §8 for what we recommend.</p>
+  application can defend against a compromised operating system — see §9 for what we recommend.</p>
 
   <h2>2. Where your data lives</h2>
   <p>Everything you enter is stored in a single SQLite database file (plus a vault folder) inside a
@@ -148,7 +148,24 @@
     <li>Sensitive actions are recorded to a local, append-only audit log you can inspect.</li>
   </ul>
 
-  <h2>7. Every network connection, listed</h2>
+  <h2>7. Imported statements are treated as untrusted</h2>
+  <p>A CSV or bank statement is written by someone else, so Vestora treats every field in it —
+  merchant names, descriptions, categories — as untrusted input rather than as its own data.
+  That matters because the interface is a web page: text from a file should never be able to
+  become code running next to your financial database.</p>
+  <ul>
+    <li>Text shown on screen is HTML-escaped, so markup in a merchant name renders as characters,
+    not as elements.</li>
+    <li>Text passed to the page as data is encoded for that context specifically, so it cannot end
+    the surrounding script block.</li>
+    <li>Text placed inside a button's action is escaped for JavaScript before it is escaped for
+    HTML, because a browser decodes the second before it reads the first. Names with apostrophes —
+    O'Brien, Trader Joe's — are preserved exactly rather than stripped.</li>
+  </ul>
+  <p>Each of these is covered by an automated test that is verified to fail if the protection is
+  removed, so a future change cannot quietly undo them.</p>
+
+  <h2>8. Every network connection, listed</h2>
   <div class="tablewrap"><table>
     <tr><th>Connection</th><th>When</th><th>What is sent</th></tr>
     <tr><td>Market price feeds (Yahoo Finance, AMFI, public crypto APIs) over HTTPS</td>
@@ -162,9 +179,9 @@
         <td>Described at the point of enabling; the built-in intelligence runs entirely on-device.</td></tr>
   </table></div>
   <p>That is the complete list. There is no telemetry, no crash reporting, no update phone-home, and
-  license keys validate offline (§9).</p>
+  license keys validate offline (§10).</p>
 
-  <h2>8. What is NOT protected — read this</h2>
+  <h2>9. What is NOT protected — read this</h2>
   <ul>
     <li><b>The main database is not encrypted at rest by the app</b> (§2). Mitigate with OS disk
     encryption; the vault exists for your most sensitive documents.</li>
@@ -180,12 +197,12 @@
     publish results here when it happens.</li>
   </ul>
 
-  <h2>9. License keys</h2>
+  <h2>10. License keys</h2>
   <p>Paid tiers activate with a key that is <b>signed with Ed25519</b>; only the public key ships in
   the app, so a key that verifies provably came from us. Validation is fully offline — no activation
   server, no phone-home, and a key past its term simply drops the app to the permanent Free plan.</p>
 
-  <h2>10. Reporting a vulnerability</h2>
+  <h2>11. Reporting a vulnerability</h2>
   <p>If you believe you have found a security issue, email
   <a href="mailto:hello@vestora.app?subject=SECURITY">hello@vestora.app</a> with the subject
   <b>SECURITY</b>. You will get a human response, normally within 48 hours. Please give us a

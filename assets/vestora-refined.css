@@ -198,3 +198,14 @@ footer .discl, .disc{ color:var(--v-text-4); }
   .sec-title{ letter-spacing:-.02em; }
   .wrap{ padding:0 var(--v-5); }
 }
+
+/* ---------------------------------------------------------------------------
+   12. TABLE OVERFLOW — investigated, NO CHANGE NEEDED
+   The responsive audit flagged .cmp extending to 567px inside a 375px viewport and I
+   briefly "fixed" it with display:block + overflow-x:auto. That was wrong: the ancestor
+   chain shows the table already sits in `div.tablewrap` with overflow-x:auto, and its
+   min-width:520px is deliberate so it scrolls inside that wrapper. A wide child of a
+   scroll container always reports a right edge past the viewport — that is the pattern
+   working, not failing. Change reverted; leaving this note so the same false positive
+   does not get "fixed" again.
+   --------------------------------------------------------------------------- */

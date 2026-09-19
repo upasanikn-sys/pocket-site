@@ -16,18 +16,26 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
   /* --- early-access dialog: mailto alone dead-ends when there's no default mail
          app (Windows shows an app-chooser; picking a browser does nothing). This
          always works — the address is shown, copyable, with mailto as a bonus. --- */
-  var back = document.createElement("div");
-  back.className = "vmodal-back"; back.setAttribute("role", "dialog");
-  back.setAttribute("aria-modal", "true"); back.setAttribute("aria-labelledby", "vmodal-title");
-  document.body.appendChild(back);
-  var lastFocus = null;
+  /* created on first use: an always-present empty role="dialog" element was noise for assistive tech */
+  var back = null, lastFocus = null;
+  function ensureBack() {
+    if (back) return back;
+    back = document.createElement("div");
+    back.className = "vmodal-back"; back.setAttribute("role", "dialog");
+    back.setAttribute("aria-modal", "true"); back.setAttribute("aria-labelledby", "vmodal-title");
+    document.body.appendChild(back);
+    back.addEventListener("click", function (e) { if (e.target === back) closeModal(); });
+    return back;
+  }
 
   function closeModal() {
+    if (!back) return;
     back.classList.remove("on");
     back.innerHTML = "";
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   function openModal(opts) {
+    ensureBack();
     lastFocus = document.activeElement;
     var subject = encodeURIComponent(opts.subject);
     var body = encodeURIComponent(opts.body || "");
@@ -62,9 +70,8 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
     }
     setTimeout(function () { closeBtn.focus(); }, 30);
   }
-  back.addEventListener("click", function (e) { if (e.target === back) closeModal(); });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && back.classList.contains("on")) closeModal();
+    if (e.key === "Escape" && back && back.classList.contains("on")) closeModal();
   });
 
   /* --- Windows early-access buttons (.js-dl) --- */
@@ -139,12 +146,28 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
     s.setAttribute("aria-hidden", "true");
   });
 
-  /* --- nav shadow on scroll --- */
+  /* --- header state once the page has moved: a class, styled as a hairline + lit shadow (not grey smoke) --- */
   var hdr = document.querySelector("header");
   if (hdr) {
-    addEventListener("scroll", function () {
-      hdr.style.boxShadow = scrollY > 10 ? "0 8px 30px rgba(0,0,0,.35)" : "none";
+    var onScroll = function () { hdr.classList.toggle("scrolled", scrollY > 10); };
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* --- site shell phone menu (.sh-menu-btn controls #site-menu) --- */
+  var sb = document.querySelector(".sh-menu-btn"), sm = document.getElementById("site-menu");
+  if (sb && sm) {
+    var setMenu = function (open) {
+      sm.classList.toggle("open", open);
+      sb.setAttribute("aria-expanded", open ? "true" : "false");
+      sb.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    sb.addEventListener("click", function () { setMenu(!sm.classList.contains("open")); });
+    sm.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && sm.classList.contains("open")) { setMenu(false); sb.focus(); }
     });
+    addEventListener("resize", function () { if (innerWidth > 900 && sm.classList.contains("open")) setMenu(false); });
   }
 
   /* --- FAQ accordion (pricing) — keyboard accessible --- */

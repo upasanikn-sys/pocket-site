@@ -32,7 +32,7 @@
   --v-text:       #EDF0F7;
   --v-text-2:     #A9B1C4;
   --v-text-3:     #8C95AA;
-  --v-text-4:     #6E768A;   /* legal / disclaimers                               */
+  --v-text-4:     #7D8497;   /* legal / disclaimers: >=4.65:1 on every surface (was #6E768A, 4.43:1 on ink) */
 
   /* ---------- brand: gold is SPENT, not sprinkled ----------
      Rule: gold appears on primary CTAs, one headline accent, and active nav.

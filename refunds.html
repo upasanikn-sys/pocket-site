@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>Refund Policy — Vestora</title>
 <meta name="description" content="Vestora's refund policy: a 30-day money-back guarantee on every paid plan, refunded to your original payment method. Your data stays on your device either way.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316294d'/%3E%3Cpath d='M8 8L13 8L16 21L19 8L24 8L16.5 26Z' fill='%23c9a44e'/%3E%3C/svg%3E">
@@ -27,32 +28,40 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vestora — your whole financial life, one private app. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
 <meta name="twitter:image" content="https://upasanikn-sys.github.io/vestora-site/assets/og-vestora.png">
+<link rel="stylesheet" href="assets/site-shell.css?v=1">
 </head>
 <body>
 <!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- NAV -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="index.html"><span class="mark"></span><span><span class="bt">Vestora</span><span class="bs">Build Wealth. With Clarity.</span></span></a>
-    <nav class="navlinks">
-      <a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a>
-      <a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a>
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="index.html" aria-label="Vestora home"><svg class="sh-mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><defs><linearGradient id="sh-vg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAD08A"/><stop offset="1" stop-color="#B98F38"/></linearGradient></defs><path d="M7.5 7.5 L20 33 L29.5 13.6" fill="none" stroke="url(#sh-vg)" stroke-width="5.2" stroke-linejoin="miter"/><path d="M27.6 7.5 L34.5 7.5" fill="none" stroke="url(#sh-vg)" stroke-width="3.1" opacity=".92"/></svg><span><span class="sh-name">Vestora</span><span class="sh-tag">Build Wealth. With Clarity.</span></span></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-vestora.html">Why Vestora</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">AI Copilot</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
       <a href="roadmap.html">Roadmap</a>
     </nav>
-    <div class="nav-cta">
-      <a class="btn btn-gold" href="download.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>Get Early Access</a>
-      <button class="menu-btn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    </div>
+    <a class="sh-cta" href="download.html">Get early access</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-vestora.html">Why Vestora</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">AI Copilot</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="download.html">Download</a>
+    <a class="sh-menu-cta" href="download.html">Get early access</a>
+  </nav>
 </header>
-<div class="mobile-menu">
-  <a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a>
-  <a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a><a href="download.html">Download</a>
-</div>
 
-<main class="legal">
+<main class="legal" id="main">
   <h1>Refund Policy</h1>
   <div class="ldate">Effective 17 July 2026 · Applies to all paid Vestora plans</div>
 

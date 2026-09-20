@@ -81,7 +81,7 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
       e.preventDefault();
       openModal({
         title: "Request Windows early access",
-        desc: "Email us and we'll send the current Windows build (v2.0.0). No account, no payment.",
+        desc: "Email us and we'll send the current Windows build (v2.1.0). No account, no payment.",
         subject: "Vestora for Windows — early access request",
         body: "Hi — I'd like early access to Vestora for Windows."
       });

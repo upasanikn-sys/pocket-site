@@ -41,7 +41,7 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
     var body = encodeURIComponent(opts.body || "");
     back.innerHTML =
       '<div class="vmodal">' +
-        '<button class="vmodal-close" aria-label="Close">✕</button>' +
+        '<button class="vmodal-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
         '<h3 id="vmodal-title">' + opts.title + '</h3>' +
         '<p>' + opts.desc + '</p>' +
         '<div class="em"><span class="addr">' + EMAIL + '</span>' +
@@ -57,7 +57,7 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
     var copyBtn = back.querySelector(".copybtn");
     closeBtn.addEventListener("click", closeModal);
     copyBtn.addEventListener("click", function () {
-      var done = function () { copyBtn.textContent = "Copied ✓"; copyBtn.classList.add("ok"); };
+      var done = function () { copyBtn.textContent = "Copied"; copyBtn.classList.add("ok"); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(EMAIL).then(done, function () { fallbackCopy(); done(); });
       } else { fallbackCopy(); done(); }
@@ -209,14 +209,14 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
     document.querySelectorAll("[data-cur]").forEach(function (b) {
       b.addEventListener("click", function () {
         state.cur = b.getAttribute("data-cur");
-        document.querySelectorAll("[data-cur]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        document.querySelectorAll("[data-cur]").forEach(function (x) { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
         apply();
       });
     });
     document.querySelectorAll("[data-cycle]").forEach(function (b) {
       b.addEventListener("click", function () {
         state.cycle = b.getAttribute("data-cycle");
-        document.querySelectorAll("[data-cycle]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        document.querySelectorAll("[data-cycle]").forEach(function (x) { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
         apply();
       });
     });

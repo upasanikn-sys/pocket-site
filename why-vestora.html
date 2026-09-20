@@ -10,141 +10,6 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#070d18">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
-<link rel="stylesheet" href="assets/vestora.css?v=17">
-<link rel="stylesheet" href="assets/vestora-refined.css?v=1">
-<style>
-.why-hero{display:grid; grid-template-columns:.95fr 1.15fr; gap:40px; align-items:start; padding:44px 0 20px}
-.why-hero .h1{font-size:46px}
-.prob-panel{background:linear-gradient(160deg,#0d1730,#0b1120); border:1px solid var(--border);
-  border-radius:20px; padding:26px 20px; box-shadow:0 30px 70px rgba(0,0,0,.5)}
-.prob-row{display:grid; grid-template-columns:repeat(7,1fr); gap:10px}
-.prob{text-align:center}
-.prob .pi{width:46px; height:46px; border-radius:13px; margin:0 auto 10px; display:grid; place-items:center;
-  border:1px solid var(--border); background:rgba(255,255,255,.02); color:var(--muted2)}
-.prob b{font-size:11px; font-weight:600; display:block; line-height:1.2}
-.prob span{font-size:9.5px; color:var(--muted)}
-.dotarc{height:16px; background-image:radial-gradient(circle,var(--gold) 1px,transparent 1.4px);
-  background-size:9px 9px; background-position:0 6px; opacity:.35; margin-bottom:6px}
-
-/* old vs new */
-.oldnew{display:grid; grid-template-columns:1fr 1fr; gap:26px}
-.on-col h3{font-size:22px; line-height:1.2; margin-bottom:18px; letter-spacing:-.01em}
-.on-label{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:12px}
-.on-col.new .on-label{color:var(--gold)}
-.xlist{list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:24px}
-.xlist li{display:flex; align-items:center; gap:11px; font-size:14px}
-.xlist .xc{width:22px; height:22px; border-radius:7px; display:grid; place-items:center; flex:none}
-.xlist.bad .xc{background:rgba(248,113,113,.14); color:var(--neg)}
-.xlist.good .xc{background:rgba(52,211,153,.14); color:var(--pos)}
-/* scattered apps */
-.scatter{position:relative; height:210px}
-.scatter .user{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:56px; height:56px;
-  border-radius:50%; border:1px solid var(--border); background:var(--panel2); display:grid; place-items:center; color:var(--muted); z-index:2}
-.scatter .app{position:absolute; width:38px; height:38px; border-radius:10px; background:var(--panel2);
-  border:1px solid var(--border); display:grid; place-items:center; font-size:15px; box-shadow:0 8px 20px rgba(0,0,0,.4)}
-/* orbit */
-.orbit{position:relative; height:280px}
-.orbit .core{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78px; height:78px;
-  border-radius:20px; background:linear-gradient(120deg,#16264a 0 46%,var(--gold) 52% 100%);
-  box-shadow:0 0 40px rgba(201,164,78,.4); z-index:3}
-.orbit .ring{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%;
-  border:1px solid rgba(201,164,78,.22)}
-.orbit .node{position:absolute; text-align:center; width:96px; transform:translate(-50%,-50%)}
-.orbit .node .ni{width:42px; height:42px; border-radius:12px; margin:0 auto 6px; display:grid; place-items:center;
-  border:1px solid var(--border); background:var(--panel2); color:var(--gold)}
-.orbit .node b{font-size:11px; font-weight:600}
-
-/* factor cards */
-.fh-grid{display:grid; grid-template-columns:1.05fr 2fr; gap:26px; align-items:center}
-.fh-ring{width:150px; height:150px; border-radius:50%; margin:0 auto; position:relative; display:grid; place-items:center;
-  background:conic-gradient(var(--pos) 0 78%, var(--border) 78% 100%)}
-.fh-ring::before{content:""; position:absolute; inset:12px; border-radius:50%; background:var(--panel)}
-.fh-ring .v{position:relative; text-align:center}
-.fh-ring .v b{font-size:38px; font-weight:700; display:block; line-height:1}
-.fh-ring .v span{font-size:12px; color:var(--muted)}
-.factor6{display:grid; grid-template-columns:repeat(6,1fr); gap:12px}
-.factor{background:var(--panel2); border:1px solid var(--border2); border-radius:13px; padding:14px 12px; text-align:center}
-.factor .ci{width:34px; height:34px; border-radius:10px; margin:0 auto 9px; display:grid; place-items:center}
-.factor h5{font-size:12px; font-weight:600; margin-bottom:3px}
-.factor .pct{font-size:15px; font-weight:700}
-.factor .tag{font-size:9.5px; color:var(--muted); margin:5px 0}
-.fbar{height:4px; border-radius:99px; background:var(--border); overflow:hidden}
-.fbar i{display:block; height:100%; border-radius:99px}
-
-/* stages */
-.stages{display:grid; grid-template-columns:1fr 2.4fr; gap:26px; align-items:center}
-.stage-row{display:flex; justify-content:space-between; position:relative}
-.stage-row::before{content:""; position:absolute; top:31px; left:6%; right:6%; height:1px;
-  background:linear-gradient(90deg,var(--gold),rgba(201,164,78,.2))}
-.stage{text-align:center; position:relative; z-index:1; width:16%}
-.stage .sc{width:62px; height:62px; border-radius:50%; margin:0 auto 10px; display:grid; place-items:center;
-  border:1px solid rgba(201,164,78,.4); background:var(--bg); color:var(--gold);
-  box-shadow:0 0 24px rgba(201,164,78,.12)}
-.stage b{font-size:16px; font-weight:700; display:block}
-.stage .st{font-size:12px; font-weight:600; margin-top:4px}
-.stage span{font-size:10.5px; color:var(--muted)}
-
-/* india */
-.india{display:grid; grid-template-columns:1fr 2fr; gap:26px; align-items:center}
-.india5{display:grid; grid-template-columns:repeat(5,1fr); gap:12px}
-.icard{text-align:center}
-.icard .ii{width:44px; height:44px; border-radius:13px; margin:0 auto 10px; display:grid; place-items:center;
-  border:1px solid var(--border); background:rgba(255,255,255,.02); color:var(--gold)}
-.icard b{font-size:13px; font-weight:600; display:block; margin-bottom:4px}
-.icard span{font-size:11px; color:var(--muted); line-height:1.4}
-
-/* ask bar */
-.ask{display:grid; grid-template-columns:1fr 2fr; gap:26px; align-items:center}
-.askbar{display:flex; align-items:center; gap:10px; background:var(--panel2); border:1px solid var(--border);
-  border-radius:14px; padding:8px 8px 8px 16px; margin-bottom:14px}
-.askbar input{flex:1; background:none; border:none; outline:none; color:var(--text); font-size:14px; font-family:inherit}
-.askbar .send{width:40px; height:40px; border-radius:11px; background:linear-gradient(135deg,#b7a6ff,#7d68d8);
-  display:grid; place-items:center; color:#0e1730; flex:none; border:none; cursor:pointer}
-.chips{display:flex; gap:10px; flex-wrap:wrap}
-.chip2{font-size:12.5px; color:var(--muted2); padding:9px 14px; border:1px solid var(--border); border-radius:99px;
-  background:rgba(255,255,255,.02); cursor:pointer; transition:.15s}
-.chip2:hover{color:var(--text); border-color:var(--muted)}
-/* privacy section: 3 zones with device mockup */
-.privacy3{display:grid; grid-template-columns:.8fr 1.55fr 1.1fr; gap:26px; align-items:center}
-.pdevice{position:relative; height:190px}
-.pdevice .pglow{position:absolute; right:-4%; bottom:6px; width:88%; height:110px; border-radius:50%;
-  background:radial-gradient(closest-side,rgba(201,164,78,.28),transparent 75%); filter:blur(12px)}
-.pd-laptop{position:absolute; left:0; bottom:26px; width:96%; background:#0b1120; border:1px solid var(--border);
-  border-radius:9px 9px 0 0; padding:7px; box-shadow:0 22px 44px rgba(0,0,0,.55); z-index:1}
-.pd-laptop::after{content:""; position:absolute; left:-7%; right:-7%; bottom:-9px; height:9px;
-  background:linear-gradient(180deg,#1a2338,#0d1424); border:1px solid var(--border); border-top:none; border-radius:0 0 9px 9px}
-.pd-phone{position:absolute; right:-2%; bottom:0; width:58px; background:#0b1120; border:1px solid var(--border);
-  border-radius:11px; padding:5px; box-shadow:0 16px 30px rgba(0,0,0,.6); z-index:2}
-.pd-net{font-size:7px;color:var(--muted)} .pd-big{font-size:13px;font-weight:700} .pd-up{font-size:6.5px;color:var(--pos)}
-.pd-line{height:34px;margin:5px 0;border-radius:5px;background:linear-gradient(180deg,rgba(52,211,153,.1),transparent);position:relative;overflow:hidden}
-.pd-line svg{position:absolute;inset:0;width:100%;height:100%}
-.pd-rows{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.pd-cell{background:rgba(255,255,255,.03);border-radius:4px;padding:4px;font-size:6px;color:var(--muted)}
-.pd-cell b{display:block;font-size:8px;color:var(--text)}
-.pd-ring{width:30px;height:30px;border-radius:50%;margin:0 auto 4px;background:conic-gradient(var(--pos) 0 78%,var(--border) 0);display:grid;place-items:center;position:relative}
-.pd-ring::before{content:"";position:absolute;inset:3px;border-radius:50%;background:#0b1120}
-.pd-ring b{position:relative;font-size:9px;font-weight:700}
-/* built in india: text + cards over a faded world map */
-.india2{display:grid; grid-template-columns:.78fr 2.25fr; gap:30px; align-items:center}
-.india-right{position:relative}
-.india-right .india5{position:relative; z-index:1}
-.worldmap{position:absolute; right:0; top:50%; transform:translateY(-50%); width:42%; height:auto; opacity:.5; pointer-events:none; z-index:0}
-
-@media (max-width:960px){
-  .why-hero{grid-template-columns:1fr} .why-hero .h1{font-size:38px}
-  .prob-row{grid-template-columns:repeat(4,1fr)}
-  .oldnew{grid-template-columns:1fr} .fh-grid,.stages,.india,.india2,.ask{grid-template-columns:1fr}
-  .worldmap{display:none}
-  .privacy3{grid-template-columns:1fr} .pdevice{max-width:360px}
-  .factor6{grid-template-columns:repeat(3,1fr)} .india5{grid-template-columns:repeat(3,1fr)}
-  .stage-row{flex-wrap:wrap; gap:16px} .stage{width:30%} .stage-row::before{display:none}
-}
-</style>
 <link rel="canonical" href="https://upasanikn-sys.github.io/vestora-site/why-vestora.html">
 <meta property="og:title" content="Why Vestora — One Operating System for your entire financial life">
 <meta property="og:description" content="Modern finance is broken — scattered across dozens of apps, spreadsheets and documents. Vestora brings it all into one private, on-device operating system that actually understands you.">
@@ -156,6 +21,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vestora — your whole financial life, one private app. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
 <meta name="twitter:image" content="https://upasanikn-sys.github.io/vestora-site/assets/og-vestora.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
+<link rel="stylesheet" href="assets/observatory.css?v=1">
 <link rel="stylesheet" href="assets/site-shell.css?v=1">
 </head>
 <body>
@@ -188,317 +58,205 @@
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="main" style="padding-top:20px">
-  <div class="glow" style="width:480px;height:480px;background:rgba(201,164,78,.08);top:-120px;right:-100px"></div>
-  <div class="wrap why-hero">
-    <div>
-      <span class="eyebrow">The problem</span>
-      <h1 class="h1 serif">Modern finance is <span class="l2">broken.</span></h1>
-      <p class="lead">Your financial life is scattered across dozens of apps, spreadsheets and documents. It's time for a better way.</p>
-    </div>
-    <div class="prob-panel">
-      <div class="dotarc"></div>
-      <div class="prob-row">
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><b>Budget</b><span>Tracks spending</span></div>
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V4M4 20h16M8 15l4-5 3 3 5-7"/></svg></div><b>Investments</b><span>Shows returns</span></div>
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2h8l4 4v16H6z"/><path d="M9 12h6M9 16h4"/></svg></div><b>Taxes</b><span>Once a year</span></div>
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><b>Notes &amp; Docs</b><span>Scattered</span></div>
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div><b>Insurance</b><span>Forgotten</span></div>
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div><b>Spreadsheets</b><span>Manual</span></div>
-        <div class="prob"><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.2"/><path d="M5 20a7 7 0 0114 0"/></svg></div><b>Retirement</b><span>Never planned</span></div>
+<main id="main">
+  <section class="ph">
+    <div class="wrap">
+      <h1 class="d">Modern finance is broken.</h1>
+      <p class="sub">Your financial life is scattered across dozens of apps, spreadsheets and documents. It's time for a better way.</p>
+      <div class="hbtns">
+        <a class="cta" href="download.html">Get early access</a>
+        <a class="ghost" href="features.html">See what's inside</a>
       </div>
+      <p class="ph-caption">Where your money lives today</p>
+      <dl class="defs">
+        <div><dt>Budget</dt><dd>Tracks spending</dd></div>
+        <div><dt>Investments</dt><dd>Shows returns</dd></div>
+        <div><dt>Taxes</dt><dd>Once a year</dd></div>
+        <div><dt>Notes &amp; docs</dt><dd>Scattered</dd></div>
+        <div><dt>Insurance</dt><dd>Forgotten</dd></div>
+        <div><dt>Spreadsheets</dt><dd>Manual</dd></div>
+        <div><dt>Retirement</dt><dd>Never planned</dd></div>
+      </dl>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- OLD WAY vs VESTORA WAY -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band">
-      <div class="oldnew">
-        <div class="on-col old">
-          <div class="on-label">The old way</div>
-          <h3 class="serif">Multiple apps. Multiple logins. Multiple problems.</h3>
-          <ul class="xlist bad">
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Data scattered across services</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>No complete picture</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Manual work all the time</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Little privacy control</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Recurring costs, little clarity</li>
+  <section class="sec">
+    <div class="wrap">
+      <div class="pair">
+        <div>
+          <h2 class="d d-sm">Multiple apps. Multiple logins. Multiple problems.</h2>
+          <p class="pair-sub">The old way</p>
+          <ul>
+            <li>Data scattered across services</li>
+            <li>No complete picture</li>
+            <li>Manual work all the time</li>
+            <li>Little privacy control</li>
+            <li>Recurring costs, little clarity</li>
           </ul>
-          <div class="scatter">
-            <div class="user"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0114 0"/></svg></div>
-            <div class="app" style="top:6%;left:38%">🏦</div>
-            <div class="app" style="top:16%;left:70%">📊</div>
-            <div class="app" style="top:44%;left:82%">💳</div>
-            <div class="app" style="top:74%;left:66%">📄</div>
-            <div class="app" style="top:82%;left:34%">📈</div>
-            <div class="app" style="top:62%;left:12%">🧾</div>
-            <div class="app" style="top:24%;left:12%">📁</div>
-          </div>
         </div>
-        <div class="on-col new">
-          <div class="on-label">The Vestora way</div>
-          <h3 class="serif">One Operating System. Everything connected.</h3>
-          <ul class="xlist good">
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>All your finances in one place</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>AI that understands you</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Guided setup &amp; smart imports</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Private &amp; on-device by default</li>
-            <li><span class="xc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Built for decades, not quarters</li>
+        <div class="ours">
+          <h2 class="d d-sm">One Operating System. Everything connected.</h2>
+          <p class="pair-sub">The Vestora way</p>
+          <ul>
+            <li>All your finances in one place</li>
+            <li>AI that understands you</li>
+            <li>Guided setup &amp; smart imports</li>
+            <li>Private &amp; on-device by default</li>
+            <li>Built for decades, not quarters</li>
           </ul>
-          <div class="orbit">
-            <div class="ring" style="width:150px;height:150px"></div>
-            <div class="ring" style="width:250px;height:250px"></div>
-            <div class="core"></div>
-            <div class="node" style="top:8%;left:50%"><div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Financial Health</b></div>
-            <div class="node" style="top:30%;left:90%"><div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><b>Goals</b></div>
-            <div class="node" style="top:70%;left:90%"><div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V4M4 20h16M8 15l4-5 3 3 5-7"/></svg></div><b>Investments</b></div>
-            <div class="node" style="top:92%;left:50%"><div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 4v16M4 17l3 3 3-3M17 20V4M14 7l3-3 3 3"/></svg></div><b>Cash Flow</b></div>
-            <div class="node" style="top:70%;left:10%"><div class="ni" style="color:var(--purp)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg></div><b>AI Copilot</b></div>
-            <div class="node" style="top:30%;left:10%"><div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2h8l4 4v16H6z"/></svg></div><b>Reports</b></div>
-          </div>
         </div>
       </div>
+      <p class="modline">Connected in one database: Financial Health · Goals · Investments · Cash Flow · AI Copilot · Reports</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- AI THAT UNDERSTANDS YOU -->
-<section class="sec">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:.82fr 2.18fr;gap:34px;align-items:start">
-      <div>
-        <div class="sec-label" style="text-align:left">AI that understands you</div>
-        <h2 class="serif" style="font-size:29px;letter-spacing:-.02em;margin-bottom:14px">Not just answers. Personalized planning insights.</h2>
-        <p style="font-size:14px;color:var(--muted2);line-height:1.6">Vestora AI looks at your entire financial picture — income, expenses, investments, goals, taxes and risk profile — before giving you a personalized plan.</p>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Not just answers. Personalized planning insights.</h2>
+        <p>Vestora AI looks at your entire financial picture — income, expenses, investments, goals, taxes and risk profile — before giving you a personalized plan.</p>
       </div>
-      <div class="flow3">
-      <div class="flowcol">
-        <div class="step"><span class="stepno">1</span> You ask</div>
-        <div class="msg you" style="display:flex;gap:9px"><span class="av" style="width:26px;height:26px;border-radius:8px;background:var(--hero);color:var(--goldsoft);display:grid;place-items:center;font-size:11px;font-weight:700;flex:none">K</span><div><div style="font-size:10px;color:var(--muted);margin-bottom:4px">You ask</div><span style="background:rgba(169,154,240,.16);color:var(--purp);font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:10px;display:inline-block">Can I retire at 52?</span></div></div>
-      </div>
-      <div class="flowcol">
-        <div class="step"><span class="stepno">2</span> Vestora analyzes</div>
-        <ul class="arow">
-          <li>Income <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-          <li>Expenses <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-          <li>Investments <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-          <li>Debt <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-          <li>Inflation <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-          <li>Taxes <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-          <li>Insurance <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-        </ul>
-      </div>
-      <div class="flowcol">
-        <div class="step"><span class="stepno">3</span> You get clarity</div>
-        <p style="font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:14px">Retiring at 52 looks achievable — scenario score <b class="pos">93/100</b> under your assumptions.</p>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <div><div style="font-size:10px;color:var(--muted)">Current score</div><div style="font-size:20px;font-weight:700;color:var(--purp)">81</div></div>
-          <div style="color:var(--muted)">→</div>
-          <div><div style="font-size:10px;color:var(--muted)">With plan</div><div style="font-size:20px;font-weight:700;color:var(--pos)">93</div></div>
-        </div>
-        <div class="spark" style="height:44px"><i style="height:24%"></i><i style="height:30%"></i><i style="height:38%"></i><i style="height:46%"></i><i style="height:56%"></i><i style="height:64%"></i><i style="height:74%"></i><i style="height:84%"></i><i style="height:92%"></i><i style="height:100%"></i></div>
-        <a class="btn btn-ghost" href="ai-copilot.html" style="margin-top:14px;font-size:12.5px;padding:9px 14px">View full recommendation →</a>
-      </div>
+      <ol class="steps">
+        <li><div><h3>You ask</h3><p>“Can I retire at 52?”</p></div></li>
+        <li><div><h3>Vestora analyzes</h3><p>Income, expenses, investments, debt, inflation, taxes and insurance.</p></div></li>
+        <li><div><h3>You get clarity</h3><p>Retiring at 52 looks achievable — scenario score 93/100 under your assumptions. Current score 81; with the plan, 93.</p></div></li>
+      </ol>
+      <p class="example-note">An illustrative example: scores come from your own numbers and the assumptions you set. <a href="ai-copilot.html">View full recommendation →</a></p>
     </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRIVACY BY ARCHITECTURE -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band">
-      <div class="privacy3">
+  <section class="statement">
+    <div class="wrap">
+      <p class="d">Privacy isn't a feature. It's the foundation.
+        <span class="q">Vestora is local-first — nothing is uploaded unless you choose to export, back up, sync or turn on hosted AI.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap">
+      <div class="pair">
         <div>
-          <div class="on-label" style="color:var(--gold)">Privacy by architecture</div>
-          <h3 class="serif" style="font-size:28px;margin-bottom:14px">Privacy isn't a feature.<br>It's the foundation.</h3>
-          <p style="font-size:14px;color:var(--muted2);line-height:1.6">Vestora is local-first — nothing is uploaded unless you choose to export or back up.</p>
+          <h2 class="d d-sm">Cloud apps</h2>
+          <ul>
+            <li>Data uploaded</li>
+            <li>Tracked &amp; profiled</li>
+            <li>Ads &amp; selling data</li>
+            <li>Security risks</li>
+            <li>You lose control</li>
+          </ul>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center">
-          <div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted2);margin-bottom:12px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0118 9a4 4 0 010 9H7z"/></svg>Cloud Apps</div>
-            <ul class="xlist bad" style="gap:9px">
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Data uploaded</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Tracked &amp; profiled</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Ads &amp; selling data</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Security risks</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>You lose control</li>
-            </ul>
-          </div>
-          <div style="width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--panel2);display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--muted)">VS</div>
-          <div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gold);margin-bottom:12px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>Vestora (On-Device)</div>
-            <ul class="xlist good" style="gap:9px">
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Runs locally</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>AES-256 encrypted</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>No cloud required</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>No ads. Ever.</li>
-              <li style="font-size:12.5px"><span class="xc" style="width:18px;height:18px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>You own your data</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pdevice">
-          <div class="pglow"></div>
-          <div class="pd-laptop">
-            <div class="pd-net">Total Net Worth</div>
-            <div class="pd-big">₹50,869</div>
-            <div class="pd-up">▲ 1.74% this month</div>
-            <div class="pd-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none"><polyline points="0,34 14,30 28,32 42,22 56,26 70,15 84,18 100,7" fill="none" stroke="#34d399" stroke-width="2"/></svg></div>
-            <div class="pd-rows"><div class="pd-cell">Cash flow<b>₹27,680</b></div><div class="pd-cell">Investments<b>₹38.4L</b></div></div>
-          </div>
-          <div class="pd-phone">
-            <div class="pd-ring"><b>78</b></div>
-            <div style="text-align:center;font-size:8px;font-weight:700">₹50,869</div>
-            <div style="text-align:center;font-size:6px;color:var(--muted)">Health · Good</div>
-          </div>
+        <div class="ours">
+          <h2 class="d d-sm">Vestora, on your device</h2>
+          <ul>
+            <li>Runs locally</li>
+            <li>Document vault and backups encrypted with AES-256</li>
+            <li>No cloud required</li>
+            <li>No ads. Ever.</li>
+            <li>You own your data</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FINANCIAL HEALTH -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label" style="text-align:left">Your financial health</div>
-    <h2 class="serif" style="font-size:32px;letter-spacing:-.02em;margin-bottom:8px">One score. Complete picture.</h2>
-    <p class="lead" style="max-width:560px;margin-bottom:30px">Vestora's Financial Health Score looks at what really matters — so you always know where you stand.</p>
-    <div class="fh-grid">
-      <div>
-        <div class="fh-ring"><div class="v"><b>78</b><span>Good</span></div></div>
-        <div style="text-align:center;font-size:12px;color:var(--pos);margin-top:12px">▲ 12 pts vs last month</div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">One score. Complete picture.</h2>
+        <p>Vestora's Financial Health Score looks at what really matters — so you always know where you stand. Eight weighted factors, each explained in plain English.</p>
       </div>
-      <div class="factor6">
-        <div class="factor"><div class="ci ic-b"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V4M4 20h16M8 16l3-4 3 2 5-7"/></svg></div><h5>Savings Rate</h5><div class="pct pos">72%</div><div class="tag">Good</div><div class="fbar"><i style="width:72%;background:var(--pos)"></i></div></div>
-        <div class="factor"><div class="ci ic-g"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div><h5>Emergency Fund</h5><div class="pct" style="color:var(--gold)">56%</div><div class="tag">Needs work</div><div class="fbar"><i style="width:56%;background:var(--gold)"></i></div></div>
-        <div class="factor"><div class="ci ic-r"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h12"/></svg></div><h5>Debt Level</h5><div class="pct neg">42%</div><div class="tag">High</div><div class="fbar"><i style="width:42%;background:var(--neg)"></i></div></div>
-        <div class="factor"><div class="ci ic-p"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 109 9h-9z"/><path d="M14 3.2A9 9 0 0120.8 10H14z"/></svg></div><h5>Investment Mix</h5><div class="pct pos">74%</div><div class="tag">Good</div><div class="fbar"><i style="width:74%;background:var(--pos)"></i></div></div>
-        <div class="factor"><div class="ci ic-t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div><h5>Insurance Cover</h5><div class="pct pos">68%</div><div class="tag">Good</div><div class="fbar"><i style="width:68%;background:var(--pos)"></i></div></div>
-        <div class="factor"><div class="ci ic-o"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h5>Goal Progress</h5><div class="pct pos">72%</div><div class="tag">On track</div><div class="fbar"><i style="width:72%;background:var(--pos)"></i></div></div>
-      </div>
+      <dl class="defs weighted">
+        <div><dt>Savings rate</dt><dd>The share of your income you keep</dd><dd class="w">20%</dd></div>
+        <div><dt>Emergency fund</dt><dd>How close your safety net is to fully funded</dd><dd class="w">15%</dd></div>
+        <div><dt>Debt load</dt><dd>Your debt as a share of your assets</dd><dd class="w">15%</dd></div>
+        <div><dt>Cash flow</dt><dd>Whether you spend less than you earn</dd><dd class="w">15%</dd></div>
+        <div><dt>Goal progress</dt><dd>Whether your plan beats your real retirement need</dd><dd class="w">10%</dd></div>
+        <div><dt>Investing</dt><dd>Whether you are invested, and how much in growth assets</dd><dd class="w">10%</dd></div>
+        <div><dt>Budget discipline</dt><dd>How many of your budgets are on track</dd><dd class="w">10%</dd></div>
+        <div><dt>Diversification</dt><dd>How widely you are spread across asset classes</dd><dd class="w">5%</dd></div>
+      </dl>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- BUILT FOR EVERY STAGE -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label" style="text-align:left">Built for every stage</div>
-    <h2 class="serif" style="font-size:32px;letter-spacing:-.02em;margin-bottom:8px">From your first salary to your legacy.</h2>
-    <p class="lead" style="max-width:520px;margin-bottom:30px">Vestora grows with you through every milestone of your financial life.</p>
-    <div class="stage-row">
-      <div class="stage"><div class="sc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><b>25</b><span class="st">Start your career</span><span>Build habits</span></div>
-      <div class="stage"><div class="sc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V4M4 20h16M8 15l4-5 3 3 5-7"/></svg></div><b>30</b><span class="st">Grow wealth</span><span>Invest smart</span></div>
-      <div class="stage"><div class="sc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div><b>35</b><span class="st">Protect what matters</span><span></span></div>
-      <div class="stage"><div class="sc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v4M12 6a6 6 0 016 6c0 4-6 10-6 10S6 16 6 12a6 6 0 016-6z"/></svg></div><b>40</b><span class="st">Optimize &amp; accelerate</span><span></span></div>
-      <div class="stage"><div class="sc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3h6l1 4a5 5 0 11-8 0z"/><path d="M8 12a5 5 0 008 0M12 17v4M9 21h6"/></svg></div><b>50</b><span class="st">Retire early</span><span>(maybe 🌴)</span></div>
-      <div class="stage"><div class="sc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 5.6a5 5 0 00-7 0l-.8.8-.8-.8a5 5 0 10-7 7l7.8 7.8 7.8-7.8a5 5 0 000-7z"/></svg></div><b>60+</b><span class="st">Live freely</span><span>Leave a legacy</span></div>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">From your first salary to your legacy.</h2>
+        <p>Vestora grows with you through every milestone of your financial life.</p>
+      </div>
+      <ol class="stages">
+        <li><span class="age">25</span><h3>Start your career</h3><p>Build habits</p></li>
+        <li><span class="age">30</span><h3>Grow wealth</h3><p>Invest smart</p></li>
+        <li><span class="age">35</span><h3>Protect what matters</h3></li>
+        <li><span class="age">40</span><h3>Optimize &amp; accelerate</h3></li>
+        <li><span class="age">50</span><h3>Retire early</h3><p>Maybe</p></li>
+        <li><span class="age">60+</span><h3>Live freely</h3><p>Leave a legacy</p></li>
+      </ol>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- BUILT IN INDIA -->
-<section class="sec">
-  <div class="wrap">
-    <div class="india2">
-      <div>
-        <div class="sec-label" style="text-align:left">Built in India. For the world.</div>
-        <h2 class="serif" style="font-size:29px;letter-spacing:-.02em;margin-bottom:12px">Designed for India. Ready for the world.</h2>
-        <p style="font-size:14px;color:var(--muted2);line-height:1.6">Deeply integrated with India's financial ecosystem. Built to global standards.</p>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Designed for India. Ready for the world.</h2>
+        <p>Deeply integrated with India's financial ecosystem. Built to global standards.</p>
       </div>
-      <div class="india-right">
-        <svg class="worldmap" viewBox="0 0 520 280" fill="none" aria-hidden="true">
-          <defs><pattern id="wdots" x="0" y="0" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#c9a44e"/></pattern></defs>
-          <g fill="url(#wdots)">
-            <path d="M55,60 C90,40 130,45 150,70 C165,90 150,120 120,125 C95,130 70,120 60,100 C50,85 45,70 55,60 Z"/>
-            <path d="M118,150 C140,140 155,162 155,192 C155,222 135,247 120,242 C108,237 105,206 108,181 C110,166 110,155 118,150 Z"/>
-            <path d="M250,70 C270,60 286,70 283,86 C280,101 260,101 252,90 C247,82 245,75 250,70 Z"/>
-            <path d="M255,110 C286,105 301,131 298,166 C295,206 270,236 250,226 C235,218 235,181 240,151 C244,129 248,115 255,110 Z"/>
-            <path d="M320,55 C390,35 452,55 466,90 C476,115 450,136 410,131 C370,126 335,110 320,85 C312,70 312,60 320,55 Z"/>
-            <path d="M432,186 C462,179 482,196 479,216 C476,236 450,239 433,229 C420,221 420,196 432,186 Z"/>
-          </g>
-        </svg>
-        <div class="india5">
-      <div class="icard"><div class="ii"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2h8l4 4v16H6z"/><path d="M9 12h6M9 16h4"/></svg></div><b>Indian Taxation</b><span>ITR, LTCG, STCG, Sections &amp; more</span></div>
-      <div class="icard"><div class="ii"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V4M4 20h16M8 15l4-5 3 3 5-7"/></svg></div><b>Investments</b><span>EPF, NPS, PPF, ELSS, SIP &amp; more</span></div>
-      <div class="icard"><div class="ii"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div><b>Statements</b><span>CSV &amp; statement import — no bank linking</span></div>
-      <div class="icard"><div class="ii"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Data Care</b><span>Private by design, on your device</span></div>
-      <div class="icard"><div class="ii"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div><b>Global Ready</b><span>Multi-currency, Multi-country</span></div>
-        </div>
-      </div>
+      <dl class="defs">
+        <div><dt>Indian taxation</dt><dd>ITR, LTCG, STCG, sections and more</dd></div>
+        <div><dt>Investments</dt><dd>EPF, NPS, PPF, ELSS, SIP and more</dd></div>
+        <div><dt>Statements</dt><dd>CSV and statement import — no bank linking</dd></div>
+        <div><dt>Data care</dt><dd>Private by design, on your device</dd></div>
+        <div><dt>Global ready</dt><dd>Multi-currency, multi-country</dd></div>
+      </dl>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SEE IT IN ACTION -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band">
-      <div class="ask">
-        <div>
-          <div class="sec-label" style="text-align:left">See it in action</div>
-          <h2 class="serif" style="font-size:30px;letter-spacing:-.02em">Ask anything.<br>Get clarity instantly.</h2>
-        </div>
-        <div>
-          <form class="askbar" data-notify-form>
-            <input placeholder="Ask Vestora…" aria-label="Ask Vestora">
-            <button class="send" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l16-8-6 16-3-6z"/></svg></button>
-          </form>
-          <div class="chips">
-            <span class="chip2">Can I buy a house?</span>
-            <span class="chip2">How much do I need to retire?</span>
-            <span class="chip2">Am I overspending?</span>
-            <span class="chip2">Should I increase my SIP?</span>
-          </div>
-        </div>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head solo">
+        <h2 class="d">Ask anything. Get clarity instantly.</h2>
       </div>
+      <ul class="asks">
+        <li>Can I buy a house?</li>
+        <li>How much do I need to retire?</li>
+        <li>Am I overspending?</li>
+        <li>Should I increase my SIP?</li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FINAL CTA -->
-<section class="final">
-  <div class="wrap">
-    <div class="final-band">
-      <div class="glow" style="width:380px;height:380px;background:rgba(201,164,78,.12);bottom:-160px;left:-80px"></div>
-      <div class="final-copy">
-        <h2 class="serif gold" style="color:var(--gold)">Finally. Software that understands your entire financial life.</h2>
+  <section class="close">
+    <div class="wrap">
+      <h2 class="d">Finally. Software that understands your entire financial life.</h2>
+      <div class="hnote">
+        <span><b></b> All-in-one: everything in one place</span>
+        <span><b></b> Private: runs on your device</span>
+        <span><b></b> Intelligent: AI that knows you</span>
       </div>
-      <div>
-        <div class="side-checks" style="margin-bottom:26px">
-          <div class="sc"><span class="si"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></span><b>All-in-one</b><span>Everything in one place</span></div>
-          <div class="sc"><span class="si"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><b>Private</b><span>Runs on your device</span></div>
-          <div class="sc"><span class="si"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg></span><b>Intelligent</b><span>AI that knows you</span></div>
-        </div>
-        <a class="btn btn-gold" href="download.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>Get Early Access</a>
-      </div>
+      <a class="cta" href="download.html">Get early access</a>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="index.html"><span class="mark"></span><span><span class="bt">Vestora</span><span class="bs">Build Wealth. With Clarity.</span></span></a>
-        <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-        <div class="trust-row"><div class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>No cloud · No tracking · No ads</div></div>
-      </div>
-      <div class="foot-col"><h5>Product</h5><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></div>
-      <div class="foot-col"><h5>Download</h5><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></div>
-      <div class="foot-col"><h5>Company</h5><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></div>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Vestora home"><svg class="sh-mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><path d="M7.5 7.5 L20 33 L29.5 13.6" fill="none" stroke="url(#sh-vg)" stroke-width="5.2" stroke-linejoin="miter"/><path d="M27.6 7.5 L34.5 7.5" fill="none" stroke="url(#sh-vg)" stroke-width="3.1" opacity=".92"/></svg><span><span class="sh-name">Vestora</span><span class="sh-tag">Build Wealth. With Clarity.</span></span></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
     </div>
-    <div class="foot-bottom">
-      <span class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial. © 2026 Vestora.</span>
-      <span>Made in India 🇮🇳</span>
-    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Vestora · Made in India</p>
   </div>
 </footer>
 
-<script src="assets/vestora.js?v=17" defer></script>
+<script src="assets/vestora.js" defer></script>
 </body>
 </html>

@@ -10,117 +10,6 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#070d18">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
-<link rel="stylesheet" href="assets/vestora.css?v=17">
-<link rel="stylesheet" href="assets/vestora-refined.css?v=1">
-<style>
-.ai-hero{display:grid; grid-template-columns:.85fr 1.15fr; gap:38px; align-items:start; padding:40px 0 18px}
-.ai-hero .h1{font-size:46px}
-.mini2{display:grid; grid-template-columns:1fr 1fr; gap:16px 22px; margin:22px 0 24px}
-.mini2 .m{display:flex; gap:11px}
-.mini2 .m .mi{width:32px; height:32px; border-radius:9px; flex:none; display:grid; place-items:center;
-  background:rgba(201,164,78,.1); color:var(--gold)}
-.mini2 .m b{font-size:13.5px; font-weight:600; display:block; line-height:1.3}
-.mini2 .m span{font-size:11.5px; color:var(--muted)}
-.local-note{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted2); font-weight:500}
-.local-note svg{color:var(--pos)}
-/* chat mock */
-.chatapp{background:linear-gradient(160deg,#0d1730,#0b1120); border:1px solid var(--border); border-radius:18px;
-  padding:16px; box-shadow:0 40px 90px rgba(0,0,0,.55)}
-.ca-head{display:flex; align-items:center; gap:9px; padding-bottom:14px; border-bottom:1px solid var(--border2); margin-bottom:12px}
-.ca-head .ci{width:28px; height:28px; border-radius:9px; background:rgba(169,154,240,.18); color:var(--purp); display:grid; place-items:center}
-.ca-head b{font-size:15px; font-weight:700}
-.ca-head .new{margin-left:auto; font-size:11.5px; color:var(--muted2); border:1px solid var(--border); border-radius:8px; padding:6px 11px; display:flex; align-items:center; gap:6px}
-.ca-body{display:grid; grid-template-columns:150px 1fr; gap:14px}
-.ca-list .lbl{font-size:10px; color:var(--muted); margin-bottom:8px}
-.ca-list a{display:block; font-size:11.5px; color:var(--muted2); padding:8px 9px; border-radius:8px; line-height:1.35; margin-bottom:2px}
-.ca-list a.on{background:rgba(169,154,240,.12); color:var(--text)}
-.ca-list .viewall{font-size:11px; color:var(--purp); margin-top:8px; padding:8px 9px}
-.ca-main{display:flex; flex-direction:column}
-.ca-you{display:flex; gap:8px; margin-bottom:10px; align-items:flex-start}
-.ca-you .av{width:24px; height:24px; border-radius:7px; background:var(--hero); color:var(--goldsoft); display:grid; place-items:center; font-size:10px; font-weight:700; flex:none}
-.ca-you .b{background:rgba(169,154,240,.16); color:var(--purp); font-size:12px; font-weight:600; padding:6px 11px; border-radius:9px}
-.ca-bot{display:flex; gap:8px}
-.ca-bot .av{width:24px; height:24px; border-radius:7px; background:rgba(169,154,240,.18); color:var(--purp); display:grid; place-items:center; flex:none}
-.ca-bot .nm{font-size:10px; color:var(--muted); margin-bottom:5px}
-.ca-bot .txt{font-size:12.5px; color:var(--muted2); line-height:1.55; margin-bottom:12px}
-.ca-bot .txt b{color:var(--text)}
-.statc3{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px}
-.statc{background:rgba(255,255,255,.02); border:1px solid var(--border2); border-radius:10px; padding:10px}
-.statc .l{font-size:9.5px; color:var(--muted)}
-.statc .v{font-size:15px; font-weight:700; margin:2px 0} .statc .s{font-size:9px; color:var(--muted)}
-.kf{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:center; background:rgba(255,255,255,.02); border:1px solid var(--border2); border-radius:10px; padding:12px}
-.kf .ktitle{font-size:11px; font-weight:600; margin-bottom:8px}
-.kf ul{list-style:none; display:flex; flex-direction:column; gap:6px}
-.kf li{display:flex; align-items:center; gap:7px; font-size:11px; color:var(--muted2)}
-.kf li svg{color:var(--pos); flex:none}
-.kf .chart{position:relative}
-.kf .chart .ct{font-size:10px; color:var(--muted); margin-bottom:6px}
-.linechart{height:80px; border-left:1px solid var(--border2); border-bottom:1px solid var(--border2); position:relative}
-.linechart svg{position:absolute; inset:0; width:100%; height:100%}
-.ca-input{display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.02); border:1px solid var(--border); border-radius:12px; padding:8px 8px 8px 14px; margin-top:12px}
-.ca-input input{flex:1; background:none; border:none; outline:none; color:var(--text); font-size:12.5px; font-family:inherit}
-.ca-input .send{width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#b7a6ff,#7d68d8); color:#0e1730; display:grid; place-items:center; border:none; cursor:pointer; flex:none}
-.ca-foot{font-size:10px; color:var(--muted); display:flex; align-items:center; gap:6px; margin-top:8px}
-.ca-foot svg{color:var(--pos)}
-
-/* 5 intelligence cards */
-.icards{display:grid; grid-template-columns:repeat(5,1fr); gap:14px}
-.iic{background:var(--panel); border:1px solid var(--border2); border-radius:16px; padding:20px}
-.iic .ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; margin-bottom:14px}
-.iic h3{font-size:15px; font-weight:600; margin-bottom:9px}
-.iic p{font-size:12px; color:var(--muted); line-height:1.55; margin-bottom:12px}
-.miniprev{background:rgba(255,255,255,.02); border:1px solid var(--border2); border-radius:10px; padding:10px; font-size:10px; color:var(--muted)}
-.miniprev .big{font-size:22px; font-weight:700; color:var(--pos); margin:3px 0}
-.radar{height:70px; position:relative; display:grid; place-items:center}
-.radar .rr{position:absolute; border:1px solid rgba(201,164,78,.18); border-radius:50%}
-.radar .sh{width:26px; height:26px; border-radius:8px; background:rgba(201,164,78,.15); color:var(--gold); display:grid; place-items:center; position:relative; z-index:1}
-
-/* how it works */
-.hiw{display:grid; grid-template-columns:1fr 2.1fr; gap:30px}
-.hiw-steps{list-style:none; display:flex; flex-direction:column; gap:18px; margin-top:10px}
-.hiw-steps li{display:flex; gap:13px}
-.hiw-steps .n{width:30px; height:30px; border-radius:9px; background:rgba(201,164,78,.14); color:var(--gold); display:grid; place-items:center; font-weight:700; flex:none; border:1px solid rgba(201,164,78,.3)}
-.hiw-steps b{font-size:14px; display:block; margin-bottom:2px}
-.hiw-steps span{font-size:12px; color:var(--muted); line-height:1.4}
-.afford{background:rgba(52,211,153,.06); border:1px solid rgba(52,211,153,.2); border-radius:10px; padding:12px; margin-bottom:10px}
-.afford .g{font-size:16px; font-weight:700; color:var(--pos)}
-.progbar{height:6px; border-radius:99px; background:var(--border); overflow:hidden; margin:8px 0 4px}
-.progbar i{display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,var(--pos),var(--teal))}
-
-/* popular chips */
-.pop-chips{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-
-/* trust + cta */
-.trust-cta{display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:center}
-.trust5{display:flex; gap:22px; flex-wrap:wrap; margin-top:20px}
-.trust5 .t{text-align:center}
-.trust5 .t .ti2{width:40px; height:40px; border-radius:11px; margin:0 auto 8px; display:grid; place-items:center; border:1px solid var(--border); background:rgba(255,255,255,.02); color:var(--gold)}
-.trust5 .t b{font-size:12px; display:block} .trust5 .t span{font-size:10px; color:var(--muted)}
-.cta-box{background:radial-gradient(120% 120% at 100% 0,rgba(201,164,78,.12),transparent 60%),var(--panel);
-  border:1px solid rgba(201,164,78,.3); border-radius:16px; padding:24px}
-.cta-box h4{font-size:18px; line-height:1.3; margin-bottom:16px}
-
-/* testimonial bar */
-.tbar{display:grid; grid-template-columns:1.6fr 1fr 1.3fr; gap:24px; align-items:center; padding:22px 0}
-.tbar .quote{display:flex; gap:14px; align-items:flex-start}
-.tbar .quote .qa{width:52px; height:52px; border-radius:50%; flex:none; background:linear-gradient(135deg,var(--hero),var(--herob)); display:grid; place-items:center; color:var(--goldsoft); font-weight:700}
-.tbar .quote p{font-size:14px; line-height:1.5} .tbar .quote .qn{font-size:12px; color:var(--muted); margin-top:8px}
-.tbar .rate{text-align:center}
-.tbar .rate .big{font-size:30px; font-weight:700} .tbar .rate .st{color:var(--gold); font-size:14px}
-.tbar .rate span{font-size:11px; color:var(--muted); display:block; margin-top:2px}
-
-@media (max-width:960px){
-  .ai-hero{grid-template-columns:1fr} .ai-hero .h1{font-size:38px}
-  .icards{grid-template-columns:1fr 1fr} .hiw{grid-template-columns:1fr}
-  .trust-cta{grid-template-columns:1fr} .tbar{grid-template-columns:1fr; gap:18px}
-  .ca-body{grid-template-columns:1fr} .ca-list{display:none}
-}
-</style>
 <link rel="canonical" href="https://upasanikn-sys.github.io/vestora-site/ai-copilot.html">
 <meta property="og:title" content="AI Copilot — Vestora's on-device financial intelligence">
 <meta property="og:description" content="Vestora AI Copilot understands your entire financial life — income, expenses, investments, goals and risks — to give you answers that actually matter. Private by design — runs on your device.">
@@ -132,6 +21,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vestora — your whole financial life, one private app. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
 <meta name="twitter:image" content="https://upasanikn-sys.github.io/vestora-site/assets/og-vestora.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
+<link rel="stylesheet" href="assets/observatory.css?v=1">
 <link rel="stylesheet" href="assets/site-shell.css?v=1">
 </head>
 <body>
@@ -164,240 +58,167 @@
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="main" style="padding-top:16px">
-  <div class="glow" style="width:460px;height:460px;background:rgba(169,154,240,.09);top:-100px;right:-90px"></div>
-  <div class="wrap ai-hero">
-    <div>
-      <span class="eyebrow">Your AI financial copilot</span>
-      <h1 class="h1 serif">Ask anything.<br><span class="l2">Get clarity instantly.</span></h1>
-      <p class="lead">Vestora AI Copilot understands your entire financial life — your income, expenses, investments, goals and risks — to give you answers that actually matter.</p>
-      <div class="mini2">
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><div><b>Understands your full picture</b><span>Not just one piece</span></div></div>
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20a7 7 0 0114 0"/></svg></span><div><b>Personalized for you</b><span>Your data. Your life. Your plan.</span></div></div>
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V4M4 20h16M8 15l4-5 3 3 5-7"/></svg></span><div><b>Explainable insights</b><span>Clear reasoning, not black boxes</span></div></div>
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg></span><div><b>Actionable recommendations</b><span>Know what to do next</span></div></div>
-      </div>
-      <div class="hero-btns">
-        <a class="btn btn-gold" href="download.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg>Try AI Copilot</a>
-      </div>
-      <div class="local-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Private by design — runs on your device.</div>
-    </div>
-
-    <!-- real Vestora AI screenshot -->
-    <div>
-      <div class="phoneframe" style="width:min(330px,86%)">
-        <img src="assets/shot-app-ai.png?v=1" alt="The real Vestora AI screen — daily brief with health ring and AI recommendations, all computed on-device" width="800" height="1880" loading="lazy" decoding="async">
-      </div>
-      <div style="text-align:center;font-size:11.5px;color:var(--muted);margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-        Real product screenshot · Vestora AI analyses your data on your device using built-in financial models — nothing is uploaded.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MORE THAN ANSWERS -->
-<section class="sec">
-  <div class="wrap">
-    <h2 class="sec-title serif" style="margin-bottom:34px">More than answers. Your whole financial picture.</h2>
-    <div class="icards">
-      <div class="iic">
-        <div class="ico ic-p"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3a3 3 0 016 0 3 3 0 012 5 3 3 0 01-2 5 3 3 0 01-6 0 3 3 0 01-2-5 3 3 0 012-5z"/><path d="M12 8v8"/></svg></div>
-        <h3>Understands Everything</h3>
-        <p>Income, expenses, investments, debts, goals, taxes, insurance and more — all in one place.</p>
-        <div class="orbit" style="height:96px"><div class="core" style="width:38px;height:38px;border-radius:11px"></div>
-          <div class="ni" style="position:absolute;top:6%;left:20%;width:24px;height:24px;border-radius:7px;border:1px solid var(--border);background:var(--panel2);display:grid;place-items:center;color:var(--pos)">₹</div>
-          <div class="ni" style="position:absolute;top:6%;left:70%;width:24px;height:24px;border-radius:7px;border:1px solid var(--border);background:var(--panel2);display:grid;place-items:center;color:var(--blue)">◫</div>
-          <div class="ni" style="position:absolute;top:64%;left:12%;width:24px;height:24px;border-radius:7px;border:1px solid var(--border);background:var(--panel2);display:grid;place-items:center;color:var(--gold)">◎</div>
-          <div class="ni" style="position:absolute;top:64%;left:78%;width:24px;height:24px;border-radius:7px;border:1px solid var(--border);background:var(--panel2);display:grid;place-items:center;color:var(--purp)">✦</div>
-        </div>
-      </div>
-      <div class="iic">
-        <div class="ico ic-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></div>
-        <h3>Deep Analysis</h3>
-        <p>AI analyzes patterns, trends and scenarios that humans might miss.</p>
-        <div class="miniprev"><div style="color:var(--muted2)">Spending Trend</div><div style="font-size:9px">Last 12 months</div><div class="pos" style="font-size:11px;margin:4px 0">▲ 18% vs previous year</div><div class="spark p" style="height:30px"><i style="height:40%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:60%"></i><i style="height:50%"></i><i style="height:72%"></i><i style="height:64%"></i><i style="height:82%"></i></div></div>
-      </div>
-      <div class="iic">
-        <div class="ico ic-p"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg></div>
-        <h3>Models Possible Futures</h3>
-        <p>Projects outcomes under your own assumptions, so you can plan ahead with confidence.</p>
-        <div class="miniprev"><div style="color:var(--muted2)">Retirement Probability</div><div style="font-size:9px">At age 55</div><div class="big">93%</div><div style="font-size:9px">High Confidence</div><div class="progbar"><i style="width:93%"></i></div><div style="display:flex;justify-content:space-between;font-size:8px;color:var(--muted)"><span>0%</span><span>50%</span><span>100%</span></div></div>
-      </div>
-      <div class="iic">
-        <div class="ico ic-t"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-        <h3>Clear, Actionable Steps</h3>
-        <p>Not just data. Get specific, actionable steps tailored to your life.</p>
-        <div class="miniprev"><div style="display:flex;align-items:center;gap:6px;color:var(--pos)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg>Top Recommendation</div><div style="color:var(--text);margin:6px 0;font-size:10.5px;line-height:1.4">Increase monthly SIP by ₹4,000 to improve your retirement probability.</div><div class="purp" style="font-size:10px;font-weight:600">View all recommendations →</div></div>
-      </div>
-      <div class="iic">
-        <div class="ico ic-o"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div>
-        <h3>Private by Design</h3>
-        <p>Runs on your device. No Vestora cloud account, nothing uploaded by default.</p>
-        <div class="radar"><div class="rr" style="width:64px;height:64px"></div><div class="rr" style="width:44px;height:44px"></div><div class="sh"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band">
-      <div class="hiw">
-        <div>
-          <div class="sec-label" style="text-align:left">How it works</div>
-          <h2 class="serif" style="font-size:29px;letter-spacing:-.02em;margin-bottom:14px">From question to clarity in seconds.</h2>
-          <p style="font-size:14px;color:var(--muted2);line-height:1.6;max-width:340px">Vestora Copilot connects your goals, cash flow and investments — it sees your full financial picture.</p>
-          <ul class="hiw-steps">
-            <li><span class="n">1</span><div><b>You ask</b><span>Ask any financial question in plain language.</span></div></li>
-            <li><span class="n">2</span><div><b>Copilot analyzes</b><span>It securely analyzes your data, plans, goals and scenarios.</span></div></li>
-            <li><span class="n">3</span><div><b>You get clarity</b><span>Receive a clear answer, probability and next steps.</span></div></li>
-          </ul>
-        </div>
-        <div class="flow3">
-          <div class="flowcol">
-            <div class="step"><span class="stepno">1</span> You ask</div>
-            <div class="ca-you"><span class="av">K</span><div><div style="font-size:10px;color:var(--muted);margin-bottom:4px">You</div><span class="b">Is buying a house a good decision now?</span></div></div>
-          </div>
-          <div class="flowcol">
-            <div class="step"><span class="stepno">2</span> Copilot analyzes</div>
-            <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Analyzing your financial picture…</p>
-            <ul class="arow" style="gap:6px">
-              <li style="padding:7px 10px;font-size:11.5px">Income &amp; cash flow <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-              <li style="padding:7px 10px;font-size:11.5px">Expenses &amp; obligations <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-              <li style="padding:7px 10px;font-size:11.5px">Investments &amp; returns <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-              <li style="padding:7px 10px;font-size:11.5px">Emergency fund <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-              <li style="padding:7px 10px;font-size:11.5px">Future goals <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-            </ul>
-            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pos);margin-top:12px;font-weight:600"><span style="width:24px;height:24px;border-radius:50%;background:rgba(52,211,153,.14);display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Analysis complete</div>
-          </div>
-          <div class="flowcol">
-            <div class="step"><span class="stepno">3</span> You get clarity</div>
-            <p style="font-size:11px;color:var(--muted);margin-bottom:8px">Here's what I found:</p>
-            <div class="afford">
-              <div style="font-size:11px;color:var(--muted2)">Home Purchase Affordability</div>
-              <div class="g">Appears affordable</div>
-              <div style="font-size:10px;color:var(--muted)">Scenario score: 87/100 under your assumptions</div>
-              <div class="progbar"><i style="width:87%"></i></div>
-              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--muted)"><span>0%</span><span>50%</span><span>100%</span></div>
-            </div>
-            <div style="font-size:9px;color:var(--muted);margin:2px 0 8px">Illustrative estimate from your inputs and editable assumptions — not financial advice.</div><div style="font-size:10.5px;color:var(--muted);margin-bottom:6px">Recommended next steps</div>
-            <ul class="arow" style="gap:5px">
-              <li style="padding:6px 9px;font-size:10.5px">Maintain 6 months emergency fund <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-              <li style="padding:6px 9px;font-size:10.5px">Keep EMI under 30% of income <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-              <li style="padding:6px 9px;font-size:10.5px">Consider 20% down payment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW VESTORA AI WORKS -->
-<section class="sec" aria-label="How Vestora AI works">
-  <div class="wrap">
-    <div class="band">
-      <h2 class="serif" style="font-size:26px;letter-spacing:-.02em;margin-bottom:6px">How Vestora AI actually works</h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:22px">Illustrative planning output. Not investment, tax, legal or lending advice.</p>
-      <div class="fgrid" style="grid-template-columns:repeat(2,1fr);gap:14px">
-        <div class="fcard"><h3>Deterministic at the core</h3><p style="min-height:0">Scores, projections and tax numbers come from documented financial mathematics — the same inputs always produce the same outputs. Nothing is a black box.</p></div>
-        <div class="fcard"><h3>Rule-based insights, on your device</h3><p style="min-height:0">Recommendations are generated by transparent rules over your own data, computed locally. There is no separate AI model download and no extra hardware requirement.</p></div>
-        <div class="fcard"><h3>Hosted AI is optional and off by default</h3><p style="min-height:0">If a hosted AI feature is offered, it is disabled until you explicitly turn it on, and what it sends is disclosed at that moment — never before.</p></div>
-        <div class="fcard"><h3>Limits, honestly</h3><p style="min-height:0">Outputs can be wrong or incomplete, assumptions drift, and high-stakes decisions deserve a qualified professional. Vestora shows its assumptions so you can challenge them.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POPULAR QUESTIONS -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label" style="text-align:left">Popular questions Copilot can answer</div>
-    <div class="pop-chips">
-      <span class="chip2">Can I retire at 55?</span>
-      <span class="chip2">Should I buy a house?</span>
-      <span class="chip2">Am I over-insuring myself?</span>
-      <span class="chip2">How much should I invest?</span>
-      <span class="chip2">How can I save more tax?</span>
-      <span class="chip2">What is my financial health?</span>
-      <a href="ai-copilot.html" class="gold" style="font-size:12.5px;font-weight:600;margin-left:auto">More examples →</a>
-    </div>
-  </div>
-</section>
-
-<!-- BUILT ON TRUST + CTA -->
-<section class="sec">
-  <div class="wrap">
-    <div class="trust-cta">
+<main id="main">
+  <section class="ph">
+    <div class="wrap ph-grid">
       <div>
-        <h2 class="serif" style="font-size:26px;letter-spacing:-.02em;margin-bottom:6px">Built on trust.<br>Designed for you.</h2>
-        <p style="font-size:14px;color:var(--muted2);line-height:1.6;max-width:360px">Vestora Copilot is private, runs on your device and works only for you.</p>
-        <div class="trust5">
-          <div class="t"><span class="ti2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><b>Runs Locally</b><span>On your device</span></div>
-          <div class="t"><span class="ti2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0118 9a4 4 0 010 9H7z"/><path d="M6 6l12 12"/></svg></span><b>No Cloud</b><span>No data uploaded</span></div>
-          <div class="t"><span class="ti2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg></span><b>No Tracking</b><span>Zero monitoring</span></div>
-          <div class="t"><span class="ti2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></span><b>AES-256 Encrypted</b><span>On your device</span></div>
-          <div class="t"><span class="ti2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20a7 7 0 0114 0"/></svg></span><b>You Own Your Data</b><span>Always and forever</span></div>
+        <h1 class="d">Ask anything. Get clarity instantly.</h1>
+        <p class="sub">Vestora AI Copilot, your AI financial copilot, understands your entire financial life — your income, expenses, investments, goals and risks — to give you answers that actually matter.</p>
+        <div class="hbtns">
+          <a class="cta" href="download.html">Try AI Copilot</a>
         </div>
+        <dl class="caps">
+          <div><dt>Understands your full picture</dt><dd>Not just one piece</dd></div>
+          <div><dt>Personalized for you</dt><dd>Your data. Your life. Your plan.</dd></div>
+          <div><dt>Explainable insights</dt><dd>Clear reasoning, not black boxes</dd></div>
+          <div><dt>Actionable recommendations</dt><dd>Know what to do next</dd></div>
+        </dl>
+        <p class="ph-foot">Private by design — runs on your device.</p>
       </div>
-      <div class="cta-box">
-        <h4 class="serif">See your complete financial picture with Vestora AI.</h4>
-        <a class="btn btn-gold wide" href="download.html" style="margin-bottom:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg>Try AI Copilot Now</a>
-        <div style="font-size:12px;color:var(--muted)">Already using Vestora? <a href="download.html" class="gold" style="font-weight:600">Open Copilot →</a></div>
+      <figure class="ph-device">
+        <div class="phone static"><div class="phonescreen"><img src="assets/shot-app-ai.png?v=1" alt="The real Vestora AI screen — daily brief with health ring and AI recommendations, all computed on-device" width="800" height="1880" decoding="async"></div></div>
+        <figcaption>Real product screenshot · Vestora AI analyses your data on your device using built-in financial models — nothing is uploaded unless you switch on hosted AI.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head solo">
+        <h2 class="d">More than answers. Your whole financial picture.</h2>
+      </div>
+      <div class="mlist">
+        <div class="mrow"><h3 class="d d-sm">Understands everything</h3><p>Income, expenses, investments, debts, goals, taxes, insurance and more — all in one place.</p></div>
+        <div class="mrow"><h3 class="d d-sm">Deep analysis</h3><p>AI analyzes patterns, trends and scenarios that humans might miss.</p></div>
+        <div class="mrow"><h3 class="d d-sm">Models possible futures</h3><p>Projects outcomes under your own assumptions, so you can plan ahead with confidence.</p></div>
+        <div class="mrow"><h3 class="d d-sm">Clear, actionable steps</h3><p>Not just data. Get specific, actionable steps tailored to your life.</p></div>
+        <div class="mrow"><h3 class="d d-sm">Private by design</h3><p>Runs on your device. No Vestora cloud account, nothing uploaded by default.</p></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EARLY-ACCESS BAR (honest framing of the review strip) -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="band" style="padding:6px 30px">
-      <div class="tbar">
-        <div class="quote">
-          <span class="qa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg></span>
-          <div>
-            <p class="serif">"We built Vestora Copilot to understand your full financial picture — and to keep every rupee of it on your own device."</p>
-            <div class="qn">— The Vestora team · Our promise to you</div>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">From question to clarity in seconds.</h2>
+        <p>How it works: Vestora Copilot connects your goals, cash flow and investments — it sees your full financial picture.</p>
+      </div>
+      <ol class="steps">
+        <li><div><h3>You ask</h3><p>Ask any financial question in plain language.</p></div></li>
+        <li><div><h3>Copilot analyzes</h3><p>It securely analyzes your data, plans, goals and scenarios.</p></div></li>
+        <li><div><h3>You get clarity</h3><p>Receive a clear answer, probability and next steps.</p></div></li>
+      </ol>
+
+      <div class="example" aria-label="A worked example">
+        <div class="ex-q">
+          <p class="ex-label">You ask</p>
+          <p class="d d-sm ex-ask">“Is buying a house a good decision now?”</p>
+        </div>
+        <div class="ex-a">
+          <p class="ex-label">Copilot analyzes your financial picture</p>
+          <ul class="ex-checks">
+            <li>Income &amp; cash flow</li>
+            <li>Expenses &amp; obligations</li>
+            <li>Investments &amp; returns</li>
+            <li>Emergency fund</li>
+            <li>Future goals</li>
+          </ul>
+          <p class="ex-label">Here's what I found</p>
+          <div class="ex-score">
+            <p class="ex-fig"><span class="n">87</span><span class="of">/100</span></p>
+            <div><h3>Home purchase affordability</h3><p>Appears affordable. Scenario score: 87/100 under your assumptions.</p></div>
           </div>
-        </div>
-        <div class="rate">
-          <div class="st"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 6a6 6 0 016 6c0 4-6 10-6 10S6 16 6 12a6 6 0 016-6z"/></svg></div>
-          <div class="big" style="font-size:16px;margin-top:4px">Early access</div>
-          <span>Be among the first</span>
-        </div>
-        <div style="text-align:right">
-          <div style="font-size:13px;color:var(--muted2);margin-bottom:10px">Try Vestora Copilot as part of the early release.</div>
-          <a href="download.html" class="gold" style="font-weight:600">Join the early list →</a>
+          <p class="ex-label">Recommended next steps</p>
+          <ul class="has">
+            <li>Maintain 6 months emergency fund</li>
+            <li>Keep EMI under 30% of income</li>
+            <li>Consider 20% down payment</li>
+          </ul>
+          <p class="ex-note">Illustrative estimate from your inputs and editable assumptions — not financial advice.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="index.html"><span class="mark"></span><span><span class="bt">Vestora</span><span class="bs">Build Wealth. With Clarity.</span></span></a>
-        <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-        <div class="trust-row"><div class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>No cloud · No tracking · No ads</div></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">How Vestora AI actually works</h2>
+        <p>Illustrative planning output. Not investment, tax, legal or lending advice.</p>
       </div>
-      <div class="foot-col"><h5>Product</h5><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></div>
-      <div class="foot-col"><h5>Download</h5><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></div>
-      <div class="foot-col"><h5>Company</h5><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></div>
+      <dl class="defs">
+        <div><dt>Deterministic at the core</dt><dd>Scores, projections and tax numbers come from documented financial mathematics — the same inputs always produce the same outputs. Nothing is a black box.</dd></div>
+        <div><dt>Rule-based insights, on your device</dt><dd>Recommendations are generated by transparent rules over your own data, computed locally. There is no separate AI model download and no extra hardware requirement.</dd></div>
+        <div><dt>Hosted AI is optional and off by default</dt><dd>If a hosted AI feature is offered, it is disabled until you explicitly turn it on, and what it sends is disclosed at that moment — never before.</dd></div>
+        <div><dt>Limits, honestly</dt><dd>Outputs can be wrong or incomplete, assumptions drift, and high-stakes decisions deserve a qualified professional. Vestora shows its assumptions so you can challenge them.</dd></div>
+      </dl>
     </div>
-    <div class="foot-bottom">
-      <span class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial. © 2026 Vestora.</span>
-      <span>Made in India 🇮🇳</span>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head solo">
+        <h2 class="d">Popular questions Copilot can answer</h2>
+      </div>
+      <ul class="asks">
+        <li>Can I retire at 55?</li>
+        <li>Should I buy a house?</li>
+        <li>Am I over-insuring myself?</li>
+        <li>How much should I invest?</li>
+        <li>How can I save more tax?</li>
+        <li>What is my financial health?</li>
+      </ul>
     </div>
+  </section>
+
+  <section class="bounds">
+    <div class="wrap">
+      <div class="lead">
+        <h2 class="d">Built on trust. Designed for you.</h2>
+        <span>Vestora Copilot is private, runs on your device and works only for you.</span>
+      </div>
+      <div class="blist">
+        <div class="brow"><strong class="d d-sm">Runs locally.</strong><em>On your device.</em></div>
+        <div class="brow"><strong class="d d-sm">No cloud required.</strong><em>No data uploaded by default.</em></div>
+        <div class="brow"><strong class="d d-sm">No tracking.</strong><em>Zero monitoring.</em></div>
+        <div class="brow"><strong class="d d-sm">AES-256 encrypted.</strong><em>Your document vault and backups, on your device.</em></div>
+        <div class="brow"><strong class="d d-sm">You own your data.</strong><em>Always and forever.</em></div>
+      </div>
+      <blockquote class="promise">
+        <p class="d d-sm">“We built Vestora Copilot to understand your full financial picture — and to keep every rupee of it on your own device by default.”</p>
+        <footer>— The Vestora team · Our promise to you</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 class="d">See your complete financial picture with Vestora AI.</h2>
+      <p>Early access: be among the first to try Vestora Copilot as part of the early release.</p>
+      <a class="cta" href="download.html">Try AI Copilot now</a>
+      <p class="soon">Already using Vestora? Open the app and ask from the Ask Vestora bar.</p>
+    </div>
+  </section>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Vestora home"><svg class="sh-mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><path d="M7.5 7.5 L20 33 L29.5 13.6" fill="none" stroke="url(#sh-vg)" stroke-width="5.2" stroke-linejoin="miter"/><path d="M27.6 7.5 L34.5 7.5" fill="none" stroke="url(#sh-vg)" stroke-width="3.1" opacity=".92"/></svg><span><span class="sh-name">Vestora</span><span class="sh-tag">Build Wealth. With Clarity.</span></span></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Vestora · Made in India</p>
   </div>
 </footer>
 
-<script src="assets/vestora.js?v=17" defer></script>
+<script src="assets/vestora.js" defer></script>
 </body>
 </html>

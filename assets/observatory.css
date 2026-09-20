@@ -1,0 +1,620 @@
+/* ============================================================================
+   VESTORA — OBSERVATORY
+   The Private Observatory world (DESIGN.md), shared by every public page.
+   Section 1 is the homepage's stylesheet moved here verbatim (its golden
+   screenshots prove the move changed nothing). Section 2 adds the patterns
+   the inner pages are rebuilt from. Section 3 is the reading layout for the
+   legal and about pages. Section 4 is the early-access dialog.
+   Load order: vestora-tokens.css -> observatory.css -> site-shell.css
+   ============================================================================ */
+
+/* ================================================================ 1. WORLD (from the homepage) */
+:root{
+  --ink:#04070E; --ink2:#070B14; --surface:#0B1220; --line:#1A2540; --line-soft:#131C2E;
+  --text:#EDF0F7; --muted:#8C95AA; --muted2:#A9B1C4;
+  --gold:#C9A44E; --gold-lit:#EAD08A; --pos:#34D399;
+  --maxw:1200px; --ease:cubic-bezier(.22,.8,.22,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--ink); color:var(--text);
+  font:16.5px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden}
+
+/* ---- the display voice: Fraunces with WONK on + SOFT up, tuned per size ---- */
+.d{font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 60,"WONK" 1;
+  font-weight:600; letter-spacing:-.032em}
+.d-sm{font-variation-settings:"opsz" 36,"SOFT" 40,"WONK" 1; letter-spacing:-.018em}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+a{color:inherit; text-decoration:none}
+img{max-width:100%; display:block}
+body::after{content:""; position:fixed; inset:0; pointer-events:none; z-index:60; opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- primary button (hero + close) ---- */
+.cta{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:#080C14;
+  font-weight:600; font-size:14.5px; padding:11px 20px; border-radius:10px;
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease)}
+.cta:hover{background:var(--gold-lit); transform:translateY(-1px); box-shadow:0 12px 32px -14px rgba(201,164,78,.55)}
+.cta:active{transform:translateY(1px) scale(.99)}
+.cta:focus-visible,.ghost:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px}
+
+/* ---- hero over the generative field ---- */
+.hero{position:relative; padding:74px 0 88px; overflow:hidden}
+#field{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:.85}
+.hero::before{content:""; position:absolute; left:-12%; top:-30%; width:76%; height:150%;
+  background:radial-gradient(46% 42% at 42% 46%, rgba(32,58,116,.42), rgba(4,7,14,0) 70%); pointer-events:none}
+/* Single column: the text block sits left, then the product runs the full container width beneath it —
+   complete and large. (An earlier version bled it off the right edge; that cropped real panels away,
+   which reads as broken rather than art-directed.) */
+.hgrid{position:relative; display:block}
+.hcopy{max-width:62ch}
+h1{font-size:clamp(40px,5.3vw,68px); line-height:1.0; margin:0 0 26px; text-wrap:balance}
+h1 em{font-style:normal; color:var(--gold); display:block}
+.sub{font-size:17.5px; color:var(--muted2); max-width:38ch; margin:0 0 34px; text-wrap:pretty}
+.hbtns{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.ghost{font-size:14.5px; font-weight:500; padding:11px 4px; border-bottom:1px solid var(--line);
+  transition:border-color .25s var(--ease), color .2s}
+.ghost:hover{border-color:var(--gold); color:var(--gold-lit)}
+.hnote{margin-top:30px; font-size:13px; color:var(--muted); display:flex; gap:20px; flex-wrap:wrap}
+.hnote span{display:inline-flex; align-items:center; gap:7px}
+.hnote b{width:4px;height:4px;border-radius:50%;background:var(--pos)}
+/* the product: complete, full container width, lifted off the page */
+.shot{position:relative; margin-top:44px; border-radius:16px; overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 70px 130px -60px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.03),
+             inset 0 1px 0 rgba(255,255,255,.06)}
+.shot img{width:100%; height:auto}
+.shotcap{margin-top:14px; font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-align:right}
+/* phones: a 1440px dashboard scaled to 330px is unreadable, so show the phone app in a device body */
+@media(max-width:560px){
+  .shot{max-width:250px; margin:40px auto 0; padding:12px 9px 11px; border:0; border-radius:32px; background:#0C1220;
+    box-shadow:0 40px 80px -28px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.09)}
+  .shot img{border-radius:22px}
+  .shotcap{text-align:center}
+}
+@media(max-width:980px){ .hero{padding:78px 0 64px} .shot{margin-top:46px} }
+
+/* ---- statement ---- */
+.statement{position:relative; padding:112px 0; border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft); background:linear-gradient(180deg,var(--ink2),var(--ink))}
+.statement p{font-size:clamp(27px,4.1vw,50px); line-height:1.16; margin:0 auto; max-width:21ch;
+  text-align:center; text-wrap:balance}
+.statement .q{color:var(--muted); display:block; font-size:clamp(15px,1.6vw,18px); font-weight:400;
+  margin-top:26px; max-width:52ch; margin-inline:auto; font-family:Inter,sans-serif;
+  font-variation-settings:normal; letter-spacing:0; line-height:1.6}
+
+
+/* ---- device framing ----
+   Every serious fintech case study presents the product in a device body, not as a bare
+   screenshot in a rectangle. Pure CSS frame (no extra image weight) wrapping the real
+   800x1880 app capture, overlapping the desktop shot so the two read as one product. */
+.devices{position:relative}
+/* The bezel lives on .phone (padding, no clipping) and the screen clips separately, so the
+   speaker grille sits IN the bezel instead of on top of the app's greeting row. */
+.phone{position:absolute; right:24px; bottom:-56px; width:206px; z-index:2;
+  padding:13px 9px 12px; border-radius:30px; background:#0C1220;
+  box-shadow:0 40px 80px -28px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.07),
+             inset 0 1px 0 rgba(255,255,255,.09)}
+.phonescreen{position:relative; border-radius:19px; overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
+.phonescreen img{display:block; width:100%; height:auto}
+/* speaker grille, centred in the 13px top bezel */
+.phone::after{content:""; position:absolute; top:5px; left:50%; transform:translateX(-50%);
+  width:44px; height:3.5px; border-radius:99px; background:rgba(255,255,255,.14)}
+/* side button, the detail that stops it reading as a rounded rectangle */
+.phone::before{content:""; position:absolute; right:-2px; top:86px; width:2px; height:30px;
+  border-radius:2px; background:linear-gradient(180deg,#1E2A44,#141C2E)}
+.devcap{margin-top:70px; font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-align:right}
+@media(max-width:900px){
+  /* below the fold on small screens the overlap stops working — stack instead */
+  .phone{position:relative; right:auto; bottom:auto; width:190px; margin:26px auto 0}
+  .devcap{margin-top:18px; text-align:center}
+}
+@media(max-width:560px){ .devices .frame, .devcap{display:none} .phone{margin-top:0} }
+
+/* ---- showcase ---- */
+.showcase{padding:112px 0 100px}
+.sc-head{display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:end; margin-bottom:52px}
+h2{font-size:clamp(28px,3.7vw,44px); line-height:1.08; margin:0}
+.sc-head p{margin:0; color:var(--muted2); font-size:16.5px; max-width:44ch}
+@media(max-width:860px){ .sc-head{grid-template-columns:1fr; gap:20px} }
+.frame{border-radius:18px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 60px 120px -60px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.05)}
+
+/* ---- module list ---- */
+.modules{padding:0 0 108px}
+.mlist{border-top:1px solid var(--line)}
+.mrow{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:36px; padding:26px 4px;
+  border-bottom:1px solid var(--line-soft)}
+.mrow h3{margin:0; font-size:19px}
+.mrow p{margin:0; color:var(--muted); font-size:15px; line-height:1.6}
+@media(max-width:760px){ .mrow{grid-template-columns:1fr; gap:8px} }
+
+/* ---- boundaries ---- */
+.bounds{padding:118px 0; border-top:1px solid var(--line-soft);
+  background:radial-gradient(70% 100% at 50% 0%, rgba(201,164,78,.07), transparent 62%), var(--ink2)}
+.lead{text-align:center; margin-bottom:58px}
+.lead h2{margin-bottom:14px}
+.lead span{color:var(--muted); font-size:16px}
+.blist{max-width:820px; margin:0 auto}
+.brow{display:grid; grid-template-columns:minmax(0,255px) minmax(0,1fr); gap:22px;
+  align-items:baseline; padding:22px 0; border-top:1px solid var(--line-soft)}
+.brow:last-child{border-bottom:1px solid var(--line-soft)}
+.brow strong{font-size:clamp(19px,2.3vw,25px); font-weight:600}
+.brow em{font-style:normal; color:var(--muted); font-size:15px; line-height:1.55}
+@media(max-width:700px){ .brow{grid-template-columns:1fr; gap:6px} }
+
+/* ---- close + footer ---- */
+.close{padding:124px 0 118px; text-align:center}
+.close h2{max-width:20ch; margin:0 auto 18px; text-wrap:balance}
+.close p{color:var(--muted2); max-width:48ch; margin:0 auto 34px}
+.soon{margin-top:22px; font-size:13px; color:var(--muted)}
+footer{border-top:1px solid var(--line-soft); padding:38px 0; font-size:13px; color:var(--muted)}
+.frow{display:flex; gap:18px; flex-wrap:wrap; align-items:center}
+.frow .grow{flex:1}
+.frow a{color:var(--muted2)} .frow a:hover{color:var(--text)}
+.disc{margin-top:16px; font-size:12px; color:var(--v-text-4, #7D8497); max-width:78ch; line-height:1.6}
+
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .cta:hover{transform:none} }
+.skip{position:absolute; left:-9999px}
+.skip:focus{left:16px; top:12px; z-index:99; background:var(--surface); padding:10px 16px; border-radius:8px}
+
+/* ================================================================ 2. INNER PAGES
+   Built from the same grammar as the homepage: statements in Fraunces, everything read or
+   operated in Inter, hairline rows instead of boxes, gold spent once per viewport. */
+
+/* page hero: the homepage hero's voice, without the generative field */
+.ph{position:relative; padding:88px 0 60px; overflow:hidden}
+.ph::before{content:""; position:absolute; left:-18%; top:-60%; width:70%; height:180%; pointer-events:none;
+  background:radial-gradient(46% 42% at 42% 46%, rgba(32,58,116,.34), rgba(4,7,14,0) 70%)}
+.ph .wrap{position:relative}
+.ph h1{font-size:clamp(36px,4.6vw,60px); margin:0 0 22px; max-width:17ch}
+.ph .sub{max-width:52ch}
+.ph-proof{margin-top:52px}
+@media(max-width:760px){ .ph{padding:64px 0 44px} }
+
+/* section rhythm: vary density inside one grammar */
+.sec{padding:96px 0; border-top:1px solid var(--line-soft)}
+.sec.alt{background:linear-gradient(180deg,var(--ink2),var(--ink))}
+.sec.tight{padding:72px 0}
+.sec-head{display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:end; margin-bottom:44px}
+.sec-head p{margin:0; color:var(--muted2); font-size:16.5px; max-width:46ch}
+.sec-head.solo{display:block; max-width:62ch}
+.sec-head.solo p{margin-top:16px}
+@media(max-width:860px){ .sec-head{grid-template-columns:1fr; gap:18px} .sec{padding:72px 0} }
+
+/* two columns compared on hairlines, never in boxes */
+.pair{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line)}
+.pair > div{padding:28px 36px 4px 0}
+.pair > div + div{padding:28px 0 4px 36px; border-left:1px solid var(--line-soft)}
+.pair h3{margin:0 0 14px; font-size:19px}
+.pair ul{list-style:none; margin:0; padding:0}
+.pair li{display:grid; grid-template-columns:18px 1fr; gap:10px; padding:12px 0; border-top:1px solid var(--line-soft);
+  color:var(--muted2); font-size:15px; line-height:1.5}
+.pair li::before{content:""; width:10px; height:1px; margin-top:.78em; background:var(--muted)}
+.pair .ours li{color:var(--text)}
+.pair .ours li::before{background:var(--gold)}
+@media(max-width:760px){
+  .pair{grid-template-columns:1fr}
+  .pair > div, .pair > div + div{padding:24px 0 4px; border-left:0}
+  .pair > div + div{border-top:1px solid var(--line-soft)}
+}
+
+/* an ordered sequence: numerals appear here only because the order IS the information */
+.steps{list-style:none; margin:0; padding:0; counter-reset:step; border-top:1px solid var(--line)}
+.steps li{counter-increment:step; display:grid; grid-template-columns:64px minmax(0,1fr); gap:18px;
+  padding:26px 0; border-bottom:1px solid var(--line-soft)}
+.steps li::before{content:counter(step); font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 72,"SOFT" 50,"WONK" 1;
+  font-weight:500; font-size:30px; line-height:1; color:var(--muted)}
+.steps h3{margin:0 0 6px; font-size:19px}
+.steps p{margin:0; color:var(--muted); font-size:15px; line-height:1.6; max-width:60ch}
+
+/* hairline tables: numbers align on the digit (The Tabular Truth Rule) */
+.spec{width:100%; border-collapse:collapse; font-size:15px; font-variant-numeric:tabular-nums}
+.spec th, .spec td{text-align:left; padding:15px 18px 15px 0; border-bottom:1px solid var(--line-soft); vertical-align:top}
+.spec thead th{font:600 11px/1.3 Inter,system-ui,sans-serif; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); border-bottom:1px solid var(--line)}
+.spec tbody th{font-weight:600; color:var(--text)}
+.spec td{color:var(--muted2)}
+.spec .n{text-align:right}
+.tablewrap{overflow-x:auto}
+
+/* questions and answers on hairlines */
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line-soft)}
+.faq-q{position:relative; padding:22px 44px 22px 0; font:600 17px/1.45 Inter,system-ui,sans-serif; color:var(--text); cursor:pointer}
+.faq-q::before, .faq-q::after{content:""; position:absolute; right:6px; top:50%; width:14px; height:1.5px;
+  background:var(--muted2); transition:transform var(--v-t-base,180ms) var(--ease)}
+.faq-q::after{transform:rotate(90deg)}
+.faq-item.open .faq-q::after{transform:rotate(0deg)}
+.faq-q:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:6px}
+.faq-a{display:none; padding:0 0 24px; color:var(--muted2); font-size:15.5px; line-height:1.7; max-width:70ch}
+.faq-item.open .faq-a{display:block}
+
+/* a real capture with its honest caption */
+.figure{margin:0}
+.figure img{width:100%; height:auto}
+.figure figcaption{margin-top:14px; font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-align:right}
+
+/* a quiet aside: hairline, no coloured side-stripe */
+.note{border:1px solid var(--line-soft); border-radius:14px; padding:18px 20px; background:rgba(255,255,255,.015);
+  color:var(--muted2); font-size:14.5px; line-height:1.65}
+.note strong{color:var(--text)}
+
+/* definition rows: a term and what it means, on hairlines */
+.defs{margin:0; border-top:1px solid var(--line)}
+.defs > div{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:36px; padding:22px 4px;
+  border-bottom:1px solid var(--line-soft)}
+.defs dt{margin:0; font-weight:600; font-size:16px; color:var(--text)}
+.defs dd{margin:0; color:var(--muted); font-size:15px; line-height:1.6}
+@media(max-width:760px){ .defs > div{grid-template-columns:1fr; gap:6px} }
+
+/* ================================================================ 3. READING PAGES */
+.prose{max-width:68ch; margin:0 auto; padding:76px 0 104px}
+.prose h1{font-size:clamp(34px,4.2vw,52px); line-height:1.05; margin:0 0 16px}
+.prose .lede{font-size:17.5px; color:var(--muted2); line-height:1.6; margin:0 0 10px}
+.prose .meta{font-size:13px; color:var(--muted)}
+.prose h2{font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 72,"SOFT" 50,"WONK" 1; font-weight:600;
+  font-size:clamp(22px,2.4vw,28px); line-height:1.2; letter-spacing:-.018em;
+  margin:52px 0 14px; padding-top:30px; border-top:1px solid var(--line-soft)}
+.prose h3{font-size:17px; font-weight:600; margin:28px 0 8px}
+.prose p, .prose li{color:var(--muted2); font-size:16px; line-height:1.72}
+.prose ul, .prose ol{padding-left:1.2em}
+.prose li{margin:7px 0}
+.prose strong{color:var(--text)}
+.prose .note{margin:24px 0}
+.prose table{width:100%; border-collapse:collapse; font-size:15px; margin:18px 0}
+.prose th, .prose td{text-align:left; padding:12px 14px 12px 0; border-bottom:1px solid var(--line-soft); vertical-align:top}
+.prose thead th{font:600 11px/1.3 Inter,system-ui,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line)}
+@media(max-width:760px){ .prose{padding:56px 0 80px} }
+
+/* ================================================================ 4. EARLY-ACCESS DIALOG (vestora.js) */
+.vmodal-back{position:fixed; inset:0; z-index:var(--v-z-modal,200); display:none; place-items:center; padding:20px;
+  background:rgba(4,7,14,.78); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px)}
+.vmodal-back.on{display:grid; animation:vm-in var(--v-t-slow,320ms) var(--ease)}
+@keyframes vm-in{from{opacity:.4} to{opacity:1}}
+.vmodal{position:relative; width:100%; max-width:440px; padding:30px 28px 26px; border-radius:18px;
+  background:var(--surface); border:1px solid var(--line);
+  box-shadow:0 70px 130px -60px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.06)}
+.vmodal h3{margin:0 0 8px; padding-right:44px; font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 36,"SOFT" 40,"WONK" 1;
+  font-weight:600; font-size:23px; letter-spacing:-.015em}
+.vmodal p{margin:0 0 6px; color:var(--muted2); font-size:14.5px; line-height:1.6}
+.vmodal-close{position:absolute; top:14px; right:14px; width:40px; height:40px; display:grid; place-items:center;
+  background:transparent; color:var(--muted2); border:1px solid var(--line-soft); border-radius:10px; cursor:pointer;
+  transition:border-color var(--v-t-base,180ms) var(--ease), color var(--v-t-base,180ms) var(--ease)}
+.vmodal-close:hover{border-color:var(--line); color:var(--text)}
+.vmodal-close svg{width:16px; height:16px}
+.vmodal .em{display:flex; align-items:center; gap:10px; margin:18px 0 14px; padding:9px 9px 9px 14px;
+  border:1px solid var(--line); border-radius:12px; background:var(--ink2)}
+.vmodal .em .addr{flex:1; color:var(--text); font-weight:600; font-size:15px; user-select:all; word-break:break-all}
+.vmodal .copybtn{flex:none; padding:8px 14px; border-radius:9px; border:1px solid var(--line); background:transparent;
+  color:var(--text); font:600 13px/1 Inter,system-ui,sans-serif; cursor:pointer;
+  transition:border-color var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.vmodal .copybtn:hover{border-color:var(--gold)}
+.vmodal .copybtn:active{transform:translateY(1px) scale(.995)}
+.vmodal .copybtn.ok{color:var(--pos); border-color:rgba(52,211,153,.45)}
+.vmodal .acts{display:flex; margin-top:6px}
+.vmodal .acts .btn{flex:1; justify-content:center; display:inline-flex; align-items:center; padding:12px 20px; border-radius:10px;
+  background:var(--gold); color:#080C14; font-weight:600; font-size:14.5px;
+  transition:background var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.vmodal .acts .btn:hover{background:var(--gold-lit)}
+.vmodal .acts .btn:active{transform:translateY(1px) scale(.995)}
+.vmodal .hint{margin-top:14px; font-size:12.5px; color:var(--muted); line-height:1.55}
+
+/* small supporting pieces for the inner pages */
+.ph-caption{margin:52px 0 10px; font-size:13px; color:var(--muted)}
+.pair h2{margin:0; font-size:clamp(21px,2.3vw,27px); line-height:1.15}
+.pair-sub{margin:10px 0 16px; font-size:13px; color:var(--muted)}
+.pair h2 + ul{margin-top:16px}
+.modline{margin:22px 0 0; font-size:14px; color:var(--muted); line-height:1.7}
+.example-note{margin:18px 0 0; font-size:13px; color:var(--muted); max-width:72ch; line-height:1.6}
+.close .hnote{justify-content:center; margin:0 0 32px}
+
+/* a weighted list: term, meaning, and the number that proves it (tabular) */
+.defs.weighted > div{grid-template-columns:minmax(0,.3fr) minmax(0,.58fr) minmax(0,.12fr)}
+.defs dd.w{text-align:right; font-variant-numeric:tabular-nums; color:var(--muted2)}
+@media(max-width:760px){
+  .defs.weighted > div{grid-template-columns:1fr auto; gap:6px 16px}
+  .defs.weighted dd:not(.w){grid-column:1 / -1}
+  .defs.weighted dd.w{grid-row:1; grid-column:2}
+}
+
+/* life stages: a hairline timeline; the ages are the information, so they carry the weight */
+.stages{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-top:1px solid var(--line)}
+.stages li{padding:24px 18px 8px 0}
+.stages li + li{padding-left:18px; border-left:1px solid var(--line-soft)}
+.stages .age{display:block; margin-bottom:14px; font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 60,"WONK" 1;
+  font-weight:600; font-size:36px; line-height:1; letter-spacing:-.03em; color:var(--text)}
+.stages h3{margin:0 0 4px; font-size:16px; font-weight:600; line-height:1.35}
+.stages p{margin:0; color:var(--muted); font-size:14px}
+@media(max-width:900px){
+  .stages{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stages li:nth-child(4){padding-left:0; border-left:0}
+  .stages li:nth-child(n+4){border-top:1px solid var(--line-soft)}
+}
+@media(max-width:560px){
+  .stages{grid-template-columns:1fr}
+  .stages li, .stages li + li{display:grid; grid-template-columns:72px 1fr; gap:2px 16px; padding:18px 0; border-left:0;
+    border-top:0; border-bottom:1px solid var(--line-soft)}
+  .stages .age{grid-row:span 2; margin:0; font-size:30px}
+}
+
+/* questions set as statements a person reads once (Fraunces is a voice here, not data) */
+.asks{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line)}
+.asks li{padding:28px 28px 28px 0; border-bottom:1px solid var(--line-soft); color:var(--text);
+  font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 72,"SOFT" 50,"WONK" 1; font-weight:500;
+  font-size:clamp(20px,2.2vw,27px); line-height:1.25; letter-spacing:-.015em}
+.asks li:nth-child(even){padding-left:28px; border-left:1px solid var(--line-soft)}
+@media(max-width:700px){ .asks{grid-template-columns:1fr} .asks li:nth-child(even){padding-left:0; border-left:0} }
+
+/* the module index (features): name and tier | what it does | what it includes */
+.mods .mrow{grid-template-columns:minmax(0,.27fr) minmax(0,.4fr) minmax(0,.33fr); align-items:start}
+.mod-name{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px}
+.mods .mrow p{color:var(--muted2)}
+.mod-go{color:var(--text); white-space:nowrap}
+.tier{display:inline-block; padding:1px 9px; border:1px solid var(--line); border-radius:99px; white-space:nowrap;
+  font:500 12px/1.6 Inter,system-ui,sans-serif; letter-spacing:.01em; color:var(--muted2)}
+.has{list-style:none; margin:0; padding:0; font-size:14px; color:var(--muted)}
+.has li{display:grid; grid-template-columns:14px 1fr; gap:8px; line-height:1.5; padding:1px 0}
+.has li::before{content:""; width:8px; height:1px; margin-top:.75em; background:var(--muted)}
+@media(max-width:900px){ .mods .mrow{grid-template-columns:minmax(0,.34fr) minmax(0,.66fr)} .mods .has{grid-column:2} }
+@media(max-width:760px){ .mods .mrow{grid-template-columns:1fr; gap:10px} .mods .has{grid-column:auto} }
+.ph .hnote{gap:10px 20px}
+.close .soon{margin:22px auto 0; max-width:60ch; text-wrap:balance}
+.note.status{margin:0 0 36px; max-width:80ch}
+.defs .qual{margin-left:8px; font-size:12.5px; font-weight:500; color:var(--muted); white-space:nowrap}
+
+/* page hero with the product beside it (ai-copilot): copy left, the real phone capture right */
+.ph-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:56px; align-items:center}
+.caps{margin:40px 0 0; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line)}
+.caps > div{padding:16px 20px 16px 0; border-bottom:1px solid var(--line-soft)}
+.caps > div:nth-child(even){padding-left:20px; border-left:1px solid var(--line-soft)}
+.caps dt{font-weight:600; font-size:15px; color:var(--text)}
+.caps dd{margin:2px 0 0; font-size:14px; color:var(--muted)}
+.ph-foot{margin:18px 0 0; font-size:13px; color:var(--muted)}
+.ph-device{margin:0}
+.ph-device figcaption{margin:22px auto 0; max-width:40ch; font-size:11.5px; line-height:1.6; letter-spacing:.02em;
+  color:var(--muted); text-align:center}
+.phone.static{position:relative; right:auto; bottom:auto; width:250px; margin:0 auto}
+@media(max-width:900px){ .ph-grid{grid-template-columns:1fr; gap:48px} .phone.static{width:230px} }
+@media(max-width:560px){ .caps{grid-template-columns:1fr} .caps > div:nth-child(even){padding-left:0; border-left:0} }
+
+/* a worked example: the question in the voice face, the answer as an instrument reading */
+.example{display:grid; grid-template-columns:minmax(0,.4fr) minmax(0,.6fr); gap:48px; margin-top:56px; padding:40px;
+  border:1px solid var(--line); border-radius:18px; background:var(--surface); box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.ex-label{margin:0 0 10px; font-size:13px; color:var(--muted)}
+.ex-a .ex-label:not(:first-child){margin-top:28px}
+.ex-ask{margin:0; font-size:clamp(24px,2.6vw,32px); line-height:1.2; color:var(--text)}
+.ex-checks{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px}
+.ex-checks li{padding:4px 12px; border:1px solid var(--line); border-radius:99px; font-size:13px; color:var(--muted2)}
+.ex-score{display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; padding:18px 0;
+  border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft)}
+.ex-fig{margin:0; line-height:1; font-variant-numeric:tabular-nums; white-space:nowrap}
+.ex-fig .n{font:600 56px/1 Inter,system-ui,sans-serif; letter-spacing:-.03em; color:var(--text)}
+.ex-fig .of{margin-left:2px; font-size:18px; color:var(--muted)}
+.ex-score h3{margin:0 0 4px; font-size:17px}
+.ex-score p{margin:0; color:var(--muted2); font-size:14.5px}
+.ex-note{margin:22px 0 0; font-size:12.5px; color:var(--muted)}
+@media(max-width:860px){ .example{grid-template-columns:1fr; gap:28px; padding:28px 22px} }
+@media(max-width:560px){ .ex-score{grid-template-columns:1fr; gap:12px} }
+
+/* a promise, set once in the voice face */
+.promise{max-width:820px; margin:56px auto 0; text-align:center}
+.promise p{margin:0; font-size:clamp(20px,2.2vw,26px); line-height:1.35; color:var(--text); text-wrap:balance}
+.promise footer{margin-top:14px; padding:0; border:0; font-size:13px; color:var(--muted)}
+
+/* security: hero pillars, the comparison table, what you control, and the honest limits */
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.caps.wide{margin-top:48px}
+.caps.wide dd{max-width:46ch; line-height:1.55}
+.compare{min-width:560px}
+.compare thead th:last-child, .compare td:last-child{color:var(--text)}
+.compare td:last-child{font-weight:500}
+/* phones: the table would scroll the Vestora column out of view, so each row stacks with its labels */
+@media(max-width:560px){
+  .compare, .compare tbody{display:block; min-width:0}
+  .compare thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .compare tr{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; padding:16px 0; border-bottom:1px solid var(--line-soft)}
+  .compare tbody th{grid-column:1 / -1; padding:0 0 6px; border:0}
+  .compare td{padding:0; border:0}
+  .compare td::before{content:attr(data-l); display:block; margin-bottom:2px; font-size:12px; font-weight:400; color:var(--muted)}
+}
+.control{margin-top:40px}
+.control h3{margin:0 0 14px; font-size:17px}
+.control .has{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px 24px; font-size:15px; color:var(--muted2)}
+@media(max-width:760px){ .control .has{grid-template-columns:1fr 1fr} }
+@media(max-width:420px){ .control .has{grid-template-columns:1fr} }
+.limits{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+.limits li{position:relative; padding:20px 0 20px 26px; border-bottom:1px solid var(--line-soft); max-width:96ch;
+  color:var(--muted2); font-size:15.5px; line-height:1.65}
+/* caution is information here, so it carries the warning colour (The Meaning-Only Rule) */
+.limits li::before{content:""; position:absolute; left:2px; top:1.55em; width:7px; height:7px; border-radius:50%;
+  background:var(--v-warn, #E8A33D)}
+.limits strong{color:var(--text); font-weight:600}
+
+/* pricing: one frame split into three plans on hairlines; the recommended plan is lifted, not boxed */
+.plans-head{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:22px 40px; margin-bottom:32px}
+.billing{display:flex; flex-wrap:wrap; gap:12px}
+.seg{display:inline-flex; padding:3px; border:1px solid var(--line); border-radius:12px; background:var(--ink2)}
+.seg button{appearance:none; border:0; background:transparent; cursor:pointer; min-height:40px; padding:0 15px; border-radius:9px;
+  font:500 14px/1 Inter,system-ui,sans-serif; color:var(--muted2);
+  transition:background var(--v-t-base,180ms) var(--ease), color var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.seg button:hover{color:var(--text)}
+.seg button:active{transform:translateY(1px) scale(.99)}
+.seg button.on{background:var(--surface); color:var(--text); box-shadow:inset 0 0 0 1px var(--line), inset 0 1px 0 rgba(255,255,255,.05)}
+.seg button:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+.seg .save{margin-left:6px; font-size:12px; color:var(--pos)}
+.plans{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--line); border-radius:18px; overflow:hidden}
+.plan{display:flex; flex-direction:column; padding:30px 28px 26px}
+.plan + .plan{border-left:1px solid var(--line-soft)}
+/* The Earned Elevation Rule: the one plan we recommend sits on the raised surface under a gold hairline */
+.plan.pro{background:var(--surface); box-shadow:inset 0 1px 0 var(--gold)}
+.plan-top{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px}
+.plan-top h3{margin:0; font-size:23px}
+.plan .for{margin:6px 0 0; font-size:14px; color:var(--muted)}
+.price{display:flex; align-items:baseline; margin:24px 0 6px; font-variant-numeric:tabular-nums; line-height:1}
+.price .cur{align-self:flex-start; margin:4px 2px 0 0; font-size:22px; font-weight:500; color:var(--muted2)}
+.price .amt{font:600 48px/1 Inter,system-ui,sans-serif; letter-spacing:-.03em; color:var(--text)}
+.price .per{margin-left:6px; font-size:14px; color:var(--muted)}
+.price-alt{margin:0; min-height:22px; font-size:13.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.price-alt .save{margin-left:8px; color:var(--pos)}
+.plan-desc{margin:16px 0 22px; font-size:15px; color:var(--muted2); line-height:1.55}
+.plan .cta, .plan .btn-line, .offer .cta{justify-content:center; width:100%}
+.btn-line{display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border:1px solid var(--line);
+  border-radius:10px; font-weight:600; font-size:14.5px; color:var(--text);
+  transition:border-color var(--v-t-base,180ms) var(--ease), color var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.btn-line:hover{border-color:var(--gold); color:var(--gold-lit)}
+.btn-line:active{transform:translateY(1px) scale(.995)}
+.btn-line:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+.plus{margin:26px 0 10px; font-size:13px; color:var(--muted)}
+.plan > .btn-line + .has{margin-top:24px}
+.plan .has, .offer .has{font-size:14.5px; color:var(--muted2)}
+.plan .has li, .offer .has li{padding:4px 0}
+.plan .has li::before, .offer .has li::before{margin-top:.8em}
+.new{margin-left:6px; font-size:11.5px; font-weight:500; color:var(--pos)}
+.plan-foot{margin:auto 0 0; padding-top:22px; font-size:13px; line-height:1.6; color:var(--muted)}
+.includes{display:flex; flex-wrap:wrap; gap:8px 22px; margin:22px 0 0; font-size:13.5px; color:var(--muted)}
+.includes strong{color:var(--text); font-weight:600}
+@media(max-width:980px){ .plans{grid-template-columns:1fr} .plan + .plan{border-left:0; border-top:1px solid var(--line-soft)} }
+
+/* the plan table: the recommended column reads brighter; phones stack each row into labelled cells */
+.cmp3{min-width:640px}
+.cmp3 thead th{vertical-align:bottom}
+.cmp3 .thp{display:block; margin-top:6px; font:500 13px/1.3 Inter,system-ui,sans-serif; letter-spacing:0; text-transform:none; color:var(--muted)}
+.cmp3 thead .tier{margin-left:6px; letter-spacing:0; text-transform:none}
+.cmp3 td:nth-child(3){color:var(--text)}
+@media(max-width:560px){
+  .cmp3, .cmp3 tbody{display:block; min-width:0}
+  .cmp3 thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .cmp3 tr{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px 12px; padding:16px 0; border-bottom:1px solid var(--line-soft)}
+  .cmp3 tbody th{grid-column:1 / -1; padding:0 0 6px; border:0}
+  .cmp3 td{padding:0; border:0; font-size:14px}
+  .cmp3 td::before{content:attr(data-l); display:block; margin-bottom:2px; font-size:12px; color:var(--muted)}
+}
+
+.faq-a p{margin:0}
+.note.pay{margin-top:32px; max-width:80ch}
+
+/* lifetime: the question on the left, the offer as the page's one framed object on the right */
+.life{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:56px; align-items:center}
+.life h2{max-width:16ch}
+.life-sub{margin:16px 0 0; font-size:16.5px; color:var(--muted2); max-width:44ch}
+.offer{padding:30px 28px; border:1px solid var(--line); border-radius:18px; background:var(--surface);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.offer .has{margin:20px 0 24px}
+@media(max-width:900px){ .life{grid-template-columns:1fr; gap:32px} }
+
+/* roadmap: each period is a dated hairline row; the period is the information, so it carries the size */
+.phases{list-style:none; margin:40px 0 0; padding:0; border-top:1px solid var(--line)}
+.phase{display:grid; grid-template-columns:minmax(0,.26fr) minmax(0,.74fr); gap:36px; padding:34px 0; border-bottom:1px solid var(--line-soft)}
+.ph-when .when{margin:0; font-size:clamp(28px,3vw,38px); line-height:1; color:var(--muted2)}
+.phase.now .when{color:var(--text)}
+.ph-when .status{margin:10px 0 0; font-size:13px; color:var(--muted)}
+.here{display:inline-flex; align-items:center; gap:8px; margin-top:14px; font-size:12.5px; color:var(--gold-lit)}
+.here::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--gold)}
+.ph-what h3{margin:0 0 6px; font-size:22px}
+.ph-what > p{margin:0 0 16px; font-size:15.5px; color:var(--muted2)}
+.has.cols{columns:2; column-gap:36px; font-size:14.5px; color:var(--muted2)}
+.has.cols li{break-inside:avoid; padding:3px 0}
+.caps.three{grid-template-columns:repeat(3,minmax(0,1fr)); margin:0}
+.caps.three > div, .caps.three > div:nth-child(even){padding:18px 20px 18px 0; border-left:0}
+.caps.three > div:not(:nth-child(3n+1)){padding-left:20px; border-left:1px solid var(--line-soft)}
+.has.public{margin:22px 0 26px; font-size:15px; color:var(--muted2)}
+.radar h3{margin:0 0 14px; font-size:21px}
+.radar-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--line-soft)}
+.radar-list li{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0;
+  border-bottom:1px solid var(--line-soft); font-size:15px; color:var(--text)}
+.btn-vote{display:inline-flex; align-items:center; min-height:34px; padding:0 14px; border:1px solid var(--line); border-radius:99px;
+  font-size:13px; font-weight:600; color:var(--muted2);
+  transition:border-color var(--v-t-base,180ms) var(--ease), color var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.btn-vote:hover{border-color:var(--gold); color:var(--gold-lit)}
+.btn-vote:active{transform:translateY(1px) scale(.99)}
+.btn-vote:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+.radar-more{margin:16px 0 0; font-size:14px}
+.notifyform{display:flex; gap:10px; max-width:460px; margin:0 auto}
+.notifyform input{flex:1; min-width:0; min-height:44px; padding:0 14px; border:1px solid var(--line); border-radius:10px;
+  background:var(--ink2); color:var(--text); font:400 15px/1.2 Inter,system-ui,sans-serif}
+.notifyform input::placeholder{color:var(--muted)}
+.notifyform input:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+.notifyform .cta{border:0; cursor:pointer; font-family:inherit}
+@media(max-width:760px){
+  .phase{grid-template-columns:1fr; gap:16px; padding:28px 0}
+  .has.cols{columns:1}
+  .caps.three{grid-template-columns:1fr}
+  .caps.three > div, .caps.three > div:not(:nth-child(3n+1)){padding-left:0; border-left:0}
+}
+@media(max-width:420px){ .notifyform{flex-direction:column} }
+
+/* download: the platform choice is one frame split on hairlines; Windows is the only live option */
+.plat-label{margin:48px 0 12px; font-size:13px; color:var(--muted)}
+.platforms{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:760px; border:1px solid var(--line); border-radius:16px; overflow:hidden}
+.plat{display:flex; flex-direction:column; gap:6px; padding:20px 22px; color:var(--text);
+  transition:background var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.plat + .plat{border-left:1px solid var(--line-soft)}
+.plat-name{font-size:21px; line-height:1.1}
+.plat-state{font-size:13.5px; color:var(--muted)}
+.plat.js-dl{background:var(--surface); box-shadow:inset 0 1px 0 var(--gold)}
+.plat.js-dl .plat-state{color:var(--gold-lit)}
+.plat.later .plat-name{color:var(--muted2)}
+.plat:hover{background:var(--surface)}
+.plat:active{transform:translateY(1px)}
+.plat:focus-visible{outline:2px solid var(--gold); outline-offset:-2px}
+@media(max-width:560px){ .platforms{grid-template-columns:1fr} .plat + .plat{border-left:0; border-top:1px solid var(--line-soft)} }
+.build{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px}
+.build h3{margin:0 0 16px; font-size:17px}
+.defs.facts > div{grid-template-columns:minmax(0,.3fr) minmax(0,.7fr); gap:20px; padding:16px 4px}
+.hash, .flow code{font:500 13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--muted2); word-break:break-all}
+.limits.one{margin-top:18px; border-top:0}
+.flow{list-style:none; margin:0; padding:0; counter-reset:flow; border-top:1px solid var(--line)}
+.flow li{counter-increment:flow; display:grid; grid-template-columns:28px minmax(0,1fr); gap:12px; padding:14px 0;
+  border-bottom:1px solid var(--line-soft); font-size:15px; line-height:1.6; color:var(--muted2)}
+.flow li::before{content:counter(flow); font-variant-numeric:tabular-nums; font-weight:600; color:var(--muted)}
+.life.top{align-items:start}
+@media(max-width:900px){ .build{grid-template-columns:1fr; gap:40px} }
+
+/* reading pages: legal text, about, support and the architecture document, set for reading */
+.prose h1{font-family:Fraunces,Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 60,"WONK" 1; font-weight:600;
+  letter-spacing:-.032em; text-wrap:balance}
+.prose .ldate{margin:0 0 30px; font-size:13.5px; color:var(--muted)}
+.prose .lsum{margin:0 0 12px; padding:20px 22px; border:1px solid var(--line); border-radius:14px; background:var(--surface);
+  color:var(--muted2); font-size:15.5px; line-height:1.7}
+.prose .lsum b, .prose .lsum strong{color:var(--text)}
+.prose b{color:var(--text); font-weight:600}
+.prose .phnote{color:var(--muted); font-size:14.5px}
+.prose p.phnote{margin:14px 0; padding-left:14px; border-left:1px solid var(--line)}
+.prose .lnote{margin-top:56px; padding-top:22px; border-top:1px solid var(--line-soft); font-size:14px; color:var(--muted)}
+.prose code{font:500 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--text);
+  padding:1px 5px; border:1px solid var(--line-soft); border-radius:6px; background:var(--ink2); word-break:break-all}
+.prose .tablewrap{margin:18px 0}
+.prose .tablewrap table{margin:0; min-width:560px}
+.prose td, .prose th{color:var(--muted2); font-size:14.5px; line-height:1.55}
+.prose tbody td:first-child{color:var(--text); font-weight:500}
+/* support: one row per reason to write, each with its own pre-filled email */
+.support{margin:32px 0 8px; border-top:1px solid var(--line)}
+.srow{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:24px; padding:22px 0; border-bottom:1px solid var(--line-soft)}
+.srow h3{margin:0; font-size:17px}
+.srow p{margin:0 0 10px; font-size:15px}
+.btn-go{display:inline-flex; align-items:center; min-height:36px; padding:0 14px; border:1px solid var(--line); border-radius:10px;
+  font-size:14px; font-weight:600; color:var(--text);
+  transition:border-color var(--v-t-base,180ms) var(--ease), color var(--v-t-base,180ms) var(--ease), transform var(--v-t-fast,120ms) var(--ease)}
+.btn-go:hover{border-color:var(--gold); color:var(--gold-lit)}
+.btn-go:active{transform:translateY(1px) scale(.99)}
+.btn-go:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+@media(max-width:620px){ .srow{grid-template-columns:1fr; gap:8px} }
+/* links inside the summary box and the related-links line must be distinguishable without colour (WCAG 1.4.1) */
+.prose .lsum a, .prose .lnote a{text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:.22em;
+  text-decoration-color:color-mix(in srgb, currentColor 50%, transparent); color:var(--text)}
+.prose .lsum a:hover, .prose .lnote a:hover{text-decoration-color:currentColor}
+
+/* 404: the homepage hero's voice, alone on the page */
+.nf{min-height:100vh; display:grid; align-items:center; padding:72px 0}
+.nf-brand{display:inline-flex; margin-bottom:56px}
+.nf h1{font-size:clamp(38px,5vw,64px); line-height:1.02; margin:0 0 22px; max-width:15ch}
+.nf .sub{max-width:44ch}
+.nf-links{margin-top:40px; font-size:14px; color:var(--muted)}
+.nf-links a{color:var(--muted2); text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:.22em;
+  text-decoration-color:color-mix(in srgb, currentColor 50%, transparent)}
+.nf-links a:hover{color:var(--text); text-decoration-color:currentColor}

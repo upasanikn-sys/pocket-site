@@ -10,81 +10,6 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#070d18">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
-<link rel="stylesheet" href="assets/vestora.css?v=17">
-<link rel="stylesheet" href="assets/vestora-refined.css?v=1">
-<style>
-.rm-hero{display:grid; grid-template-columns:1fr 1.1fr; gap:40px; align-items:start; padding:36px 0 18px}
-.rm-hero .h1{font-size:46px}
-.rm-mini{display:flex; gap:24px; flex-wrap:wrap; margin-top:22px}
-.rm-mini .m{display:flex; align-items:center; gap:9px}
-.rm-mini .m .mi{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; border:1px solid var(--border); background:rgba(255,255,255,.02); color:var(--gold); flex:none}
-.rm-mini .m b{font-size:12.5px; display:block} .rm-mini .m span{font-size:10.5px; color:var(--muted)}
-/* mountain journey */
-.mountain{position:relative; height:340px; border-radius:20px; overflow:hidden;
-  background:radial-gradient(140% 120% at 70% 10%,rgba(30,49,96,.5),transparent 55%),linear-gradient(180deg,#0b1526,#070d18)}
-.peaks{position:absolute; inset:0}
-.peaks svg{position:absolute; bottom:0; width:100%; height:100%}
-.trail{position:absolute; inset:0}
-.tnode{position:absolute; transform:translate(-50%,-50%); text-align:center}
-.tnode .dot{width:16px; height:16px; border-radius:50%; background:var(--gold); box-shadow:0 0 16px 4px rgba(201,164,78,.6); margin:0 auto 6px}
-.tnode .flag{width:26px; height:26px; margin:0 auto 4px; color:var(--gold)}
-.tnode b{font-size:12px; font-weight:600; color:var(--text); background:rgba(7,13,24,.6); padding:2px 8px; border-radius:6px}
-.tnode.today .dot{background:#fff; box-shadow:0 0 22px 6px rgba(255,255,255,.5)}
-/* roadmap columns */
-.rmcols{display:grid; grid-template-columns:repeat(5,1fr); gap:14px}
-.rmcol{background:var(--panel); border:1px solid var(--border2); border-radius:16px; padding:20px 16px; position:relative}
-.rmcol.now{border-color:rgba(52,211,153,.4); background:radial-gradient(120% 50% at 50% 0,rgba(52,211,153,.06),transparent 60%),var(--panel)}
-.rmcol .ph{text-align:center; margin-bottom:14px}
-.rmcol .ph h3{font-size:16px; font-weight:600}
-.rmcol .ph .when{font-size:11.5px; margin-top:2px}
-.rmcol.now .ph .when{color:var(--pos)}
-.rmcol .ph .when.g{color:var(--gold)} .rmcol .ph .when.p{color:var(--purp)}
-.rmc-ic{width:56px; height:56px; border-radius:50%; margin:6px auto 16px; display:grid; place-items:center; border:1px solid var(--border)}
-.rmc-ic.done{background:rgba(52,211,153,.1); border-color:rgba(52,211,153,.4); color:var(--pos)}
-.rmc-ic.g{color:var(--gold); border-color:rgba(201,164,78,.4)}
-.rmc-ic.p{color:var(--purp); border-color:rgba(169,154,240,.4)}
-.rmcol h4{font-size:15px; font-weight:600; margin-bottom:8px; text-align:center}
-.rmcol .pd{font-size:11.5px; color:var(--muted); line-height:1.5; margin-bottom:16px; text-align:center; min-height:52px}
-.rmcol ul{list-style:none; display:flex; flex-direction:column; gap:9px}
-.rmcol li{display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--muted2); line-height:1.35}
-.rmcol li svg{flex:none; margin-top:2px}
-.rmcol.now li svg{color:var(--pos)} .rmcol .gi{color:var(--gold)} .rmcol .pi{color:var(--purp)}
-.here{position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); background:rgba(52,211,153,.16); color:var(--pos); font-size:10px; font-weight:700; padding:4px 12px; border-radius:99px; border:1px solid rgba(52,211,153,.4)}
-/* principles */
-.princ{display:grid; grid-template-columns:repeat(6,1fr); gap:14px}
-.princ .p{text-align:center}
-.princ .p .pi{width:52px; height:52px; border-radius:14px; margin:0 auto 12px; display:grid; place-items:center; border:1px solid var(--border); background:rgba(255,255,255,.02); color:var(--gold)}
-.princ .p b{font-size:12.5px; display:block; margin-bottom:5px}
-.princ .p span{font-size:11px; color:var(--muted); line-height:1.4}
-/* built in public */
-.public{display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:start}
-.reqbox{background:var(--panel2); border:1px solid var(--border2); border-radius:14px; padding:18px}
-.reqbox h4{font-size:14px; margin-bottom:14px}
-.reqrow{display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--border2); font-size:13px}
-.reqrow:last-child{border-bottom:none}
-.reqrow .ri{width:26px; height:26px; border-radius:7px; background:rgba(201,164,78,.12); color:var(--gold); display:grid; place-items:center; flex:none}
-.reqrow .votes{margin-left:auto; font-size:12px; color:var(--muted2); border:1px solid var(--border); border-radius:99px; padding:3px 10px}
-.rmquote{border-left:2px solid var(--gold); padding-left:18px}
-.rmquote .qt{font-size:18px; line-height:1.5; margin-bottom:16px}
-.rmquote .qa{display:flex; align-items:center; gap:11px}
-.rmquote .qa .av{width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--hero),var(--herob)); display:grid; place-items:center; color:var(--goldsoft); font-weight:700; flex:none}
-.rmquote .qa b{font-size:13px; display:block} .rmquote .qa span{font-size:11px; color:var(--muted)}
-.rmquote .st{color:var(--gold); margin-top:10px}
-/* notify band */
-.notify{display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center}
-.notify .cal{width:64px; height:64px; border-radius:16px; border:1px solid var(--border); display:grid; place-items:center; color:var(--gold); flex:none}
-.notifyform{display:flex; gap:10px}
-.notifyform input{background:var(--panel2); border:1px solid var(--border); border-radius:11px; padding:12px 16px; color:var(--text); font-size:14px; font-family:inherit; min-width:200px; outline:none}
-@media (max-width:960px){
-  .rm-hero{grid-template-columns:1fr} .rmcols{grid-template-columns:1fr 1fr} .princ{grid-template-columns:repeat(3,1fr)}
-  .public{grid-template-columns:1fr} .notify{grid-template-columns:1fr; text-align:center} .notifyform{flex-direction:column}
-}
-</style>
 <link rel="canonical" href="https://upasanikn-sys.github.io/vestora-site/roadmap.html">
 <meta property="og:title" content="Roadmap — Building the future of personal finance | Vestora">
 <meta property="og:description" content="We're on a mission to give you complete clarity and control over your financial life. See what Vestora is building next — from Smart Insights to a global privacy-first financial OS.">
@@ -96,6 +21,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vestora — your whole financial life, one private app. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
 <meta name="twitter:image" content="https://upasanikn-sys.github.io/vestora-site/assets/og-vestora.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
+<link rel="stylesheet" href="assets/observatory.css?v=1">
 <link rel="stylesheet" href="assets/site-shell.css?v=1">
 </head>
 <body>
@@ -128,223 +58,114 @@
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="main" style="padding-top:14px">
-  <div class="wrap rm-hero">
-    <div>
-      <span class="eyebrow">Our journey ahead</span>
-      <h1 class="h1 serif">Building the future of <span class="l2">personal finance.</span></h1>
-      <p class="lead">We're on a mission to give you complete clarity and control over your financial life. Here's what we're building next.</p>
-      <div class="rm-mini">
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></span><div><b>Privacy-first</b><span>Always local.</span></div></div>
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><div><b>You own your data</b><span>Forever.</span></div></div>
-        <div class="m"><span class="mi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 6a6 6 0 016 6c0 4-6 10-6 10S6 16 6 12a6 6 0 016-6z"/></svg></span><div><b>Continuous innovation</b><span>For your future.</span></div></div>
+<main id="main">
+  <section class="ph">
+    <div class="wrap">
+      <h1 class="d">Building the future of personal finance.</h1>
+      <p class="sub">Our journey ahead: we're on a mission to give you complete clarity and control over your financial life. Here's what we're building next.</p>
+      <div class="hnote">
+        <span><b></b> Privacy-first. Always local.</span>
+        <span><b></b> You own your data. Forever.</span>
+        <span><b></b> Continuous innovation. For your future.</span>
       </div>
     </div>
-    <div class="mountain">
-      <div class="peaks">
-        <svg viewBox="0 0 500 340" preserveAspectRatio="none"><polygon points="0,340 120,180 200,240 300,120 380,190 500,60 500,340" fill="rgba(20,33,66,.55)"/><polygon points="0,340 90,240 190,280 280,200 400,250 500,180 500,340" fill="rgba(11,21,38,.8)"/></svg>
-      </div>
-      <div class="trail">
-        <svg viewBox="0 0 500 340" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><path d="M60 320 C140 300 150 250 210 250 C270 250 260 200 320 190 C380 180 380 130 430 90" fill="none" stroke="rgba(201,164,78,.7)" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round"/></svg>
-        <div class="tnode today" style="left:12%;top:94%"><span class="dot"></span><b>Today</b></div>
-        <div class="tnode" style="left:42%;top:74%"><span class="dot"></span><b>Q3 2026</b></div>
-        <div class="tnode" style="left:64%;top:56%"><span class="dot"></span><b>Q4 2026</b></div>
-        <div class="tnode" style="left:82%;top:34%"><span class="dot"></span><b>2027</b></div>
-        <div class="tnode" style="left:90%;top:12%"><span class="flag"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 21V4M5 4h11l-2 3 2 3H5"/></svg></span><b>Beyond</b></div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ROADMAP COLUMNS -->
-<section class="sec">
-  <div class="wrap">
-    <h2 class="sec-title serif" style="margin-bottom:34px">Our <span class="gold">roadmap</span></h2>
-    <p style="text-align:center;font-size:12.5px;color:var(--muted);margin:-24px auto 30px;max-width:640px">Last updated 31 July 2026 · Roadmap items are directional and may change with testing, security review and user feedback. Items involving email, sync or hosted AI will ship opt-in, with clear privacy disclosures.</p>
-    <div style="max-width:900px;margin:0 auto 32px;background:linear-gradient(180deg,rgba(52,211,153,.06),var(--panel));border:1px solid var(--border2);border-left:3px solid var(--pos);border-radius:16px;padding:20px 22px">
-      <div style="font-size:14.5px;color:var(--text);line-height:1.6"><b>Just built &middot; in verification.</b> The Phase-1 <b>depth</b> layer &mdash; seven connected features now in the app on desktop &amp; mobile, cross-platform parity-locked, going through the pre-launch verification pass before release.</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px"><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Account &amp; asset registry</span><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Advanced transaction management</span><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Subscription &amp; bill manager</span><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Investment analytics</span><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Salary &amp; payslip (India-first)</span><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Tax &amp; emergency</span><span style="font-size:12px;color:var(--text);background:var(--panel2,var(--panel));border:1px solid var(--border2);border-radius:20px;padding:4px 11px">Monthly check-in</span></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Our roadmap</h2>
+        <p>Last updated 19 September 2026 · Roadmap items are directional and may change with testing, security review and user feedback. Items involving email, sync or hosted AI will ship opt-in, with clear privacy disclosures.</p>
+      </div>
+      <p class="note status"><strong>Just built · in verification.</strong> The Phase-1 depth layer — seven connected features now in the app on desktop &amp; mobile, cross-platform parity-locked, going through the pre-launch verification pass before release: account &amp; asset registry, advanced transaction management, subscription &amp; bill manager, investment analytics, salary &amp; payslip (India-first), tax &amp; emergency, and the monthly check-in.</p>
+      <ol class="phases">
+        <li class="phase now"><div class="ph-when"><p class="d when">Today</p><p class="status">Released</p><span class="here">You are here</span></div><div class="ph-what"><h3 class="d d-sm">Foundation</h3><p>Everything you need to manage your finances with clarity and privacy.</p><ul class="has cols"><li><span>Core finance tracking</span></li><li><span>AI Copilot (On-Device)</span></li><li><span>Investments overview</span></li><li><span>Goals &amp; retirement planner</span></li><li><span>Debt manager</span></li><li><span>Document vault</span></li><li><span>Reports &amp; insights</span></li><li><span>Local-first &amp; private by default</span></li></ul></div></li>
+        <li class="phase"><div class="ph-when"><p class="d when">Q3 2026</p><p class="status">In development</p></div><div class="ph-what"><h3 class="d d-sm">Smart Insights</h3><p>Deeper intelligence to help you make better financial decisions.</p><ul class="has cols"><li><span>Next-gen analytics engine — built, verifying</span></li><li><span>Smarter cash-flow forecasting</span></li><li><span>Budget suggestions</span></li><li><span>Investment performance analytics — built, verifying</span></li><li><span>Recurring transaction detection — built, verifying</span></li><li><span>Custom categories &amp; rules (advanced) — built, verifying</span></li><li><span>Email reports</span></li><li><span>Native Android app — internal testing</span></li><li><span>macOS &amp; Linux desktop builds — internal testing</span></li></ul></div></li>
+        <li class="phase"><div class="ph-when"><p class="d when">Q4 2026</p><p class="status">Planned</p></div><div class="ph-what"><h3 class="d d-sm">More Power</h3><p>More ways to grow, protect, and optimize your wealth.</p><ul class="has cols"><li><span>Database encryption at rest — already live in the mobile builds; desktop next</span></li><li><span>Tax optimizer enhancements</span></li><li><span>Portfolio rebalancing optimizer</span></li><li><span>Insurance tracking &amp; optimizer</span></li><li><span>Net worth projections</span></li><li><span>Expanded scenario library</span></li><li><span>Multi-device secure sync (expanded)</span></li><li><span>Widgets &amp; dashboard enhancements</span></li></ul></div></li>
+        <li class="phase"><div class="ph-when"><p class="d when">2027</p><p class="status">Planned</p></div><div class="ph-what"><h3 class="d d-sm">AI That Knows You</h3><p>Hyper-personalized AI that understands your life and your goals.</p><ul class="has cols"><li><span>Proactive financial guidance</span></li><li><span>AI-powered goal coach</span></li><li><span>Anomaly detection &amp; alerts</span></li><li><span>Smart tax optimization</span></li><li><span>Voice interactions (with privacy)</span></li><li><span>Advanced what-if simulations</span></li><li><span>Predictive health score (AI-driven)</span></li></ul></div></li>
+        <li class="phase"><div class="ph-when"><p class="d when">Beyond</p><p class="status">Exploring</p></div><div class="ph-what"><h3 class="d d-sm">A Global Vision</h3><p>Expanding access and building the most trusted financial OS in the world.</p><ul class="has cols"><li><span>Multi-currency support</span></li><li><span>Global regulatory compliance</span></li><li><span>Open API &amp; integrations</span></li><li><span>Family &amp; shared finances (expanded)</span></li><li><span>Business finances</span></li><li><span>Community insights (privacy-safe)</span></li><li><span>And much more…</span></li></ul></div></li>
+      </ol>
     </div>
-    <div class="rmcols">
-      <!-- Today -->
-      <div class="rmcol now">
-        <div class="ph"><h3>Today</h3><div class="when">Released</div></div>
-        <div class="rmc-ic done"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg></div>
-        <h4>Foundation</h4>
-        <p class="pd">Everything you need to manage your finances with clarity and privacy.</p>
-        <ul>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Core finance tracking</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>AI Copilot (On-Device)</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Investments overview</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Goals &amp; retirement planner</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Debt manager</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Document vault</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Reports &amp; insights</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Local-first &amp; private by default</li>
-        </ul>
-        <span class="here">You are here</span>
-      </div>
-      <!-- Q3 2026 -->
-      <div class="rmcol">
-        <div class="ph"><h3>Q3 2026</h3><div class="when g">In development</div></div>
-        <div class="rmc-ic g"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V4M4 20h16M8 16v-3M12 16v-6M16 16v-9"/></svg></div>
-        <h4>Smart Insights</h4>
-        <p class="pd">Deeper intelligence to help you make better financial decisions.</p>
-        <ul>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Next-gen analytics engine &mdash; <span class="gold">built, verifying</span></li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Smarter cash-flow forecasting</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Budget suggestions</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Investment performance analytics &mdash; <span class="gold">built, verifying</span></li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Recurring transaction detection &mdash; <span class="gold">built, verifying</span></li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Custom categories &amp; rules (advanced) &mdash; <span class="gold">built, verifying</span></li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Email reports</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Database encryption at rest — already live in the mobile builds; desktop next</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Native Android app — internal testing</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>macOS &amp; Linux desktop builds — internal testing</li>
-        </ul>
-      </div>
-      <!-- Q4 2026 -->
-      <div class="rmcol">
-        <div class="ph"><h3>Q4 2026</h3><div class="when g">Planned</div></div>
-        <div class="rmc-ic g"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0111 0M16 5a3 3 0 010 6"/></svg></div>
-        <h4>More Power</h4>
-        <p class="pd">More ways to grow, protect, and optimize your wealth.</p>
-        <ul>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Tax optimizer enhancements</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Portfolio rebalancing optimizer</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Insurance tracking &amp; optimizer</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Net worth projections</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Expanded scenario library</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Multi-device secure sync (expanded)</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Widgets &amp; dashboard enhancements</li>
-        </ul>
-      </div>
-      <!-- 2027 -->
-      <div class="rmcol">
-        <div class="ph"><h3>2027</h3><div class="when g">Planned</div></div>
-        <div class="rmc-ic g"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3a3 3 0 016 0 3 3 0 012 5 3 3 0 01-2 5 3 3 0 01-6 0 3 3 0 01-2-5 3 3 0 012-5z"/><path d="M12 8v8"/></svg></div>
-        <h4>AI That Knows You</h4>
-        <p class="pd">Hyper-personalized AI that understands your life and your goals.</p>
-        <ul>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Proactive financial guidance</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>AI-powered goal coach</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Anomaly detection &amp; alerts</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Smart tax optimization</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Voice interactions (with privacy)</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Advanced what-if simulations</li>
-          <li><svg class="gi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Predictive health score (AI-driven)</li>
-        </ul>
-      </div>
-      <!-- Beyond -->
-      <div class="rmcol">
-        <div class="ph"><h3>Beyond</h3><div class="when p">Exploring</div></div>
-        <div class="rmc-ic p"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
-        <h4>A Global Vision</h4>
-        <p class="pd">Expanding access and building the most trusted financial OS in the world.</p>
-        <ul>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Multi-currency support</li>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Global regulatory compliance</li>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Open API &amp; integrations</li>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Family &amp; shared finances (expanded)</li>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Business finances</li>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Community insights (privacy-safe)</li>
-          <li><svg class="pi" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>And much more…</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRINCIPLES -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band">
-      <h2 class="serif" style="text-align:center;font-size:28px;letter-spacing:-.02em;margin-bottom:28px">Guided by <span class="gold">our principles</span></h2>
-      <div class="princ">
-        <div class="p"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M12 8v4M12 15h.01"/></svg></span><b>Privacy by design</b><span>Your data stays on your device.</span></div>
-        <div class="p"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3"/><path d="M6 20a6 6 0 0112 0"/></svg></span><b>User in control</b><span>You decide what to share, if ever.</span></div>
-        <div class="p"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span><b>No dark patterns</b><span>Transparent, ethical, always.</span></div>
-        <div class="p"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span><b>Built to last</b><span>Sustainable, reliable, and future-ready.</span></div>
-        <div class="p"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0118 9a4 4 0 010 9H7z"/><path d="M6 6l12 12"/></svg></span><b>Offline-first</b><span>Works perfectly, without internet.</span></div>
-        <div class="p"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 5.6a5 5 0 00-7 0l-.8.8-.8-.8a5 5 0 10-7 7l7.8 7.8 7.8-7.8a5 5 0 000-7z"/></svg></span><b>Made for you</b><span>Designed to improve your financial life.</span></div>
-      </div>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head solo"><h2 class="d">Guided by our principles</h2></div>
+      <dl class="caps three">
+        <div><dt>Privacy by design</dt><dd>Your data stays on your device.</dd></div>
+        <div><dt>User in control</dt><dd>You decide what to share, if ever.</dd></div>
+        <div><dt>No dark patterns</dt><dd>Transparent, ethical, always.</dd></div>
+        <div><dt>Built to last</dt><dd>Sustainable, reliable, and future-ready.</dd></div>
+        <div><dt>Offline-first</dt><dd>Works perfectly, without internet.</dd></div>
+        <div><dt>Made for you</dt><dd>Designed to improve your financial life.</dd></div>
+      </dl>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- BUILT IN PUBLIC -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band">
-      <div class="public">
-        <div>
-          <h2 class="serif" style="font-size:26px;letter-spacing:-.02em">Built in public.<br><span class="gold">For you.</span></h2>
-          <p style="font-size:13.5px;color:var(--muted2);line-height:1.6;margin:12px 0 18px">We believe the best products are built together. Your feedback shapes Vestora.</p>
-          <ul class="checklist" style="gap:10px">
-            <li><span class="ck" style="background:rgba(201,164,78,.14);color:var(--gold)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>Vote on upcoming features</li>
-            <li><span class="ck" style="background:rgba(201,164,78,.14);color:var(--gold)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Share feedback &amp; ideas</li>
-            <li><span class="ck" style="background:rgba(201,164,78,.14);color:var(--gold)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.5"/></svg></span>See what we're working on</li>
-          </ul>
-          <a class="btn btn-ghost" href="mailto:hello@vestora.app" style="margin-top:18px">Join the community →</a>
-        </div>
-        <div class="reqbox">
-          <h4 class="serif">Features on our radar</h4>
-          <div class="reqrow"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg></span>Multi-currency support<a class="votes" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">▲ Vote</a></div>
-          <div class="reqrow"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h8l4 4v16H6z"/></svg></span>Advanced tax optimizer<a class="votes" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">▲ Vote</a></div>
-          <div class="reqrow"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a3 3 0 013 3v6a3 3 0 01-6 0V6a3 3 0 013-3z"/><path d="M6 11a6 6 0 0012 0M12 18v3"/></svg></span>Voice assistant (on-device)<a class="votes" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">▲ Vote</a></div>
-          <div class="reqrow"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0111 0M16 5a3 3 0 010 6"/></svg></span>Family &amp; shared finances<a class="votes" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">▲ Vote</a></div>
-          <div class="reqrow"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span>Business finances<a class="votes" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">▲ Vote</a></div>
-          <div style="text-align:center;margin-top:14px"><a href="mailto:hello@vestora.app" class="gold" style="font-size:12.5px;font-weight:600">Suggest a feature →</a></div>
-        </div>
-        <div class="rmquote">
-          <div class="qt serif">"Every feature is shaped by the people who use Vestora. This roadmap reflects our current priorities and will evolve with your feedback."</div>
-          <div class="qa"><span class="av">V</span><div><b>The Vestora team</b><span>Building in public</span></div></div>
-        </div>
+  <section class="sec">
+    <div class="wrap life">
+      <div>
+        <h2 class="d">Built in public. For you.</h2>
+        <p class="life-sub">We believe the best products are built together. Your feedback shapes Vestora.</p>
+        <ul class="has public">
+          <li><span>Vote on upcoming features</span></li>
+          <li><span>Share feedback &amp; ideas</span></li>
+          <li><span>See what we're working on</span></li>
+        </ul>
+        <a class="btn-line" href="mailto:hello@vestora.app">Join the community →</a>
+      </div>
+      <div class="offer radar">
+        <h3 class="d d-sm">Features on our radar</h3>
+        <ul class="radar-list">
+            <li><span>Multi-currency support</span><a class="btn-vote" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">Vote</a></li>
+            <li><span>Advanced tax optimizer</span><a class="btn-vote" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">Vote</a></li>
+            <li><span>Voice assistant (on-device)</span><a class="btn-vote" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">Vote</a></li>
+            <li><span>Family &amp; shared finances</span><a class="btn-vote" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">Vote</a></li>
+            <li><span>Business finances</span><a class="btn-vote" href="mailto:hello@vestora.app?subject=Vestora%20feature%20vote">Vote</a></li>
+        </ul>
+        <p class="radar-more"><a href="mailto:hello@vestora.app">Suggest a feature →</a></p>
       </div>
     </div>
-  </div>
-</section>
+    <div class="wrap">
+      <blockquote class="promise">
+        <p class="d d-sm">“Every feature is shaped by the people who use Vestora. This roadmap reflects our current priorities and will evolve with your feedback.”</p>
+        <footer>— The Vestora team · Building in public</footer>
+      </blockquote>
+    </div>
+  </section>
 
-<!-- NOTIFY -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band" style="background:radial-gradient(120% 120% at 100% 0,rgba(201,164,78,.1),transparent 55%),var(--panel);border-color:rgba(201,164,78,.25)">
-      <div class="notify">
-        <span class="cal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></span>
-        <div>
-          <h3 class="serif" style="font-size:22px">The best is yet to come.</h3>
-          <p style="font-size:13.5px;color:var(--muted2);margin-top:4px">We're building the future of personal finance, one update at a time.</p>
-        </div>
-        <form class="notifyform" data-notify-form>
-          <input type="email" placeholder="Enter your email" aria-label="Email">
-          <button class="btn btn-gold" type="submit">Notify me →</button>
-        </form>
-      </div>
+  <section class="close">
+    <div class="wrap">
+      <h2 class="d">The best is yet to come.</h2>
+      <p>We're building the future of personal finance, one update at a time.</p>
+      <form class="notifyform" data-notify-form>
+        <label class="sr" for="notify-email">Email</label>
+        <input id="notify-email" type="email" autocomplete="email" placeholder="Enter your email">
+        <button class="cta" type="submit">Notify me →</button>
+      </form>
+      <p class="soon">Opens an email to hello@vestora.app. Nothing is sent until you press send.</p>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="index.html"><span class="mark"></span><span><span class="bt">Vestora</span><span class="bs">Build Wealth. With Clarity.</span></span></a>
-        <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-        <div class="trust-row"><div class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>No cloud · No tracking · No ads</div></div>
-      </div>
-      <div class="foot-col"><h5>Product</h5><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></div>
-      <div class="foot-col"><h5>Download</h5><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></div>
-      <div class="foot-col"><h5>Company</h5><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></div>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Vestora home"><svg class="sh-mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><path d="M7.5 7.5 L20 33 L29.5 13.6" fill="none" stroke="url(#sh-vg)" stroke-width="5.2" stroke-linejoin="miter"/><path d="M27.6 7.5 L34.5 7.5" fill="none" stroke="url(#sh-vg)" stroke-width="3.1" opacity=".92"/></svg><span><span class="sh-name">Vestora</span><span class="sh-tag">Build Wealth. With Clarity.</span></span></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
     </div>
-    <div class="foot-bottom">
-      <span class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial. © 2026 Vestora.</span>
-      <span>Made in India 🇮🇳</span>
-    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Vestora · Made in India</p>
   </div>
 </footer>
 
-<script src="assets/vestora.js?v=17" defer></script>
+<script src="assets/vestora.js" defer></script>
 </body>
 </html>

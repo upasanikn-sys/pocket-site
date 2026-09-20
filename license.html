@@ -10,13 +10,6 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#070d18">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
-<link rel="stylesheet" href="assets/vestora.css?v=17">
-<link rel="stylesheet" href="assets/vestora-refined.css?v=1">
 <link rel="canonical" href="https://upasanikn-sys.github.io/vestora-site/license.html">
 <meta property="og:title" content="License Terms — Vestora">
 <meta property="og:description" content="How Vestora licensing works: signed offline license keys, device allowances, the 14-day trial, the permanent Free plan, and what 'lifetime' means.">
@@ -28,6 +21,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vestora — your whole financial life, one private app. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
 <meta name="twitter:image" content="https://upasanikn-sys.github.io/vestora-site/assets/og-vestora.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
+<link rel="stylesheet" href="assets/observatory.css?v=1">
 <link rel="stylesheet" href="assets/site-shell.css?v=1">
 </head>
 <body>
@@ -61,7 +59,9 @@
   </nav>
 </header>
 
-<main class="legal" id="main">
+<main id="main">
+<div class="wrap">
+<article class="prose">
   <h1>License Terms</h1>
   <div class="ldate">Effective 17 July 2026 · Part of the <a href="terms.html">Terms of Service</a></div>
 
@@ -139,27 +139,28 @@
 
   <div class="lnote">Related: <a href="terms.html">Terms of Service</a> ·
   <a href="refunds.html">Refund Policy</a> · <a href="privacy.html">Privacy Policy</a></div>
+</article>
+</div>
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="index.html"><span class="mark"></span><span><span class="bt">Vestora</span><span class="bs">Build Wealth. With Clarity.</span></span></a>
-        <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-      </div>
-      <div class="foot-col"><h5>Product</h5><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></div>
-      <div class="foot-col"><h5>Download</h5><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></div>
-      <div class="foot-col"><h5>Company</h5><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></div>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Vestora home"><svg class="sh-mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><path d="M7.5 7.5 L20 33 L29.5 13.6" fill="none" stroke="url(#sh-vg)" stroke-width="5.2" stroke-linejoin="miter"/><path d="M27.6 7.5 L34.5 7.5" fill="none" stroke="url(#sh-vg)" stroke-width="3.1" opacity=".92"/></svg><span><span class="sh-name">Vestora</span><span class="sh-tag">Build Wealth. With Clarity.</span></span></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
     </div>
-    <div class="foot-bottom">
-      <span class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial. © 2026 Vestora.</span>
-      <span>Made in India 🇮🇳</span>
-    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Vestora · Made in India</p>
   </div>
 </footer>
 
-<script src="assets/vestora.js?v=17" defer></script>
+<script src="assets/vestora.js" defer></script>
 </body>
 </html>

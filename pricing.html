@@ -10,99 +10,6 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#070d18">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
-<link rel="stylesheet" href="assets/vestora.css?v=17">
-<link rel="stylesheet" href="assets/vestora-refined.css?v=1">
-<style>
-.price-hero{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; padding:38px 0 20px}
-.price-hero .h1{font-size:46px}
-.mini3{display:flex; gap:24px; flex-wrap:wrap; margin-top:22px}
-.mini3 .m{display:flex; align-items:center; gap:9px}
-.mini3 .m .mi{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; border:1px solid var(--border); background:rgba(255,255,255,.02); color:var(--gold); flex:none}
-.mini3 .m b{font-size:12.5px; display:block} .mini3 .m span{font-size:10.5px; color:var(--muted)}
-.include{background:radial-gradient(120% 120% at 100% 0,rgba(201,164,78,.1),transparent 55%),var(--panel);
-  border:1px solid rgba(201,164,78,.28); border-radius:18px; padding:26px; position:relative; overflow:hidden}
-.include h4{font-size:17px; margin-bottom:18px}
-.include ul{display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; list-style:none}
-.include li{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--muted2)}
-.include li svg{color:var(--gold); flex:none}
-.include .shield{position:absolute; right:20px; top:50%; transform:translateY(-50%); opacity:.25}
-/* toggles */
-.togrow{display:flex; align-items:center; justify-content:center; gap:16px; margin:8px 0 34px; flex-wrap:wrap}
-.seg{display:inline-flex; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:4px}
-.seg button{background:none; border:none; color:var(--muted2); font-size:13px; font-weight:600; padding:9px 18px; border-radius:999px; cursor:pointer; font-family:inherit; display:flex; align-items:center; gap:7px; transition:.15s}
-.seg button.on{background:linear-gradient(135deg,var(--goldsoft),var(--gold2)); color:#0e1730}
-.seg button .save{font-size:10px; opacity:.85}
-/* plan cards */
-.plans{display:grid; grid-template-columns:1fr 1.08fr 1fr; gap:18px; align-items:start}
-.plan{background:var(--panel); border:1px solid var(--border2); border-radius:20px; padding:26px 22px; position:relative}
-.plan.pop{border-color:rgba(201,164,78,.5); box-shadow:0 20px 50px rgba(201,164,78,.1);
-  background:radial-gradient(120% 60% at 50% 0,rgba(201,164,78,.08),transparent 60%),var(--panel)}
-.pop-tag{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--goldsoft),var(--gold2)); color:#0e1730; font-size:10.5px; font-weight:700; letter-spacing:.08em; padding:5px 14px; border-radius:999px; text-transform:uppercase}
-.plan-head{display:flex; align-items:center; gap:11px; margin-bottom:8px}
-.plan-head .pi{width:40px; height:40px; border-radius:11px; display:grid; place-items:center; flex:none}
-.plan-head h3{font-size:20px; font-weight:600}
-.plan-head .sub{font-size:11.5px; color:var(--muted)}
-.soon{font-size:9.5px; font-weight:700; color:var(--purp); background:rgba(169,154,240,.14); border-radius:99px; padding:3px 9px; margin-left:6px; text-transform:uppercase; letter-spacing:.05em}
-.price-big{font-size:42px; font-weight:700; letter-spacing:-.02em; margin:14px 0 2px; display:flex; align-items:baseline; gap:6px}
-.price-big .per{font-size:15px; color:var(--muted); font-weight:500}
-.price-alt{font-size:13px; color:var(--muted2); margin-bottom:2px}
-.price-alt .save{color:var(--gold); font-weight:600; margin-left:6px}
-.plan-desc{font-size:13px; color:var(--muted2); line-height:1.5; margin:14px 0 18px}
-.plan .plist2{list-style:none; display:flex; flex-direction:column; gap:11px; margin-top:18px}
-.plan .plist2 li{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--muted2)}
-.plan .plist2 li svg{color:var(--pos); flex:none}
-.plan .plist2 li .new{font-size:9px; font-weight:700; color:var(--pos); background:rgba(52,211,153,.14); border-radius:99px; padding:2px 7px; margin-left:auto}
-.plan .plus-lbl{font-size:12.5px; font-weight:700; color:var(--gold); margin-top:18px}
-.plan.fam .plus-lbl{color:var(--purp)}
-.plan.fam .plist2 li svg{color:var(--purp)}
-.plan-foot{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); margin-top:18px}
-.plan-foot svg{color:var(--gold)}
-/* compare table */
-.cmp{width:100%; border-collapse:collapse}
-.cmp th,.cmp td{padding:13px 14px; text-align:center; font-size:13px; border-bottom:1px solid var(--border2)}
-.cmp th:first-child,.cmp td:first-child{text-align:left; color:var(--muted2)}
-.cmp thead th{font-size:15px; font-weight:600}
-.cmp thead .p2{color:var(--gold)} .cmp thead th span{display:block; font-size:11px; color:var(--muted); font-weight:400; margin-top:2px}
-.cmp td .c{color:var(--pos)} .cmp td .dash{color:var(--muted)}
-.cmp td:first-child{display:flex; align-items:center; gap:9px}
-.cmp td:first-child svg{color:var(--gold); flex:none}
-/* faq + payments */
-.faqpay{display:grid; grid-template-columns:1fr 1fr; gap:24px}
-.faq-item{border:1px solid var(--border2); border-radius:12px; margin-bottom:10px; background:var(--panel)}
-.faq-q{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 18px; cursor:pointer; font-size:14px; font-weight:500}
-.faq-q .pm{color:var(--gold); font-size:20px; transition:.2s; flex:none}
-.faq-item.open .faq-q .pm{transform:rotate(45deg)}
-.faq-a{max-height:0; overflow:hidden; transition:max-height .25s var(--ease); font-size:13px; color:var(--muted); line-height:1.6}
-.faq-item.open .faq-a{max-height:200px}
-.faq-a p{padding:0 18px 16px}
-.paycard{border:1px solid var(--border2); border-radius:16px; padding:24px; background:var(--panel)}
-.paycard h4{font-size:17px; margin-bottom:6px} .paycard .ps{font-size:13px; color:var(--muted); margin-bottom:18px}
-.paylogos{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px}
-.paylogos .pl{height:34px; min-width:52px; padding:0 12px; border-radius:8px; background:#fff; color:#0e1730; display:grid; place-items:center; font-size:12px; font-weight:800; letter-spacing:-.02em}
-.payfeat{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; border-top:1px solid var(--border2); padding-top:18px}
-.payfeat .pf{text-align:center}
-.payfeat .pf .pi{width:34px; height:34px; border-radius:9px; margin:0 auto 8px; display:grid; place-items:center; border:1px solid var(--border); color:var(--gold)}
-.payfeat .pf b{font-size:11.5px; display:block} .payfeat .pf span{font-size:10px; color:var(--muted)}
-/* lifetime band */
-.life{display:grid; grid-template-columns:1fr auto 1fr; gap:24px; align-items:center}
-.life .shield2{text-align:center; position:relative}
-.life .shield2 svg{filter:drop-shadow(0 0 20px rgba(201,164,78,.5))}
-.life-price{display:flex; flex-direction:column}
-.life .best{font-size:9.5px; font-weight:700; color:var(--pos); background:rgba(52,211,153,.14); border-radius:99px; padding:3px 9px; display:inline-block; margin-left:8px}
-.life-checks{list-style:none; display:flex; flex-direction:column; gap:9px}
-.life-checks li{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--muted2)}
-.life-checks li svg{color:var(--pos); flex:none}
-@media (max-width:960px){
-  .price-hero{grid-template-columns:1fr} .plans{grid-template-columns:1fr; gap:26px}
-  .faqpay{grid-template-columns:1fr} .life{grid-template-columns:1fr; text-align:center}
-  .cmp{font-size:11px} .cmp th,.cmp td{padding:9px 6px} .include ul{grid-template-columns:1fr}
-}
-</style>
 <link rel="canonical" href="https://upasanikn-sys.github.io/vestora-site/pricing.html">
 <meta property="og:title" content="Pricing — Simple pricing. Powerful value. | Vestora">
 <meta property="og:description" content="Vestora pricing: a Free plan that stays useful forever, Founder Pro monthly or yearly, and a one-time Lifetime Founder licence. Private by design, on your device.">
@@ -114,6 +21,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vestora — your whole financial life, one private app. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
 <meta name="twitter:image" content="https://upasanikn-sys.github.io/vestora-site/assets/og-vestora.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=1">
+<link rel="stylesheet" href="assets/observatory.css?v=1">
 <link rel="stylesheet" href="assets/site-shell.css?v=1">
 </head>
 <body>
@@ -146,253 +58,171 @@
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="main" style="padding-top:16px" data-pricing>
-  <div class="wrap price-hero">
-    <div>
-      <span class="eyebrow">Choose the plan that fits you</span>
-      <h1 class="h1 serif">Simple pricing.<br><span class="l2">Powerful value.</span></h1>
-      <p class="lead">Every plan is private by design, runs on your device, and puts you in control of your financial life.</p>
-      <div class="mini3">
-        <div class="m"><span class="mi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><div><b>Runs locally</b><span>on your device</span></div></div>
-        <div class="m"><span class="mi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0118 9a4 4 0 010 9H7z"/></svg></span><div><b>No cloud</b><span>required</span></div></div>
-        <div class="m"><span class="mi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></span><div><b>Monthly, yearly</b><span>or lifetime</span></div></div>
+<main id="main">
+  <section class="ph">
+    <div class="wrap">
+      <h1 class="d">Simple pricing. Powerful value.</h1>
+      <p class="sub">Every plan is private by design, runs on your device, and puts you in control of your financial life.</p>
+      <div class="hnote">
+        <span><b></b> Runs locally on your device</span>
+        <span><b></b> No cloud required</span>
+        <span><b></b> Monthly, yearly or lifetime</span>
       </div>
     </div>
-    <div class="include">
-      <svg class="shield" width="90" height="100" viewBox="0 0 100 116" fill="none"><path d="M50 4 L92 20 V56 C92 84 74 102 50 112 C26 102 8 84 8 56 V20 Z" fill="none" stroke="var(--gold)" stroke-width="2.5"/><path d="M38 58l8 8 16-16" stroke="var(--gold)" stroke-width="3" fill="none"/></svg>
-      <h4 class="serif">All plans include</h4>
-      <ul>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Local-first &amp; private by design</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>No Ads. No Tracking.</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>AES-256 Encrypted</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>All Core Features</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>AI Copilot (On-Device)</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Lifetime Ownership of Your Data</li>
-      </ul>
+  </section>
+
+  <section class="sec plans-sec" data-pricing>
+    <div class="wrap">
+      <div class="plans-head">
+        <h2 class="d">Choose the plan that fits you</h2>
+        <div class="billing">
+          <div class="seg" role="group" aria-label="Currency">
+            <button type="button" data-cur="inr" class="on" aria-pressed="true">₹ INR</button>
+            <button type="button" data-cur="usd" aria-pressed="false">$ USD</button>
+          </div>
+          <div class="seg" role="group" aria-label="Billing">
+            <button type="button" data-cycle="monthly" class="on" aria-pressed="true">Monthly</button>
+            <button type="button" data-cycle="yearly" aria-pressed="false">Yearly <span class="save">2 months free</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <div class="plan-top"><h3 class="d d-sm">Free</h3></div>
+          <p class="for">Perfect to get started</p>
+          <p class="price"><span class="cur" data-cur-sym>₹</span><span class="amt"><span data-price data-inr-monthly="0" data-inr-yearly="0" data-usd-monthly="0" data-usd-yearly="0">0</span></span><span class="per"><span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></p>
+          <p class="price-alt">Forever free. All core features.</p>
+          <p class="plan-desc">Everything you need to take control.</p>
+          <a class="btn-line" href="download.html">Get started free →</a>
+          <ul class="has"><li><span>Financial Health Score</span></li><li><span>Cash Flow &amp; Budgeting</span></li><li><span>Investments Tracking</span></li><li><span>Debt Manager</span></li><li><span>Goals &amp; Retirement Planner</span></li><li><span>Document Vault (10 docs)</span></li><li><span>AI Copilot (Limited)</span></li><li><span>Exports (PDF)</span></li><li><span>Works Offline</span></li><li><span>Community Support</span></li></ul>
+          <p class="plan-foot">No card required</p>
+        </div>
+
+        <div class="plan pro">
+          <div class="plan-top"><h3 class="d d-sm">Founder Pro</h3><span class="tier">Recommended</span></div>
+          <p class="for">For serious financial builders</p>
+          <p class="price"><span class="cur" data-cur-sym>₹</span><span class="amt"><span data-price data-inr-monthly="499" data-inr-yearly="4,999" data-usd-monthly="7.99" data-usd-yearly="79">499</span></span><span class="per"><span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></p>
+          <p class="price-alt" data-showif="monthly">or <span data-cur-sym>₹</span><span data-price data-inr-monthly="4,999" data-inr-yearly="4,999" data-usd-monthly="79" data-usd-yearly="79">4,999</span> /year<span class="save">Save 17%</span></p><p class="price-alt" data-showif="yearly" style="display:none">Billed annually · <span class="save">Save 17%</span></p>
+          <p class="plan-desc">Unlock the full power of Vestora. Advanced plans, deeper insights.</p>
+          <a class="cta" href="mailto:hello@vestora.app?subject=Founder%20Club%20—%20early-access%20purchase">Upgrade to Founder Pro →</a>
+          <p class="plus">Everything in Free, plus</p>
+          <ul class="has"><li><span>Unlimited on-device AI Copilot</span></li><li><span>Advanced Analytics &amp; Reports</span></li><li><span>Investment Analytics <span class="new">New</span></span></li><li><span>Tax Planner Pro</span></li><li><span>Document Vault (Unlimited)</span></li><li><span>Multi-Account Tracking <span class="new">New</span></span></li><li><span>Scenario Simulator</span></li><li><span>Custom Categories &amp; Rules</span></li><li><span>Priority Support</span></li><li><span>Early Access to New Features</span></li></ul>
+          <p class="plan-foot">30-day money-back guarantee — <a href="refunds.html">refund policy</a><br>3 devices · offline key activation · founder pricing may rise after early access</p>
+        </div>
+
+        <div class="plan">
+          <div class="plan-top"><h3 class="d d-sm">Family</h3><span class="tier">Coming soon</span></div>
+          <p class="for">For your entire household</p>
+          <p class="price"><span class="cur" data-cur-sym>₹</span><span class="amt"><span data-price data-inr-monthly="899" data-inr-yearly="8,999" data-usd-monthly="14.99" data-usd-yearly="149">899</span></span><span class="per"><span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></p>
+          <p class="price-alt" data-showif="monthly">or <span data-cur-sym>₹</span><span data-price data-inr-monthly="8,999" data-inr-yearly="8,999" data-usd-monthly="149" data-usd-yearly="149">8,999</span> /year<span class="save">Save 17%</span></p><p class="price-alt" data-showif="yearly" style="display:none">Billed annually · <span class="save">Save 17%</span></p>
+          <p class="plan-desc">Manage your family's finances together with complete privacy.</p>
+          <a class="btn-line" href="mailto:hello@vestora.app?subject=Family%20plan%20waitlist">Join waitlist →</a>
+          <p class="plus">Everything in Founder Pro, plus</p>
+          <ul class="has"><li><span>Household Mode</span></li><li><span>Shared Expenses</span></li><li><span>Family Goals</span></li><li><span>Multiple User Profiles</span></li><li><span>Parent/Child Access Control</span></li><li><span>Collaborative Planning</span></li><li><span>Premium Support</span></li></ul>
+          <p class="plan-foot">Up to 6 members</p>
+        </div>
+      </div>
+
+      <p class="includes"><strong>All plans include</strong><span>Local-first &amp; private by design</span><span>No ads. No tracking.</span><span>AES-256 encrypted vault and backups</span><span>All core features</span><span>AI Copilot (on-device)</span><span>Lifetime ownership of your data</span></p>
     </div>
-  </div>
+  </section>
 
-  <!-- TOGGLES -->
-  <div class="wrap">
-    <div class="togrow">
-      <div class="seg">
-        <button data-cur="inr" class="on">₹ INR</button>
-        <button data-cur="usd">$ USD</button>
-      </div>
-      <div class="seg">
-        <button data-cycle="monthly" class="on">Monthly</button>
-        <button data-cycle="yearly">Yearly <span class="save">2 months free</span></button>
-      </div>
-    </div>
-
-    <!-- PLANS -->
-    <div class="plans">
-      <!-- FREE -->
-      <div class="plan">
-        <div class="plan-head"><span class="pi ic-g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2h8l4 4v16H6z"/><path d="M9 12h6M9 16h4"/></svg></span><div><h3>Free</h3><div class="sub">Perfect to get started</div></div></div>
-        <div class="price-big"><span data-cur-sym>₹</span><span data-price data-inr-monthly="0" data-inr-yearly="0" data-usd-monthly="0" data-usd-yearly="0">0</span><span class="per"><span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></div>
-        <div class="price-alt">Forever free. All core features.</div>
-        <p class="plan-desc">Everything you need to take control.</p>
-        <a class="btn btn-ghost wide" href="download.html" style="color:var(--pos);border-color:rgba(52,211,153,.4)">Get Started Free →</a>
-        <ul class="plist2">
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Financial Health Score</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Cash Flow &amp; Budgeting</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Investments Tracking</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Debt Manager</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Goals &amp; Retirement Planner</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Document Vault (10 docs)</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>AI Copilot (Limited)</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Exports (PDF)</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Works Offline</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Community Support</li>
-        </ul>
-        <div class="plan-foot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/></svg>No card required</div>
-      </div>
-
-      <!-- FOUNDER CLUB -->
-      <div class="plan pop">
-        <span class="pop-tag">Most Popular</span>
-        <div class="plan-head"><span class="pi ic-o"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8l4 3 4-6 4 6 4-3-1.5 11h-13z"/></svg></span><div><h3>Founder Pro</h3><div class="sub">For serious financial builders</div></div></div>
-        <div class="price-big"><span data-cur-sym>₹</span><span data-price data-inr-monthly="499" data-inr-yearly="4,999" data-usd-monthly="7.99" data-usd-yearly="79">499</span><span class="per"><span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></div>
-        <div class="price-alt" data-showif="monthly">or <span data-cur-sym>₹</span><span data-price data-inr-monthly="4,999" data-inr-yearly="4,999" data-usd-monthly="79" data-usd-yearly="79">4,999</span> /year<span class="save">Save 17%</span></div>
-        <div class="price-alt" data-showif="yearly" style="display:none">Billed annually · <span class="save" style="margin-left:0">Save 17%</span></div>
-        <p class="plan-desc">Unlock the full power of Vestora. Advanced plans, deeper insights.</p>
-        <a class="btn btn-gold wide" href="mailto:hello@vestora.app?subject=Founder%20Club%20—%20early-access%20purchase">Upgrade to Founder Pro →</a>
-        <div class="plus-lbl">Everything in Free, plus</div>
-        <ul class="plist2">
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Unlimited on-device AI Copilot</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Advanced Analytics &amp; Reports</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Investment Analytics <span class="new">New</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Tax Planner Pro</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Document Vault (Unlimited)</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Multi-Account Tracking <span class="new">New</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Scenario Simulator</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Custom Categories &amp; Rules</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Priority Support</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Early Access to New Features</li>
-        </ul>
-        <div class="plan-foot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>30-day money-back guarantee — <a href="refunds.html" style="color:var(--gold)">refund policy</a></div>
-        <div class="plan-foot">3 devices · offline key activation · founder pricing may rise after early access</div>
-      </div>
-
-      <!-- FAMILY -->
-      <div class="plan fam">
-        <div class="plan-head"><span class="pi ic-p"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0111 0M16 5a3 3 0 010 6M20.5 20a5.5 5.5 0 00-4.5-5.4"/></svg></span><div><h3>Family <span class="soon">Coming Soon</span></h3><div class="sub">For your entire household</div></div></div>
-        <div class="price-big"><span data-cur-sym>₹</span><span data-price data-inr-monthly="899" data-inr-yearly="8,999" data-usd-monthly="14.99" data-usd-yearly="149">899</span><span class="per"><span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></div>
-        <div class="price-alt" data-showif="monthly">or <span data-cur-sym>₹</span><span data-price data-inr-monthly="8,999" data-inr-yearly="8,999" data-usd-monthly="149" data-usd-yearly="149">8,999</span> /year<span class="save">Save 17%</span></div>
-        <div class="price-alt" data-showif="yearly" style="display:none">Billed annually · <span class="save" style="margin-left:0">Save 17%</span></div>
-        <p class="plan-desc">Manage your family's finances together with complete privacy.</p>
-        <a class="btn btn-purp wide" href="mailto:hello@vestora.app?subject=Family%20plan%20waitlist" style="background:none;border:1px solid rgba(169,154,240,.5);color:var(--purp);box-shadow:none">Join Waitlist →</a>
-        <div class="plus-lbl">Everything in Founder Pro, plus</div>
-        <ul class="plist2">
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Household Mode</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Shared Expenses</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Family Goals</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Multiple User Profiles</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Parent/Child Access Control</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Collaborative Planning</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Premium Support</li>
-        </ul>
-        <div class="plan-foot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0111 0M16 5a3 3 0 010 6"/></svg>Up to 6 members</div>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head solo"><h2 class="d">Compare plans</h2></div>
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Plan comparison table, scrolls sideways">
+        <table class="spec cmp3">
+          <thead><tr><th scope="col"><span class="sr">Feature</span></th><th scope="col">Free<span class="thp"><span data-cur-sym>₹</span><span data-price data-inr-monthly="0" data-inr-yearly="0" data-usd-monthly="0" data-usd-yearly="0">0</span> <span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></th><th scope="col">Founder Pro<span class="thp"><span data-cur-sym>₹</span><span data-price data-inr-monthly="499" data-inr-yearly="4,999" data-usd-monthly="7.99" data-usd-yearly="79">499</span> <span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></th><th scope="col">Family <span class="tier">Coming soon</span><span class="thp"><span data-cur-sym>₹</span><span data-price data-inr-monthly="899" data-inr-yearly="8,999" data-usd-monthly="14.99" data-usd-yearly="149">899</span> <span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Local-first &amp; private by design</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Family">Included</td></tr>
+            <tr><th scope="row">AI Copilot</th><td data-l="Free">Limited</td><td data-l="Founder Pro">Unlimited</td><td data-l="Family">Unlimited</td></tr>
+            <tr><th scope="row">Advanced Reports &amp; Analytics</th><td data-l="Free">—</td><td data-l="Founder Pro">Included</td><td data-l="Family">Included</td></tr>
+            <tr><th scope="row">Tax Planner Pro</th><td data-l="Free">—</td><td data-l="Founder Pro">Included</td><td data-l="Family">Included</td></tr>
+            <tr><th scope="row">Document Vault</th><td data-l="Free">10 Documents</td><td data-l="Founder Pro">Unlimited</td><td data-l="Family">Unlimited</td></tr>
+            <tr><th scope="row">Multi-Account Tracking</th><td data-l="Free">—</td><td data-l="Founder Pro">Included</td><td data-l="Family">Included</td></tr>
+            <tr><th scope="row">Household Mode</th><td data-l="Free">—</td><td data-l="Founder Pro">—</td><td data-l="Family">Up to 6 Members</td></tr>
+            <tr><th scope="row">Priority Support</th><td data-l="Free">Community</td><td data-l="Founder Pro">Priority</td><td data-l="Family">Premium</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- COMPARE -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band" style="padding:30px 26px">
-      <h2 class="serif" style="font-size:24px;margin-bottom:18px">Compare plans</h2>
-      <div style="overflow-x:auto">
-      <div class="tablewrap" tabindex="0" role="region" aria-label="Plan comparison table, scrolls sideways"><table class="cmp">
-        <thead><tr>
-          <th></th>
-          <th>Free<span><span data-cur-sym>₹</span><span data-price data-inr-monthly="0" data-inr-yearly="0" data-usd-monthly="0" data-usd-yearly="0">0</span> <span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></th>
-          <th class="p2">Founder Pro<span><span data-cur-sym>₹</span><span data-price data-inr-monthly="499" data-inr-yearly="4,999" data-usd-monthly="7.99" data-usd-yearly="79">499</span> <span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></th>
-          <th>Family <span class="soon" style="vertical-align:middle">Coming Soon</span><span><span data-cur-sym>₹</span><span data-price data-inr-monthly="899" data-inr-yearly="8,999" data-usd-monthly="14.99" data-usd-yearly="149">899</span> <span data-showif="monthly">/month</span><span data-showif="yearly" style="display:none">/year</span></span></th>
-        </tr></thead>
-        <tbody>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Local-first &amp; private by design</td><td><span class="c">✓</span></td><td><span class="c">✓</span></td><td><span class="c">✓</span></td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9z"/></svg>AI Copilot</td><td>Limited</td><td class="pos">Unlimited</td><td class="pos">Unlimited</td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h8l4 4v16H6z"/></svg>Advanced Reports &amp; Analytics</td><td><span class="dash">—</span></td><td><span class="c">✓</span></td><td><span class="c">✓</span></td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h8l4 4v16H6z"/><path d="M9 12h6"/></svg>Tax Planner Pro</td><td><span class="dash">—</span></td><td><span class="c">✓</span></td><td><span class="c">✓</span></td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8"/></svg>Document Vault</td><td>10 Documents</td><td class="pos">Unlimited</td><td class="pos">Unlimited</td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/></svg>Multi-Account Tracking</td><td><span class="dash">—</span></td><td><span class="c">✓</span></td><td><span class="c">✓</span></td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0111 0M16 5a3 3 0 010 6"/></svg>Household Mode</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td class="pos">Up to 6 Members</td></tr>
-          <tr><td><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0114 0"/></svg>Priority Support</td><td>Community</td><td>Priority</td><td>Premium</td></tr>
-        </tbody>
-      </table></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head solo"><h2 class="d">Frequently asked questions</h2></div>
+      <div class="faq">
+        <div class="faq-item"><div class="faq-q">Do you store my data on any servers?</div><div class="faq-a"><p>No. Vestora is local-first — your data lives only on your device, in a local SQLite database. There is no Vestora server, no account, and nothing is uploaded unless you explicitly back up to your own cloud folder. The only other connections, live market prices and hosted AI, stay off until you switch them on. (The document vault and backups are encrypted with AES-256-GCM; full database-at-rest encryption is on our <a href="roadmap.html" style="color:var(--gold)">roadmap</a>.)</p></div></div>
+        <div class="faq-item"><div class="faq-q">Can I use Vestora completely offline?</div><div class="faq-a"><p>Yes — everything core works offline. An internet connection is only used — optionally, once you switch them on — to refresh live market prices from free public feeds, or for hosted AI.</p></div></div>
+        <div class="faq-item"><div class="faq-q">Will my data be safe if I change my device?</div><div class="faq-a"><p>Yes. You can export an encrypted backup and restore it on your new device, or point Vestora at your own encrypted cloud folder. You always hold the keys — Vestora never does.</p></div></div>
+        <div class="faq-item"><div class="faq-q">Can I cancel or switch plans anytime?</div><div class="faq-a"><p>Absolutely. Cancel or change plans whenever you like. If you cancel a paid plan you simply drop to the Free plan — still fully usable forever, with all your data readable and exportable.</p></div></div>
+        <div class="faq-item"><div class="faq-q">Is there a free trial for paid plans?</div><div class="faq-a"><p>Yes — you get a full Pro trial to explore every premium feature. After it ends you continue on the generous Free plan for as long as you like, and can upgrade anytime.</p></div></div>
+        <div class="faq-item"><div class="faq-q">How do paid plans work without an account?</div><div class="faq-a"><p>Your financial data never needs a login — it lives only on your device. When you buy a plan, we email you a signed license key; enter it once and it activates offline, forever. The only thing we ever hold is the purchase email used to send your key. Changing devices? Just re-enter your key.</p></div></div>
+        <div class="faq-item"><div class="faq-q">Does Vestora connect to my bank?</div><div class="faq-a"><p>No — by design. You import CSV statements (one-click presets for HDFC, ICICI, SBI, Axis and Kotak, plus auto-detect) or add transactions yourself. No credentials are ever stored, so nothing can leak. Automatic bank connections are not supported.</p></div></div>
+        <div class="faq-item"><div class="faq-q">What is the refund policy?</div><div class="faq-a"><p>30 days, no questions asked, on paid plans. Email hello@vestora.app with your order id and the refund goes back to your original payment method — full details in the <a href="refunds.html" style="color:var(--gold)">refund policy</a>. Your data stays on your device either way — the app simply returns to the Free plan.</p></div></div>
+        <div class="faq-item"><div class="faq-q">How does early access work?</div><div class="faq-a"><p>Email us (any "Request Early Access" button opens a pre-filled draft). Within about 48 hours, hello@vestora.app replies with the Windows build — no payment, no form, no account. Your 14-day full trial starts on first run; afterwards the Free plan continues forever, and a paid licence key (delivered by email after purchase) unlocks premium features offline.</p></div></div>
       </div>
+      <p class="note pay"><strong>Payments.</strong> Cards, UPI &amp; wallets, via a trusted payment partner shown at checkout. INR &amp; USD pricing. Cancel subscriptions anytime. No hidden fees.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FAQ + PAYMENTS -->
-<section class="sec">
-  <div class="wrap">
-    <div class="faqpay">
+  <section class="sec alt">
+    <div class="wrap life">
       <div>
-        <h2 class="serif" style="font-size:24px;margin-bottom:16px">Frequently asked questions</h2>
-        <div class="faq-item"><div class="faq-q">Do you store my data on any servers?<span class="pm">+</span></div><div class="faq-a"><p>No. Vestora is local-first — your data lives only on your device, in a local SQLite database. There is no Vestora server, no account, and nothing is uploaded unless you explicitly back up to your own cloud folder. (The document vault and backups are encrypted with AES-256-GCM; full database-at-rest encryption is on our <a href="roadmap.html" style="color:var(--gold)">roadmap</a>.)</p></div></div>
-        <div class="faq-item"><div class="faq-q">Can I use Vestora completely offline?<span class="pm">+</span></div><div class="faq-a"><p>Yes — everything core works offline. An internet connection is only used — optionally — to refresh live market prices from free public feeds.</p></div></div>
-        <div class="faq-item"><div class="faq-q">Will my data be safe if I change my device?<span class="pm">+</span></div><div class="faq-a"><p>Yes. You can export an encrypted backup and restore it on your new device, or point Vestora at your own encrypted cloud folder. You always hold the keys — Vestora never does.</p></div></div>
-        <div class="faq-item"><div class="faq-q">Can I cancel or switch plans anytime?<span class="pm">+</span></div><div class="faq-a"><p>Absolutely. Cancel or change plans whenever you like. If you cancel a paid plan you simply drop to the Free plan — still fully usable forever, with all your data readable and exportable.</p></div></div>
-        <div class="faq-item"><div class="faq-q">Is there a free trial for paid plans?<span class="pm">+</span></div><div class="faq-a"><p>Yes — you get a full Pro trial to explore every premium feature. After it ends you continue on the generous Free plan for as long as you like, and can upgrade anytime.</p></div></div>
-        <div class="faq-item"><div class="faq-q">How do paid plans work without an account?<span class="pm">+</span></div><div class="faq-a"><p>Your financial data never needs a login — it lives only on your device. When you buy a plan, we email you a signed license key; enter it once and it activates offline, forever. The only thing we ever hold is the purchase email used to send your key. Changing devices? Just re-enter your key.</p></div></div>
-        <div class="faq-item"><div class="faq-q">Does Vestora connect to my bank?<span class="pm">+</span></div><div class="faq-a"><p>No — by design. You import CSV statements (one-click presets for HDFC, ICICI, SBI, Axis and Kotak, plus auto-detect) or add transactions yourself. No credentials are ever stored, so nothing can leak. Automatic bank connections are not supported.</p></div></div>
-        <div class="faq-item"><div class="faq-q">What is the refund policy?<span class="pm">+</span></div><div class="faq-a"><p>30 days, no questions asked, on paid plans. Email hello@vestora.app with your order id and the refund goes back to your original payment method — full details in the <a href="refunds.html" style="color:var(--gold)">refund policy</a>. Your data stays on your device either way — the app simply returns to the Free plan.</p></div></div>
-        <div class="faq-item"><div class="faq-q">How does early access work?<span class="pm">+</span></div><div class="faq-a"><p>Email us (any "Request Early Access" button opens a pre-filled draft). Within about 48 hours, hello@vestora.app replies with the Windows build — no payment, no form, no account. Your 14-day full trial starts on first run; afterwards the Free plan continues forever, and a paid licence key (delivered by email after purchase) unlocks premium features offline.</p></div></div>
+        <h2 class="d">Prefer to own your software? Lifetime Founder.</h2>
+        <p class="life-sub">A one-time licence for the core application — not a subscription.</p>
       </div>
-      <div class="paycard">
-        <h4 class="serif">Secure payments. Worldwide.</h4>
-        <div class="ps">Cards, UPI &amp; wallets, via a trusted payment partner shown at checkout.</div>
-        <div class="paylogos">
-          <span class="pl" style="color:#1a1f71">VISA</span>
-          <span class="pl" style="color:#eb001b">MC</span>
-          <span class="pl" style="color:#006fcf">AMEX</span>
-          <span class="pl" style="color:#0b3b8f">RuPay</span>
-          <span class="pl" style="color:#097939">UPI</span>
-          <span class="pl">GPay</span>
-          <span class="pl">Pay</span>
-        </div>
-        <div class="payfeat">
-          <div class="pf"><span class="pi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18"/></svg></span><b>INR &amp; USD pricing</b><span>Cards, UPI &amp; wallets</span></div>
-          <div class="pf"><span class="pi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><b>Secure checkout</b><span>Encrypted &amp; safe</span></div>
-          <div class="pf"><span class="pi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V4M4 20h16M8 15l4-5 3 3 5-7"/></svg></span><b>Cancel subscriptions anytime</b><span>No hidden fees</span></div>
-        </div>
+      <div class="offer">
+        <div class="plan-top"><h3 class="d d-sm">Lifetime Founder</h3><span class="tier">Best value</span></div>
+        <p class="price"><span class="amt">₹14,999</span></p>
+        <p class="price-alt">or $249 · One-time payment</p>
+        <ul class="has">
+          <li>Lifetime access to the app &amp; all core features</li>
+          <li>On-device AI included — forever</li>
+          <li>Hosted AI on a generous fair-use allowance</li>
+          <li>Yours forever. No renewals.</li>
+        </ul>
+        <a class="cta" href="mailto:hello@vestora.app?subject=Lifetime%20plan%20—%20early-access%20purchase">Get lifetime access →</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- LIFETIME -->
-<section class="sec">
-  <div class="wrap">
-    <div class="band" style="background:radial-gradient(120% 120% at 50% 0,rgba(201,164,78,.1),transparent 55%),var(--panel);border-color:rgba(201,164,78,.28)">
-      <div class="life">
-        <div>
-          <h2 class="serif" style="font-size:26px;letter-spacing:-.02em">Prefer to own your software?<br><span class="gold">Lifetime Founder.</span></h2>
-          <p style="font-size:13.5px;color:var(--muted2);margin-top:10px">A one-time licence for the core application — not a subscription.</p>
-        </div>
-        <div class="shield2">
-          <svg width="90" height="100" viewBox="0 0 100 116" fill="none"><path d="M50 4 L92 20 V56 C92 84 74 102 50 112 C26 102 8 84 8 56 V20 Z" fill="rgba(201,164,78,.06)" stroke="var(--gold)" stroke-width="2.5"/><path d="M38 58l8 8 16-16" stroke="var(--gold)" stroke-width="3.5" fill="none"/></svg>
-        </div>
-        <div>
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="font-size:13px;color:var(--muted2)">Lifetime Founder</span><span class="best">Best Value</span></div>
-          <div class="price-big" style="margin:2px 0"><span>₹14,999</span></div>
-          <div class="price-alt" style="margin-bottom:14px">or $249 · One-time payment</div>
-          <ul class="life-checks">
-            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Lifetime access to the app &amp; all core features</li>
-            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>On-device AI included — forever</li>
-            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Hosted AI on a generous fair-use allowance</li>
-            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Yours forever. No renewals.</li>
-          </ul>
-          <a class="btn btn-gold" href="mailto:hello@vestora.app?subject=Lifetime%20plan%20—%20early-access%20purchase" style="margin-top:16px">Get Lifetime Access →</a>
-        </div>
+  <section class="close">
+    <div class="wrap">
+      <h2 class="d">Built for people who value privacy and clarity.</h2>
+      <div class="hnote">
+        <span><b></b> Local-first: your data stays on your device</span>
+        <span><b></b> No cloud required: we never store your data</span>
+        <span><b></b> No tracking. No ads. Zero profiling. Ever.</span>
+        <span><b></b> AES-256-GCM, keys from your passphrase</span>
+        <span><b></b> Built for India. Made for the world.</span>
       </div>
+      <a class="cta" href="download.html">Get early access</a>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- BOTTOM TRUST STRIP -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <p style="text-align:center;font-size:13px;color:var(--muted);margin:10px 0 16px">Built for people who value privacy and clarity.</p>
-    <div class="foot-trust">
-      <div class="fti"><span class="fic" style="color:var(--pos)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><div><b>Local-first</b><span>Your data stays on your device.</span></div></div>
-      <div class="fti"><span class="fic" style="color:var(--blue)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0118 9a4 4 0 010 9H7z"/></svg></span><div><b>No Cloud Required</b><span>We never store your data.</span></div></div>
-      <div class="fti"><span class="fic" style="color:var(--neg)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg></span><div><b>No Tracking. No Ads.</b><span>Zero profiling. Ever.</span></div></div>
-      <div class="fti"><span class="fic" style="color:var(--gold)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></span><div><b>AES-256 Encrypted</b><span>AES-256-GCM, keys from your passphrase.</span></div></div>
-      <div class="fti"><span class="fic" style="color:var(--teal)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M6 20a6 6 0 0112 0"/></svg></span><div><b>Built for India</b><span>Made for the world.</span></div></div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer style="margin-top:0">
-  <div class="wrap">
-    <div class="foot-bottom" style="border-top:none;padding-top:0;margin-bottom:26px">
-      <span class="discl">Prices exclude applicable local taxes. Need a custom solution for your team or business? <a href="mailto:hello@vestora.app" class="gold">Contact Sales →</a></span>
-      <span>🇮🇳 India (₹ INR) · 🌐 Global ($ USD)</span>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Vestora home"><svg class="sh-mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><path d="M7.5 7.5 L20 33 L29.5 13.6" fill="none" stroke="url(#sh-vg)" stroke-width="5.2" stroke-linejoin="miter"/><path d="M27.6 7.5 L34.5 7.5" fill="none" stroke="url(#sh-vg)" stroke-width="3.1" opacity=".92"/></svg><span><span class="sh-name">Vestora</span><span class="sh-tag">Build Wealth. With Clarity.</span></span></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
     </div>
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="index.html"><span class="mark"></span><span><span class="bt">Vestora</span><span class="bs">Build Wealth. With Clarity.</span></span></a>
-        <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-      </div>
-      <div class="foot-col"><h5>Product</h5><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></div>
-      <div class="foot-col"><h5>Download</h5><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></div>
-      <div class="foot-col"><h5>Company</h5><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></div>
-    </div>
-    <div class="foot-bottom">
-      <span class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial. © 2026 Vestora.</span>
-      <span>Made in India 🇮🇳</span>
-    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-vestora.html">Why Vestora</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="mailto:hello@vestora.app" data-notify="macOS">macOS</a><a href="mailto:hello@vestora.app" data-notify="Android">Android</a><a href="mailto:hello@vestora.app" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Vestora is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Vestora · Made in India</p>
   </div>
 </footer>
 
-<script src="assets/vestora.js?v=17" defer></script>
+<script src="assets/vestora.js" defer></script>
 </body>
 </html>

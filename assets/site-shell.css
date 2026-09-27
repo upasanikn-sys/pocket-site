@@ -1,5 +1,5 @@
 /* ============================================================================
-   VESTORA — SITE SHELL
+   POCKET — SITE SHELL
    The pieces every page shares, defined once: the header, the phone menu,
    in-text links, and the browser surfaces a page never draws itself.
    Loaded LAST on every page so it wins at equal specificity.
@@ -30,11 +30,9 @@
 }
 .sh-brand{display:flex; align-items:center; gap:12px; margin-right:auto; color:var(--v-text, #EDF0F7);
   text-decoration:none; border-radius:8px}
-.sh-mark{width:30px; height:30px; flex:none; display:block}
-.sh-name{display:block; font-family:Fraunces, Georgia, serif; font-variation-settings:"opsz" 40, "SOFT" 50, "WONK" 1;
-  font-weight:600; font-size:18px; line-height:1; letter-spacing:.005em}
-.sh-tag{display:block; margin-top:4px; font:500 10.5px/1 Inter, system-ui, sans-serif; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--v-text-3, #8C95AA)}
+/* the Pocket logo (brand/pocket-logo.current.svg, inline): navy follows the text colour */
+.sh-logo{display:block; flex:none}
+.sh-logo svg{display:block; height:30px; width:auto}
 
 .sh-links{display:flex; align-items:center; gap:26px}
 .sh-links a{position:relative; padding:10px 0; font:500 14px/1 Inter, system-ui, sans-serif;
@@ -84,7 +82,6 @@
   html:not(.js) .sh-menu-btn{display:none}
 }
 @media (max-width:560px){
-  .sh-tag{display:none}
   .sh-cta{display:none}          /* the menu carries the action; two CTAs never compete at 390px */
 }
 @media (min-width:901px){ .sh-menu{display:none !important} }

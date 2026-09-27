@@ -1,5 +1,5 @@
 /* ============================================================================
-   VESTORA — OBSERVATORY
+   POCKET — OBSERVATORY
    The Private Observatory world (DESIGN.md), shared by every public page.
    Section 1 is the homepage's stylesheet moved here verbatim (its golden
    screenshots prove the move changed nothing). Section 2 adds the patterns
@@ -413,7 +413,7 @@ footer{border-top:1px solid var(--line-soft); padding:38px 0; font-size:13px; co
 .compare{min-width:560px}
 .compare thead th:last-child, .compare td:last-child{color:var(--text)}
 .compare td:last-child{font-weight:500}
-/* phones: the table would scroll the Vestora column out of view, so each row stacks with its labels */
+/* phones: the table would scroll the Pocket column out of view, so each row stacks with its labels */
 @media(max-width:560px){
   .compare, .compare tbody{display:block; min-width:0}
   .compare thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}

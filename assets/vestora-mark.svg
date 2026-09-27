@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Vestora">
-  <!-- left arm (navy) -->
-  <path d="M8 10 L20 10 Q23 20 24 30 Q24.3 37.5 22.4 42.5 Z" fill="#16294d"/>
-  <!-- right arm (gold) -->
-  <path d="M40 10 L28 10 Q25 20 24 30 Q23.7 37.5 25.6 42.5 Z" fill="#c9a44e"/>
-</svg>

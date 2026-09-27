@@ -1,9 +1,9 @@
 /* ============================================================================
-   VESTORA — shared site behaviour. Loaded by every page (defer).
+   POCKET — shared site behaviour. Loaded by every page (defer).
 
    >>> GO LIVE: set DOWNLOAD_URL to your Gumroad product page (recommended — it
    handles the free tier + paid license keys), or a public direct link to
-   Vestora_windows.zip. While it is empty, the Windows buttons show a friendly
+   Pocket_windows.zip. While it is empty, the Windows buttons show a friendly
    "launching soon" message instead of a broken link.
    ============================================================================ */
 var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
@@ -82,8 +82,8 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
       openModal({
         title: "Request Windows early access",
         desc: "Email us and we'll send the current Windows build (v2.1.0). No account, no payment.",
-        subject: "Vestora for Windows — early access request",
-        body: "Hi — I'd like early access to Vestora for Windows."
+        subject: "Pocket for Windows — early access request",
+        body: "Hi — I'd like early access to Pocket for Windows."
       });
     });
   });
@@ -94,10 +94,10 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
       e.preventDefault();
       var p = el.getAttribute("data-notify");
       openModal({
-        title: "Get notified — Vestora for " + p,
+        title: "Get notified — Pocket for " + p,
         desc: p + " isn't ready yet. Email us and we'll let you know the moment it is.",
-        subject: "Notify me — Vestora for " + p,
-        body: "Hi — please notify me when Vestora for " + p + " is available."
+        subject: "Notify me — Pocket for " + p,
+        body: "Hi — please notify me when Pocket for " + p + " is available."
       });
     });
   });
@@ -230,7 +230,7 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
       var input = f.querySelector("input");
       var val = input ? input.value.trim() : "";
       window.location.href = "mailto:hello@vestora.app?subject=" +
-        encodeURIComponent("Keep me posted on Vestora") +
+        encodeURIComponent("Keep me posted on Pocket") +
         "&body=" + encodeURIComponent("Please add me to the update list." + (val ? " My email: " + val : ""));
       if (input) input.value = "";
       if (typeof mailtoDone === "function") mailtoDone();

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<title>Security Architecture — Pocket</title>
+<meta name="description" content="A precise, verifiable description of how Pocket protects your data: what is encrypted and how, what is not, the threat model, and how to report a vulnerability.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://upasanikn-sys.github.io/pocket-site/security-architecture.html">
+<meta property="og:title" content="Security Architecture — Pocket">
+<meta property="og:description" content="A precise, verifiable description of how Pocket protects your data: what is encrypted and how, what is not, the threat model, and how to report a vulnerability.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://upasanikn-sys.github.io/pocket-site/security-architecture.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://upasanikn-sys.github.io/pocket-site/assets/og-pocket.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket — the money app that shows its working. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
+<meta name="twitter:image" content="https://upasanikn-sys.github.io/pocket-site/assets/og-pocket.png">
+<link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
+<link rel="stylesheet" href="assets/observatory.css?v=5">
+<link rel="stylesheet" href="assets/site-shell.css?v=3">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="index.html" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">AI Copilot</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
+    <a class="sh-cta" href="download.html">Get early access</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">AI Copilot</a>
+    <a href="security.html" aria-current="page">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="download.html">Download</a>
+    <a class="sh-menu-cta" href="download.html">Get early access</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="wrap">
+<article class="prose">
+  <h1>Security Architecture</h1>
+  <div class="ldate">Updated 17 July 2026 · Describes the currently shipping early-access build, verified against the source code</div>
+
+  <div class="lsum">
+    <b>Plain-English summary:</b> Pocket operates no central server containing your financial database — structurally reducing
+    exposure to the large-scale cloud breaches that plague finance apps. Secrets you protect with a
+    passphrase (vault documents, backups) are sealed with <b>scrypt-derived AES-256-GCM
+    encryption</b>; the main working database is a local file guarded by your device, so we recommend
+    OS disk encryption. This page states exactly what is protected, how, and — just as important —
+    what is not.
+  </div>
+
+  <h2>1. Design goals and threat model</h2>
+  <p>Pocket is built to protect you against the failure modes that actually compromise financial
+  data at scale:</p>
+  <ul>
+    <li><b>Server breaches</b> — eliminated structurally. Pocket runs no cloud service and holds no
+    copy of your data, so a "Pocket hack" cannot leak it.</li>
+    <li><b>Data harvesting and resale</b> — eliminated structurally. There is no telemetry, no
+    analytics SDK, no advertising, and no account system.</li>
+    <li><b>Network interception</b> — the app makes no outbound requests carrying personal data (see
+    §8 for the complete list of connections).</li>
+    <li><b>Casual local snooping</b> — an app-lock PIN and OS biometrics gate the interface, and
+    vault/backup contents are encrypted under keys only you can derive.</li>
+  </ul>
+  <p>Explicitly <b>outside</b> the threat model: an attacker who controls your device while you are
+  logged in (malware, keyloggers), or who has physical access to an unencrypted disk. No desktop
+  application can defend against a compromised operating system — see §9 for what we recommend.</p>
+
+  <h2>2. Where your data lives</h2>
+  <p>Everything you enter is stored in a single SQLite database file (plus a vault folder) inside a
+  data directory on your device. It is created locally, read locally, and never transmitted by
+  Pocket. You can copy it, back it up, or delete it like any file — deleting it removes your data
+  permanently.</p>
+  <p><b>Honest detail:</b> the main working database is <b>not encrypted at rest by the app</b>. It
+  is protected by your operating-system account and whatever disk encryption your device uses. This
+  is a deliberate early-access trade-off — the app works with zero setup and no master password to
+  lose — and full at-rest database encryption is scheduled on the <a href="roadmap.html">roadmap</a> (Q4 2026). Until then we recommend enabling
+  <b>BitLocker / Windows Device Encryption</b>, which encrypts the database (and everything else)
+  whenever the machine is off.</p>
+
+  <h2>3. Document vault — encrypted, zero-knowledge</h2>
+  <p>Vault files (PAN, insurance, property papers, anything you choose) are individually encrypted on
+  your device:</p>
+  <ul>
+    <li><b>Key derivation:</b> your passphrase is run through <b>scrypt</b> (n=2<sup>14</sup>, r=8,
+    p=1) with a fresh random 16-byte salt per file, producing a 32-byte key. scrypt is deliberately
+    memory-hard, which makes brute-forcing passphrases expensive.</li>
+    <li><b>Encryption:</b> the derived key seals the file with <b>AES-256-GCM</b>, using a fresh
+    random 12-byte nonce per file. GCM is authenticated encryption — a tampered or wrongly-keyed
+    file fails authentication instead of decrypting to garbage. Vault files written by earlier
+    early-access builds (Fernet: AES-128-CBC + HMAC-SHA256) remain readable and are transparently
+    re-encrypted to AES-256-GCM the next time they are opened with the right passphrase.</li>
+    <li><b>Zero knowledge:</b> the passphrase and derived key are never stored, anywhere. A wrong
+    passphrase cannot decrypt, and a lost passphrase cannot be recovered — by you, by us, by
+    anyone. That is the point.</li>
+    <li><b>What stays visible:</b> document <i>names, labels, sizes and dates</i> are kept in a
+    plaintext index so the app can list your vault without a passphrase. If a filename is itself
+    sensitive, rename it before adding.</li>
+    <li>Different files may use different passphrases; each file carries its own salt. Documents up
+    to 10&nbsp;MB.</li>
+  </ul>
+
+  <h2>4. Encrypted backup &amp; sync — your key, your storage</h2>
+  <ul>
+    <li>A backup snapshots the database using SQLite's online backup API (safe while the app runs),
+    then encrypts the snapshot with the <b>same scrypt → AES-256-GCM scheme</b> as the vault
+    (envelope v2; v1 envelopes from earlier builds remain restorable), under a
+    passphrase you choose.</li>
+    <li>The result is a single opaque encrypted blob written to a <b>folder you pick</b> — including
+    a folder your own Dropbox/OneDrive/Drive client syncs. Your cloud provider stores ciphertext it
+    cannot read; Pocket runs no sync server and holds no key.</li>
+    <li>Restores are newest-wins, and a safety copy of the current database is made before any
+    restore overwrites it.</li>
+  </ul>
+
+  <h2>5. App lock and biometrics</h2>
+  <ul>
+    <li>The app-lock <b>PIN is never stored</b> — a scrypt hash (same parameters as above, random
+    salt) lives in the local database, and verification happens server-side in the local app process,
+    never in browser storage.</li>
+    <li><b>Biometric unlock uses the real OS credential system (WebAuthn)</b> — Windows Hello face,
+    fingerprint or device PIN. Pocket never sees or stores biometric data; the operating system
+    performs the check and returns only a signed assertion.</li>
+  </ul>
+
+  <h2>6. The local app server</h2>
+  <p>Pocket's interface is served by a small local web server:</p>
+  <ul>
+    <li>It binds to <b>127.0.0.1 (localhost) only</b> by default — unreachable from the network.
+    Serving to your own Wi-Fi (for the phone experience) is a separate, explicit opt-in.</li>
+    <li>An optional API token can be required for every request; it is compared in constant time to
+    prevent timing attacks.</li>
+    <li>Sensitive actions are recorded to a local, append-only audit log you can inspect.</li>
+  </ul>
+
+  <h2>7. Imported statements are treated as untrusted</h2>
+  <p>A CSV or bank statement is written by someone else, so Pocket treats every field in it —
+  merchant names, descriptions, categories — as untrusted input rather than as its own data.
+  That matters because the interface is a web page: text from a file should never be able to
+  become code running next to your financial database.</p>
+  <ul>
+    <li>Text shown on screen is HTML-escaped, so markup in a merchant name renders as characters,
+    not as elements.</li>
+    <li>Text passed to the page as data is encoded for that context specifically, so it cannot end
+    the surrounding script block.</li>
+    <li>Text placed inside a button's action is escaped for JavaScript before it is escaped for
+    HTML, because a browser decodes the second before it reads the first. Names with apostrophes —
+    O'Brien, Trader Joe's — are preserved exactly rather than stripped.</li>
+  </ul>
+  <p>Each of these is covered by an automated test that is verified to fail if the protection is
+  removed, so a future change cannot quietly undo them.</p>
+
+  <h2>8. Every network connection, listed</h2>
+  <div class="tablewrap" tabindex="0" role="region" aria-label="Network connections table, scrolls sideways"><table>
+    <tr><th>Connection</th><th>When</th><th>What is sent</th></tr>
+    <tr><td>Market price feeds (Yahoo Finance, AMFI, public crypto APIs) over HTTPS</td>
+        <td>Only when price refresh is enabled/used</td>
+        <td>Instrument identifiers (e.g. ticker symbols). Never names, quantities, balances or any personal data.</td></tr>
+    <tr><td>Your own cloud folder (if you point backups at one)</td>
+        <td>Only when you back up / sync</td>
+        <td>One encrypted blob, sealed under your passphrase before it touches the folder.</td></tr>
+    <tr><td>Hosted AI (optional, off by default)</td>
+        <td>Only if you explicitly enable it</td>
+        <td>Described at the point of enabling; the built-in intelligence runs entirely on-device.</td></tr>
+  </table></div>
+  <p>That is the complete list. There is no telemetry, no crash reporting, no update phone-home, and
+  license keys validate offline (§10).</p>
+
+  <h2>9. What is NOT protected — read this</h2>
+  <ul>
+    <li><b>The main database is not encrypted at rest by the app</b> (§2). Mitigate with OS disk
+    encryption; the vault exists for your most sensitive documents.</li>
+    <li><b>A compromised device defeats everything.</b> Malware running as you can read what you can
+    read. Keep your OS updated and use an up-to-date antivirus.</li>
+    <li><b>Vault metadata is plaintext</b> (names, labels, sizes) — by design, documented in §3.</li>
+    <li><b>Data in memory while the app runs is not specially hardened</b> beyond OS process
+    isolation.</li>
+    <li><b>The early-access build is not yet code-signed.</b> Only run a build you received directly
+    from us — if in doubt, email us and we will confirm the file's SHA-256 checksum.</li>
+    <li><b>No independent security audit has been performed yet.</b> This page is our own honest
+    account, verified against the source; an external review is planned before wide release. We will
+    publish results here when it happens.</li>
+  </ul>
+
+  <h2>10. License keys</h2>
+  <p>Paid tiers activate with a key that is <b>signed with Ed25519</b>; only the public key ships in
+  the app, so a key that verifies provably came from us. Validation is fully offline — no activation
+  server, no phone-home, and a key past its term simply drops the app to the permanent Free plan.</p>
+
+  <h2>11. Reporting a vulnerability</h2>
+  <p>If you believe you have found a security issue, email the address on
+  <a href="contact.html">our Contact page</a> with the subject
+  <b>SECURITY</b>. You will get a human response, normally within 48 hours. Please give us a
+  reasonable window to fix the issue before public disclosure; we will credit you (or keep you
+  anonymous, your choice) in the fix notes. There is no bug bounty yet — early access is honest about
+  its budget — but reports are taken seriously and acted on first.</p>
+
+  <div class="lnote">Related: <a href="security.html">Security overview</a> ·
+  <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> ·
+  <a href="license.html">License Terms</a></div>
+</article>
+</div>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="contact.html" data-notify="macOS">macOS</a><a href="contact.html" data-notify="Android">Android</a><a href="contact.html" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India</p>
+  </div>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+</body>
+</html>

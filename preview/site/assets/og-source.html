@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<title>Pocket — OG card source</title>
+<!--
+  SOURCE FILE for assets/og-pocket.png (1200x630, the social link-preview card).
+  Committed as HTML rather than a binary-only asset so the card can be regenerated
+  from the same design tokens the site uses. Regenerate with (it renders every brand asset):
+
+    python tools/brand_assets.py
+
+  Kept out of the sitemap and marked noindex: it is a rendering target, not a page.
+  Direction C: film ground, ink type, the Pocket logo as supplied. No glow, grid, grain or shadow,
+  and no third-party fonts; the tokens file serves its own.
+-->
+<link rel="stylesheet" href="vestora-tokens.css?v=2">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans); position:relative}
+
+  .card{position:relative; height:100%; display:grid;
+    grid-template-columns:1fr 384px; align-items:center;
+    padding:62px 0 62px 72px}
+
+  /* ---- left: the message ---- */
+  .brand{margin-bottom:40px}
+  .brand img{display:block}
+
+  /* the break is set explicitly so the second phrase owns line two */
+  h1{font:700 56px/1.04 var(--display); letter-spacing:-.035em}
+  h1 em{font-style:normal; color:var(--ink-2)}
+  p{margin-top:24px; font-size:20px; line-height:1.5; color:var(--ink-2); max-width:23em}
+
+  .strip{margin-top:40px; display:flex; align-items:center}
+  .strip span{font:500 14px/1 var(--sans); color:var(--ink-3);
+    padding:0 18px; border-left:1px solid var(--rule-2)}
+  .strip span:first-child{padding-left:0; border-left:0; color:var(--ink); font-weight:600}
+
+  /* ---- right: the product on a plain 16px card, bleeding off the edge (DESIGN.md: a phone
+     screen is shown on a plain card, never in a device body) ---- */
+  .stage{position:relative; height:100%}
+  .phone{position:absolute; top:24px; right:-34px; width:272px;
+    border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card);
+    box-shadow:var(--lift)}
+  .screen img{display:block; width:100%; height:auto}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div>
+      <div class="brand"><img src="pocket-logo.svg" alt="Pocket" width="195" height="44"></div>
+
+      <h1>The money app that<br><em>shows its working.</em></h1>
+      <p>Net worth, investments, cash flow, debt, tax and goals — computed on your
+      own machine, from your own numbers.</p>
+
+      <div class="strip">
+        <span>On-device</span>
+        <span>No cloud account</span>
+        <span>Windows early access</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="phone">
+        <div class="screen"><img src="shot-app-home.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

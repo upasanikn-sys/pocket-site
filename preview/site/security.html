@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<title>Security &amp; Privacy — Your data is yours. Always. | Pocket</title>
+<meta name="description" content="How Pocket keeps your financial life under your control: local-first, an AES-256-GCM encrypted vault and backups, no cloud account, no tracking, no ads.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://upasanikn-sys.github.io/pocket-site/security.html">
+<meta property="og:title" content="Security &amp; Privacy — Your data is yours. Always. | Pocket">
+<meta property="og:description" content="How Pocket keeps your financial life under your control: local-first, an AES-256-GCM encrypted vault and backups, no cloud account, no tracking, no ads.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://upasanikn-sys.github.io/pocket-site/security.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://upasanikn-sys.github.io/pocket-site/assets/og-pocket.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket — the money app that shows its working. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
+<meta name="twitter:image" content="https://upasanikn-sys.github.io/pocket-site/assets/og-pocket.png">
+<link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
+<link rel="stylesheet" href="assets/observatory.css?v=5">
+<link rel="stylesheet" href="assets/site-shell.css?v=3">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="index.html" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">AI Copilot</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
+    <a class="sh-cta" href="download.html">Get early access</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">AI Copilot</a>
+    <a href="security.html" aria-current="page">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="download.html">Download</a>
+    <a class="sh-menu-cta" href="download.html">Get early access</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="ph">
+    <div class="wrap">
+      <h1 class="d">Your data is yours. Always has been.</h1>
+      <p class="sub">Pocket is built with a privacy-first architecture that keeps your financial life completely under your control.</p>
+      <div class="hbtns">
+        <a class="cta" href="download.html">Get early access</a>
+        <a class="ghost" href="security-architecture.html">View our architecture</a>
+      </div>
+      <dl class="caps wide">
+        <div><dt>Local-first</dt><dd>Your data lives on your device, not on our servers.</dd></div>
+        <div><dt>No cloud required</dt><dd>Works offline. Optional online services (market prices, your own backup folder) are strictly opt-in.</dd></div>
+        <div><dt>No tracking. No ads.</dt><dd>We don't track you. We don't profile you. We don't sell your data.</dd></div>
+        <div><dt>Strong security</dt><dd>Vault &amp; backups use AES-256-GCM with keys derived from your passphrase; TLS secures optional price updates.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">The Pocket difference</h2>
+        <p>Most apps put your data in the cloud. Pocket keeps it where it belongs — with you.</p>
+      </div>
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scrolls sideways">
+        <table class="spec compare">
+          <thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Most finance apps</th><th scope="col">Pocket</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Where data lives</th><td data-l="Most finance apps">Cloud servers</td><td data-l="Pocket">Your device only</td></tr>
+            <tr><th scope="row">Internet required</th><td data-l="Most finance apps">Always required</td><td data-l="Pocket">Never (live prices are optional)</td></tr>
+            <tr><th scope="row">Who can see it</th><td data-l="Most finance apps">Company access</td><td data-l="Pocket">You only</td></tr>
+            <tr><th scope="row">Tracking &amp; profiling</th><td data-l="Most finance apps">Tracking &amp; profiling</td><td data-l="Pocket">No</td></tr>
+            <tr><th scope="row">Data monetization</th><td data-l="Most finance apps">Data monetization</td><td data-l="Pocket">No</td></tr>
+            <tr><th scope="row">Works offline</th><td data-l="Most finance apps">Rarely works offline</td><td data-l="Pocket">Yes</td></tr>
+            <tr><th scope="row">You own your data</th><td data-l="Most finance apps">They own it</td><td data-l="Pocket">Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head solo"><h2 class="d">Privacy isn't a feature. It's our foundation.</h2><p>There are no Pocket servers. Nothing leaves your device by default, and never quietly: live prices, encrypted sync and hosted AI happen only if you switch them on, and go only where you send them.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head solo">
+        <h2 class="d">Built on a privacy-first architecture</h2>
+      </div>
+      <div class="mlist">
+        <div class="mrow"><h3 class="d d-sm">Your device</h3><p>All data is stored locally on your device. You are in control.</p></div>
+        <div class="mrow"><h3 class="d d-sm">Encrypted vault and backups</h3><p>Vault files and backups are sealed with AES-256-GCM, using keys derived from your passphrase.</p></div>
+        <div class="mrow"><h3 class="d d-sm">No cloud by default</h3><p>No Pocket servers and no Pocket cloud. Nothing leaves your device unless you switch something on. Privacy by design.</p></div>
+        <div class="mrow"><h3 class="d d-sm">Optional sync</h3><p>Choose to sync with your own encrypted cloud provider. You decide.</p></div>
+        <div class="mrow"><h3 class="d d-sm">You own your data</h3><p>Export. Backup. Restore. Your data, your lifetime. Always yours.</p></div>
+      </div>
+      <div class="control">
+        <h3>You're always in control</h3>
+        <ul class="has">
+          <li>Export your data anytime</li>
+          <li>Backup to your own cloud</li>
+          <li>Delete everything instantly</li>
+          <li>No lock-in. Ever.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Security under the hood</h2>
+        <p><a href="security-architecture.html">Read the full security architecture — what is encrypted, how, and what is not →</a></p>
+      </div>
+      <dl class="defs">
+        <div><dt>AES-256 encryption</dt><dd>Vault files &amp; backups sealed with scrypt-derived keys (AES-256-GCM).</dd></div>
+        <div><dt>Local database</dt><dd>Your database lives on your device and is never uploaded to Pocket. If you switch on encrypted sync, an encrypted copy goes only to the folder you choose. Add OS disk encryption (BitLocker) for at-rest protection.</dd></div>
+        <div><dt>App lock</dt><dd>Protect Pocket with Windows Hello, fingerprint or PIN — an in-app lock for the screen, not a replacement for disk encryption.</dd></div>
+        <div><dt>Secure backups</dt><dd>Encrypted backups that only you can access and restore.</dd></div>
+        <div><dt>No third-party trackers</dt><dd>We don't use analytics SDKs, trackers or advertising.</dd></div>
+        <div><dt>Honest by design</dt><dd>Real numbers, clear assumptions, no dark patterns.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Data stays on your device</h2>
+        <p>Pocket is local-first. Your financial life never leaves your device unless you choose to export, sync or back up, or switch on live prices or hosted AI. Windows today, with macOS and Android in internal testing.</p>
+      </div>
+      <blockquote class="promise">
+        <p class="d d-sm">“We built Pocket because we believe privacy is a fundamental right — not a premium feature. Your trust is our most valuable asset.”</p>
+        <footer>— Our privacy promise</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Current security limitations — read before relying on Pocket</h2>
+        <p>Early access means honesty about what is not finished yet. The full detail lives in the <a href="security-architecture.html">security architecture</a>.</p>
+      </div>
+      <ul class="limits">
+        <li><strong>The main database is not yet encrypted at rest by Pocket.</strong> It stays on your device; enable BitLocker / Windows Device Encryption. App-level encryption is scheduled on the <a href="roadmap.html">roadmap</a> (Q4 2026); the mobile apps now in internal testing already encrypt their database at rest.</li>
+        <li><strong>The early-access installer is not yet code-signed.</strong> Only run a build received directly from us; we confirm SHA-256 checksums by email.</li>
+        <li><strong>No independent security audit has been completed yet.</strong> One is planned before wide release; results will be published.</li>
+        <li><strong>Backups are your responsibility.</strong> Pocket provides encrypted backup tools — please use them, and protect your device like the vault it is.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 class="d">Your financial life. Your data. Your rules.</h2>
+      <div class="hnote">
+        <span><b></b> Private by design</span>
+        <span><b></b> Secure by default</span>
+        <span><b></b> Yours forever</span>
+      </div>
+      <a class="cta" href="download.html">Get early access</a>
+      <p class="soon">Runs locally. Works offline. Local-first, no cloud required, no tracking and no ads. Built for India, designed for the world — for people who value privacy and clarity.</p>
+    </div>
+  </section>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="index.html" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html" class="js-dl" data-os="Windows">Windows app</a><a href="contact.html" data-notify="macOS">macOS</a><a href="contact.html" data-notify="Android">Android</a><a href="contact.html" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India</p>
+  </div>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+</body>
+</html>

@@ -1,22 +1,18 @@
-/* ============================================================================
-   POCKET — shared site behaviour. Loaded by every page (defer).
+/* POCKET — shared site behaviour. Loaded by every page (defer).
 
    >>> GO LIVE: set DOWNLOAD_URL to your Gumroad product page (recommended — it
    handles the free tier + paid license keys), or a public direct link to
    Pocket_windows.zip. While it is empty, the Windows buttons show a friendly
    "launching soon" message instead of a broken link.
-   ============================================================================ */
+*/
 var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
 
 (function () {
   "use strict";
 
-  var EMAIL = "hello@vestora.app";
+  var EMAIL = "";   // the address is being replaced (28 Sep 2026); the Contact page says so
 
-  /* --- early-access dialog: mailto alone dead-ends when there's no default mail
-         app (Windows shows an app-chooser; picking a browser does nothing). This
-         always works — the address is shown, copyable, with mailto as a bonus. --- */
-  /* created on first use: an always-present empty role="dialog" element was noise for assistive tech */
+  /* --- early-access dialog: the address shown and copyable, mailto as a bonus --- */
   var back = null, lastFocus = null;
   function ensureBack() {
     if (back) return back;
@@ -43,20 +39,22 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
       '<div class="vmodal">' +
         '<button class="vmodal-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
         '<h3 id="vmodal-title">' + opts.title + '</h3>' +
-        '<p>' + opts.desc + '</p>' +
+        (EMAIL ? '<p>' + opts.desc + '</p>' +
         '<div class="em"><span class="addr">' + EMAIL + '</span>' +
           '<button class="copybtn" type="button">Copy</button></div>' +
         '<div class="acts">' +
           '<a class="btn btn-gold" href="mailto:' + EMAIL + '?subject=' + subject + '&body=' + body + '">Open email app</a>' +
         '</div>' +
-        '<p class="hint">No email app? Copy the address and write to us from anywhere — Gmail, your phone, whatever you use. A human replies within 48 hours (please check spam).</p>' +
+        '<p class="hint">No email app? Copy the address and write to us from anywhere — Gmail, your phone, whatever you use. A human replies within 48 hours (please check spam).</p>'
+        : '<p>Our email address is changing, so requests are paused. The new address will be on the Contact page.</p>' +
+          '<div class="acts"><a class="btn btn-gold" href="contact.html">Contact page</a></div>') +
       '</div>';
     back.classList.add("on");
     var card = back.querySelector(".vmodal");
     var closeBtn = back.querySelector(".vmodal-close");
     var copyBtn = back.querySelector(".copybtn");
     closeBtn.addEventListener("click", closeModal);
-    copyBtn.addEventListener("click", function () {
+    if (copyBtn) copyBtn.addEventListener("click", function () {
       var done = function () { copyBtn.textContent = "Copied"; copyBtn.classList.add("ok"); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(EMAIL).then(done, function () { fallbackCopy(); done(); });
@@ -229,7 +227,7 @@ var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
       e.preventDefault();
       var input = f.querySelector("input");
       var val = input ? input.value.trim() : "";
-      window.location.href = "mailto:hello@vestora.app?subject=" +
+      window.location.href = !EMAIL ? "contact.html" : "mailto:" + EMAIL + "?subject=" +
         encodeURIComponent("Keep me posted on Pocket") +
         "&body=" + encodeURIComponent("Please add me to the update list." + (val ? " My email: " + val : ""));
       if (input) input.value = "";

@@ -1,0 +1,32 @@
+# Pocket
+
+> Pocket is a private personal finance app for Windows 10/11, in early access. It computes net worth, cash flow, investments, goals, debt and tax on your own device, from the numbers you enter or import, and can show the working behind its figures. It is built by an independent, India-based project.
+
+Facts that the pages below state:
+
+- Local-first: the financial database stays on your device. There is no Pocket account and no Pocket server; nothing is uploaded by default.
+- Live market prices and hosted AI are off until you switch them on.
+- Pocket reports figures, targets and gaps. It does not place trades or tell you to buy or sell, and it is not financial advice.
+- Plans: a Free plan that stays usable, Founder Pro (monthly or yearly), and a one-time Lifetime Founder licence. Paid plans are activated by an offline, signed licence key.
+- Our email address is changing; the new one will be published on the Contact page.
+
+## Pages
+
+- [Home](https://upasanikn-sys.github.io/pocket-site/): what Pocket is, with its working shown on sample data
+- [Why Pocket](https://upasanikn-sys.github.io/pocket-site/why-pocket.html): the problem it solves
+- [Features](https://upasanikn-sys.github.io/pocket-site/features.html): every module
+- [AI Copilot](https://upasanikn-sys.github.io/pocket-site/ai-copilot.html): how the on-device answers work, and their limits
+- [Security & Privacy](https://upasanikn-sys.github.io/pocket-site/security.html): what stays on your device
+- [Security Architecture](https://upasanikn-sys.github.io/pocket-site/security-architecture.html): what is encrypted and how, and the threat model
+- [Pricing](https://upasanikn-sys.github.io/pocket-site/pricing.html): plans, prices and FAQ
+- [Download](https://upasanikn-sys.github.io/pocket-site/download.html): Windows early access and requirements
+- [Roadmap](https://upasanikn-sys.github.io/pocket-site/roadmap.html): what is shipped and what is next
+- [About](https://upasanikn-sys.github.io/pocket-site/about.html): who builds Pocket
+- [Contact](https://upasanikn-sys.github.io/pocket-site/contact.html)
+
+## Policies
+
+- [Privacy Policy](https://upasanikn-sys.github.io/pocket-site/privacy.html)
+- [Terms of Service](https://upasanikn-sys.github.io/pocket-site/terms.html)
+- [Refund Policy](https://upasanikn-sys.github.io/pocket-site/refunds.html)
+- [License Terms](https://upasanikn-sys.github.io/pocket-site/license.html)

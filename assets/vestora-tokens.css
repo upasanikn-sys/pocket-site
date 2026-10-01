@@ -1,183 +1,115 @@
 /* ============================================================================
-   POCKET — DESIGN TOKENS  (the single source of visual truth)
-   Loaded BEFORE vestora.css so every page inherits one system.
+   POCKET — DESIGN TOKENS  (the single source of visual truth for the website)
+   Loaded first, then observatory.css (the page grammar), then site-shell.css.
 
-   Why this file exists: the site had accumulated 21 border-radius values,
-   33 font-sizes, 10 ad-hoc shadows and 25 raw hex colours. Accumulation is
-   what makes an interface read as "template". A scale is what makes it read
-   as "designed".
+   Direction C, "The Open Instrument": graphite ink on cool film greys. The colour
+   values are DESIGN.md's frontmatter and match the app's ui_theme._TOKENS exactly,
+   so the website and the product wear one system. Change them in DESIGN.md first.
 
-   Principles borrowed (not copied) from the products worth learning from:
-     · Linear    — restraint, a narrow type scale, hairlines over borders
-     · Stripe    — depth from layered light, never from heavy shadow
-     · Mercury   — money presented with typographic seriousness
-     · Apple     — remove until only the necessary remains
-     · Raycast   — editorial confidence in dark UI
+     · Signal (orange) marks the working only. Never a figure, a button, a link,
+       a warning, active navigation, a focus ring or a chart.
+     · Green and red mean gain and loss, always with a sign. Nothing else.
+     · No shadows at rest; --lift is for the dialog alone. No glass, blur, grain,
+       gradient or glow.
    ============================================================================ */
 
-:root{
-  /* ---------- ground & surfaces: a genuine value range (v1 had almost none) ---------- */
-  --v-ink:        #04070E;   /* page ground — a true void, not "dark grey"        */
-  --v-ink-2:      #070B14;   /* alternating band                                  */
-  --v-surface:    #0B1220;   /* primary raised surface                            */
-  --v-surface-2:  #111A2C;   /* nested / interactive surface                      */
-  --v-surface-3:  #16203A;   /* hover, selected                                   */
-  --v-overlay:    #0A101C;   /* modal / sheet ground                              */
+/* ---------- type: served from this site, never from a third party ----------
+   Inter 5.3, Plus Jakarta Sans and JetBrains Mono, all OFL-1.1 (licences in fonts/).
+   latin-ext carries the rupee sign (U+20B9), so every ₹ is set in Inter.          */
+@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;
+  src:url(fonts/inter-latin-ext-wght-normal.woff2) format('woff2-variations'),
+      url(fonts/inter-latin-ext-wght-normal.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;
+  src:url(fonts/inter-latin-wght-normal.woff2) format('woff2-variations'),
+      url(fonts/inter-latin-wght-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-display:swap;font-weight:200 800;
+  src:url(fonts/plusjakartasans-var.woff2) format('woff2-variations'),
+      url(fonts/plusjakartasans-var.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:400;
+  src:url(fonts/jetbrainsmono-regular.woff2) format('woff2')}
 
-  /* ---------- hairlines: prefer these to borders ---------- */
-  --v-line:       #1A2540;
-  --v-line-soft:  #131C2E;
+:root{color-scheme:light;
+  /* ---------- the film: grounds and surfaces ---------- */
+  --paper:#F2F4F6;  --plate:#E7EBEF;  --card:#FCFDFD;  --raised:#DCE2E8;
+  --rule:rgba(19,26,34,.11);  --rule-2:rgba(19,26,34,.22);  --edge:#6D7985;
 
-  /* ---------- text ---------- */
-  --v-text:       #EDF0F7;
-  --v-text-2:     #A9B1C4;
-  --v-text-3:     #8C95AA;
-  --v-text-4:     #7D8497;   /* legal / disclaimers: >=4.65:1 on every surface (was #6E768A, 4.43:1 on ink) */
+  /* ---------- ink: text and the one action colour ---------- */
+  --ink:#131A22;  --ink-hover:#26303B;  --ink-2:#3B4754;  --ink-3:#56626F;  --on-ink:#FCFDFD;
 
-  /* ---------- brand: gold is SPENT, not sprinkled ----------
-     Rule: gold appears on primary CTAs, one headline accent, and active nav.
-     Nowhere else. Its scarcity is what makes it read as expensive.            */
-  --v-gold:       #C9A44E;
-  --v-gold-lit:   #EAD08A;
-  --v-gold-deep:  #B98F38;
-  --v-navy:       #16294D;   /* legacy brand navy, for marks/plates              */
+  /* ---------- meaning: provenance, gain, loss ---------- */
+  --signal:#B03E00;  --signal-wash:rgba(176,62,0,.07);  --gain:#12704A;  --loss:#B0213A;
 
-  /* ---------- semantic: never used decoratively ---------- */
-  --v-pos:        #34D399;
-  --v-neg:        #F87171;
-  --v-warn:       #E8A33D;
-  --v-info:       #5B8DEF;
+  /* ---------- categorical series, fixed order (validated for CVD) ---------- */
+  --c1:#427FD8; --c2:#6E3692; --c3:#0791A0; --c4:#5C52B4;
+  --c5:#A47807; --c6:#006C93; --c7:#767700; --c8:#953A83;
 
-  /* ---------- chart palette: distinguishable without relying on red/green ----
-     Ordered for sequential assignment; hue-spaced and luminance-varied so it
-     survives colour-blindness and greyscale printing.                        */
-  --v-c1:#5B8DEF; --v-c2:#C9A44E; --v-c3:#2DD4BF;
-  --v-c4:#A99AF0; --v-c5:#E8A33D; --v-c6:#7C8CA8;
-  --v-grid:       rgba(255,255,255,.05);   /* chart gridlines, barely there     */
-
-  /* ---------- type scale (33 sizes -> 9 steps, 1.24 ratio) ----------
-     Display uses clamp() so it is fluid without media queries.              */
-  --v-display: clamp(40px, 5.3vw, 68px);
-  --v-h1:      clamp(32px, 4.1vw, 50px);
-  --v-h2:      clamp(26px, 3.4vw, 40px);
-  --v-h3:      22px;
-  --v-h4:      19px;
-  --v-body-lg: 17.5px;
-  --v-body:    16.5px;
-  --v-body-sm: 15px;
-  --v-caption: 13px;
-  --v-micro:   11px;   /* tracked uppercase labels only                        */
-
-  --v-lh-tight: 1.0;   /* display                                              */
-  --v-lh-head:  1.12;  /* headings                                             */
-  --v-lh-body:  1.65;  /* running text                                         */
-
-  /* tracking: negative for display, positive for small caps */
-  --v-track-display: -.032em;
-  --v-track-head:    -.022em;
-  --v-track-micro:    .17em;
+  --lift:0 1px 2px rgba(19,26,34,.06),0 10px 28px -14px rgba(19,26,34,.22);
+  --scrim:rgba(15,20,25,.40);
 
   /* ---------- families ---------- */
-  --v-serif: Fraunces, Georgia, "Times New Roman", serif;
-  --v-sans:  Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --v-mono:  ui-monospace, "SF Mono", Consolas, monospace;
+  --display:'Plus Jakarta Sans','Inter',system-ui,sans-serif;
+  --sans:'Inter',system-ui,'Segoe UI',Arial,sans-serif;
+  --mono:'JetBrains Mono','Inter',ui-monospace,monospace;
 
-  /* Fraunces variable axes. WONK swaps in the alternate single-storey forms and
-     SOFT rounds the terminals — almost nobody sets these, which is precisely
-     why the result does not read as a default Google Font. */
-  --v-serif-display: "opsz" 144, "SOFT" 60, "WONK" 1;
-  --v-serif-head:    "opsz"  72, "SOFT" 50, "WONK" 1;
-  --v-serif-small:   "opsz"  36, "SOFT" 40, "WONK" 1;
+  /* ---------- website type scale (DESIGN.md "Website scale"; 12px is the floor) ---------- */
+  --fs-display:clamp(40px, 31.8px + 2.1vw, 62px);     /* 700 / 1.03 / -.035em, one per page */
+  --fs-headline:clamp(30px, 25.5px + 1.143vw, 42px);  /* 700 / 1.08 / -.03em                */
+  --fs-h3:20px;  --fs-lede:18px;  --fs-body:16px;  --fs-small:14px;  --fs-caption:13px;  --fs-prov:12px;
+  /* figures: the app's figure sizes (DESIGN.md "App scale"), for the plate and its working */
+  --fs-anchor:44px;  --fs-fig-l:36px;  --fs-fig:28px;  --fs-fig-m:24px;  --fs-fig-s:18px;
 
-  /* ---------- spacing: 4px base, no arbitrary values ---------- */
-  --v-1:4px;  --v-2:8px;  --v-3:12px; --v-4:16px; --v-5:20px;
-  --v-6:24px; --v-8:32px; --v-10:40px; --v-12:48px;
-  --v-16:64px; --v-20:80px; --v-24:96px; --v-30:120px;
+  /* ---------- radius: chips, controls, cards, sheet top ---------- */
+  --r-1:4px;  --r-2:8px;  --r-3:12px;  --r-4:16px;
 
-  /* ---------- radius: 21 values -> 5 deliberate steps ---------- */
-  --v-r-xs: 6px;    /* chips, tags                    */
-  --v-r-sm: 10px;   /* buttons, inputs                */
-  --v-r-md: 14px;   /* nested panels                  */
-  --v-r-lg: 18px;   /* cards, containers              */
-  --v-r-xl: 24px;   /* hero / showcase surfaces       */
-  --v-r-pill: 999px;
-
-  /* ---------- elevation: light, not smoke ----------
-     Each level pairs a tinted shadow with an inner top highlight, so surfaces
-     look lit rather than dropped on a page. Generic black blur is banned.   */
-  --v-e-1: 0 1px 0 rgba(255,255,255,.04);
-  --v-e-2: 0 8px 24px -14px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.04);
-  --v-e-3: 0 24px 56px -28px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.05);
-  --v-e-4: 0 70px 130px -60px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.06);
-  --v-glow-gold: 0 12px 32px -14px rgba(201,164,78,.55);
-
-  /* ---------- motion: interface vs transition, per the brief's timings ---------- */
-  --v-t-fast:  120ms;   /* hover, press — must feel instant   */
-  --v-t-base:  180ms;   /* control state changes              */
-  --v-t-slow:  320ms;   /* panels, reveals                    */
-  --v-ease:    cubic-bezier(.22,.8,.22,1);      /* decelerate  */
-  --v-ease-in: cubic-bezier(.5,0,.75,0);
+  /* ---------- motion ---------- */
+  --t-fast:120ms;  --t-ui:200ms;  --t-panel:240ms;  --t-roll:320ms;  --t-trace:480ms;
+  --ease-ui:cubic-bezier(.2,.8,.2,1);  --ease-exit:cubic-bezier(.23,1,.32,1);  --ease-trace:cubic-bezier(.65,0,.35,1);
 
   /* ---------- layout ---------- */
-  --v-maxw: 1200px;
-  --v-gutter: 28px;
+  --maxw:1200px;  --gutter:28px;  --sec:96px;
 
   /* ---------- z-index: a scale, never 9999 ---------- */
-  --v-z-base:0; --v-z-raised:10; --v-z-sticky:50;
-  --v-z-overlay:100; --v-z-modal:200; --v-z-toast:300; --v-z-grain:400;
+  --z-sticky:50;  --z-overlay:100;  --z-modal:200;  --z-toast:300;
 }
-
-/* ============================ primitives ============================ */
-
-/* money & data: tabular figures so columns of numbers actually align */
-.v-num{ font-variant-numeric: tabular-nums; font-feature-settings:"tnum" 1; }
-
-/* the display voice */
-.v-display{ font-family:var(--v-serif); font-variation-settings:var(--v-serif-display);
-  font-size:var(--v-display); line-height:var(--v-lh-tight);
-  letter-spacing:var(--v-track-display); font-weight:600; text-wrap:balance; }
-.v-h2{ font-family:var(--v-serif); font-variation-settings:var(--v-serif-head);
-  font-size:var(--v-h2); line-height:var(--v-lh-head);
-  letter-spacing:var(--v-track-head); font-weight:600; text-wrap:balance; }
-.v-h4{ font-family:var(--v-serif); font-variation-settings:var(--v-serif-small);
-  font-size:var(--v-h4); line-height:1.25; letter-spacing:-.015em; font-weight:600; }
-
-/* the one micro-label style — uppercase + tracked, used sparingly */
-.v-label{ font-family:var(--v-sans); font-size:var(--v-micro); font-weight:600;
-  letter-spacing:var(--v-track-micro); text-transform:uppercase; color:var(--v-text-3); }
-
-/* running text at a readable measure (~65ch) */
-.v-prose{ font-size:var(--v-body); line-height:var(--v-lh-body); color:var(--v-text-2);
-  max-width:65ch; text-wrap:pretty; }
-
-/* grain: breaks digital flatness. One fixed layer, never per-section. */
-.v-grain::after{ content:""; position:fixed; inset:0; pointer-events:none;
-  z-index:var(--v-z-grain); opacity:.022;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E"); }
-
-/* focus: visible, branded, never removed */
-:where(a,button,input,select,textarea,[tabindex]):focus-visible{
-  outline:2px solid var(--v-gold); outline-offset:3px; border-radius:var(--v-r-xs); }
-
-/* scroll reveal — opt-in, and fully disabled under reduced-motion */
-.v-rv{ opacity:0; transform:translateY(22px);
-  transition:opacity var(--v-t-slow) var(--v-ease), transform var(--v-t-slow) var(--v-ease); }
-.v-rv.in{ opacity:1; transform:none; }
-
-@media (prefers-reduced-motion: reduce){
-  .v-rv{ opacity:1 !important; transform:none !important; transition:none !important; }
-  html{ scroll-behavior:auto !important; }
-  *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+/* ---------- dark: the same roles, each stepped for its own surfaces (DESIGN.md "Colors").
+   Not an inversion. The site follows the visitor's system setting; light is the default when
+   there is none. Values equal ui_theme._TOKENS [data-theme=dark], so the site and the app match. */
+@media (prefers-color-scheme: dark){
+  :root{color-scheme:dark;
+    --paper:#0F1419;  --plate:#151B22;  --card:#1B222A;  --raised:#252D37;
+    --rule:rgba(230,234,238,.10);  --rule-2:rgba(230,234,238,.20);  --edge:#7A8693;
+    --ink:#E6EAEE;  --ink-hover:#C9D1D9;  --ink-2:#B3BCC6;  --ink-3:#8F9AA6;  --on-ink:#0F1419;
+    --signal:#E9803F;  --signal-wash:rgba(233,128,63,.10);  --gain:#3FBF86;  --loss:#F2808F;
+    --c1:#5C95EA; --c2:#8A57AE; --c3:#09A8BA; --c4:#756FCD;
+    --c5:#AF8008; --c6:#0288B8; --c7:#767700; --c8:#AF599D;
+    --lift:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.6);
+    --scrim:rgba(0,0,0,.55);
+  }
 }
+@media (max-width:900px){ :root{ --sec:72px; } }
+@media (max-width:560px){ :root{ --gutter:16px; --sec:56px; --fs-lede:16px; } }
 
-/* selection + caret: small details people feel without noticing */
-::selection{ background:rgba(201,164,78,.26); color:var(--v-text); }
+/* ============================ global details ============================ */
 
-/* scrollbar, tinted to the ground rather than OS-default grey */
+/* money and data: tabular figures so columns of numbers align */
+.num{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
+
+/* focus: a 2px ink outline at 3px offset, never removed */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--ink); outline-offset:3px; border-radius:var(--r-1); }
+
+::selection{ background:var(--rule-2); color:var(--ink); }
+
 @supports selector(::-webkit-scrollbar){
   ::-webkit-scrollbar{ width:11px; height:11px; }
-  ::-webkit-scrollbar-track{ background:var(--v-ink); }
-  ::-webkit-scrollbar-thumb{ background:#1D2942; border-radius:var(--v-r-pill);
-    border:3px solid var(--v-ink); }
-  ::-webkit-scrollbar-thumb:hover{ background:#2A3A5C; }
+  ::-webkit-scrollbar-track{ background:var(--paper); }
+  ::-webkit-scrollbar-thumb{ background:var(--rule-2); border-radius:var(--r-2); border:3px solid var(--paper); }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--edge); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto !important; }
+  *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
 }

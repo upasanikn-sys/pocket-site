@@ -39,14 +39,13 @@
     padding:0 18px; border-left:1px solid var(--rule-2)}
   .strip span:first-child{padding-left:0; border-left:0; color:var(--ink); font-weight:600}
 
-  /* ---- right: the product, in an ink device, bleeding off the edge ---- */
+  /* ---- right: the product on a plain 16px card, bleeding off the edge (DESIGN.md: a phone
+     screen is shown on a plain card, never in a device body) ---- */
   .stage{position:relative; height:100%}
-  .phone{position:absolute; top:-8px; right:-34px; width:272px;
-    padding:15px 10px 14px; border-radius:40px; background:var(--ink)}
-  .screen{border-radius:27px; overflow:hidden}
+  .phone{position:absolute; top:24px; right:-34px; width:272px;
+    border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card);
+    box-shadow:var(--lift)}
   .screen img{display:block; width:100%; height:auto}
-  .phone::after{content:""; position:absolute; top:6px; left:50%; transform:translateX(-50%);
-    width:58px; height:4px; border-radius:99px; background:var(--ink-2)}
 </style>
 </head>
 <body>
@@ -54,14 +53,14 @@
     <div>
       <div class="brand"><img src="pocket-logo.svg" alt="Pocket" width="195" height="44"></div>
 
-      <h1>Your whole financial life,<br><em>one private app.</em></h1>
+      <h1>The money app that<br><em>shows its working.</em></h1>
       <p>Net worth, investments, cash flow, debt, tax and goals — computed on your
       own machine, from your own numbers.</p>
 
       <div class="strip">
         <span>On-device</span>
         <span>No cloud account</span>
-        <span>Windows &amp; Android</span>
+        <span>Windows early access</span>
       </div>
     </div>
 

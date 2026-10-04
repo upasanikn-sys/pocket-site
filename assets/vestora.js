@@ -5,7 +5,7 @@
    Pocket_windows.zip. While it is empty, the Windows buttons show a friendly
    "launching soon" message instead of a broken link.
 */
-var DOWNLOAD_URL = "";   // e.g. "https://vestora.gumroad.com/l/vestora"
+var DOWNLOAD_URL = "";   // e.g. "https://pocket.gumroad.com/l/pocket"
 
 (function () {
   "use strict";

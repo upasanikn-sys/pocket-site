@@ -1,11 +1,6 @@
-/* POCKET — shared site behaviour. Loaded by every page (defer).
-
-   >>> GO LIVE: set DOWNLOAD_URL to your Gumroad product page (recommended — it
-   handles the free tier + paid license keys), or a public direct link to
-   Pocket_windows.zip. While it is empty, the Windows buttons show a friendly
-   "launching soon" message instead of a broken link.
-*/
-var DOWNLOAD_URL = "";   // e.g. "https://pocket.gumroad.com/l/pocket"
+/* POCKET — shared site behaviour. Loaded by every page (defer). DOWNLOAD_URL is the public Windows build
+   (tools/site_download.py sets it); while empty, the buttons offer early access by email instead. */
+var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.1.0/Pocket_3.1.0_windows.zip";
 
 (function () {
   "use strict";
@@ -79,7 +74,7 @@ var DOWNLOAD_URL = "";   // e.g. "https://pocket.gumroad.com/l/pocket"
       e.preventDefault();
       openModal({
         title: "Request Windows early access",
-        desc: "Email us and we'll send the current Windows build (v2.1.0). No account, no payment.",
+        desc: "Email us and we'll send the current Windows build. No account, no payment.",
         subject: "Pocket for Windows — early access request",
         body: "Hi — I'd like early access to Pocket for Windows."
       });

@@ -12,21 +12,21 @@ Facts that the pages below state:
 
 ## Pages
 
-- [Home](https://upasanikn-sys.github.io/pocket-site/): what Pocket is, with its working shown on sample data
-- [Why Pocket](https://upasanikn-sys.github.io/pocket-site/why-pocket.html): the problem it solves
-- [Features](https://upasanikn-sys.github.io/pocket-site/features.html): every module
-- [AI Copilot](https://upasanikn-sys.github.io/pocket-site/ai-copilot.html): how the on-device answers work, and their limits
-- [Security & Privacy](https://upasanikn-sys.github.io/pocket-site/security.html): what stays on your device
-- [Security Architecture](https://upasanikn-sys.github.io/pocket-site/security-architecture.html): what is encrypted and how, and the threat model
-- [Pricing](https://upasanikn-sys.github.io/pocket-site/pricing.html): plans, prices and FAQ
-- [Download](https://upasanikn-sys.github.io/pocket-site/download.html): Windows early access and requirements
-- [Roadmap](https://upasanikn-sys.github.io/pocket-site/roadmap.html): what is shipped and what is next
-- [About](https://upasanikn-sys.github.io/pocket-site/about.html): who builds Pocket
-- [Contact](https://upasanikn-sys.github.io/pocket-site/contact.html)
+- [Home](https://mypocketfi.com/): what Pocket is, with its working shown on sample data
+- [Why Pocket](https://mypocketfi.com/why-pocket.html): the problem it solves
+- [Features](https://mypocketfi.com/features.html): every module
+- [AI Copilot](https://mypocketfi.com/ai-copilot.html): how the on-device answers work, and their limits
+- [Security & Privacy](https://mypocketfi.com/security.html): what stays on your device
+- [Security Architecture](https://mypocketfi.com/security-architecture.html): what is encrypted and how, and the threat model
+- [Pricing](https://mypocketfi.com/pricing.html): plans, prices and FAQ
+- [Download](https://mypocketfi.com/download.html): Windows early access and requirements
+- [Roadmap](https://mypocketfi.com/roadmap.html): what is shipped and what is next
+- [About](https://mypocketfi.com/about.html): who builds Pocket
+- [Contact](https://mypocketfi.com/contact.html)
 
 ## Policies
 
-- [Privacy Policy](https://upasanikn-sys.github.io/pocket-site/privacy.html)
-- [Terms of Service](https://upasanikn-sys.github.io/pocket-site/terms.html)
-- [Refund Policy](https://upasanikn-sys.github.io/pocket-site/refunds.html)
-- [License Terms](https://upasanikn-sys.github.io/pocket-site/license.html)
+- [Privacy Policy](https://mypocketfi.com/privacy.html)
+- [Terms of Service](https://mypocketfi.com/terms.html)
+- [Refund Policy](https://mypocketfi.com/refunds.html)
+- [License Terms](https://mypocketfi.com/license.html)

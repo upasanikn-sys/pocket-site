@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://upasanikn-sys.github.io/pocket-site/sitemap.xml
+Sitemap: https://mypocketfi.com/sitemap.xml

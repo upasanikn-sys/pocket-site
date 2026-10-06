@@ -5,7 +5,7 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
 (function () {
   "use strict";
 
-  var EMAIL = "";   // the address is being replaced (28 Sep 2026); the Contact page says so
+  var EMAIL = "support@mypocketfi.com";   // Keyur's support mailbox (6 Oct 2026)
 
   /* --- early-access dialog: the address shown and copyable, mailto as a bonus --- */
   var back = null, lastFocus = null;
@@ -41,7 +41,7 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
           '<a class="btn btn-gold" href="mailto:' + EMAIL + '?subject=' + subject + '&body=' + body + '">Open email app</a>' +
         '</div>' +
         '<p class="hint">No email app? Copy the address and write to us from anywhere — Gmail, your phone, whatever you use. A human replies within 48 hours (please check spam).</p>'
-        : '<p>Our email address is changing, so requests are paused. The new address will be on the Contact page.</p>' +
+        : '<p>Write to us from the Contact page.</p>' +
           '<div class="acts"><a class="btn btn-gold" href="contact.html">Contact page</a></div>') +
       '</div>';
     back.classList.add("on");

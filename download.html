@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add("js")</script>
-<title>Download Pocket for Windows — Early Access | Pocket</title>
-<meta name="description" content="Pocket for Windows 10/11 is in early access: a private, local-first personal finance app whose database stays on your device. Free plan included.">
+<title>Download Pocket for Windows, Mac and Linux | Pocket</title>
+<meta name="description" content="Pocket for Windows, Mac and Linux is in early access: a private, local-first personal finance app whose database stays on your device. Free plan included.">
 <link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://mypocketfi.com/download.html">
-<meta property="og:title" content="Download Pocket for Windows — Early Access">
-<meta property="og:description" content="Pocket for Windows 10/11 is in early access: a private, local-first personal finance app whose database stays on your device. Free plan included.">
+<meta property="og:title" content="Download Pocket for Windows, Mac and Linux">
+<meta property="og:description" content="Pocket for Windows, Mac and Linux is in early access: a private, local-first personal finance app whose database stays on your device. Free plan included.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pocket">
 <meta property="og:url" content="https://mypocketfi.com/download.html">
@@ -64,17 +64,17 @@
       <h1 class="d">Your financial OS, on your own device.</h1>
       <p class="sub">The private finance app that runs on your device. No Pocket cloud account, nothing uploaded by default.</p>
       <div class="hnote">
-        <span><b></b> Windows early access · Local-first</span>
+        <span><b></b> Windows, Mac &amp; Linux early access · Local-first</span>
         <span><b></b> Runs locally on your device</span>
         <span><b></b> No cloud required</span>
         <span><b></b> You own your data</span>
       </div>
-      <p class="plat-label">Download for your platform</p>
+      <p class="plat-label" id="get">Download for your platform</p>
       <!-- dl:platforms (tools/site_download.py writes this block from packaging/published.json: a platform is a download only once its file is published) -->
       <div class="platforms">
         <a class="plat js-dl" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_windows_setup.exe" data-os="Windows"><span class="plat-name d d-sm">Windows</span><span class="plat-state">Download installer · 45 MB →</span></a>
-        <div class="plat later" data-os="macOS"><span class="plat-name d d-sm">macOS</span><span class="plat-state">In testing, not available yet</span></div>
-        <div class="plat later" data-os="Linux"><span class="plat-name d d-sm">Linux</span><span class="plat-state">In testing, not available yet</span></div>
+        <a class="plat" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_macos.dmg" data-os="macOS"><span class="plat-name d d-sm">macOS</span><span class="plat-state">Download for Mac · 61 MB →</span></a>
+        <a class="plat" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_linux_amd64.deb" data-os="Linux"><span class="plat-name d d-sm">Linux</span><span class="plat-state">Download for Linux · 69 MB (.deb) →</span></a>
         <div class="plat later" data-os="Android"><span class="plat-name d d-sm">Android</span><span class="plat-state">Coming to Google Play</span></div>
         <div class="plat later" data-os="iOS"><span class="plat-name d d-sm">iOS</span><span class="plat-state">Coming to the App Store</span></div>
       </div>
@@ -94,6 +94,8 @@
           <dl class="defs facts">
             <div><dt>Version</dt><dd>v3.2.4 · released 10 October 2026</dd></div>
             <div><dt>Windows</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_windows_setup.exe">Pocket_3.2.4_windows_setup.exe</a> · 45 MB (installer) · Windows 10/11, 64-bit (x64)<br>SHA-256 <code class="hash">d73ba855c25b82397e61d14f067a45f3dd182f6b546e84e18247ea850e21323c</code></dd></div>
+            <div><dt>macOS</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_macos.dmg">Pocket_3.2.4_macos.dmg</a> · 61 MB (disk image) · Apple silicon (M1 or later)<br>SHA-256 <code class="hash">c11a942eaab9e9e7e428d023e723f58d0a59ae5cf9987b1d518b49709e297819</code></dd></div>
+            <div><dt>Linux</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_linux_amd64.deb">Pocket_3.2.4_linux_amd64.deb</a> · 69 MB · 64-bit x86 (amd64)<br>SHA-256 <code class="hash">6d36f95010b3828de49ee547d208773ca695968a954f2d9b57cf832a7379dab4</code></dd></div>
           </dl>
           <!-- /dl:facts -->
           <ul class="limits one">
@@ -110,6 +112,8 @@
             <li><span>Data lives in <code>%USERPROFILE%\FinOSData</code> — back up that folder and you have everything. Uninstall from Settings → Apps; your data folder is kept.</span></li>
             <li><span>Each new release is published here with its release notes; its installer updates Pocket in place. Back up before updating.</span></li>
           </ol>
+          <p class="ph-foot"><b>On a Mac:</b> open the disk image and drag Pocket to Applications. Pocket is not yet notarised by Apple, so macOS blocks the first open: on macOS 15 or later, click Done, then open System Settings → Privacy &amp; Security and click Open Anyway; on macOS 14 or earlier, Control-click Pocket.app and choose Open. Data lives in <code>~/FinOSData</code>.</p>
+          <p class="ph-foot"><b>On Linux:</b> on Debian or Ubuntu, <code>sudo apt install ./Pocket_3.2.4_linux_amd64.deb</code>, then open Pocket from your applications menu; on another distribution, run the AppImage under Alternative downloads. Pocket runs in a terminal window: leave it open while you use Pocket. Data lives in <code>~/FinOSData</code>.</p>
           <!-- /dl:flow -->
         </div>
       </div>
@@ -125,8 +129,8 @@
       <!-- dl:alternatives -->
       <dl class="defs facts">
         <div><dt>Windows portable zip</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_windows.zip">Pocket_3.2.4_windows.zip</a> · 62 MB · ~132 MB unpacked. The Windows build as a folder: unzip it anywhere and run Pocket.exe. Nothing is installed; deleting the folder removes it.<br>SHA-256 <code class="hash">61fa3b354f1026c2da96228a417b321442a8409897822b09b128fa213504c012</code></dd></div>
-        <div><dt>Linux AppImage</dt><dd>Not published yet. One file that runs on most 64-bit Linux distributions: make it executable and run it.</dd></div>
-        <div><dt>Linux tar.gz</dt><dd>Not published yet. The Linux build as a plain archive: extract it and run Pocket/Pocket.</dd></div>
+        <div><dt>Linux AppImage</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_linux_x86_64.AppImage">Pocket_3.2.4_linux_x86_64.AppImage</a> · 86 MB. One file that runs on most 64-bit Linux distributions: make it executable and run it.<br>SHA-256 <code class="hash">eee17a88e27212b42151dff32d829d6d05ca1ea13713939f2b616f925f45f672</code></dd></div>
+        <div><dt>Linux tar.gz</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_linux.tar.gz">Pocket_3.2.4_linux.tar.gz</a> · 93 MB · ~232 MB unpacked. The Linux build as a plain archive: extract it and run Pocket/Pocket.<br>SHA-256 <code class="hash">cbd696c6818272c3cb158c9ca566d273975a550d5e48950dd4cb3ed781364dbf</code></dd></div>
         <div><dt>Android APK</dt><dd>Not published yet. The Android app as a file you install yourself, without Google Play.</dd></div>
       </dl>
       <!-- /dl:alternatives -->
@@ -137,7 +141,7 @@
     <div class="wrap">
       <div class="sec-head solo"><h2 class="d">How Pocket works</h2></div>
       <ol class="steps">
-        <li><div><h3>Download</h3><p>The Windows build, from this page.</p></div></li>
+        <li><div><h3>Download</h3><p>For Windows, Mac or Linux, from this page.</p></div></li>
         <li><div><h3>Set up</h3><p>All data stays local. No signup required.</p></div></li>
         <li><div><h3>Add your data</h3><p>Import or enter your financial information.</p></div></li>
         <li><div><h3>Get insights</h3><p>AI Copilot analyzes your data, locally.</p></div></li>
@@ -176,13 +180,13 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="d">System requirements</h2>
-        <p>Windows is in early access today. Each other platform shows its status here, and its requirements arrive with its first published build.</p>
+        <p>Windows, macOS and Linux are in early access today. The phone apps show their status here, and their requirements arrive with their store listings.</p>
       </div>
       <!-- dl:requirements -->
       <dl class="defs">
         <div><dt>Windows</dt><dd>Windows 10/11 (64-bit, x64) · 4 GB RAM or more · ~250 MB free space</dd></div>
-        <div><dt>macOS <span class="tier">In testing</span></dt><dd>Requirements will be published at release.</dd></div>
-        <div><dt>Linux <span class="tier">In testing</span></dt><dd>Requirements will be published at release.</dd></div>
+        <div><dt>macOS</dt><dd>An Apple silicon Mac (M1 or later). Not yet notarised by Apple, so the first open needs one confirmation; GETTING_STARTED.txt in the disk image shows how.</dd></div>
+        <div><dt>Linux</dt><dd>64-bit x86 (amd64) with glibc 2.38 or later (Ubuntu 24.04, Debian 13 or newer).</dd></div>
         <div><dt>Android <span class="tier">Coming to Google Play</span></dt><dd>Requirements will be published at release.</dd></div>
         <div><dt>iOS <span class="tier">Coming to the App Store</span></dt><dd>Requirements will be published at release.</dd></div>
       </dl>
@@ -192,10 +196,10 @@
 
   <section class="close">
     <div class="wrap">
-      <h2 class="d">Take control of your finances. Download Pocket for Windows.</h2>
+      <h2 class="d">Take control of your finances. Download Pocket.</h2>
       <p>Free to start. Your data. Your rules.</p>
       <a class="cta js-dl" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.4/Pocket_3.2.4_windows_setup.exe" data-os="Windows">Download for Windows</a>
-      <p class="soon">Free forever · Upgrade anytime · Questions? Visit <a href="contact.html">Support</a></p>
+      <p class="soon">Free forever · Upgrade anytime · <a href="#get">Mac and Linux downloads</a> · Questions? Visit <a href="contact.html">Support</a></p>
     </div>
   </section>
 </main>
@@ -211,7 +215,7 @@
       <p class="sf-trust">No cloud required · No tracking · No ads</p>
     </div>
     <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
-    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html">Windows app</a><a href="contact.html" data-notify="macOS">macOS</a><a href="contact.html" data-notify="Android">Android</a><a href="contact.html" data-notify="Linux">Linux</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html">Windows app</a><a href="download.html">macOS</a><a href="contact.html" data-notify="Android">Android</a><a href="download.html">Linux</a></nav>
     <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
   <div class="sf-base">

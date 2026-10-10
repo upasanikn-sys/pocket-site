@@ -459,21 +459,22 @@ footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-capt
 }
 @media (max-width:560px){ .notifyform{flex-direction:column} }
 
-/* download: the platform choice is one frame split on rules; Windows is the only live option */
+/* download: every platform on one frame split on rules, in a fixed order; a row is a link only once its file is
+   published (tools/site_download.py), and the Windows download is the one primary */
 .plat-label{margin:48px 0 12px; font-size:var(--fs-caption); color:var(--ink-3)}
-.platforms{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:760px; border:1px solid var(--rule-2); border-radius:var(--r-3); overflow:hidden}
-.plat{display:flex; flex-direction:column; gap:6px; padding:20px 22px; color:var(--ink);
+.platforms{display:grid; max-width:760px; border:1px solid var(--rule-2); border-radius:var(--r-3); overflow:hidden}
+.plat{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 24px; padding:18px 22px; color:var(--ink);
   transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
-.plat + .plat{border-left:1px solid var(--rule)}
+.plat + .plat{border-top:1px solid var(--rule)}
 .plat-name{font:700 var(--fs-h3)/1.1 var(--display)}
 .plat-state{font-size:var(--fs-small); color:var(--ink-3)}
 .plat.js-dl{background:var(--card); box-shadow:inset 0 2px 0 var(--ink)}
-.plat.js-dl .plat-state{color:var(--ink)}
+a.plat .plat-state{color:var(--ink)}
 .plat.later .plat-name{color:var(--ink-2)}
-.plat:hover{background:var(--raised)}
-.plat:active{transform:translateY(1px)}
+a.plat:hover{background:var(--raised)}
+a.plat:active{transform:translateY(1px)}
 .plat:focus-visible{outline-offset:-4px}
-@media (max-width:560px){ .platforms{grid-template-columns:1fr} .plat + .plat{border-left:0; border-top:1px solid var(--rule)} }
+@media (max-width:560px){ .plat{flex-direction:column; align-items:flex-start} }
 .build{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px}
 .build h3{margin:0 0 16px; font-size:var(--fs-lede)}
 .defs.facts > div{grid-template-columns:minmax(0,.3fr) minmax(0,.7fr); gap:20px; padding:16px 4px}

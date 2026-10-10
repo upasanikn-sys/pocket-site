@@ -26,7 +26,7 @@
 <link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
-<link rel="stylesheet" href="assets/observatory.css?v=5">
+<link rel="stylesheet" href="assets/observatory.css?v=6">
 <link rel="stylesheet" href="assets/site-shell.css?v=3">
 </head>
 <body>
@@ -71,11 +71,16 @@
         <span><b></b> You own your data</span>
       </div>
       <p class="plat-label">Download for your platform</p>
+      <!-- dl:platforms (tools/site_download.py writes this block from packaging/published.json: a platform is a download only once its file is published) -->
       <div class="platforms">
-        <a class="plat js-dl" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.2/Pocket_3.2.2_windows.zip" data-os="Windows"><span class="plat-name d d-sm">Windows</span><span class="plat-state">Download · 72 MB →</span></a>
-        <a class="plat later" href="contact.html" data-notify="macOS"><span class="plat-name d d-sm">macOS</span><span class="plat-state">Coming soon · notify me</span></a>
-        <a class="plat later" href="contact.html" data-notify="Android"><span class="plat-name d d-sm">Android</span><span class="plat-state">Coming soon · notify me</span></a>
+        <a class="plat js-dl" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.3/Pocket_3.2.3_windows_setup.exe" data-os="Windows"><span class="plat-name d d-sm">Windows</span><span class="plat-state">Download installer · 54 MB →</span></a>
+        <div class="plat later" data-os="macOS"><span class="plat-name d d-sm">macOS</span><span class="plat-state">In testing, not available yet</span></div>
+        <div class="plat later" data-os="Linux"><span class="plat-name d d-sm">Linux</span><span class="plat-state">In testing, not available yet</span></div>
+        <div class="plat later" data-os="Android"><span class="plat-name d d-sm">Android</span><span class="plat-state">Coming to Google Play</span></div>
+        <div class="plat later" data-os="iOS"><span class="plat-name d d-sm">iOS</span><span class="plat-state">Coming to the App Store</span></div>
       </div>
+      <p class="ph-foot">Prefer nothing installed? The portable zip is under <a href="#alternatives">Alternative downloads</a>.</p>
+      <!-- /dl:platforms -->
       <p class="ph-foot">Free to start. Upgrade anytime. Nothing uploaded by default — your data stays with you.</p>
     </div>
   </section>
@@ -86,31 +91,50 @@
       <div class="build">
         <div>
           <h3>Build facts</h3>
+          <!-- dl:facts -->
           <dl class="defs facts">
-            <div><dt>Version</dt><dd>v3.2.2 · released 8 October 2026</dd></div>
-            <div><dt>Download</dt><dd>72 MB (zip) · ~152 MB on disk</dd></div>
-            <div><dt>Runs on</dt><dd>Windows 10/11, 64-bit (x64)</dd></div>
-            <div><dt>SHA-256</dt><dd><code class="hash">a73a873e59509389015a460c74263f397cc164a5f22eebea90b5a8363feb7c9a</code></dd></div>
+            <div><dt>Version</dt><dd>v3.2.3 · released 10 October 2026</dd></div>
+            <div><dt>Windows</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.3/Pocket_3.2.3_windows_setup.exe">Pocket_3.2.3_windows_setup.exe</a> · 54 MB (installer) · Windows 10/11, 64-bit (x64)<br>SHA-256 <code class="hash">6e234ba7b30296dc8a7a92e5a0e2e603d82396d4bb2bb90aae63eb6922220ee9</code></dd></div>
           </dl>
+          <!-- /dl:facts -->
           <ul class="limits one">
             <li><strong>Not yet code-signed.</strong> SmartScreen may warn ("More info" → "Run anyway"). Download Pocket only from this page, and check the file against the SHA-256 above before you run it.</li>
           </ul>
         </div>
         <div>
           <h3>From download to running</h3>
+          <!-- dl:flow -->
           <ol class="flow">
-            <li><span>Download the zip from this page: no payment, no form, no account.</span></li>
-            <li><span>Check it is the file this page describes: in PowerShell, <code>Get-FileHash .\Pocket_3.2.2_windows.zip</code> should print the SHA-256 above.</span></li>
-            <li><span>Unzip anywhere and run Pocket.exe. Your 14-day full trial starts on first run, then the Free plan continues forever.</span></li>
-            <li><span>Data lives in <code>%USERPROFILE%\FinOSData</code> — back up that folder and you have everything. Uninstall = delete the app folder.</span></li>
-            <li><span>Each new release is published here with its release notes; back up before updating.</span></li>
+            <li><span>Download the installer from this page: no payment, no form, no account.</span></li>
+            <li><span>Check it is the file this page describes: in PowerShell, <code>Get-FileHash .\Pocket_3.2.3_windows_setup.exe</code> should print the SHA-256 above.</span></li>
+            <li><span>Run it. It installs Pocket for you alone, with no administrator prompt, and puts Pocket in the Start menu and on the desktop. Your 14-day full trial starts on first run, then the Free plan continues forever.</span></li>
+            <li><span>Data lives in <code>%USERPROFILE%\FinOSData</code> — back up that folder and you have everything. Uninstall from Settings → Apps; your data folder is kept.</span></li>
+            <li><span>Each new release is published here with its release notes; its installer updates Pocket in place. Back up before updating.</span></li>
           </ol>
+          <!-- /dl:flow -->
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec alt">
+  <section class="sec alt" id="alternatives">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d">Alternative downloads</h2>
+        <p>The same Pocket, packaged another way. Each file is listed with its size and SHA-256 once it is published; until then, its line says so.</p>
+      </div>
+      <!-- dl:alternatives -->
+      <dl class="defs facts">
+        <div><dt>Windows portable zip</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.3/Pocket_3.2.3_windows.zip">Pocket_3.2.3_windows.zip</a> · 72 MB · ~152 MB unpacked. The Windows build as a folder: unzip it anywhere and run Pocket.exe. Nothing is installed; deleting the folder removes it.<br>SHA-256 <code class="hash">06e6d27f583d0f1ac4bc83be2dcddac90cdc4821bf1faca3fd29075870d274f7</code></dd></div>
+        <div><dt>Linux AppImage</dt><dd>Not published yet. One file that runs on most 64-bit Linux distributions: make it executable and run it.</dd></div>
+        <div><dt>Linux tar.gz</dt><dd>Not published yet. The Linux build as a plain archive: extract it and run Pocket/Pocket.</dd></div>
+        <div><dt>Android APK</dt><dd>Not published yet. The Android app as a file you install yourself, without Google Play.</dd></div>
+      </dl>
+      <!-- /dl:alternatives -->
+    </div>
+  </section>
+
+  <section class="sec">
     <div class="wrap">
       <div class="sec-head solo"><h2 class="d">How Pocket works</h2></div>
       <ol class="steps">
@@ -123,7 +147,7 @@
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt">
     <div class="wrap life top">
       <div>
         <h2 class="d">Why local-first?</h2>
@@ -140,7 +164,7 @@
         <div><dt>Blazing fast</dt><dd>Built for speed. Everything runs locally.</dd></div>
         <div><dt>Strong security</dt><dd>AES-256-GCM vault &amp; backups, keyed by your passphrase.</dd></div>
         <div><dt>Works offline</dt><dd>Access your data anytime, even without internet.</dd></div>
-        <div><dt>Portable</dt><dd>116 MB download, ~257 MB on disk. Unzip and run — no installer wizard.</dd></div>
+        <div><dt>Portable</dt><dd>The Windows zip runs from any folder, with nothing installed.</dd></div>
         <div><dt>No cloud required</dt><dd>We never store your data.</dd></div>
         <div><dt>No tracking. No ads.</dt><dd>Zero profiling. Ever.</dd></div>
         <div><dt>Honest by design</dt><dd>Real numbers, no dark patterns.</dd></div>
@@ -149,17 +173,21 @@
     </div>
   </section>
 
-  <section class="sec alt">
+  <section class="sec">
     <div class="wrap">
       <div class="sec-head">
         <h2 class="d">System requirements</h2>
-        <p>Windows is in early access today — other platforms are in development.</p>
+        <p>Windows is in early access today. Each other platform shows its status here, and its requirements arrive with its first published build.</p>
       </div>
+      <!-- dl:requirements -->
       <dl class="defs">
         <div><dt>Windows</dt><dd>Windows 10/11 (64-bit, x64) · 4 GB RAM or more · ~250 MB free space</dd></div>
-        <div><dt>macOS <span class="tier">Coming soon</span></dt><dd>Requirements will be published at release.</dd></div>
-        <div><dt>Android <span class="tier">Coming soon</span></dt><dd>Requirements will be published at release.</dd></div>
+        <div><dt>macOS <span class="tier">In testing</span></dt><dd>Requirements will be published at release.</dd></div>
+        <div><dt>Linux <span class="tier">In testing</span></dt><dd>Requirements will be published at release.</dd></div>
+        <div><dt>Android <span class="tier">Coming to Google Play</span></dt><dd>Requirements will be published at release.</dd></div>
+        <div><dt>iOS <span class="tier">Coming to the App Store</span></dt><dd>Requirements will be published at release.</dd></div>
       </dl>
+      <!-- /dl:requirements -->
     </div>
   </section>
 
@@ -167,7 +195,7 @@
     <div class="wrap">
       <h2 class="d">Take control of your finances. Download Pocket for Windows.</h2>
       <p>Free to start. Your data. Your rules.</p>
-      <a class="cta js-dl" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.2/Pocket_3.2.2_windows.zip" data-os="Windows">Download for Windows</a>
+      <a class="cta js-dl" href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.3/Pocket_3.2.3_windows_setup.exe" data-os="Windows">Download for Windows</a>
       <p class="soon">Free forever · Upgrade anytime · Questions? Visit <a href="contact.html">Support</a></p>
     </div>
   </section>

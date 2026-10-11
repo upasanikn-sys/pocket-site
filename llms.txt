@@ -1,14 +1,16 @@
 # Pocket
 
-> Pocket is a private personal finance app for Windows 10/11, in early access. It computes net worth, cash flow, investments, goals, debt and tax on your own device, from the numbers you enter or import, and can show the working behind its figures. It is built by an independent, India-based project.
+> Pocket is a private personal finance app for Windows, macOS, Linux and Android, in early access. It computes net worth, cash flow, investments, goals, debt and tax on your own device, from the numbers you enter or import, and can show the working behind its figures. It is built by an independent, India-based project.
 
 Facts that the pages below state:
 
 - Local-first: the financial database stays on your device. There is no Pocket account and no Pocket server; nothing is uploaded by default.
-- Live market prices and hosted AI are off until you switch them on.
+- Live market prices, hosted AI and the update check (which asks mypocketfi.com for the latest version number) are off until you switch them on.
+- On Windows, Pocket can encrypt its database and backups (SQLCipher, AES-256) when you turn that on, with a recovery passphrase only you hold. The Android app always encrypts its database and asks for no internet access.
+- Downloads: a Windows installer, a macOS disk image (Apple silicon), Linux .deb and AppImage, and an Android APK, each with its SHA-256 on the Download page. Not yet code-signed.
 - Pocket reports figures, targets and gaps. It does not place trades or tell you to buy or sell, and it is not financial advice.
 - Plans: a Free plan that stays usable, Founder Pro (monthly or yearly), and a one-time Lifetime Founder licence. Paid plans are activated by an offline, signed licence key.
-- Our email address is changing; the new one will be published on the Contact page.
+- Support: support@mypocketfi.com, or the Contact page.
 
 ## Pages
 
@@ -19,7 +21,7 @@ Facts that the pages below state:
 - [Security & Privacy](https://mypocketfi.com/security.html): what stays on your device
 - [Security Architecture](https://mypocketfi.com/security-architecture.html): what is encrypted and how, and the threat model
 - [Pricing](https://mypocketfi.com/pricing.html): plans, prices and FAQ
-- [Download](https://mypocketfi.com/download.html): Windows early access and requirements
+- [Download](https://mypocketfi.com/download.html): Windows, macOS, Linux and Android, with requirements
 - [Roadmap](https://mypocketfi.com/roadmap.html): what is shipped and what is next
 - [About](https://mypocketfi.com/about.html): who builds Pocket
 - [Contact](https://mypocketfi.com/contact.html)

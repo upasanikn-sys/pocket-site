@@ -137,7 +137,7 @@
       </div>
       <dl class="defs">
         <div><dt>AES-256 encryption</dt><dd>Vault files &amp; backups sealed with scrypt-derived keys (AES-256-GCM).</dd></div>
-        <div><dt>Local database</dt><dd>Your database lives on your device and is never uploaded to Pocket. If you switch on encrypted sync, an encrypted copy goes only to the folder you choose. Add OS disk encryption (BitLocker) for at-rest protection.</dd></div>
+        <div><dt>Local database</dt><dd>Your database lives on your device and is never uploaded to Pocket. If you switch on encrypted sync, an encrypted copy goes only to the folder you choose. On Windows, Pocket can encrypt it too (Settings, Privacy &amp; security); add OS disk encryption (BitLocker, FileVault) as well.</dd></div>
         <div><dt>App lock</dt><dd>Protect Pocket with Windows Hello, fingerprint or PIN — an in-app lock for the screen, not a replacement for disk encryption.</dd></div>
         <div><dt>Secure backups</dt><dd>Encrypted backups that only you can access and restore.</dd></div>
         <div><dt>No third-party trackers</dt><dd>We don't use analytics SDKs, trackers or advertising.</dd></div>
@@ -166,10 +166,10 @@
         <p>Early access means honesty about what is not finished yet. The full detail lives in the <a href="security-architecture.html">security architecture</a>.</p>
       </div>
       <ul class="limits">
-        <li><strong>The main database is not yet encrypted at rest by Pocket.</strong> It stays on your device; enable BitLocker / Windows Device Encryption (FileVault on a Mac, full-disk encryption on Linux). App-level encryption is scheduled on the <a href="roadmap.html">roadmap</a> (Q4 2026); the mobile apps now in internal testing already encrypt their database at rest.</li>
+        <li><strong>Database encryption at rest is yours to turn on.</strong> On Windows, Pocket encrypts its database and its backups once you turn it on in Settings, Privacy &amp; security (SQLCipher, AES-256), with a recovery passphrase only you hold. On a Mac or Linux it does not yet: enable FileVault or full-disk encryption. The phone app always encrypts its database.</li>
         <li><strong>The early-access build is not yet code-signed.</strong> Download it only from the <a href="download.html">Download page</a>, which gives each file's SHA-256, and check the file against it before you run it.</li>
         <li><strong>No independent security audit has been completed yet.</strong> One is planned before wide release; results will be published.</li>
-        <li><strong>Backups are your responsibility.</strong> Pocket copies your database before every risky change and can restore one, and Founder Pro encrypts a backup for the cloud folder you choose. A local backup is a plain copy of a plain database, so protect your device like the vault it is.</li>
+        <li><strong>Backups are your responsibility.</strong> Pocket copies your database before every risky change and can restore one, and Founder Pro encrypts a backup for the cloud folder you choose. A local backup is a copy of the database: encrypted when the database is, plain when it is not.</li>
       </ul>
     </div>
   </section>

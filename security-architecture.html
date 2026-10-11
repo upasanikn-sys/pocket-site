@@ -68,8 +68,8 @@
     <b>Plain-English summary:</b> Pocket operates no central server containing your financial database — structurally reducing
     exposure to the large-scale cloud breaches that plague finance apps. Secrets you protect with a
     passphrase (vault documents, backups) are sealed with <b>scrypt-derived AES-256-GCM
-    encryption</b>; the main working database is a local file guarded by your device, so we recommend
-    OS disk encryption. This page states exactly what is protected, how, and — just as important —
+    encryption</b>; on Windows, Pocket encrypts its main database too once you turn that on (SQLCipher, AES-256),
+    and otherwise it is a local file guarded by your device, so we recommend OS disk encryption as well. This page states exactly what is protected, how, and — just as important —
     what is not.
   </div>
 
@@ -95,12 +95,19 @@
   data directory on your device. It is created locally, read locally, and never transmitted by
   Pocket. You can copy it, back it up, or delete it like any file — deleting it removes your data
   permanently.</p>
-  <p><b>Honest detail:</b> the main working database is <b>not encrypted at rest by the app</b>. It
-  is protected by your operating-system account and whatever disk encryption your device uses. This
-  is a deliberate early-access trade-off — the app works with zero setup and no master password to
-  lose — and full at-rest database encryption is scheduled on the <a href="roadmap.html">roadmap</a> (Q4 2026). Until then we recommend enabling
-  <b>BitLocker / Windows Device Encryption</b>, which encrypts the database (and everything else)
-  whenever the machine is off.</p>
+  <p><b>Database encryption (Windows, when you turn it on):</b> in Settings, Privacy &amp; security, Pocket
+  encrypts its database and every backup copy of it with <b>SQLCipher 4</b> (AES-256, page by page) under a
+  random 256-bit key. The key is kept twice beside your data: locked to your Windows account with Windows' own
+  data protection (DPAPI), so Pocket opens with no prompt; and under a <b>recovery passphrase</b> you choose
+  (scrypt, then AES-256-GCM), needed only to open your data on another computer or after Windows is
+  reinstalled. Nobody, us included, can recover a lost passphrase. Turning it on encrypts into a new file,
+  checks every table holds the same rows, and only then replaces the plain one; turning it off decrypts the
+  same way.</p>
+  <p><b>Honest detail:</b> it is off until you turn it on, and on macOS and Linux Pocket does not yet encrypt
+  its database: it is protected there by your operating-system account and whatever disk encryption your
+  device uses. We recommend <b>BitLocker / Windows Device Encryption</b>, FileVault or full-disk encryption
+  everywhere, as they cover everything else on the disk too. While Pocket runs, its database is open to it, and
+  to anything running as you, as with any app.</p>
 
   <h2>3. Document vault — encrypted, zero-knowledge</h2>
   <p>Vault files (PAN, insurance, property papers, anything you choose) are individually encrypted on

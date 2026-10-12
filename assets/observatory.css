@@ -501,6 +501,8 @@ a.plat:active{transform:translateY(1px)}
   padding:1px 5px; border:1px solid var(--rule); border-radius:var(--r-1); background:var(--plate); word-break:break-all}
 .prose .tablewrap{margin:16px 0}
 .prose .tablewrap table{margin:0; min-width:560px}
+/* a narrow table (a guide's, four columns at most) fits a phone instead of scrolling (11 Oct 2026) */
+.prose .tablewrap.fit table{min-width:0}
 .prose td, .prose th{color:var(--ink-2); font-size:var(--fs-small); line-height:1.55}
 .prose tbody td:first-child{color:var(--ink); font-weight:500}
 /* support: one row per reason to write, each with its own pre-filled email */

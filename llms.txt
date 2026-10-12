@@ -26,6 +26,14 @@ Facts that the pages below state:
 - [About](https://mypocketfi.com/about.html): who builds Pocket
 - [Contact](https://mypocketfi.com/contact.html)
 
+## Guides
+
+- [Guides](https://mypocketfi.com/guides.html): money in India, worked through with figures from Pocket
+- [How to work out your net worth in India](https://mypocketfi.com/guide-net-worth-india.html): what counts, where each figure comes from, a full example
+- [Track mutual funds from a CAMS or KFintech CAS](https://mypocketfi.com/guide-mutual-fund-statement.html): getting the detailed statement and how Pocket checks it
+- [Old vs new tax regime, worked through](https://mypocketfi.com/guide-old-vs-new-tax-regime.html): FY 2026-27 slabs, the Rs 12 lakh rebate and its marginal relief, both regimes on one salary
+- [A budget app that never asks for your bank login](https://mypocketfi.com/guide-budget-without-bank-login.html): budgeting from a bank's CSV statement
+
 ## Policies
 
 - [Privacy Policy](https://mypocketfi.com/privacy.html)

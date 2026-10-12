@@ -1,6 +1,6 @@
 /* POCKET — shared site behaviour. Loaded by every page (defer). DOWNLOAD_URL is the public Windows build
    (tools/site_download.py sets it); while empty, the buttons offer early access by email instead. */
-var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.8/Pocket_3.2.8_windows_setup.exe";
+var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.9/Pocket_3.2.9_windows_setup.exe";
 
 (function () {
   "use strict";

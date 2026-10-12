@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<title>A budget app that never asks for your bank login | Pocket</title>
+<meta name="description" content="Budget from your bank statement, not your bank password: how Pocket reads HDFC, ICICI, SBI, Axis and Kotak CSV statements on your own device.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mypocketfi.com/guide-budget-without-bank-login.html">
+<meta property="og:title" content="A budget app that never asks for your bank login | Pocket">
+<meta property="og:description" content="Budget from your bank statement, not your bank password: how Pocket reads HDFC, ICICI, SBI, Axis and Kotak CSV statements on your own device.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://mypocketfi.com/guide-budget-without-bank-login.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mypocketfi.com/assets/og-pocket.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket — the money app that shows its working. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og-pocket.png">
+<link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
+<link rel="stylesheet" href="assets/observatory.css?v=7">
+<link rel="stylesheet" href="assets/site-shell.css?v=3">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"A budget app that never asks for your bank login","description":"Budget from your bank statement, not your bank password: how Pocket reads HDFC, ICICI, SBI, Axis and Kotak CSV statements on your own device.","datePublished":"2026-10-11","dateModified":"2026-10-11","inLanguage":"en-IN","mainEntityOfPage":"https://mypocketfi.com/guide-budget-without-bank-login.html","image":"https://mypocketfi.com/assets/og-pocket.png","author":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"},"publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/","logo":{"@type":"ImageObject","url":"https://mypocketfi.com/assets/apple-touch-icon.png"}}}</script>
+</head>
+<body>
+<!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">AI Copilot</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
+    <a class="sh-cta" href="download.html">Download</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">AI Copilot</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="download.html">Download</a>
+    <a class="sh-menu-cta" href="download.html">Download</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="wrap">
+<article class="prose">
+<h1>A budget app that never asks for your bank login</h1>
+<div class="ldate">A guide · 11 October 2026</div>
+<div class="lsum"><b>In short:</b> to see where money goes, a budget needs your bank's transactions, not your bank
+password. Your bank's statement, downloaded as a CSV file, has every transaction. Pocket reads it on your own
+device, files salary as income, suggests a category for each spend and says where the suggestion came from, and
+keeps nothing anywhere but your device.</div>
+
+<h2>Why not a login</h2>
+<p>Apps that connect to a bank need access to the account, through a login or an account aggregator consent, and
+the transactions usually sit on their servers too. A statement file needs neither: you download it from net banking,
+as you would to print it, and the file never leaves your computer.</p>
+
+<h2>Getting the statement</h2>
+<p>In net banking, the account statement can be downloaded for any period, usually as PDF, Excel or CSV. Pocket
+reads the CSV. Where a bank offers only Excel, opening the file in a spreadsheet and saving it as CSV gives the same
+columns. Pocket knows the column layouts of HDFC, ICICI, SBI, Axis and Kotak statements, and finds the date, debit
+and credit columns in others. Dates are read as Indian banks write them, day first: 01/10/2026, 01/10/26,
+2026-10-01 and 1 Oct 2026 all read the same.</p>
+
+<h2>An example</h2>
+<p>Five lines from an HDFC Bank statement, as the CSV has them:</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="The statement's lines, scrolls sideways"><pre><code>Date,Narration,Withdrawal Amt.,Deposit Amt.,Closing Balance
+01/10/26,NEFT CR-ACME TECHNOLOGIES SALARY OCT,,185000.00,245000.00
+02/10/26,UPI-SWIGGY-swiggy@icici-Order,456.00,,244544.00
+03/10/26,NEFT-RENT OCTOBER,32000.00,,212544.00
+05/10/26,ACH D- HDFC LTD EMI,11800.00,,200744.00
+07/10/26,ELECTRICITY BESCOM,1870.00,,198874.00</code></pre></div>
+<p>And what Pocket does with them, run through its own importer:</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="The example statement in Pocket, scrolls sideways"><table class="spec"><thead><tr><th scope="col">Date</th><th scope="col">Narration</th><th scope="col" class="n">Amount</th><th scope="col">Category</th><th scope="col">Why</th></tr></thead><tbody>
+<tr><td>1 Oct 2026</td><td>NEFT CR-ACME TECHNOLOGIES SALARY OCT</td><td class="n">+₹1,85,000.00</td><td>Income</td><td>Every credit is filed as income</td></tr>
+<tr><td>2 Oct 2026</td><td>UPI-SWIGGY-swiggy@icici-Order</td><td class="n">₹456.00</td><td>Food</td><td>Suggested from the word “swiggy”</td></tr>
+<tr><td>3 Oct 2026</td><td>NEFT-RENT OCTOBER</td><td class="n">₹32,000.00</td><td>Housing</td><td>Suggested from the word “rent”</td></tr>
+<tr><td>5 Oct 2026</td><td>ACH D- HDFC LTD EMI</td><td class="n">₹11,800.00</td><td>EMI</td><td>Suggested from the word “emi”</td></tr>
+<tr><td>7 Oct 2026</td><td>ELECTRICITY BESCOM</td><td class="n">₹1,870.00</td><td>Utilities</td><td>Suggested from the word “electricity”</td></tr>
+</tbody></table></div>
+<ul>
+  <li><b>Credits are income;</b> the salary is filed as income straight away.</li>
+  <li><b>Each spend waits in the Inbox</b> with a suggested category, and the reason for it: a word in the
+  narration, how you filed the same payee before (a UPI ID counts as the payee), or that it looks like a transfer
+  between your own accounts. Nothing is filed until you save it, and a rule you teach (for example, that entries
+  containing "BESCOM" are Utilities) applies from then on.</li>
+  <li><b>The statement's closing balance</b>, ₹1,98,874.00 on 7 Oct 2026, is offered as a bank account. It is added
+  only if you say yes.</li>
+</ul>
+
+<h2>Importing the next month</h2>
+<p>A statement that overlaps the last one is safe to import: a transaction already in Pocket, with the same date,
+amount and description, is skipped. Importing this example a second time adds 0 entries. Pocket backs up its
+database before it adds anything, and a line it cannot read is listed with the reason, never guessed.</p>
+
+<h2>From transactions to a budget</h2>
+<p>Once spending is filed, Pocket shows each month's income against spending, by category; a budget for each
+category, or the 50/30/20 split of needs, wants and savings; and how many months your cash would last. The
+working behind each total opens to show its entries.</p>
+<p>Pocket is free on Windows, macOS, Linux and Android, and keeps everything on your own device: <a href="download.html">download Pocket</a>.</p>
+<div class="lnote">More guides: <a href="guide-net-worth-india.html">How to work out your net worth in India</a> · <a href="guide-mutual-fund-statement.html">Track your mutual funds from a CAMS or KFintech statement</a> · <a href="guide-old-vs-new-tax-regime.html">Old vs new tax regime, worked through</a> · <a href="guides.html">All guides</a>. Pocket is a tracking and planning tool; these guides explain, they are not financial, tax or investment advice.</div>
+</article>
+</div>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
+      <p class="sf-trust">No cloud required · No tracking · No ads</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html">Windows app</a><a href="download.html">macOS</a><a href="download.html">Android</a><a href="download.html">Linux</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India</p>
+  </div>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+</body>
+</html>

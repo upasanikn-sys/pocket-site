@@ -29,10 +29,30 @@ Facts that the pages below state:
 ## Guides
 
 - [Guides](https://mypocketfi.com/guides.html): money in India, worked through with figures from Pocket
-- [How to work out your net worth in India](https://mypocketfi.com/guide-net-worth-india.html): what counts, where each figure comes from, a full example
-- [Track mutual funds from a CAMS or KFintech CAS](https://mypocketfi.com/guide-mutual-fund-statement.html): getting the detailed statement and how Pocket checks it
-- [Old vs new tax regime, worked through](https://mypocketfi.com/guide-old-vs-new-tax-regime.html): FY 2026-27 slabs, the Rs 12 lakh rebate and its marginal relief, both regimes on one salary
-- [A budget app that never asks for your bank login](https://mypocketfi.com/guide-budget-without-bank-login.html): budgeting from a bank's CSV statement
+- [Changelog](https://mypocketfi.com/changelog.html): every published version of Pocket, newest first; RSS at https://mypocketfi.com/feed.xml
+- [How to work out your net worth in India](https://mypocketfi.com/guide-net-worth-india.html): what counts, where each figure comes from, and a full example with the mistakes that move the number.
+- [Track your mutual funds from a CAMS or KFintech statement](https://mypocketfi.com/guide-mutual-fund-statement.html): getting the detailed CAS, how Pocket checks every fund's lines, and why a fund can be left out.
+- [Old vs new tax regime, worked through](https://mypocketfi.com/guide-old-vs-new-tax-regime.html): FY 2026-27's slabs, the ₹12 lakh rebate and its marginal relief, and when the old regime costs less.
+- [A budget app that never asks for your bank login](https://mypocketfi.com/guide-budget-without-bank-login.html): budgeting from your bank's CSV statement: what Pocket reads, files and suggests, on your own device.
+- [HRA exemption, worked through](https://mypocketfi.com/guide-hra-exemption.html): the least of three limits, in Mumbai and in Jaipur, how the rent changes it, and what it does to the tax.
+- [80D: health insurance, by whom a policy covers](https://mypocketfi.com/guide-80d-health-insurance.html): the two limits, parents over 60, which of four policies count, and what 80D does to the year's tax.
+- [80C and ELSS within the ₹1.5 lakh limit](https://mypocketfi.com/guide-80c-elss.html): what counts, how much EPF already uses, what each rupee of 80C is worth, and where ELSS fits.
+- [Capital gains on mutual funds and shares, worked through](https://mypocketfi.com/guide-capital-gains-tax.html): holding periods and rates, units sold oldest first, a year's three sales, and the tax on them.
+- [The ₹1.25 lakh LTCG room, worked through](https://mypocketfi.com/guide-ltcg-exemption.html): the tax-free equity long-term gain, the room left after gains booked, and what is long-term in a holding now.
+- [Advance tax: the dates and the amounts](https://mypocketfi.com/guide-advance-tax.html): who pays, the four dates, the amount due by each, and a salaried person with a capital gain.
+- [From CTC to take-home pay, worked through](https://mypocketfi.com/guide-ctc-to-take-home.html): basic, HRA, PF, gratuity, professional tax and TDS on one salary, a month and a year.
+- [NPS and 80CCD(1B), worked through](https://mypocketfi.com/guide-nps-80ccd-1b.html): the three NPS deductions, what the extra ₹50,000 saves, and what a monthly contribution could grow to.
+- [How your EPF grows](https://mypocketfi.com/guide-epf-growth.html): what goes in each month, how the balance compounds over 30 years, and what the projection assumes.
+- [PPF over 15 years, worked through](https://mypocketfi.com/guide-ppf-15-years.html): the deposit limits, how interest is worked out, ₹1.5 lakh a year to maturity, and extensions.
+- [Step-up vs flat SIP, worked through](https://mypocketfi.com/guide-step-up-vs-flat-sip.html): what a SIP that rises each year pays in and builds, against one that stays the same, month by month.
+- [The cost of starting a SIP late, worked through](https://mypocketfi.com/guide-cost-of-starting-a-sip-late.html): what starting 12 months, two years or five years late costs at the same finish date, month by month.
+- [How much you need to retire, and the year you reach it](https://mypocketfi.com/guide-retirement-corpus-fire.html): a year's spending grown with inflation over a withdrawal rate, and the first year a step-up SIP covers it.
+- [The SIP a goal needs, worked through](https://mypocketfi.com/guide-goal-sip.html): a goal's cost grown with inflation, the money already set aside, and the monthly SIP that reaches it.
+- [An emergency fund in months, worked through](https://mypocketfi.com/guide-emergency-fund-months.html): essential spending as a target, the months a fund covers, how long it takes to fill, and what prices do to it.
+- [Paying off loans: snowball and avalanche, worked through](https://mypocketfi.com/guide-loan-snowball-avalanche.html): smallest balance first or highest rate first: what each order costs in interest and months, month by month.
+- [Old vs new tax regime calculator](https://mypocketfi.com/calc-tax-regime.html): income tax on your salary for FY 2026-27 under both regimes, every step shown: deductions, slabs, the ₹12 lakh rebate, surcharge and cess.
+- [SIP calculator](https://mypocketfi.com/calc-sip.html): a SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.
+- [Net worth calculator](https://mypocketfi.com/calc-net-worth.html): work out your net worth: investments, bank, EPF, PPF, NPS, gold and property, less every loan and card, added up line by line.
 
 ## Policies
 

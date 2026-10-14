@@ -1,0 +1,1721 @@
+{
+ "about": "Written by tools/site_captures.py: the real app on the sample person (tools/qa_seed.py), QA day 2026-09-29, fixed prices, no network. Do not edit by hand; retake instead.",
+ "budget_bytes": 256000,
+ "captures": [
+  {
+   "name": "overview",
+   "kind": "desktop",
+   "alt": "Pocket's Overview, on the sample person's data: Investments, 12 months, Needs a look, Next 14 days.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-overview.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 60492
+     },
+     "webp_2x": {
+      "file": "cap-overview-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 93560
+     },
+     "png": {
+      "file": "cap-overview.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 87702
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-overview-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 57530
+     },
+     "webp_2x": {
+      "file": "cap-overview-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 90490
+     },
+     "png": {
+      "file": "cap-overview-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 87838
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "investments",
+   "kind": "desktop",
+   "alt": "Pocket's Investments, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-investments.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 63128
+     },
+     "webp_2x": {
+      "file": "cap-investments-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 101878
+     },
+     "png": {
+      "file": "cap-investments.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 94743
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-investments-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 60382
+     },
+     "webp_2x": {
+      "file": "cap-investments-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 98808
+     },
+     "png": {
+      "file": "cap-investments-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 95190
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "tax",
+   "kind": "desktop",
+   "alt": "Pocket's Tax page, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-tax.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 70214
+     },
+     "webp_2x": {
+      "file": "cap-tax-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 103062
+     },
+     "png": {
+      "file": "cap-tax.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 104359
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-tax-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 67040
+     },
+     "webp_2x": {
+      "file": "cap-tax-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 100682
+     },
+     "png": {
+      "file": "cap-tax-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 104773
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "tax-regimes",
+   "kind": "desktop",
+   "alt": "Pocket's Tax page: both regimes on the payslip's figures, and the year's estimate, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-tax-regimes.webp",
+      "width": 1012,
+      "height": 555,
+      "bytes": 36418
+     },
+     "webp_2x": {
+      "file": "cap-tax-regimes-2x.webp",
+      "width": 2024,
+      "height": 1110,
+      "bytes": 48650
+     },
+     "png": {
+      "file": "cap-tax-regimes.png",
+      "width": 1012,
+      "height": 555,
+      "bytes": 52639
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-tax-regimes-dark.webp",
+      "width": 1012,
+      "height": 555,
+      "bytes": 34838
+     },
+     "webp_2x": {
+      "file": "cap-tax-regimes-dark-2x.webp",
+      "width": 2024,
+      "height": 1110,
+      "bytes": 49496
+     },
+     "png": {
+      "file": "cap-tax-regimes-dark.png",
+      "width": 1012,
+      "height": 555,
+      "bytes": 52871
+     }
+    }
+   },
+   "width": 1012,
+   "height": 555
+  },
+  {
+   "name": "goals",
+   "kind": "desktop",
+   "alt": "Pocket's Goals & retirement, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-goals.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 64196
+     },
+     "webp_2x": {
+      "file": "cap-goals-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 105018
+     },
+     "png": {
+      "file": "cap-goals.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 93210
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-goals-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 60750
+     },
+     "webp_2x": {
+      "file": "cap-goals-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 101904
+     },
+     "png": {
+      "file": "cap-goals-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 94006
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "cashflow",
+   "kind": "desktop",
+   "alt": "Pocket's Cash flow, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-cashflow.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 54502
+     },
+     "webp_2x": {
+      "file": "cap-cashflow-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 88964
+     },
+     "png": {
+      "file": "cap-cashflow.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 80991
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-cashflow-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 51680
+     },
+     "webp_2x": {
+      "file": "cap-cashflow-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 87772
+     },
+     "png": {
+      "file": "cap-cashflow-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 81610
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "debt",
+   "kind": "desktop",
+   "alt": "Pocket's Debt page, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-debt.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 67620
+     },
+     "webp_2x": {
+      "file": "cap-debt-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 103530
+     },
+     "png": {
+      "file": "cap-debt.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 98972
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-debt-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 64718
+     },
+     "webp_2x": {
+      "file": "cap-debt-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 99158
+     },
+     "png": {
+      "file": "cap-debt-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 99391
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "protection",
+   "kind": "desktop",
+   "alt": "Pocket's Protection page, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-protection.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 72626
+     },
+     "webp_2x": {
+      "file": "cap-protection-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 104294
+     },
+     "png": {
+      "file": "cap-protection.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 105021
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-protection-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 68570
+     },
+     "webp_2x": {
+      "file": "cap-protection-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 103492
+     },
+     "png": {
+      "file": "cap-protection-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 106130
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "ask",
+   "kind": "desktop",
+   "alt": "Ask Pocket answering “how am I doing?” on this computer, from the figures beside it, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-ask.webp",
+      "width": 1034,
+      "height": 277,
+      "bytes": 24894
+     },
+     "webp_2x": {
+      "file": "cap-ask-2x.webp",
+      "width": 2068,
+      "height": 554,
+      "bytes": 35174
+     },
+     "png": {
+      "file": "cap-ask.png",
+      "width": 1034,
+      "height": 277,
+      "bytes": 37637
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-ask-dark.webp",
+      "width": 1034,
+      "height": 277,
+      "bytes": 23744
+     },
+     "webp_2x": {
+      "file": "cap-ask-dark-2x.webp",
+      "width": 2068,
+      "height": 554,
+      "bytes": 34476
+     },
+     "png": {
+      "file": "cap-ask-dark.png",
+      "width": 1034,
+      "height": 277,
+      "bytes": 37232
+     }
+    }
+   },
+   "width": 1034,
+   "height": 277
+  },
+  {
+   "name": "ask-goal",
+   "kind": "desktop",
+   "alt": "Ask Pocket answering “goal status” on this computer, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-ask-goal.webp",
+      "width": 1034,
+      "height": 293,
+      "bytes": 28780
+     },
+     "webp_2x": {
+      "file": "cap-ask-goal-2x.webp",
+      "width": 2068,
+      "height": 586,
+      "bytes": 39714
+     },
+     "png": {
+      "file": "cap-ask-goal.png",
+      "width": 1034,
+      "height": 293,
+      "bytes": 42585
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-ask-goal-dark.webp",
+      "width": 1034,
+      "height": 293,
+      "bytes": 27624
+     },
+     "webp_2x": {
+      "file": "cap-ask-goal-dark-2x.webp",
+      "width": 2068,
+      "height": 586,
+      "bytes": 39388
+     },
+     "png": {
+      "file": "cap-ask-goal-dark.png",
+      "width": 1034,
+      "height": 293,
+      "bytes": 42370
+     }
+    }
+   },
+   "width": 1034,
+   "height": 293
+  },
+  {
+   "name": "ask-rebalance",
+   "kind": "desktop",
+   "alt": "Ask Pocket answering “rebalance plan” on this computer: the gaps, not trades, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-ask-rebalance.webp",
+      "width": 1034,
+      "height": 277,
+      "bytes": 22448
+     },
+     "webp_2x": {
+      "file": "cap-ask-rebalance-2x.webp",
+      "width": 2068,
+      "height": 554,
+      "bytes": 32416
+     },
+     "png": {
+      "file": "cap-ask-rebalance.png",
+      "width": 1034,
+      "height": 277,
+      "bytes": 34344
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-ask-rebalance-dark.webp",
+      "width": 1034,
+      "height": 277,
+      "bytes": 21364
+     },
+     "webp_2x": {
+      "file": "cap-ask-rebalance-dark-2x.webp",
+      "width": 2068,
+      "height": 554,
+      "bytes": 32010
+     },
+     "png": {
+      "file": "cap-ask-rebalance-dark.png",
+      "width": 1034,
+      "height": 277,
+      "bytes": 33931
+     }
+    }
+   },
+   "width": 1034,
+   "height": 277
+  },
+  {
+   "name": "health",
+   "kind": "desktop",
+   "alt": "Pocket's Financial health score, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-health.webp",
+      "width": 1012,
+      "height": 266,
+      "bytes": 8426
+     },
+     "webp_2x": {
+      "file": "cap-health-2x.webp",
+      "width": 2024,
+      "height": 532,
+      "bytes": 14996
+     },
+     "png": {
+      "file": "cap-health.png",
+      "width": 1012,
+      "height": 266,
+      "bytes": 14680
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-health-dark.webp",
+      "width": 1012,
+      "height": 266,
+      "bytes": 8058
+     },
+     "webp_2x": {
+      "file": "cap-health-dark-2x.webp",
+      "width": 2024,
+      "height": 532,
+      "bytes": 14752
+     },
+     "png": {
+      "file": "cap-health-dark.png",
+      "width": 1012,
+      "height": 266,
+      "bytes": 14609
+     }
+    }
+   },
+   "width": 1012,
+   "height": 266
+  },
+  {
+   "name": "cas",
+   "kind": "desktop",
+   "alt": "Pocket reading a mutual-fund statement (CAS) before importing it, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-cas.webp",
+      "width": 1008,
+      "height": 453,
+      "bytes": 50346
+     },
+     "webp_2x": {
+      "file": "cap-cas-2x.webp",
+      "width": 2016,
+      "height": 906,
+      "bytes": 66254
+     },
+     "png": {
+      "file": "cap-cas.png",
+      "width": 1008,
+      "height": 453,
+      "bytes": 74726
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-cas-dark.webp",
+      "width": 1008,
+      "height": 453,
+      "bytes": 48694
+     },
+     "webp_2x": {
+      "file": "cap-cas-dark-2x.webp",
+      "width": 2016,
+      "height": 906,
+      "bytes": 65750
+     },
+     "png": {
+      "file": "cap-cas-dark.png",
+      "width": 1008,
+      "height": 453,
+      "bytes": 74986
+     }
+    }
+   },
+   "width": 1008,
+   "height": 453
+  },
+  {
+   "name": "privacy",
+   "kind": "desktop",
+   "alt": "Pocket's Settings, Privacy & security: where the data is and what Pocket connects to, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-privacy.webp",
+      "width": 1012,
+      "height": 344,
+      "bytes": 42670
+     },
+     "webp_2x": {
+      "file": "cap-privacy-2x.webp",
+      "width": 2024,
+      "height": 688,
+      "bytes": 40616
+     },
+     "png": {
+      "file": "cap-privacy.png",
+      "width": 1012,
+      "height": 344,
+      "bytes": 56447
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-privacy-dark.webp",
+      "width": 1012,
+      "height": 344,
+      "bytes": 43342
+     },
+     "webp_2x": {
+      "file": "cap-privacy-dark-2x.webp",
+      "width": 2024,
+      "height": 688,
+      "bytes": 40518
+     },
+     "png": {
+      "file": "cap-privacy-dark.png",
+      "width": 1012,
+      "height": 344,
+      "bytes": 57516
+     }
+    }
+   },
+   "width": 1012,
+   "height": 344
+  },
+  {
+   "name": "plan",
+   "kind": "desktop",
+   "alt": "Pocket's Settings, Plan: the plans and what each includes, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-plan.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 72350
+     },
+     "webp_2x": {
+      "file": "cap-plan-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 98400
+     },
+     "png": {
+      "file": "cap-plan.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 107520
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-plan-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 68970
+     },
+     "webp_2x": {
+      "file": "cap-plan-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 96026
+     },
+     "png": {
+      "file": "cap-plan-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 108116
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "m-home",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Home, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-home.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 26122
+     },
+     "webp_2x": {
+      "file": "cap-m-home-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 43698
+     },
+     "png": {
+      "file": "cap-m-home.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 36684
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-home-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 24220
+     },
+     "webp_2x": {
+      "file": "cap-m-home-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 50008
+     },
+     "png": {
+      "file": "cap-m-home-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 37379
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-money",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Money, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-money.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 28098
+     },
+     "webp_2x": {
+      "file": "cap-m-money-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 43782
+     },
+     "png": {
+      "file": "cap-m-money.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 38238
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-money-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 26166
+     },
+     "webp_2x": {
+      "file": "cap-m-money-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 43560
+     },
+     "png": {
+      "file": "cap-m-money-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 39689
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-wealth",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Wealth, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-wealth.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 35876
+     },
+     "webp_2x": {
+      "file": "cap-m-wealth-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 54626
+     },
+     "png": {
+      "file": "cap-m-wealth.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 48432
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-wealth-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 32916
+     },
+     "webp_2x": {
+      "file": "cap-m-wealth-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 53950
+     },
+     "png": {
+      "file": "cap-m-wealth-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 50649
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-protect",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Protect, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-protect.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 29878
+     },
+     "webp_2x": {
+      "file": "cap-m-protect-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 41932
+     },
+     "png": {
+      "file": "cap-m-protect.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 40110
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-protect-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 28098
+     },
+     "webp_2x": {
+      "file": "cap-m-protect-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 42264
+     },
+     "png": {
+      "file": "cap-m-protect-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 42733
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-privacy",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Security & privacy, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-privacy.webp",
+      "width": 390,
+      "height": 620,
+      "bytes": 32628
+     },
+     "webp_2x": {
+      "file": "cap-m-privacy-2x.webp",
+      "width": 780,
+      "height": 1240,
+      "bytes": 42176
+     },
+     "png": {
+      "file": "cap-m-privacy.png",
+      "width": 390,
+      "height": 620,
+      "bytes": 44611
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-privacy-dark.webp",
+      "width": 390,
+      "height": 620,
+      "bytes": 29328
+     },
+     "webp_2x": {
+      "file": "cap-m-privacy-dark-2x.webp",
+      "width": 780,
+      "height": 1240,
+      "bytes": 41382
+     },
+     "png": {
+      "file": "cap-m-privacy-dark.png",
+      "width": 390,
+      "height": 620,
+      "bytes": 46546
+     }
+    }
+   },
+   "width": 390,
+   "height": 620
+  },
+  {
+   "name": "m-health",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Financial health, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-health.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 30996
+     },
+     "webp_2x": {
+      "file": "cap-m-health-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 48090
+     },
+     "png": {
+      "file": "cap-m-health.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 42714
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-health-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 29368
+     },
+     "webp_2x": {
+      "file": "cap-m-health-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 47464
+     },
+     "png": {
+      "file": "cap-m-health-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 44757
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-plan",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Plans & pricing, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-plan.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 51024
+     },
+     "webp_2x": {
+      "file": "cap-m-plan-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 58920
+     },
+     "png": {
+      "file": "cap-m-plan.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 64929
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-plan-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 46854
+     },
+     "webp_2x": {
+      "file": "cap-m-plan-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 92984
+     },
+     "png": {
+      "file": "cap-m-plan-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 67719
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "sips",
+   "kind": "desktop",
+   "alt": "Pocket's SIPs, on the Investments page, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-sips.webp",
+      "width": 1012,
+      "height": 260,
+      "bytes": 10790
+     },
+     "webp_2x": {
+      "file": "cap-sips-2x.webp",
+      "width": 2024,
+      "height": 520,
+      "bytes": 14948
+     },
+     "png": {
+      "file": "cap-sips.png",
+      "width": 1012,
+      "height": 260,
+      "bytes": 17653
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-sips-dark.webp",
+      "width": 1012,
+      "height": 260,
+      "bytes": 10396
+     },
+     "webp_2x": {
+      "file": "cap-sips-dark-2x.webp",
+      "width": 2024,
+      "height": 520,
+      "bytes": 14836
+     },
+     "png": {
+      "file": "cap-sips-dark.png",
+      "width": 1012,
+      "height": 260,
+      "bytes": 17658
+     }
+    }
+   },
+   "width": 1012,
+   "height": 260
+  },
+  {
+   "name": "accounts",
+   "kind": "desktop",
+   "alt": "Pocket's Accounts & assets, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-accounts.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 50330
+     },
+     "webp_2x": {
+      "file": "cap-accounts-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 77744
+     },
+     "png": {
+      "file": "cap-accounts.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 77252
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-accounts-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 47760
+     },
+     "webp_2x": {
+      "file": "cap-accounts-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 74258
+     },
+     "png": {
+      "file": "cap-accounts-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 77572
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "income",
+   "kind": "desktop",
+   "alt": "Pocket's Income and payslip, on Cash flow, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-income.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 59298
+     },
+     "webp_2x": {
+      "file": "cap-income-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 94222
+     },
+     "png": {
+      "file": "cap-income.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 90898
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-income-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 55972
+     },
+     "webp_2x": {
+      "file": "cap-income-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 89766
+     },
+     "png": {
+      "file": "cap-income-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 91118
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "lock",
+   "kind": "desktop",
+   "alt": "Pocket's Settings, Privacy & security: the app lock, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-lock.webp",
+      "width": 1012,
+      "height": 242,
+      "bytes": 10982
+     },
+     "webp_2x": {
+      "file": "cap-lock-2x.webp",
+      "width": 2024,
+      "height": 484,
+      "bytes": 15874
+     },
+     "png": {
+      "file": "cap-lock.png",
+      "width": 1012,
+      "height": 242,
+      "bytes": 16982
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-lock-dark.webp",
+      "width": 1012,
+      "height": 242,
+      "bytes": 10424
+     },
+     "webp_2x": {
+      "file": "cap-lock-dark-2x.webp",
+      "width": 2024,
+      "height": 484,
+      "bytes": 15656
+     },
+     "png": {
+      "file": "cap-lock-dark.png",
+      "width": 1012,
+      "height": 242,
+      "bytes": 16893
+     }
+    }
+   },
+   "width": 1012,
+   "height": 242
+  },
+  {
+   "name": "tax-deductions",
+   "kind": "desktop",
+   "alt": "Pocket's Tax page: the deductions the year has used, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-tax-deductions.webp",
+      "width": 1012,
+      "height": 323,
+      "bytes": 25978
+     },
+     "webp_2x": {
+      "file": "cap-tax-deductions-2x.webp",
+      "width": 2024,
+      "height": 646,
+      "bytes": 30468
+     },
+     "png": {
+      "file": "cap-tax-deductions.png",
+      "width": 1012,
+      "height": 323,
+      "bytes": 39862
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-tax-deductions-dark.webp",
+      "width": 1012,
+      "height": 323,
+      "bytes": 25694
+     },
+     "webp_2x": {
+      "file": "cap-tax-deductions-dark-2x.webp",
+      "width": 2024,
+      "height": 646,
+      "bytes": 30466
+     },
+     "png": {
+      "file": "cap-tax-deductions-dark.png",
+      "width": 1012,
+      "height": 323,
+      "bytes": 40315
+     }
+    }
+   },
+   "width": 1012,
+   "height": 323
+  },
+  {
+   "name": "tax-gains",
+   "kind": "desktop",
+   "alt": "Pocket's Tax page: capital gains for the year, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-tax-gains.webp",
+      "width": 1012,
+      "height": 208,
+      "bytes": 25918
+     },
+     "webp_2x": {
+      "file": "cap-tax-gains-2x.webp",
+      "width": 2024,
+      "height": 416,
+      "bytes": 32116
+     },
+     "png": {
+      "file": "cap-tax-gains.png",
+      "width": 1012,
+      "height": 208,
+      "bytes": 36989
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-tax-gains-dark.webp",
+      "width": 1012,
+      "height": 208,
+      "bytes": 24988
+     },
+     "webp_2x": {
+      "file": "cap-tax-gains-dark-2x.webp",
+      "width": 2024,
+      "height": 416,
+      "bytes": 32436
+     },
+     "png": {
+      "file": "cap-tax-gains-dark.png",
+      "width": 1012,
+      "height": 208,
+      "bytes": 36989
+     }
+    }
+   },
+   "width": 1012,
+   "height": 208
+  },
+  {
+   "name": "m-reports",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Premium reports, a Pro feature, open during the 14-day Pro trial, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-reports.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 29094
+     },
+     "webp_2x": {
+      "file": "cap-m-reports-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 37150
+     },
+     "png": {
+      "file": "cap-m-reports.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 38739
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-reports-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 27018
+     },
+     "webp_2x": {
+      "file": "cap-m-reports-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 58380
+     },
+     "png": {
+      "file": "cap-m-reports-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 39740
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-vault",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Document vault, a Pro feature, open during the 14-day Pro trial, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-vault.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 25274
+     },
+     "webp_2x": {
+      "file": "cap-m-vault-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 35676
+     },
+     "png": {
+      "file": "cap-m-vault.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 34769
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-vault-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 23980
+     },
+     "webp_2x": {
+      "file": "cap-m-vault-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 35378
+     },
+     "png": {
+      "file": "cap-m-vault-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 34806
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-sync",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Encrypted sync, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-sync.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 21344
+     },
+     "webp_2x": {
+      "file": "cap-m-sync-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 34454
+     },
+     "png": {
+      "file": "cap-m-sync.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 31547
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-sync-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 19384
+     },
+     "webp_2x": {
+      "file": "cap-m-sync-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 34022
+     },
+     "png": {
+      "file": "cap-m-sync-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 32164
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "start",
+   "kind": "desktop",
+   "alt": "Pocket's first run: the sample person's Overview, with the start card, on the sample person's data: Investments, 12 months.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-start.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 64382
+     },
+     "webp_2x": {
+      "file": "cap-start-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 98290
+     },
+     "png": {
+      "file": "cap-start.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 89185
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-start-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 60344
+     },
+     "webp_2x": {
+      "file": "cap-start-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 94992
+     },
+     "png": {
+      "file": "cap-start-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 89723
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "m-welcome",
+   "kind": "phone",
+   "alt": "Pocket's first run on a phone: the welcome, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-welcome.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 15734
+     },
+     "webp_2x": {
+      "file": "cap-m-welcome-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 20950
+     },
+     "png": {
+      "file": "cap-m-welcome.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 22663
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-welcome-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 14444
+     },
+     "webp_2x": {
+      "file": "cap-m-welcome-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 20204
+     },
+     "png": {
+      "file": "cap-m-welcome-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 22627
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-start",
+   "kind": "phone",
+   "alt": "Pocket's first run on a phone: start with your own numbers, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-start.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 20324
+     },
+     "webp_2x": {
+      "file": "cap-m-start-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 25916
+     },
+     "png": {
+      "file": "cap-m-start.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 27816
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-start-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 18880
+     },
+     "webp_2x": {
+      "file": "cap-m-start-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 24808
+     },
+     "png": {
+      "file": "cap-m-start-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 27716
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-import",
+   "kind": "phone",
+   "alt": "Pocket on a phone: Statement import, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-import.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 32704
+     },
+     "webp_2x": {
+      "file": "cap-m-import-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 49964
+     },
+     "png": {
+      "file": "cap-m-import.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 46869
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-import-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 30744
+     },
+     "webp_2x": {
+      "file": "cap-m-import-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 67168
+     },
+     "png": {
+      "file": "cap-m-import-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 46935
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  }
+ ]
+}

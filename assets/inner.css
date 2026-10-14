@@ -1,0 +1,318 @@
+/* POCKET — inner-page patterns (DESIGN.md "Website: the page grammar"). Loaded after observatory.css by
+   every page except the homepage. Split from observatory.css on 12 Oct 2026 so each page stays inside
+   its CSS budget (DESIGN_STANDARD.md). */
+
+/* small supporting pieces for the inner pages */
+.ph-caption{margin:52px 0 10px; font-size:var(--fs-caption); color:var(--ink-3)}
+.pair h2{margin:0; font-size:24px; line-height:1.15; letter-spacing:-.02em}
+.pair-sub{margin:10px 0 16px; font-size:var(--fs-caption); color:var(--ink-3)}
+.pair h2 + ul{margin-top:16px}
+.modline{margin:20px 0 0; font-size:var(--fs-small); color:var(--ink-3); line-height:1.7}
+.example-note{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3); max-width:72ch; line-height:1.6}
+
+/* a weighted list: term, meaning, and the number that proves it (tabular) */
+.defs.weighted > div{grid-template-columns:minmax(0,.3fr) minmax(0,.58fr) minmax(0,.12fr)}
+.defs dd.w{text-align:right; font-variant-numeric:tabular-nums; color:var(--ink-2)}
+@media (max-width:900px){
+  .defs.weighted > div{grid-template-columns:1fr auto; gap:6px 16px}
+  .defs.weighted dd:not(.w){grid-column:1 / -1}
+  .defs.weighted dd.w{grid-row:1; grid-column:2}
+}
+
+/* life stages: a timeline on rules; the ages are the information, so they carry the weight */
+.stages{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-top:1px solid var(--rule-2)}
+.stages li{padding:24px 18px 8px 0}
+.stages li + li{padding-left:18px; border-left:1px solid var(--rule)}
+.stages .age{display:block; margin-bottom:14px; font:700 36px/1 var(--display); letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums; color:var(--ink)}
+.stages h3{margin:0 0 4px; font-size:var(--fs-body); line-height:1.35}
+.stages p{margin:0; color:var(--ink-3); font-size:var(--fs-small)}
+@media (max-width:900px){
+  .stages{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stages li:nth-child(4){padding-left:0; border-left:0}
+  .stages li:nth-child(n+4){border-top:1px solid var(--rule)}
+}
+@media (max-width:560px){
+  .stages{grid-template-columns:1fr}
+  .stages li, .stages li + li{display:grid; grid-template-columns:72px 1fr; gap:2px 16px; padding:18px 0; border-left:0;
+    border-top:0; border-bottom:1px solid var(--rule)}
+  .stages .age{grid-row:span 2; margin:0; font-size:28px}
+}
+
+/* questions set as statements a person reads once */
+.asks{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule-2)}
+.asks li{padding:28px 28px 28px 0; border-bottom:1px solid var(--rule); color:var(--ink);
+  font:600 24px/1.25 var(--display); letter-spacing:-.02em}
+.asks li:nth-child(even){padding-left:28px; border-left:1px solid var(--rule)}
+@media (max-width:560px){ .asks{grid-template-columns:1fr} .asks li{font-size:var(--fs-h3)} .asks li:nth-child(even){padding-left:0; border-left:0} }
+
+/* the module index (features): name and tier | what it does | what it includes */
+.mods .mrow{grid-template-columns:minmax(0,.27fr) minmax(0,.4fr) minmax(0,.33fr); align-items:start}
+.mod-name{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px}
+.mods .mrow p{color:var(--ink-2)}
+.mod-go{color:var(--ink); white-space:nowrap}
+.tier{display:inline-block; padding:2px 8px; border:1px solid var(--rule-2); border-radius:var(--r-1); white-space:nowrap;
+  font:500 var(--fs-prov)/1.5 var(--sans); color:var(--ink-2)}
+.has{list-style:none; margin:0; padding:0; font-size:var(--fs-small); color:var(--ink-3)}
+.has li{display:grid; grid-template-columns:14px 1fr; gap:8px; line-height:1.5; padding:1px 0}
+.has li::before{content:""; width:8px; height:1px; margin-top:.75em; background:var(--ink-3)}
+@media (max-width:900px){ .mods .mrow{grid-template-columns:minmax(0,.34fr) minmax(0,.66fr)} .mods .has{grid-column:2} }
+@media (max-width:900px){ .mods .mrow{grid-template-columns:1fr; gap:10px} .mods .has{grid-column:auto} }
+.ph .hnote{gap:10px 20px}
+.note.status{margin:0 0 36px; max-width:80ch}
+.defs .qual{margin-left:8px; font-size:var(--fs-caption); font-weight:500; color:var(--ink-3); white-space:nowrap}
+
+/* page hero with the product beside it (ai-copilot): copy left, the real phone capture right */
+.ph-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:56px; align-items:center}
+.caps{margin:40px 0 0; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule-2)}
+.caps > div{padding:16px 20px 16px 0; border-bottom:1px solid var(--rule)}
+.caps > div:nth-child(even){padding-left:20px; border-left:1px solid var(--rule)}
+.caps dt{font-weight:600; font-size:var(--fs-body); color:var(--ink)}
+.caps dd{margin:2px 0 0; font-size:var(--fs-small); color:var(--ink-3)}
+.ph-foot{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3)}
+.ph-device{margin:0}
+.ph-device figcaption{margin:20px auto 0; max-width:40ch; font-size:var(--fs-caption); line-height:1.6;
+  color:var(--ink-3); text-align:center}
+/* a product capture on film: the flat plate, the sheet's radius, no device body */
+.capture{width:250px; margin:0 auto; border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card)}
+.capture img{display:block; width:100%; height:auto}
+@media (max-width:900px){ .ph-grid{grid-template-columns:1fr; gap:48px} .capture{width:230px} }
+@media (max-width:560px){ .caps{grid-template-columns:1fr} .caps > div:nth-child(even){padding-left:0; border-left:0} }
+
+/* a worked example: the question in Jakarta, the answer as an instrument reading with one anchor figure */
+.example{display:grid; grid-template-columns:minmax(0,.4fr) minmax(0,.6fr); gap:48px; margin-top:56px; padding:40px;
+  border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card)}
+.ex-label{margin:0 0 10px; font-size:var(--fs-caption); color:var(--ink-3)}
+.ex-a .ex-label:not(:first-child){margin-top:28px}
+.ex-ask{margin:0; font:700 28px/1.2 var(--display); letter-spacing:-.02em; color:var(--ink)}
+.ex-checks{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px}
+.ex-checks li{padding:4px 12px; border:1px solid var(--rule-2); border-radius:var(--r-1); font-size:var(--fs-caption); color:var(--ink-2)}
+.ex-score{display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center; padding:18px 0;
+  border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.ex-fig{margin:0; line-height:1; font-variant-numeric:tabular-nums; white-space:nowrap}
+.ex-fig .n{font:700 44px/1 var(--display); letter-spacing:-.03em; color:var(--ink)}
+.ex-fig .of{margin-left:2px; font-size:var(--fs-lede); color:var(--ink-3)}
+.ex-score h3{margin:0 0 4px; font-size:var(--fs-lede)}
+.ex-score p{margin:0; color:var(--ink-2); font-size:var(--fs-small)}
+.ex-note{margin:20px 0 0; font-size:var(--fs-caption); color:var(--ink-3)}
+@media (max-width:900px){ .example{grid-template-columns:1fr; gap:28px; padding:28px 20px} .ex-ask{font-size:24px} }
+@media (max-width:560px){ .ex-score{grid-template-columns:1fr; gap:12px} }
+
+/* a promise, set once in the voice face */
+.promise{max-width:820px; margin:56px auto 0; text-align:center}
+.promise p{margin:0; font-size:var(--fs-h3); line-height:1.35; color:var(--ink); text-wrap:balance}
+.promise footer{margin-top:14px; padding:0; border:0; font-size:var(--fs-caption); color:var(--ink-3)}
+
+/* security: hero pillars, the comparison table, what you control, and the honest limits */
+.caps.wide{margin-top:48px}
+.caps.wide dd{max-width:46ch; line-height:1.55}
+.compare{min-width:560px}
+.compare thead th:last-child, .compare td:last-child{color:var(--ink)}
+.compare td:last-child{font-weight:500}
+/* phones: the table would scroll the Pocket column out of view, so each row stacks with its labels */
+@media (max-width:560px){
+  .compare, .compare tbody{display:block; min-width:0}
+  .compare thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .compare tr{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; padding:16px 0; border-bottom:1px solid var(--rule)}
+  .compare tbody th{grid-column:1 / -1; padding:0 0 6px; border:0}
+  .compare td{padding:0; border:0}
+  .compare td::before{content:attr(data-l); display:block; margin-bottom:2px; font-size:var(--fs-prov); font-weight:400; color:var(--ink-3)}
+}
+.control{margin-top:40px}
+.control h3{margin:0 0 14px; font-size:var(--fs-lede)}
+.control .has{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px 24px; font-size:var(--fs-body); color:var(--ink-2)}
+@media (max-width:900px){ .control .has{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .control .has{grid-template-columns:1fr} }
+.limits{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule-2)}
+.limits li{position:relative; padding:20px 0 20px 26px; border-bottom:1px solid var(--rule); max-width:96ch;
+  color:var(--ink-2); font-size:var(--fs-body); line-height:1.65}
+/* what is not finished yet: a hollow ink-3 ring, not a warning colour */
+.limits li::before{content:""; position:absolute; left:1px; top:29px; width:8px; height:8px; border-radius:50%;
+  border:1.5px solid var(--ink-3)}
+.limits strong{color:var(--ink); font-weight:600}
+
+/* pricing: one frame split into three plans on rules; the recommended plan sits on card under a 2px ink rule */
+.plans-head{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:20px 40px; margin-bottom:32px}
+.billing{display:flex; flex-wrap:wrap; gap:12px}
+.seg{display:inline-flex; padding:3px; border:1px solid var(--rule-2); border-radius:var(--r-2); background:var(--plate)}
+.seg button{appearance:none; border:0; background:transparent; cursor:pointer; min-height:44px; padding:0 16px; border-radius:var(--r-1);
+  font:500 var(--fs-small)/1 var(--sans); color:var(--ink-2);
+  transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+.seg button:hover{color:var(--ink)}
+.seg button:active{transform:translateY(1px)}
+.seg button.on{background:var(--card); color:var(--ink); box-shadow:inset 0 0 0 1px var(--rule-2)}
+.seg .save{margin-left:6px; font-size:var(--fs-prov); color:var(--ink-3)}
+.plans{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--rule-2); border-radius:var(--r-3); overflow:hidden}
+.plan{display:flex; flex-direction:column; padding:28px}
+.plan + .plan{border-left:1px solid var(--rule)}
+.plan.pro{background:var(--card); box-shadow:inset 0 2px 0 var(--ink)}
+.plan-top{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px}
+.plan-top h3{margin:0; font-size:24px; letter-spacing:-.02em}
+.plan .for{margin:6px 0 0; font-size:var(--fs-small); color:var(--ink-3)}
+.price{display:flex; align-items:baseline; margin:24px 0 8px; font-variant-numeric:tabular-nums; line-height:1}
+.price .cur{align-self:flex-start; margin:4px 2px 0 0; font:500 24px/1 var(--sans); color:var(--ink-2)}   /* the rupee is Inter */
+.price .amt{font:700 44px/1 var(--display); letter-spacing:-.03em; color:var(--ink)}
+.price .per{margin-left:6px; font-size:var(--fs-small); color:var(--ink-3)}
+.price-alt{margin:0; min-height:22px; font-size:var(--fs-small); color:var(--ink-3); font-variant-numeric:tabular-nums}
+.price-alt .save{margin-left:8px; color:var(--ink-2)}
+.plan-desc{margin:16px 0 20px; font-size:var(--fs-body); color:var(--ink-2); line-height:1.55}
+.plan .cta, .plan .btn-line, .offer .cta{justify-content:center; width:100%}
+/* a narrow plan column wraps its action onto two balanced lines, never an orphaned arrow */
+.plan .cta, .plan .btn-line{text-align:center; text-wrap:balance; line-height:1.25; padding-top:12px; padding-bottom:12px}
+.plus{margin:24px 0 10px; font-size:var(--fs-caption); color:var(--ink-3)}
+.plan > .btn-line + .has{margin-top:24px}
+.plan .has, .offer .has{font-size:var(--fs-small); color:var(--ink-2)}
+.plan .has li, .offer .has li{padding:4px 0}
+.plan .has li::before, .offer .has li::before{margin-top:.8em}
+.new{margin-left:6px; font-size:var(--fs-prov); font-weight:500; color:var(--ink-2)}
+.plan-foot{margin:auto 0 0; padding-top:20px; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3)}
+.includes{display:flex; flex-wrap:wrap; gap:8px 20px; margin:20px 0 0; font-size:var(--fs-small); color:var(--ink-3)}
+.includes strong{color:var(--ink); font-weight:600}
+@media (max-width:900px){ .plans{grid-template-columns:1fr} .plan + .plan{border-left:0; border-top:1px solid var(--rule)} }
+
+/* the plan table: the recommended column reads in ink; phones stack each row into labelled cells */
+.cmp3{min-width:640px}
+.cmp3 thead th{vertical-align:bottom}
+.cmp3 .thp{display:block; margin-top:6px; font:500 var(--fs-caption)/1.3 var(--sans); color:var(--ink-3)}
+.cmp3 thead .tier{margin-left:6px}
+.cmp3 td:nth-child(3){color:var(--ink)}
+@media (max-width:560px){
+  .cmp3, .cmp3 tbody{display:block; min-width:0}
+  .cmp3 thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .cmp3 tr{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px 12px; padding:16px 0; border-bottom:1px solid var(--rule)}
+  .cmp3 tbody th{grid-column:1 / -1; padding:0 0 6px; border:0}
+  .cmp3 td{padding:0; border:0; font-size:var(--fs-small)}
+  .cmp3 td::before{content:attr(data-l); display:block; margin-bottom:2px; font-size:var(--fs-prov); color:var(--ink-3)}
+}
+
+.faq-a p{margin:0}
+.note.pay{margin-top:32px; max-width:80ch}
+
+/* lifetime: the question on the left, the offer as the page's one framed object on the right */
+.life{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:56px; align-items:center}
+.life h2{max-width:16ch}
+.life-sub{margin:16px 0 0; font-size:var(--fs-body); color:var(--ink-2); max-width:44ch}
+.offer{padding:28px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card)}
+.offer .has{margin:20px 0 24px}
+@media (max-width:900px){ .life{grid-template-columns:1fr; gap:32px} }
+
+/* roadmap: each period is a dated row on a rule; the period is the information, so it carries the size */
+.phases{list-style:none; margin:40px 0 0; padding:0; border-top:1px solid var(--rule-2)}
+.phase{display:grid; grid-template-columns:minmax(0,.26fr) minmax(0,.74fr); gap:36px; padding:32px 0; border-bottom:1px solid var(--rule)}
+.ph-when .when{margin:0; font:700 36px/1 var(--display); letter-spacing:-.03em; color:var(--ink-2)}
+.phase.now .when{color:var(--ink)}
+.ph-when .status{margin:10px 0 0; font-size:var(--fs-caption); color:var(--ink-3)}
+.here{display:inline-flex; align-items:center; gap:8px; margin-top:14px; font-size:var(--fs-caption); font-weight:500; color:var(--ink)}
+.here::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--ink)}
+.ph-what h3{margin:0 0 6px; font-size:var(--fs-h3)}
+.ph-what > p{margin:0 0 16px; font-size:var(--fs-body); color:var(--ink-2)}
+.has.cols{columns:2; column-gap:36px; font-size:var(--fs-small); color:var(--ink-2)}
+.has.cols li{break-inside:avoid; padding:3px 0}
+.caps.three{grid-template-columns:repeat(3,minmax(0,1fr)); margin:0}
+.caps.three > div, .caps.three > div:nth-child(even){padding:18px 20px 18px 0; border-left:0}
+.caps.three > div:not(:nth-child(3n+1)){padding-left:20px; border-left:1px solid var(--rule)}
+.has.public{margin:20px 0 24px; font-size:var(--fs-body); color:var(--ink-2)}
+.radar h3{margin:0 0 14px; font-size:var(--fs-h3)}
+.radar-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+.radar-list li{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0;
+  border-bottom:1px solid var(--rule); font-size:var(--fs-body); color:var(--ink)}
+.btn-vote{display:inline-flex; align-items:center; min-height:44px; padding:0 14px; border:1px solid var(--edge); border-radius:var(--r-2);
+  font:600 var(--fs-caption)/1 var(--sans); color:var(--ink-2); background:transparent;
+  transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+.btn-vote:hover{background:var(--raised); color:var(--ink)}
+.btn-vote:active{transform:translateY(1px)}
+.radar-more{margin:16px 0 0; font-size:var(--fs-small)}
+.notifyform{display:flex; gap:10px; max-width:460px; margin:0 auto}
+.notifyform input{flex:1; min-width:0; min-height:44px; padding:0 14px; border:1px solid var(--edge); border-radius:var(--r-2);
+  background:var(--card); color:var(--ink); font:400 var(--fs-body)/1.2 var(--sans)}
+.notifyform input::placeholder{color:var(--ink-3)}
+.notifyform .cta{border:0; cursor:pointer; font-family:inherit}
+@media (max-width:900px){
+  .phase{grid-template-columns:1fr; gap:16px; padding:28px 0}
+  .ph-when .when{font-size:28px}
+  
+  .caps.three{grid-template-columns:1fr}
+  .caps.three > div, .caps.three > div:not(:nth-child(3n+1)){padding-left:0; border-left:0}
+}
+@media (max-width:560px){ .notifyform{flex-direction:column} }
+
+/* download: every platform on one frame split on rules, in a fixed order; a row is a link only once its file is
+   published (tools/site_download.py), and the Windows download is the one primary */
+.plat-label{margin:48px 0 12px; font-size:var(--fs-caption); color:var(--ink-3)}
+.platforms{display:grid; max-width:760px; border:1px solid var(--rule-2); border-radius:var(--r-3); overflow:hidden}
+.plat{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 24px; padding:18px 22px; color:var(--ink);
+  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+.plat + .plat{border-top:1px solid var(--rule)}
+.plat-name{font:700 var(--fs-h3)/1.1 var(--display)}
+.plat-state{font-size:var(--fs-small); color:var(--ink-3)}
+.plat.js-dl{background:var(--card); box-shadow:inset 0 2px 0 var(--ink)}
+a.plat .plat-state{color:var(--ink)}
+.plat.later .plat-name{color:var(--ink-2)}
+a.plat:hover{background:var(--raised)}
+a.plat:active{transform:translateY(1px)}
+.plat:focus-visible{outline-offset:-4px}
+@media (max-width:560px){ .plat{flex-direction:column; align-items:flex-start} }
+.build{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px}
+.build h3{margin:0 0 16px; font-size:var(--fs-lede)}
+.defs.facts > div{grid-template-columns:minmax(0,.3fr) minmax(0,.7fr); gap:20px; padding:16px 4px}
+.defs.facts dd{overflow-wrap:anywhere}   /* an installer's file name has no break to take */
+@media (max-width:900px){ .defs.facts > div{grid-template-columns:minmax(0,1fr); gap:6px} }
+/* provenance: a checksum or a path is where a figure comes from, so it is set in mono */
+.hash, .flow code{font:400 var(--fs-caption)/1.5 var(--mono); color:var(--ink-2); word-break:break-all}
+.limits.one{margin-top:18px; border-top:0}
+.flow{list-style:none; margin:0; padding:0; counter-reset:flow; border-top:1px solid var(--rule-2)}
+.flow li{counter-increment:flow; display:grid; grid-template-columns:28px minmax(0,1fr); gap:12px; padding:14px 0;
+  border-bottom:1px solid var(--rule); font-size:var(--fs-body); line-height:1.6; color:var(--ink-2)}
+.flow li::before{content:counter(flow); font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink-3)}
+.life.top{align-items:start}
+@media (max-width:900px){ .build{grid-template-columns:1fr; gap:40px} }
+
+/* reading pages: legal text, about, support and the architecture document, set for reading */
+.prose .ldate{margin:0 0 28px; font-size:var(--fs-small); color:var(--ink-3)}
+.prose .lsum{margin:0 0 12px; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
+  color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
+.prose .lsum b, .prose .lsum strong{color:var(--ink)}
+.prose b{color:var(--ink); font-weight:600}
+.prose .phnote{color:var(--ink-3); font-size:var(--fs-small)}
+.prose p.phnote{margin:14px 0; padding-left:14px; border-left:1px solid var(--rule-2)}
+.prose .lnote{margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3)}
+/* a policy's contents first and its version history last */
+.prose h2[id]{scroll-margin-top:96px}
+.prose .ltoc{margin:0 0 40px; padding-top:16px; border-top:1px solid var(--rule)}
+.prose .ltoc-h{margin:0 0 4px; font-size:var(--fs-small); color:var(--ink-3)}
+.prose .ltoc ol{margin:0; padding-left:1.6em; columns:2 240px; column-gap:40px}
+.prose .ltoc li{margin:0; break-inside:avoid; font-size:var(--fs-small); color:var(--ink-3)}
+.prose .ltoc a{display:inline-flex; align-items:center; min-height:44px}
+.prose .lhist{display:grid; grid-template-columns:minmax(0,10em) minmax(0,1fr); gap:12px 24px; margin:16px 0 0;
+  font-size:var(--fs-small); line-height:1.6}
+.prose .lhist dt{color:var(--ink); font-weight:500}
+.prose .lhist dd{margin:0; color:var(--ink-2)}
+@media (max-width:560px){ .prose .lhist{grid-template-columns:1fr; gap:2px} .prose .lhist dd{margin-bottom:12px} }
+.prose code{font:400 var(--fs-caption)/1.5 var(--mono); color:var(--ink);
+  padding:1px 5px; border:1px solid var(--rule); border-radius:var(--r-1); background:var(--plate); word-break:break-all}
+.prose .tablewrap{margin:16px 0}
+.prose .tablewrap table{margin:0; min-width:560px}
+/* a narrow table (a guide's, four columns at most) fits a phone instead of scrolling (11 Oct 2026) */
+.prose .tablewrap.fit table{min-width:0}
+.prose td, .prose th{color:var(--ink-2); font-size:var(--fs-small); line-height:1.55}
+.prose tbody td:first-child{color:var(--ink); font-weight:500}
+/* support: one row per reason to write, each with its own pre-filled email */
+.support{margin:32px 0 8px; border-top:1px solid var(--rule-2)}
+.srow{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:24px; padding:20px 0; border-bottom:1px solid var(--rule)}
+.srow h3,.support .srow h2{margin:0; font-size:var(--fs-lede); line-height:1.3; letter-spacing:-.01em}
+.srow p{margin:0 0 10px; font-size:var(--fs-body)}
+.btn-go{display:inline-flex; align-items:center; min-height:40px; padding:0 14px; border:1px solid var(--edge); border-radius:var(--r-2);
+  font:600 var(--fs-small)/1 var(--sans); color:var(--ink); background:transparent;
+  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+.btn-go:hover{background:var(--raised)}
+.btn-go:active{transform:translateY(1px)}
+@media (max-width:560px){ .srow{grid-template-columns:1fr; gap:8px} }
+
+/* 404: the homepage hero's voice, alone on the page */
+.nf{min-height:100vh; display:grid; align-items:center; padding:72px 0}
+.nf-brand{display:inline-flex; margin-bottom:56px}
+.nf h1{margin:0 0 24px; max-width:15ch}
+.nf .sub{max-width:44ch}
+.nf-links{margin-top:40px; font-size:var(--fs-small); color:var(--ink-3)}
+
+@media (max-width:560px){ .has.cols{columns:1} }

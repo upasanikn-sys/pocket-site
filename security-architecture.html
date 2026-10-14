@@ -5,28 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add("js")</script>
 <title>Security Architecture — Pocket</title>
-<meta name="description" content="A precise, verifiable description of how Pocket protects your data: what is encrypted and how, what is not, the threat model, and how to report a vulnerability.">
+<meta name="description" content="How Pocket protects your data, checked against its source: the threat model, encryption, every network connection with its payload, and the change history.">
 <link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://mypocketfi.com/security-architecture.html">
 <meta property="og:title" content="Security Architecture — Pocket">
-<meta property="og:description" content="A precise, verifiable description of how Pocket protects your data: what is encrypted and how, what is not, the threat model, and how to report a vulnerability.">
+<meta property="og:description" content="How Pocket protects your data, checked against its source: the threat model, encryption, every network connection with its payload, and the change history.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pocket">
 <meta property="og:url" content="https://mypocketfi.com/security-architecture.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://mypocketfi.com/assets/og-pocket.png">
+<meta property="og:image" content="https://mypocketfi.com/assets/og/security-architecture.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pocket — the money app that shows its working. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
-<meta name="twitter:image" content="https://mypocketfi.com/assets/og-pocket.png">
+<meta property="og:image:alt" content="Pocket. Security architecture How Pocket protects your data, checked against its source: the threat model, encryption, every network connection with its payload, and the change history. Pocket on a phone: Security &amp; privacy, on the sample person&#x27;s data.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og/security-architecture.png">
 <link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
-<link rel="stylesheet" href="assets/observatory.css?v=7">
-<link rel="stylesheet" href="assets/site-shell.css?v=3">
+<link rel="stylesheet" href="assets/observatory.css?v=8">
+<link rel="stylesheet" href="assets/product-pages.css?v=4">
+<link rel="stylesheet" href="assets/site-shell.css?v=4">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -38,197 +39,246 @@
     <nav class="sh-links" aria-label="Primary">
       <a href="why-pocket.html">Why Pocket</a>
       <a href="features.html">Features</a>
-      <a href="ai-copilot.html">AI Copilot</a>
+      <a href="ai-copilot.html">Ask Pocket</a>
       <a href="security.html" aria-current="page">Security</a>
       <a href="pricing.html">Pricing</a>
-      <a href="roadmap.html">Roadmap</a>
+      <a href="guides.html">Guides</a>
+      <a href="changelog.html">Changelog</a>
     </nav>
-    <a class="sh-cta" href="download.html">Download</a>
+    <a class="sh-cta" href="download.html">Download free</a>
     <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <nav class="sh-menu" id="site-menu" aria-label="Menu">
     <a href="why-pocket.html">Why Pocket</a>
     <a href="features.html">Features</a>
-    <a href="ai-copilot.html">AI Copilot</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
     <a href="security.html" aria-current="page">Security</a>
     <a href="pricing.html">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="changelog.html">Changelog</a>
     <a href="roadmap.html">Roadmap</a>
-    <a href="download.html">Download</a>
-    <a class="sh-menu-cta" href="download.html">Download</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
   </nav>
 </header>
 
 <main id="main">
-<div class="wrap">
+<div class="wrap arch">
+<nav class="toc" aria-label="Contents">
+  <p>Contents</p>
+  <ol>
+    <li><a href="#threats">1. Threat model</a></li>
+    <li><a href="#flow">2. How data moves</a></li>
+    <li><a href="#data">3. Where your data lives</a></li>
+    <li><a href="#vault">4. Document vault</a></li>
+    <li><a href="#backup">5. Encrypted backup</a></li>
+    <li><a href="#lock">6. App lock and your phone</a></li>
+    <li><a href="#server">7. The local app server</a></li>
+    <li><a href="#imports">8. Imported statements</a></li>
+    <li><a href="#connections">9. Every network connection</a></li>
+    <li><a href="#not">10. What is not protected</a></li>
+    <li><a href="#licence">11. Licence keys</a></li>
+    <li><a href="#report">12. Reporting a vulnerability</a></li>
+    <li><a href="#history">13. Change history</a></li>
+  </ol>
+</nav>
 <article class="prose">
-  <h1>Security Architecture</h1>
-  <div class="ldate">Updated 17 July 2026 · Describes the currently shipping early-access build, verified against the source code</div>
+  <h1>Security architecture</h1>
+  <div class="ldate">Updated 13 October 2026 · describes Pocket 3.2.10, checked against its source code</div>
 
   <div class="lsum">
-    <b>Plain-English summary:</b> Pocket operates no central server containing your financial database — structurally reducing
-    exposure to the large-scale cloud breaches that plague finance apps. Secrets you protect with a
-    passphrase (vault documents, backups) are sealed with <b>scrypt-derived AES-256-GCM
-    encryption</b>; on Windows, Pocket encrypts its main database too once you turn that on (SQLCipher, AES-256),
-    and otherwise it is a local file guarded by your device, so we recommend OS disk encryption as well. This page states exactly what is protected, how, and — just as important —
-    what is not.
+    <b>In short:</b> Pocket runs on your computer and has no server, so there is no central copy of anyone's
+    finances to breach. What you protect with a passphrase (vault documents, encrypted backups) is sealed with
+    <b>scrypt-derived AES-256-GCM</b>. On Windows, Pocket encrypts its database too once you turn that on (SQLCipher,
+    AES-256); otherwise the database is a file guarded by your device, so use disk encryption as well. Four
+    connections exist, each off until you turn it on, and section 9 lists exactly what each sends.
   </div>
 
-  <h2>1. Design goals and threat model</h2>
-  <p>Pocket is built to protect you against the failure modes that actually compromise financial
-  data at scale:</p>
+  <h2 id="threats">1. Threat model</h2>
+  <p>Pocket is built against the ways financial data is lost at scale:</p>
   <ul>
-    <li><b>Server breaches</b> — eliminated structurally. Pocket runs no cloud service and holds no
-    copy of your data, so a "Pocket hack" cannot leak it.</li>
-    <li><b>Data harvesting and resale</b> — eliminated structurally. There is no telemetry, no
-    analytics SDK, no advertising, and no account system.</li>
-    <li><b>Network interception</b> — the app makes no outbound requests carrying personal data (see
-    §8 for the complete list of connections).</li>
-    <li><b>Casual local snooping</b> — an app-lock PIN and OS biometrics gate the interface, and
-    vault/backup contents are encrypted under keys only you can derive.</li>
+    <li><b>Server breaches:</b> there is no Pocket server and no copy of your data anywhere but your devices and the
+    folder you choose for backups.</li>
+    <li><b>Harvesting and resale:</b> no telemetry, no analytics library, no advertising and no account.</li>
+    <li><b>Network interception:</b> the only requests Pocket can make carry market symbols, a version check, an
+    encrypted file or your own phone's traffic on your Wi-Fi, and each is off until you switch it on (section 9).</li>
+    <li><b>Someone at your computer:</b> a PIN locks the pages and the API; the vault and backups need your
+    passphrase.</li>
   </ul>
-  <p>Explicitly <b>outside</b> the threat model: an attacker who controls your device while you are
-  logged in (malware, keyloggers), or who has physical access to an unencrypted disk. No desktop
-  application can defend against a compromised operating system — see §9 for what we recommend.</p>
+  <p>Outside the model: malware running as you, or someone with your unlocked computer or an unencrypted disk. No
+  desktop app can defend against a compromised operating system (section 10).</p>
 
-  <h2>2. Where your data lives</h2>
-  <p>Everything you enter is stored in a single SQLite database file (plus a vault folder) inside a
-  data directory on your device. It is created locally, read locally, and never transmitted by
-  Pocket. You can copy it, back it up, or delete it like any file — deleting it removes your data
-  permanently.</p>
-  <p><b>Database encryption (Windows, when you turn it on):</b> in Settings, Privacy &amp; security, Pocket
-  encrypts its database and every backup copy of it with <b>SQLCipher 4</b> (AES-256, page by page) under a
-  random 256-bit key. The key is kept twice beside your data: locked to your Windows account with Windows' own
-  data protection (DPAPI), so Pocket opens with no prompt; and under a <b>recovery passphrase</b> you choose
-  (scrypt, then AES-256-GCM), needed only to open your data on another computer or after Windows is
-  reinstalled. Nobody, us included, can recover a lost passphrase. Turning it on encrypts into a new file,
-  checks every table holds the same rows, and only then replaces the plain one; turning it off decrypts the
-  same way.</p>
-  <p><b>Honest detail:</b> it is off until you turn it on, and on macOS and Linux Pocket does not yet encrypt
-  its database: it is protected there by your operating-system account and whatever disk encryption your
-  device uses. We recommend <b>BitLocker / Windows Device Encryption</b>, FileVault or full-disk encryption
-  everywhere, as they cover everything else on the disk too. While Pocket runs, its database is open to it, and
-  to anything running as you, as with any app.</p>
+  <h2 id="flow">2. How data moves</h2>
+  <figure class="flow2" aria-labelledby="flow-cap">
+    <div class="pc">
+      <p class="pc-h">This computer</p>
+      <p class="node">You, in Pocket's window or your browser</p>
+      <p class="node here">Pocket <small>127.0.0.1:8765, this computer only</small></p>
+      <p class="node">FinOSData folder <small>database · vault · backups · audit log</small></p>
+    </div>
+    <ul class="outs">
+      <li><span class="wire" aria-hidden="true"></span><span class="off">Off</span><span>Price services <small>symbols only</small></span></li>
+      <li><span class="wire" aria-hidden="true"></span><span class="off">Off</span><span>mypocketfi.com <small>the latest version number</small></span></li>
+      <li><span class="wire" aria-hidden="true"></span><span class="off">Off</span><span>A folder you choose <small>an encrypted copy</small></span></li>
+      <li><span class="wire" aria-hidden="true"></span><span class="off">Off</span><span>Your phone, on your Wi-Fi <small>paired once</small></span></li>
+    </ul>
+    <figcaption id="flow-cap">Everything Pocket works out stays inside this computer. Each line out is off as Pocket ships; section 9 says what travels on it once you turn it on.</figcaption>
+  </figure>
 
-  <h2>3. Document vault — encrypted, zero-knowledge</h2>
-  <p>Vault files (PAN, insurance, property papers, anything you choose) are individually encrypted on
-  your device:</p>
+  <h2 id="data">3. Where your data lives</h2>
+  <p>Everything you enter is stored in one SQLite database, with a vault folder beside it, in <code>FinOSData</code>
+  in your user folder. It is created, read and changed on your computer and never sent anywhere by Pocket. Copy it,
+  back it up or delete it like any file; deleting it removes your data for good.</p>
+  <p><b>Database encryption (Windows, since 3.2.8, when you turn it on):</b> in Settings, Privacy &amp; security,
+  Pocket encrypts its database and every backup copy of it with <b>SQLCipher 4</b> (AES-256, page by page) under a
+  random 256-bit key. The key is kept twice beside your data: locked to your Windows account with Windows' own data
+  protection (DPAPI), so Pocket opens with no prompt; and under a <b>recovery passphrase</b> you choose (scrypt, then
+  AES-256-GCM), needed only on another computer or after Windows is reinstalled. Nobody can recover a lost
+  passphrase. Turning it on encrypts into a new file, checks every table holds the same rows, and only then replaces
+  the plain one; turning it off decrypts the same way.</p>
+  <p><b>Honest detail:</b> it is off until you turn it on, and on macOS and Linux Pocket does not yet encrypt its
+  database: there it is protected by your account and your disk encryption. Use BitLocker or Windows Device
+  Encryption, FileVault, or full-disk encryption everywhere: they cover the rest of the disk too. The Android app
+  always encrypts its database (SQLCipher, with a random key in the phone's secure storage).</p>
+
+  <h2 id="vault">4. Document vault (Founder Pro)</h2>
   <ul>
-    <li><b>Key derivation:</b> your passphrase is run through <b>scrypt</b> (n=2<sup>14</sup>, r=8,
-    p=1) with a fresh random 16-byte salt per file, producing a 32-byte key. scrypt is deliberately
-    memory-hard, which makes brute-forcing passphrases expensive.</li>
-    <li><b>Encryption:</b> the derived key seals the file with <b>AES-256-GCM</b>, using a fresh
-    random 12-byte nonce per file. GCM is authenticated encryption — a tampered or wrongly-keyed
-    file fails authentication instead of decrypting to garbage. Vault files written by earlier
-    early-access builds (Fernet: AES-128-CBC + HMAC-SHA256) remain readable and are transparently
-    re-encrypted to AES-256-GCM the next time they are opened with the right passphrase.</li>
-    <li><b>Zero knowledge:</b> the passphrase and derived key are never stored, anywhere. A wrong
-    passphrase cannot decrypt, and a lost passphrase cannot be recovered — by you, by us, by
-    anyone. That is the point.</li>
-    <li><b>What stays visible:</b> document <i>names, labels, sizes and dates</i> are kept in a
-    plaintext index so the app can list your vault without a passphrase. If a filename is itself
-    sensitive, rename it before adding.</li>
-    <li>Different files may use different passphrases; each file carries its own salt. Documents up
-    to 10&nbsp;MB.</li>
-  </ul>
-
-  <h2>4. Encrypted backup &amp; sync — your key, your storage</h2>
-  <ul>
-    <li>A backup snapshots the database using SQLite's online backup API (safe while the app runs),
-    then encrypts the snapshot with the <b>same scrypt → AES-256-GCM scheme</b> as the vault
-    (envelope v2; v1 envelopes from earlier builds remain restorable), under a
-    passphrase you choose.</li>
-    <li>The result is a single opaque encrypted blob written to a <b>folder you pick</b> — including
-    a folder your own Dropbox/OneDrive/Drive client syncs. Your cloud provider stores ciphertext it
-    cannot read; Pocket runs no sync server and holds no key.</li>
-    <li>Restores are newest-wins, and a safety copy of the current database is made before any
-    restore overwrites it.</li>
+    <li><b>Key:</b> your passphrase through <b>scrypt</b> (n=2<sup>14</sup>, r=8, p=1) with a fresh random 16-byte
+    salt per file, giving a 32-byte key. scrypt is memory-hard, which makes guessing passphrases expensive.</li>
+    <li><b>Encryption:</b> <b>AES-256-GCM</b> with a fresh random 12-byte nonce per file. GCM is authenticated: a
+    tampered file, or a wrong passphrase, fails instead of decrypting to garbage. Files written by earlier builds
+    (Fernet) still open and are re-sealed with AES-256-GCM the next time.</li>
+    <li><b>Nothing to recover from:</b> the passphrase and key are never stored. A lost passphrase means a lost
+    document.</li>
+    <li><b>What stays readable:</b> each document's name, label, size and date, so the vault can list them without
+    the passphrase. Rename a file whose name is itself sensitive before adding it. Up to 10&nbsp;MB a file.</li>
   </ul>
 
-  <h2>5. App lock and biometrics</h2>
+  <h2 id="backup">5. Encrypted backup (Founder Pro)</h2>
   <ul>
-    <li>The app-lock <b>PIN is never stored</b> — a scrypt hash (same parameters as above, random
-    salt) lives in the local database, and verification happens server-side in the local app process,
-    never in browser storage.</li>
-    <li><b>Biometric unlock uses the real OS credential system (WebAuthn)</b> — Windows Hello face,
-    fingerprint or device PIN. Pocket never sees or stores biometric data; the operating system
-    performs the check and returns only a signed assertion.</li>
+    <li>A backup copies the database with SQLite's online backup (safe while Pocket runs), then seals the copy with
+    the vault's scheme, under a passphrase you choose.</li>
+    <li>The result is <b>an encrypted copy to a folder you choose</b>: one file, <code>vestora-sync.enc</code>. If the
+    folder is one your Dropbox, OneDrive or Google Drive app syncs, that app uploads a file it cannot read. Pocket
+    runs no sync server and holds no key.</li>
+    <li>Restoring takes the newest copy and first makes a safety copy of the current database. Restoring your own
+    backup is free on every plan.</li>
+    <li>The local backups Pocket makes before an import or a risky change are copies of the database: encrypted when
+    the database is, plain when it is not.</li>
   </ul>
 
-  <h2>6. The local app server</h2>
-  <p>Pocket's interface is served by a small local web server:</p>
+  <h2 id="lock">6. App lock and your phone</h2>
   <ul>
-    <li>It binds to <b>127.0.0.1 (localhost) only</b> by default — unreachable from the network.
-    Serving to your own Wi-Fi (for the phone experience) is a separate, explicit opt-in.</li>
-    <li>An optional API token can be required for every request; it is compared in constant time to
-    prevent timing attacks.</li>
-    <li>Sensitive actions are recorded to a local, append-only audit log you can inspect.</li>
+    <li><b>The PIN is never stored:</b> a scrypt hash with a random salt lives in the database and is checked by
+    Pocket itself, never in the browser. With a PIN set, Pocket sends the lock page instead of any page, the API
+    answers nothing until the PIN opens a session, and the session ends after 15 minutes without use.</li>
+    <li><b>Biometric unlock on the phone view</b> uses the operating system's own credential check (WebAuthn): Pocket
+    never sees a fingerprint or a face.</li>
+    <li><b>Your phone:</b> off until you choose “Let my phone open Pocket”. Pocket then listens on a second port at
+    this computer's Wi-Fi address, and only a phone paired through a link that works once, for ten minutes, gets
+    past it. Turning it off forgets the paired phones.</li>
   </ul>
 
-  <h2>7. Imported statements are treated as untrusted</h2>
-  <p>A CSV or bank statement is written by someone else, so Pocket treats every field in it —
-  merchant names, descriptions, categories — as untrusted input rather than as its own data.
-  That matters because the interface is a web page: text from a file should never be able to
-  become code running next to your financial database.</p>
+  <h2 id="server">7. The local app server</h2>
   <ul>
-    <li>Text shown on screen is HTML-escaped, so markup in a merchant name renders as characters,
-    not as elements.</li>
-    <li>Text passed to the page as data is encoded for that context specifically, so it cannot end
-    the surrounding script block.</li>
-    <li>Text placed inside a button's action is escaped for JavaScript before it is escaped for
-    HTML, because a browser decodes the second before it reads the first. Names with apostrophes —
-    O'Brien, Trader Joe's — are preserved exactly rather than stripped.</li>
+    <li>Pocket's pages are served by a small server bound to <b>127.0.0.1</b>, which other machines cannot reach.</li>
+    <li>It answers only requests addressed to it by name (a defence against DNS rebinding), refuses requests another
+    site's page makes in your browser, and accepts changes only as JSON, which another site cannot send without
+    asking first.</li>
+    <li>An optional token can be required on every request, compared in constant time.</li>
+    <li>Pocket notes each change it makes in a log beside your data: the kind of change, never what you typed.</li>
   </ul>
-  <p>Each of these is covered by an automated test that is verified to fail if the protection is
-  removed, so a future change cannot quietly undo them.</p>
 
-  <h2>8. Every network connection, listed</h2>
-  <div class="tablewrap" tabindex="0" role="region" aria-label="Network connections table, scrolls sideways"><table>
-    <tr><th>Connection</th><th>When</th><th>What is sent</th></tr>
-    <tr><td>Market price feeds (Yahoo Finance, AMFI, public crypto APIs) over HTTPS</td>
-        <td>Only when price refresh is enabled/used</td>
-        <td>Instrument identifiers (e.g. ticker symbols). Never names, quantities, balances or any personal data.</td></tr>
-    <tr><td>Your own cloud folder (if you point backups at one)</td>
-        <td>Only when you back up / sync</td>
-        <td>One encrypted blob, sealed under your passphrase before it touches the folder.</td></tr>
-    <tr><td>Hosted AI (optional, off by default)</td>
-        <td>Only if you explicitly enable it</td>
-        <td>Described at the point of enabling; the built-in intelligence runs entirely on-device.</td></tr>
+  <h2 id="imports">8. Imported statements are untrusted</h2>
+  <p>A bank statement is written by someone else, so every field in it (payees, descriptions, categories) is
+  treated as untrusted input. Pocket's interface is a web page, and text from a file must never become code running
+  beside your financial data.</p>
+  <ul>
+    <li>Text shown on a page is HTML-escaped, so markup in a payee's name shows as characters.</li>
+    <li>Text handed to a page's script as data is encoded so it cannot end the script.</li>
+    <li>Text inside a button's action is escaped for JavaScript, then for HTML, because the browser undoes them in
+    the opposite order. Names like O'Brien keep their apostrophe.</li>
+    <li>A mutual-fund statement's password is typed by you, used to open the file and never stored or logged.</li>
+  </ul>
+  <p>Each is covered by an automated test that fails when the protection is removed, and a browser probe tries known
+  injection payloads on Pocket's pages.</p>
+
+  <h2 id="connections">9. Every network connection, listed</h2>
+  <div class="tablewrap" tabindex="0" role="region" aria-label="Network connections, scrolls sideways">
+  <table class="conns">
+    <thead><tr><th scope="col">Connection</th><th scope="col">Off until</th><th scope="col">Exactly what is sent</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Live market prices: Yahoo Finance</th><td>You say yes; Pocket asks once</td>
+          <td>Each holding's symbol: an Indian share or ETF with <code>.NS</code> (<code>NIFTYBEES.NS</code>), a US share
+          (<code>AAPL</code>), <code>GC=F</code> for gold and <code>INR=X</code> for the dollar rate. Never names,
+          quantities or balances. US shares go to Finnhub instead only if a Finnhub key is set on the computer.</td></tr>
+      <tr><th scope="row">Live market prices: AMFI</th><td>The same switch</td>
+          <td><code>GET https://www.amfiindia.com/spages/NAVAll.txt</code>: the whole day's NAV list. Your fund is found
+          in it on your computer, so nothing about it is sent.</td></tr>
+      <tr><th scope="row">Live market prices: crypto</th><td>The same switch</td>
+          <td><code>GET https://data-api.binance.vision/api/v3/ticker/price?symbol=BTCUSDT</code>. If Binance does not
+          answer, Hyperliquid's public price list (<code>{"type": "allMids"}</code>), which names no coin.</td></tr>
+      <tr><th scope="row">Update check</th><td>You choose Check now, or turn on the daily check</td>
+          <td><code>GET https://mypocketfi.com/latest.json</code> with the user agent <code>Pocket</code>. The answer is
+          believed only if it is small, a three-part version and points at mypocketfi.com.</td></tr>
+      <tr><th scope="row">Encrypted backup</th><td>You set it up (Founder Pro)</td>
+          <td>No request: one encrypted file written to the folder you choose. That folder's own sync app may upload
+          it.</td></tr>
+      <tr><th scope="row">Your phone</th><td>You choose “Let my phone open Pocket”</td>
+          <td>Your paired phone's own requests, on your Wi-Fi, to a listener on this computer. Nothing to the
+          internet.</td></tr>
+      <tr><th scope="row">Claude (hosted AI)</th><td>Not in the download</td>
+          <td>Nothing. Pocket's source can ask Claude when Anthropic's library is installed and a Claude API key is set
+          on the computer; the build on the Download page has no such library. <a href="ai-copilot.html#claude">The
+          request it would make</a>.</td></tr>
+    </tbody>
   </table></div>
-  <p>That is the complete list. There is no telemetry, no crash reporting, no update phone-home, and
-  license keys validate offline (§10).</p>
+  <p>That is the complete list. There is no telemetry, no crash reporting and no analytics; licence keys are checked
+  on your computer (section 11); the app loads nothing from another site, fonts and charts included, and a test
+  fails if it ever does. This website makes no request to another site either.</p>
 
-  <h2>9. What is NOT protected — read this</h2>
+  <h2 id="not">10. What is not protected: read this</h2>
   <ul>
-    <li><b>The main database is not encrypted at rest by the app</b> (§2). Mitigate with OS disk
-    encryption; the vault exists for your most sensitive documents.</li>
-    <li><b>A compromised device defeats everything.</b> Malware running as you can read what you can
-    read. Keep your OS updated and use an up-to-date antivirus.</li>
-    <li><b>Vault metadata is plaintext</b> (names, labels, sizes) — by design, documented in §3.</li>
-    <li><b>Data in memory while the app runs is not specially hardened</b> beyond OS process
-    isolation.</li>
-    <li><b>The early-access build is not yet code-signed.</b> Only run a build you received directly
-    from us — if in doubt, email us and we will confirm the file's SHA-256 checksum.</li>
-    <li><b>No independent security audit has been performed yet.</b> This page is our own honest
-    account, verified against the source; an external review is planned before wide release. We will
-    publish results here when it happens.</li>
+    <li><b>The database is not encrypted at rest unless you turn that on, on Windows</b> (section 3). On macOS and
+    Linux it is not encrypted by Pocket at all. Use disk encryption.</li>
+    <li><b>A compromised computer defeats everything.</b> Malware running as you can read what you can read. While
+    Pocket runs, its database is open to it.</li>
+    <li><b>Vault names, labels, sizes and dates are readable</b> by design (section 4).</li>
+    <li><b>Memory is not specially hardened</b> beyond what the operating system gives every process.</li>
+    <li><b>The builds are not code-signed yet.</b> Download only from the <a href="download.html">Download
+    page</a> and check the file's SHA-256 against the one it gives.</li>
+    <li><b>No independent security audit has been done.</b> This page is Pocket's own account, checked against the
+    source code.</li>
   </ul>
 
-  <h2>10. License keys</h2>
-  <p>Paid tiers activate with a key that is <b>signed with Ed25519</b>; only the public key ships in
-  the app, so a key that verifies provably came from us. Validation is fully offline — no activation
-  server, no phone-home, and a key past its term simply drops the app to the permanent Free plan.</p>
+  <h2 id="licence">11. Licence keys</h2>
+  <p>A paid plan is a key <b>signed with Ed25519</b>. Only the public key ships in the app, so a key that verifies
+  came from Pocket's signer. The check runs on your computer: no activation server and no phone-home. A signed list
+  of revoked keys ships with the app, the plan's day never goes back with the computer's clock, and a key past its
+  term drops the app to Free, which keeps all your data.</p>
 
-  <h2>11. Reporting a vulnerability</h2>
-  <p>If you believe you have found a security issue, email the address on
-  <a href="contact.html">our Contact page</a> with the subject
-  <b>SECURITY</b>. You will get a human response, normally within 48 hours. Please give us a
-  reasonable window to fix the issue before public disclosure; we will credit you (or keep you
-  anonymous, your choice) in the fix notes. There is no bug bounty yet — early access is honest about
-  its budget — but reports are taken seriously and acted on first.</p>
+  <h2 id="report">12. Reporting a vulnerability</h2>
+  <p>Email <a href="mailto:support@mypocketfi.com?subject=SECURITY">support@mypocketfi.com</a> with the subject
+  <b>SECURITY</b>; the address is also in <a href=".well-known/security.txt">security.txt</a>. A person answers. Please
+  allow a reasonable time for a fix before you publish; you are credited in the release notes, or kept anonymous,
+  as you choose. There is no bug bounty.</p>
 
-  <div class="lnote">Related: <a href="security.html">Security overview</a> ·
-  <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> ·
-  <a href="license.html">License Terms</a></div>
+  <h2 id="history">13. Change history</h2>
+  <div class="tablewrap" tabindex="0" role="region" aria-label="Change history, scrolls sideways">
+  <table class="history">
+    <thead><tr><th scope="col">Version</th><th scope="col">Released</th><th scope="col">What changed here</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">3.2.8</th><td>11 Oct 2026</td><td>Database encryption on Windows, off until you turn it on (section 3).</td></tr>
+      <tr><th scope="row">3.2.7</th><td>11 Oct 2026</td><td>The update check, off until you ask (section 9).</td></tr>
+      <tr><th scope="row">3.2.6</th><td>11 Oct 2026</td><td>On Windows, Pocket opens in its own window; a link that leaves 127.0.0.1 opens in your browser.</td></tr>
+      <tr><th scope="row">3.2.3</th><td>10 Oct 2026</td><td>Winding the clock back no longer extends a trial or revives an expired plan (section 11).</td></tr>
+      <tr><th scope="row">3.2.1</th><td>6 Oct 2026</td><td>No plan sells AI; Pocket has no connection to Claude (section 9).</td></tr>
+      <tr><th scope="row">3.1.0</th><td>5 Oct 2026</td><td>Mutual-fund statements, opened with a password you type, which Pocket never stores (section 8).</td></tr>
+    </tbody>
+  </table></div>
+  <p>Every release's full notes are in the <a href="changelog.html">changelog</a>.</p>
+
+  <div class="lnote">Related: <a href="security.html">Security</a> · <a href="privacy.html">Privacy Policy</a> ·
+  <a href="terms.html">Terms of Service</a> · <a href="license.html">License Terms</a></div>
 </article>
 </div>
 </main>
@@ -238,16 +288,16 @@
   <div class="sf-in">
     <div class="sf-brand">
       <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
-      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-      <p class="sf-trust">No cloud required · No tracking · No ads</p>
+      <p>The money app that shows its working. Your figures stay on your own device.</p>
+      <p class="sf-trust">No account · No bank logins · No trackers</p>
     </div>
-    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a><a href="guides.html">Guides</a></nav>
-    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html">Windows app</a><a href="download.html">macOS</a><a href="download.html">Android</a><a href="download.html">Linux</a></nav>
-    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
   <div class="sf-base">
-    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
-    <p class="sf-copy">© 2026 Pocket · Made in India</p>
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
   </div>
 </footer>
 

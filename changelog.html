@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<title>Changelog — every Pocket release | Pocket</title>
+<meta name="description" content="Every published version of Pocket, newest first: what changed, what was fixed, and what is still limited.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mypocketfi.com/changelog.html">
+<meta property="og:title" content="Changelog — every Pocket release | Pocket">
+<meta property="og:description" content="Every published version of Pocket, newest first: what changed, what was fixed, and what is still limited.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://mypocketfi.com/changelog.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mypocketfi.com/assets/og/changelog.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket. Changelog Every published version of Pocket, newest first: what changed, what was fixed, and what is still limited.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og/changelog.png">
+<link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
+<link rel="stylesheet" href="assets/observatory.css?v=8">
+<link rel="stylesheet" href="assets/inner.css?v=8">
+<link rel="stylesheet" href="assets/site-shell.css?v=4">
+</head>
+<body>
+<!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">Ask Pocket</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="guides.html">Guides</a>
+      <a href="changelog.html" aria-current="page">Changelog</a>
+    </nav>
+    <a class="sh-cta" href="download.html">Download free</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="changelog.html" aria-current="page">Changelog</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="wrap">
+<article class="prose">
+<h1>Changelog</h1>
+<div class="ldate">Every published version of Pocket, newest first · 13 versions since 28 September 2026 · <a href="feed.xml">Follow with RSS</a></div>
+<div class="lsum">Each entry is the release note shipped with that build. The newest is <b>Pocket 3.2.10</b>, on the <a href="download.html">Download page</a>. What is planned next is on the <a href="roadmap.html">Roadmap</a>.</div>
+<h2 id="v3-2-10">Pocket 3.2.10 <span class="ldate">· 12 October 2026</span></h2>
+<p>Health insurance now counts in the old regime's tax (80D), as the law allows. Windows 10/11, 64-bit, early access; macOS, Linux and Android too. The previous build was 3.2.9 (12 October 2026).</p>
+<h3>Fixed</h3>
+<ul>
+<li><b>80D is counted from your health policies.</b> Pocket's Tax page used to count 80C alone in the old regime, and no health insurance at all. It now counts the premiums of the health policies you record in Protection, and says under Deductions what counted, what did not, and why.</li>
+<li><b>Two limits, as the law has them:</b> up to ₹25,000 for you, your spouse and children, and up to ₹25,000 more for your parents; each ₹50,000 when someone it covers is 60 or over, so up to ₹1,00,000 in all. Pocket used to cap 80D at ₹50,000 in all, with no share for parents.</li>
+<li><b>Example:</b> a ₹18 lakh salary, the full ₹1,50,000 of 80C, a ₹25,000 family policy and a ₹50,000 policy for senior parents. The old regime's tax was shown as ₹3,04,200; it is ₹2,80,800, with ₹75,000 of 80D counted.</li>
+</ul>
+<h3>New</h3>
+<ul>
+<li><b>Adding a policy asks whom it covers</b> (for health: you and your family, or your parents) and whether one it covers is 60 or over. A policy that does not say whom it covers, or one your employer pays for, counts nothing: Pocket never guesses.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Policies you added before keep working; to count one for 80D, open it and say whom it covers. Installing this version over 3.2.9 upgrades it in place, encrypted database included.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Pocket's tax figures are a planning estimate for salary income, not a tax return or tax advice. A premium paid in cash does not qualify for 80D, and one paid for several years at once is not split across them; Pocket assumes neither applies.</li>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run. The Mac build is not yet notarised by Apple. The Linux build runs in a terminal window.</li>
+<li>Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-9">Pocket 3.2.9 <span class="ldate">· 11 October 2026</span></h2>
+<p>A correction to Pocket's income-tax figures. Windows 10/11, 64-bit, early access; macOS, Linux and Android too. The previous build was 3.2.8 (11 October 2026).</p>
+<h3>Fixed</h3>
+<ul>
+<li><b>Just above ₹12 lakh, the new regime's marginal relief.</b> The rebate leaves no tax on taxable income up to ₹12 lakh, and just above it the tax is at most the income over ₹12 lakh. Pocket charged the whole slab tax there, so anyone taxed on ₹12 lakh to about ₹12.71 lakh (a salary of about ₹12.75 to ₹13.46 lakh) saw too much tax: on a ₹13 lakh salary, ₹66,300 instead of ₹26,000.</li>
+<li><b>Above ₹50 lakh, the old regime's surcharge.</b> 10% above ₹50 lakh, 15% above ₹1 crore, 25% above ₹2 crore and 37% above ₹5 crore, each with marginal relief. Pocket left it out, so the old regime's tax on high incomes was too low and the comparison of the two regimes could favour the old one wrongly. On ₹60 lakh with the full 80C and ₹25,000 of 80D: ₹17,67,480, not ₹16,06,800.</li>
+<li>Both on the desktop app and the phone app. Incomes outside these ranges are unchanged.</li>
+</ul>
+<h3>Also new on the website</h3>
+<ul>
+<li>Four guides, worked through with figures from Pocket itself: your net worth in India, mutual funds from a CAMS or KFintech statement, the old and new tax regimes, and budgeting without a bank login (<a href="guides.html">mypocketfi.com/guides.html</a>).</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Installing this version over 3.2.8 upgrades it in place, encrypted database included.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Pocket's tax figures are a planning estimate for salary income, not a tax return or tax advice.</li>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run. The Mac build is not yet notarised by Apple. The Linux build runs in a terminal window.</li>
+<li>Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-8">Pocket 3.2.8 <span class="ldate">· 11 October 2026</span></h2>
+<p>Pocket can now encrypt your data on your Windows computer. Windows 10/11, 64-bit, early access. The previous build was 3.2.7 (11 October 2026).</p>
+<h3>New</h3>
+<ul>
+<li><b>Encrypt your data on this computer.</b> In Settings, Privacy &amp; security, the Encryption row has Turn on. Choose a recovery passphrase of at least 10 characters, type it twice, and tick that you have written it down; Pocket then encrypts its database and every backup copy of it (SQLCipher, AES-256). This can take a minute.</li>
+<li><b>Nothing changes in how Pocket opens.</b> On this computer Pocket opens as before, with no password: the key is locked to your Windows account. The recovery passphrase is needed only to open your data on another computer or after Windows is reinstalled. Nobody, us included, can recover it for you, so keep it somewhere safe.</li>
+<li><b>Off until you turn it on, and reversible.</b> Turn off decrypts the database and its backups again.</li>
+<li><b>Safe to interrupt.</b> Pocket encrypts into a new file, checks every table holds the same rows, and only then replaces the old one; if it is stopped part-way, the next start puts things right.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. With encryption on, the folder also holds the key, locked to your Windows account and under your recovery passphrase: back up the folder and keep the passphrase, and you have everything. Installing this version over 3.2.7 upgrades it in place.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Encryption is on Windows only for now. On a Mac or Linux, use FileVault or full-disk encryption.</li>
+<li>Encrypted sync (Founder Pro) still sends its own copy, encrypted with its own passphrase, as before.</li>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run. The Mac build is not yet notarised by Apple. The Linux build runs in a terminal window.</li>
+<li>The Android app (Android 7.0 or later) is an APK on the Download page and always encrypts its database. Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-7">Pocket 3.2.7 <span class="ldate">· 11 October 2026</span></h2>
+<p>Pocket can now tell you when a newer version is out. Windows 10/11, 64-bit, early access. The previous build was 3.2.6 (11 October 2026).</p>
+<h3>New</h3>
+<ul>
+<li><b>Check for updates.</b> In Settings, Privacy &amp; security, the new Update check row has two buttons: Check now asks once, and Turn on lets Pocket check once a day. When a newer Pocket is out, the row says so, with where to download it, and with the daily check on, Pocket also tells you once by a notification from its icon by the clock.</li>
+<li><b>Off until you ask.</b> Pocket makes no connection you have not turned on, and the update check follows the same rule as live prices. It asks mypocketfi.com for the latest version number and sends nothing about you or your figures. The Privacy Policy (effective 11 October 2026), the Security page and the Connections list in Pocket's sidebar now name it.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Installing this version over 3.2.6 upgrades it in place.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>The update check says a newer version is out; it does not download or install it. Download it from the Download page, and run its installer, which updates Pocket in place.</li>
+<li>The Mac build is not yet notarised by Apple: the first open needs System Settings → Privacy &amp; Security → Open Anyway (macOS 15 or later) or Control-click → Open (macOS 14). The Linux build runs in a terminal window and has no tray icon, so the daily update check does not run there; Check now works.</li>
+<li>The Android app (Android 7.0 or later) is an APK on the Download page and has no update check: it asks for no internet access at all. Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-6">Pocket 3.2.6 <span class="ldate">· 11 October 2026</span></h2>
+<p>Pocket on Windows is now an app in a window of its own, not a tab in your browser. Windows 10/11, 64-bit, early access. The previous build was 3.2.5 (11 October 2026).</p>
+<h3>Changed</h3>
+<ul>
+<li><b>Pocket opens in its own window.</b> Starting Pocket opens a "Pocket" window, with its own button on the taskbar and in Alt+Tab, and no address bar. Everything works as before: your figures, Show working, printing a report, and Plans &amp; pricing's Buy, which opens the store in your browser.</li>
+<li><b>Closing the window keeps Pocket running</b> by the clock, so reminders still arrive: click the icon to open the window again, or right-click it and choose Quit. Starting Pocket again shows the window already open, instead of starting a second Pocket.</li>
+<li><b>The window fits your screen.</b> On a laptop screen it opens maximised, so the full sidebar shows; on a large monitor it opens as a centred window.</li>
+<li><b>Fixed:</b> a sideways scrollbar under the sidebar when the window is narrow (the icons-only sidebar, 900 to 1,200 pixels wide).</li>
+</ul>
+<p>On a PC without Microsoft's WebView2 runtime (Windows 10 and 11 include it), Pocket opens the dashboard in your browser instead, as before. On macOS and Linux Pocket still opens in your browser.</p>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. The window keeps its own small browser cache in <code>%LOCALAPPDATA%\Pocket\WebView2</code>, which holds none of your figures. Installing this version over 3.2.5 upgrades it in place.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>The Mac build is not yet notarised by Apple: the first open needs System Settings → Privacy &amp; Security → Open Anyway (macOS 15 or later) or Control-click → Open (macOS 14). The Linux build runs in a terminal window and has no tray icon.</li>
+<li>The Android app (Android 7.0 or later) is an APK on the Download page; Android asks you to allow your browser to install it the first time. Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-5">Pocket 3.2.5 <span class="ldate">· 11 October 2026</span></h2>
+<p>Pocket on Windows now runs from its tray icon alone, and is sharp on high-resolution screens. Windows 10/11, 64-bit, early access. The previous build was 3.2.4 (10 October 2026).</p>
+<h3>Changed</h3>
+<ul>
+<li><b>No console window on Windows.</b> Pocket used to open a black window of server messages beside its tray icon. It now runs from the tray icon (the notification area, by the clock) alone: click it to open the dashboard, or right-click it for Open dashboard, Reminders and Quit.</li>
+<li><b>Sharp on high-resolution screens.</b> Pocket now tells Windows it handles display scaling, so Windows no longer stretches its tray menu at 125% to 200% scaling.</li>
+<li><b>Only what Pocket runs.</b> The download no longer carries the price engine's own documents and example files, only the two modules Pocket uses from it.</li>
+</ul>
+<p>Both were found while packaging Pocket for the Microsoft Store; that listing is coming.</p>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Installing this version over 3.2.4 upgrades it in place.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>The Mac build is not yet notarised by Apple: the first open needs System Settings → Privacy &amp; Security → Open Anyway (macOS 15 or later) or Control-click → Open (macOS 14). The Linux build runs in a terminal window and has no tray icon.</li>
+<li>The Android app (Android 7.0 or later) is an APK on the Download page; Android asks you to allow your browser to install it the first time. Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-4">Pocket 3.2.4 <span class="ldate">· 10 October 2026</span></h2>
+<p>A smaller download, and the phone app made ready for the app stores. Windows 10/11, 64-bit, early access. The previous build was 3.2.3 (10 October 2026).</p>
+<h3>Changed</h3>
+<ul>
+<li><b>A smaller download.</b> Pocket no longer carries a library's own test files it never uses: the installed app is about 127 MB, where it was 149 MB.</li>
+</ul>
+<h3>Phone app (in testing)</h3>
+<ul>
+<li>The builds made for Google Play and the App Store sell nothing from another store: their Plans &amp; pricing page shows what each plan adds and lets you activate a licence key you already have. The phone app from this website keeps its Buy buttons.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Installing this version over 3.2.3 upgrades it in place.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS (Apple silicon) and Linux builds are on the Download page from 10 October 2026. The Mac build is not yet notarised by Apple: the first open needs System Settings → Privacy &amp; Security → Open Anyway (macOS 15 or later) or Control-click → Open (macOS 14). The Linux build runs in a terminal window and has no tray icon.</li>
+<li>The Android app is on the Download page as an APK from 10 October 2026 (Android 7.0 or later). Android asks you to allow your browser to install it the first time. Google Play and the App Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-3">Pocket 3.2.3 <span class="ldate">· 10 October 2026</span></h2>
+<p>A proper Windows installer, figures that read like a person's own month, and a plan that the clock and a deleted setting can no longer move. Windows 10/11, 64-bit, early access. The previous build was 3.2.2 (8 October 2026).</p>
+<h3>New</h3>
+<ul>
+<li><b>A Windows installer.</b> <code>Pocket_3.2.3_windows_setup.exe</code> installs Pocket for you alone, with no administrator prompt, adds a Start-menu and a desktop shortcut, and appears in Apps &amp; features with an uninstaller. Installing a newer version over it upgrades in place. Uninstalling removes the program and keeps your data in <code>%USERPROFILE%\FinOSData</code>. The portable zip is still offered, under Alternative downloads.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li><b>The cash runway reads finished months.</b> It averages the last three finished months and says which ("the average of June to August"); early in a month it had read a few days' spending as a month.</li>
+<li><b>Income is take-home, on every page.</b> The field is "Take-home a month", and the life-cover need replaces your payslip's take-home rather than its gross, tax and EPF included. Tax is still worked out on gross pay.</li>
+<li><b>A holding's cost is first in, first out</b>, as your mutual-fund statement and the Tax page count it. Once something is partly sold, Holdings say so.</li>
+<li><b>Restoring your own backup from a folder is free on every plan.</b> Making a new one stays with Pro.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Winding the computer's clock back no longer extends a trial or revives an expired plan, and deleting a setting no longer restarts the trial.</li>
+<li>The tax optimiser's paid figures are no longer sent to pages on the Free plan.</li>
+<li>A key refunded through the store can be withdrawn: Pocket ships a signed list of withdrawn keys.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Pocket now also keeps a small record of your plan (trial start, the latest day seen) in <code>%APPDATA%\Pocket</code>; an uninstall leaves it in place.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS, Linux and Android builds are in testing, not available yet. Google Play and the App Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-2">Pocket 3.2.2 <span class="ldate">· 8 October 2026</span></h2>
+<p>Comparisons that compare like with like, plainer words on Tax, and fixes found trying the phone app on Android. Windows 10/11, 64-bit, early access. The previous build was 3.2.1 (6 October 2026).</p>
+<h3>Changed</h3>
+<ul>
+<li><b>"vs last month" compares like with like.</b> While a month is under way, Cash flow, Money, the Transactions summary and the monthly checkup compare it with the same days of the month before ("↓ 40% vs 1–8 Sep"); a finished month is still compared whole. On the first days of a month it set a few days against a whole month ("Spent ₹0, ↓ 100% vs last month").</li>
+<li><b>Tax says no tax plainly.</b> With no tax to pay it said "comes to about ₹0"; with no tax and no TDS it spoke of a refund of "about ₹0", and the same when TDS covered the tax exactly. Each now says what is so: "comes to ₹0 under the new regime, so the ₹96,000 of TDS from your salary would come back as a refund", "… and no TDS comes out of your salary", "… all of it taken from your salary as TDS". A tax owed or a real refund reads as before.</li>
+</ul>
+<h3>Phone app (in internal testing)</h3>
+<ul>
+<li>On Android 11 and older, Pocket's icon shows while it opens, where the screen was blank; if Pocket cannot open its data, it says so and where to write.</li>
+<li>Restoring a backup asks for its passphrase first and asks before replacing anything, naming the day the backup was made; it can be undone while the page is open, and a restore that fails part-way changes nothing.</li>
+<li>Your first entry, statement, account, debt, goal, bill or policy replaces the sample person, as on the computer; before, a statement imported while the sample showed went in beside it.</li>
+<li>A zero is written "₹0", without a sign.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>. Nothing changes in it for this update; nothing is uploaded.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS and Android builds are in internal testing, not available.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+<h2 id="v3-2-1">Pocket 3.2.1 <span class="ldate">· 6 October 2026</span></h2>
+<p>The price lists now say only what Pocket does. Windows 10/11, 64-bit, early access. The previous build was 3.2.0 (6 October 2026).</p>
+<h3>Changed</h3>
+<ul>
+<li><b>No plan sells AI any more.</b> The price lists promised Claude answers (5 a month on Free, 750 on Founder Pro, 1,000 on Family, unlimited on Lifetime) and offered AI credit packs, but Pocket cannot yet ask Claude: the app has no connection to it, and the phone app never had one. Nobody was charged for them. Ask Pocket still answers on your device, from your own figures, on every plan.</li>
+<li><b>Founder Pro</b> is the encrypted document vault, print-ready financial reports, the tax optimiser (old vs new regime, harvesting) and encrypted backup through a cloud folder you already use. <b>Lifetime Founder</b> is all of that, forever, with priority support, a vote on the roadmap and early access to new features.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>. Nothing changes in it for this update; nothing is uploaded.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS and Android builds are in internal testing, not available.</li>
+<li>Support goes through the Contact page: <a href="contact.html">mypocketfi.com/contact.html</a></li>
+</ul>
+<h2 id="v3-2-0">Pocket 3.2.0 <span class="ldate">· 6 October 2026</span></h2>
+<p>A direct download, and fixes found finishing the phone app and trying it on Android. Windows 10/11, 64-bit, early access. The previous build was 3.1.0 (5 October 2026).</p>
+<h3>New</h3>
+<ul>
+<li><b>Download Pocket directly.</b> The website's Download page links the Windows zip itself, with its size, its SHA-256 and the one PowerShell line (Get-FileHash) that checks it. No more emailing for the zip.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>After the Pro trial, documents already in the vault could not be opened or deleted. What is in your vault is yours on any plan; adding a document is Pro, or its one free 24-hour preview.</li>
+<li>A monthly Pro subscription was issued a year's key. Each monthly charge now gives a month, with a week's grace.</li>
+<li>Wealth Wrapped said "1 milestones unlocked", "1 days tracked" and "Emi".</li>
+<li>The Retirement report headed its glide path "Suggested glide path today", a mix to hold. It now reads "Glide path for your age", as the dashboard states it, with the term explained: Pocket reports, never instructs.</li>
+<li>"₹0 invested across 0 assets" now reads "nothing invested", on the dashboard and the phone view.</li>
+</ul>
+<h3>The phone app (internal testing)</h3>
+<ul>
+<li>Every page of the phone view is now in the app: Financial calendar, Wealth timeline, Premium reports, Wealth Wrapped, Challenges, Refer a friend, Roadmap voting, the document vault, Plans &amp; pricing and the risk self-check. It keeps the dashboard's plans.</li>
+<li>Backup &amp; restore saved the backup where only Pocket could open it, so it went with the app or the phone. It is now saved where you choose and restored from the file you choose.</li>
+<li>An Undo message stayed on screen until tapped; it now goes after 8 seconds. After a wrong PIN, the field now keeps its focus for the next try.</li>
+<li>The database key moved to its storage's current ciphers on the first open after the update; your data is kept.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>. Nothing changes in it for this update; nothing is uploaded.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS and Android builds are in internal testing, not available.</li>
+<li>Support goes through the Contact page: <a href="contact.html">mypocketfi.com/contact.html</a></li>
+</ul>
+<h2 id="v3-1-0">Pocket 3.1.0 <span class="ldate">· 5 October 2026</span></h2>
+<p>The redesign, finished on the dashboard and the phone view (<code>/m</code>), and a wave of features and fixes found along the way. Windows 10/11, 64-bit, early access. The previous build was 3.0.0 (28 September 2026).</p>
+<h3>New</h3>
+<ul>
+<li><b>Five places, one pattern.</b> Home · Money · Wealth · Protect · More, on the dashboard and the phone view alike, each page with one sentence that says where you stand.</li>
+<li><b>SIPs set up once.</b> Each month's instalment waits in the Inbox until you record it with the units from your statement; Pocket never guesses the units.</li>
+<li><b>Mutual-fund statements (CAMS/KFintech CAS).</b> Read on your computer with the password you type, shown before anything is written, and imported only where every line adds up.</li>
+<li><b>Capital gains by lot</b>, short and long term, in the tax year they fall in.</li>
+<li><b>Insurance policies are your cover.</b> A premium is reminded of a week before it is due.</li>
+<li><b>Reminders</b> for bills, SIPs, premiums and advance-tax dates, in the Inbox and from the tray icon.</li>
+<li><b>The Inbox files as you would:</b> a suggested category says where it comes from (your own earlier filing of the same payee, a transfer, a word), and "And later entries containing" teaches a rule, with Undo.</li>
+<li><b>Payments that repeat</b> in your spending but are not tracked as bills are offered as bills.</li>
+<li><b>Debt:</b> each loan's rate, EMI and the month it clears, and what a prepayment, a rate change or a different EMI would do.</li>
+<li><b>Milestones</b>, the cash-flow forecast, and Plan a new goal with Cost of delay.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>A bank's narration reads as its payee ("UPI/SWIGGY/…" is Swiggy; "BIL/ONL/Airtel" is Airtel), the narration kept beneath it.</li>
+<li>A rule taught from the Inbox filed nothing again when the payee had no UPI ID: it held the bank's reference number. It is now the payee.</li>
+<li>Cost of delay on the phone view paid each SIP at the end of its month, so a year's wait read ₹62,680 less than on the dashboard. Both now pay at the start.</li>
+<li>A milestone read "100% of the way" a rupee short of it, and "−250%" below zero.</li>
+<li>The SIPs line said "into 3 funds" of two funds' monthly sum when one SIP had stopped.</li>
+<li>An empty Pocket's Monthly checkup button opened nothing on the phone view.</li>
+<li>Uncategorised spending ("Uber rides") was offered as a bill.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>The risk self-check reports what your answers read as, beside your own equity share. It no longer suggests an equity/debt split: that is advice, and Pocket reports, never instructs.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>. The database is upgraded in place on first run; nothing is uploaded.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS and Android builds are in internal testing, not available.</li>
+<li>Support goes through the Contact page: <a href="contact.html">mypocketfi.com/contact.html</a></li>
+</ul>
+<h2 id="v3-0-0">Pocket 3.0.0 <span class="ldate">· 28 September 2026</span></h2>
+<p>The first build named Pocket (it had an earlier name). Windows 10/11, 64-bit, early access. The previous build was v2.1.0 (20 September 2026), under its earlier name.</p>
+<h3>New</h3>
+<ul>
+<li><b>Show working.</b> Open the working behind net worth and the other headline figures: every entry, price and date behind the number, listed and added up. It starts closed.</li>
+<li><b>A new design</b> on the dashboard and the phone view (<code>/m</code>): one type scale, 44px touch targets, a visible label on every form field, full keyboard access, and a dark theme.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Net worth is assets minus liabilities on every screen. Some views showed tracked assets under the net-worth label.</li>
+<li>Editing a transaction with an invalid date no longer deletes the original, and a refused save says so instead of "Saved ✓". An unknown transaction type is refused with a reason.</li>
+<li>Other websites open in your browser can no longer change data in the app running on your computer.</li>
+<li>Mutual funds are priced from AMFI by exact scheme match only.</li>
+<li>The audit log lives in your data folder, holds nothing you typed, and is erased with your data.</li>
+<li>Goal and protection answers use your own saved profile, not built-in figures.</li>
+<li>The health grade no longer reads "Excellent" while a heavily weighted factor is weak (the score is unchanged).</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>Pocket reports and never instructs: each finding gives the figure, your target, the gap and where to look. Retirement verdicts say which projection they use.</li>
+<li>Green and red mark only money that moved. Month-on-month comparisons are stated in ink.</li>
+<li>The full Health Score, forecasts, scenarios, investment analytics, multi-account tracking and custom categories and rules are on the Free plan.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>. The database is upgraded in place on first run; nothing is uploaded, and older days keep no invented net-worth history.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run.</li>
+<li>macOS and Android builds are in internal testing, not available.</li>
+<li>Support was through the Contact page then; since 6 October 2026 it is <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
+</article>
+</div>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+      <p>The money app that shows its working. Your figures stay on your own device.</p>
+      <p class="sf-trust">No account · No bank logins · No trackers</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+</body>
+</html>

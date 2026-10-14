@@ -1,0 +1,110 @@
+/* POCKET — the company pages' own patterns (SITE_TO_9.md, Stream 2, 12 Oct 2026): Pricing, Download, Roadmap, About,
+   Contact, the four policies and the 404. Loaded after inner.css; tokens only (DESIGN.md). Nothing here is used by
+   another page, so a change here moves only these. */
+
+/* ---- 404: the hero's voice, and the five places worth going ---- */
+.nf{min-height:0; display:block; padding:96px 0 var(--sec)}
+.nf h1{max-width:16ch}
+.nf-go{list-style:none; margin:56px 0 0; padding:0; border-top:1px solid var(--rule-2); max-width:760px}
+.nf-go li{border-bottom:1px solid var(--rule)}
+.nf-go a{display:grid; grid-template-columns:minmax(0,.3fr) minmax(0,.7fr); gap:24px; align-items:baseline; min-height:56px;
+  padding:16px 4px; transition:background var(--t-fast) var(--ease-ui)}
+.nf-go a{text-decoration:none}
+.nf-go a:hover{background:var(--raised)}
+.nf-go a:hover b{text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:3px}
+.nf-go b{font:700 var(--fs-lede)/1.3 var(--display); letter-spacing:-.01em; color:var(--ink)}
+.nf-go span{color:var(--ink-3); font-size:var(--fs-small); line-height:1.5}
+@media (max-width:560px){ .nf{padding:64px 0 56px} .nf-go a{grid-template-columns:1fr; gap:4px} }
+
+/* ---- Roadmap: Shipped / Now / Next / Later on the .phases rows ---- */
+.rm .phases{margin-top:0}
+.rm .ph-when h2.when{font-size:36px}
+.asof{font-variant-numeric:tabular-nums}
+.rm-shipped{margin-top:20px}
+.rm-shipped thead th{padding-top:0}
+.rm-shipped th[scope=row]{width:84px; font:600 var(--fs-body)/1.4 var(--sans); font-variant-numeric:tabular-nums}
+.rm-shipped td:nth-child(2){width:150px; white-space:nowrap; font:400 var(--fs-prov)/1.9 var(--mono); color:var(--ink-3)}
+.rm-shipped td:last-child{font-size:var(--fs-small); line-height:1.55}
+.rm-more{margin:16px 0 0; font-size:var(--fs-small)}
+.rm-items{list-style:none; margin:20px 0 0; padding:0; border-top:1px solid var(--rule-2)}
+.rm-items li{display:grid; grid-template-columns:minmax(0,.36fr) minmax(0,.64fr); gap:6px 24px; align-items:baseline; padding:14px 0;
+  border-bottom:1px solid var(--rule); font-size:var(--fs-small); line-height:1.55; color:var(--ink-2)}
+.rm-items b{color:var(--ink); font-weight:600; font-size:var(--fs-body)}
+.vote-list li{grid-template-columns:minmax(0,.34fr) minmax(0,.66fr) auto; align-items:center}
+.vote{display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 14px; border:1px solid var(--edge);
+  border-radius:var(--r-2); font:600 var(--fs-caption)/1 var(--sans); color:var(--ink); white-space:nowrap;
+  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+.vote:hover{background:var(--raised)}
+.vote:active{transform:translateY(1px)}
+.rm-close{justify-content:center}
+@media (max-width:900px){
+  .rm .ph-when h2.when{font-size:28px}
+  .rm-items li, .vote-list li{grid-template-columns:1fr}
+  .vote{justify-self:start; margin-top:6px}
+}
+@media (max-width:560px){
+  .rm-shipped thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .rm-shipped tr{display:grid; grid-template-columns:auto minmax(0,1fr); gap:2px 12px; align-items:baseline; padding:14px 0;
+    border-bottom:1px solid var(--rule)}
+  .rm-shipped th[scope=row], .rm-shipped td{display:block; width:auto; padding:0; border:0}
+  .rm-shipped td:last-child{grid-column:1 / -1}
+}
+
+/* ---- Pricing: three plans on one frame, Family on a line, the table by Features' groups, six answers open ---- */
+html:not(.js) .bill{display:none}
+.bill{position:relative; display:inline-grid; grid-template-columns:1fr 1fr}
+.bill button{position:relative; z-index:1; min-width:104px}
+.bill-pill{position:absolute; top:3px; bottom:3px; left:3px; width:calc(50% - 3px); border-radius:var(--r-1);
+  background:var(--card); box-shadow:inset 0 0 0 1px var(--rule-2); transition:transform var(--t-ui) var(--ease-ui)}
+.bill[data-now="yearly"] .bill-pill{transform:translateX(100%)}
+.bill button[aria-pressed="true"]{color:var(--ink)}
+.plan .under{margin:10px 0 0; font-size:var(--fs-caption); line-height:1.5; color:var(--ink-3)}
+.plan .under + .has{margin-top:24px}
+.plan .price-alt{min-height:44px; line-height:1.5}
+.family{margin:24px 0 0; max-width:80ch; font-size:var(--fs-body); color:var(--ink-2)}
+.family b{color:var(--ink); font-weight:600}
+.cmp3 .cmp-group th{padding:28px 0 10px; font:700 var(--fs-h3)/1.2 var(--display); letter-spacing:-.01em;
+  border-bottom:1px solid var(--rule-2)}
+.cmp3 .cmp-group a{color:var(--ink); text-decoration:none}
+.cmp3 .cmp-group a:hover{text-decoration:underline; text-underline-offset:3px}
+.cmp3 .cmp-price td, .cmp3 .cmp-price th{font-weight:600; color:var(--ink)}
+.qa{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 56px; border-top:1px solid var(--rule-2)}
+.qa > div{padding:24px 0; border-bottom:1px solid var(--rule)}
+.qa h3{margin:0 0 8px; font:600 var(--fs-lede)/1.35 var(--sans); letter-spacing:-.005em; color:var(--ink)}
+.qa p{margin:0; max-width:60ch; color:var(--ink-2); line-height:1.6}
+@media (max-width:900px){ .qa{grid-template-columns:1fr} }
+@media (max-width:560px){ .cmp3 .cmp-group{padding-top:20px; border-bottom:0} .cmp3 .cmp-group th{padding:0 0 4px; border:0} }
+.plan .even{margin:12px 0 0; padding:10px 12px; border:1px solid var(--rule); border-radius:var(--r-2); background:var(--card);
+  font-size:var(--fs-caption); line-height:1.5; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.plan .even + .has{margin-top:24px}
+
+/* ---- Download: one button for the visitor's platform, the list beneath; Verify and Install help as disclosures ---- */
+.dl-main{display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin:32px 0 0}
+.dl-main .cta{min-height:56px; padding:0 28px; font-size:var(--fs-lede)}
+.dl-what{margin:0; font-size:var(--fs-small); color:var(--ink-3); font-variant-numeric:tabular-nums}
+.dl-file{color:var(--ink-2)}
+html[data-os] .plat.js-dl:not(.is-yours){background:transparent; box-shadow:none}
+.plat.is-yours{background:var(--card); box-shadow:inset 0 2px 0 var(--ink)}
+.first5{max-width:880px}
+.dl-more{border-top:1px solid var(--rule-2)}
+.dl-more:last-of-type{border-bottom:1px solid var(--rule-2)}
+.dl-more summary{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:64px; padding:12px 4px;
+  cursor:pointer; list-style:none; font:700 var(--fs-h3)/1.25 var(--display); letter-spacing:-.01em; color:var(--ink)}
+.dl-more summary::-webkit-details-marker{display:none}
+.dl-more summary::after{content:""; flex:none; width:10px; height:10px; margin-right:6px; border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-3px); transition:transform var(--t-ui) var(--ease-ui)}
+.dl-more[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.dl-more summary:hover{background:var(--raised)}
+.dl-body{padding:8px 0 32px}
+.dl-body .limits.one{margin-top:24px}
+.dl-other{display:none}
+html[data-os]:not([data-os="windows"]) .close .js-dl{display:none}
+html[data-os]:not([data-os="windows"]) .close .dl-other{display:inline-block}
+@media (max-width:560px){ .dl-main .cta{width:100%} }
+
+/* ---- Contact and About: rows of request types, each with its ready-made email; the release's known limits ---- */
+.support .srow h2{margin:0; padding:0; border:0}
+.support .srow .btn-line{min-height:44px; padding:0 16px; font-size:var(--fs-small)}
+.prose .limits{padding-left:0}
+.prose .limits li{margin:0}
+.prose .press li b{margin-right:6px}

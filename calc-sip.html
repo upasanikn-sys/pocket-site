@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<title>SIP calculator with step-up and cost of delay | Pocket</title>
+<meta name="description" content="A SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mypocketfi.com/calc-sip.html">
+<meta property="og:title" content="SIP calculator with step-up and cost of delay | Pocket">
+<meta property="og:description" content="A SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://mypocketfi.com/calc-sip.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mypocketfi.com/assets/og/calc-sip.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket. SIP calculator, with the working shown A SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og/calc-sip.png">
+<link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
+<link rel="stylesheet" href="assets/observatory.css?v=8">
+<link rel="stylesheet" href="assets/inner.css?v=8">
+<link rel="stylesheet" href="assets/site-shell.css?v=4">
+<link rel="stylesheet" href="assets/calc.css?v=1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SIP calculator with step-up and cost of delay","url":"https://mypocketfi.com/calc-sip.html","description":"A SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.","applicationCategory":"FinanceApplication","operatingSystem":"Any, in a web browser","isAccessibleForFree":true,"inLanguage":"en-IN","publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"}}</script>
+</head>
+<body>
+<!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">Ask Pocket</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="guides.html">Guides</a>
+      <a href="changelog.html">Changelog</a>
+    </nav>
+    <a class="sh-cta" href="download.html">Download free</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="wrap calcpage">
+<div class="calc-head">
+<h1>SIP calculator, with the working shown</h1>
+<p class="lede">What a monthly SIP grows to when every instalment is paid at the start of its month, with a step-up
+each year if you like, and what starting later costs when the end date stays the same.</p>
+<p class="stamp">Start-of-month instalments · monthly compounding · reviewed 13 Oct 2026</p>
+</div>
+<script type="application/json" id="calc-rules">{}</script>
+<div class="calc" data-calc="sip">
+<form class="calc-in" novalidate aria-label="Your SIP">
+<div class="fld"><label for="sip-m">Monthly SIP</label><div class="box"><span class="pre" aria-hidden="true">₹</span><input id="sip-m" name="m" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="18,000" data-kind="money" aria-describedby="sip-m-h sip-m-e"></div><p class="hint" id="sip-m-h">Whole rupees. The example is Pocket's sample person's two SIPs, ₹10,000 and ₹8,000 a month.</p><p class="err" id="sip-m-e" hidden></p></div>
+<div class="fld"><label for="sip-y">Years of instalments</label><div class="box"><input id="sip-y" name="y" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="20" data-kind="int" aria-describedby="sip-y-h sip-y-e"><span class="post" aria-hidden="true">years</span></div><p class="hint" id="sip-y-h">Whole years, 1 to 50.</p><p class="err" id="sip-y-e" hidden></p></div>
+<div class="fld"><label for="sip-r">Return a year, assumed</label><div class="box"><input id="sip-r" name="r" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="10" data-kind="pct" aria-describedby="sip-r-h sip-r-e"><span class="post" aria-hidden="true">%</span></div><p class="hint" id="sip-r-h">An assumption, not a promise: 0 to 30.</p><p class="err" id="sip-r-e" hidden></p></div>
+<div class="fld"><label for="sip-s">Step-up each year</label><div class="box"><input id="sip-s" name="s" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="0" data-kind="pct" aria-describedby="sip-s-h sip-s-e"><span class="post" aria-hidden="true">%</span></div><p class="hint" id="sip-s-h">How much more each year's instalment is; 0 for a flat SIP.</p><p class="err" id="sip-s-e" hidden></p></div>
+<div class="fld"><label for="sip-d">Start later by</label><div class="box"><input id="sip-d" name="d" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="12" data-kind="int" aria-describedby="sip-d-h sip-d-e"><span class="post" aria-hidden="true">months</span></div><p class="hint" id="sip-d-h">For what starting later costs, to the same end date.</p><p class="err" id="sip-d-e" hidden></p></div>
+<div class="calc-act"><button class="reset" type="button">Back to the example</button></div>
+<p class="calc-private">What you type stays in this page: the sums run in your browser, and nothing is sent anywhere.</p>
+</form>
+<section class="calc-out open" aria-labelledby="sip-h">
+<div class="out-h"><h2 id="sip-h">What it comes to</h2><button class="sw" type="button" role="switch" aria-checked="true"><i></i>Show working</button></div>
+<p class="lbl">Future value after <span data-o="yrs">20 years</span></p>
+<p class="fig fig-a num" data-o="fv">₹1,30,31,761</p>
+<p class="say" data-o="say">₹18,000 a month for 20 years, at an assumed 10% a year, comes to ₹1,30,31,761, of which ₹43,20,000 is what was paid in.</p>
+<p class="sr sr-say" aria-live="polite"></p>
+<div class="work">
+<ol class="wk" data-o="rows"><li class="wr"><span class="wl">Monthly rate<small>(1 + 10%)<sup>1/12</sup> − 1, so twelve months come to 10%</small></span><span class="ld" aria-hidden="true"></span><span class="wa">0.7974%</span></li><li class="wr"><span class="wl">Instalments<small>each paid at the start of its month</small></span><span class="ld" aria-hidden="true"></span><span class="wa">240</span></li><li class="wr"><span class="wl">Paid in<small>240 × ₹18,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹43,20,000</span></li><li class="wr"><span class="wl">Growth<small>each instalment compounding from the month it is paid</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹87,11,761</span></li><li class="wr tot"><span class="wl">Future value</span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,30,31,761</span></li></ol>
+<h3>Year by year</h3>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Year by year"><table class="spec"><thead><tr>
+<th scope="col">Year</th><th scope="col" class="n">Each instalment</th><th scope="col" class="n">Paid in that year</th>
+<th scope="col" class="n">Value at the year's end</th></tr></thead><tbody data-o="years"><tr><td>1</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹2,27,530</td></tr><tr><td>2</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹4,77,812</td></tr><tr><td>3</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹7,53,123</td></tr><tr><td>4</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹10,55,965</td></tr><tr><td>5</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹13,89,091</td></tr><tr><td>6</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹17,55,530</td></tr><tr><td>7</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹21,58,613</td></tr><tr><td>8</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹26,02,004</td></tr><tr><td>9</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹30,89,734</td></tr><tr><td>10</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹36,26,237</td></tr><tr><td>11</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹42,16,390</td></tr><tr><td>12</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹48,65,559</td></tr><tr><td>13</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹55,79,644</td></tr><tr><td>14</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹63,65,138</td></tr><tr><td>15</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹72,29,182</td></tr><tr><td>16</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹81,79,630</td></tr><tr><td>17</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹92,25,122</td></tr><tr><td>18</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹1,03,75,164</td></tr><tr><td>19</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹1,16,40,210</td></tr><tr><td>20</td><td class="n">₹18,000</td><td class="n">₹2,16,000</td><td class="n">₹1,30,31,761</td></tr></tbody></table></div>
+<h3>Starting later</h3>
+<ol class="wk" data-o="delay-rows"><li class="wr"><span class="wl">Starting now<small>240 instalments</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,30,31,761</span></li><li class="wr"><span class="wl">Starting 12 months later<small>228 instalments, ending on the same day</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,16,40,210</span></li><li class="wr tot"><span class="wl">What the delay costs<small>10.7% of ₹1,30,31,761</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹13,91,551</span></li></ol>
+</div>
+</section>
+</div>
+<div class="prose calc-notes">
+<h2>The rules it follows</h2>
+<ul>
+  <li><b>Paid at the start of the month.</b> Each instalment grows for the month it is paid in, as a SIP debited on
+  the 5th does. A calculator that pays at the end of each month shows less for the same SIP.</li>
+  <li><b>An annual return, compounded monthly.</b> 10% a year is (1 + 10%)<sup>1/12</sup> − 1, about 0.7974% a month,
+  so twelve months come to exactly 10%.</li>
+  <li><b>A step-up after every twelfth instalment.</b> With a 10% step-up, months 13 to 24 are 10% more than months 1
+  to 12, and so on.</li>
+  <li><b>Starting later keeps the end date.</b> Starting 12 months later means 12 fewer instalments, ending on the same
+  day; the cost is the difference between the two values.</li>
+</ul>
+<h2>What it assumes</h2>
+<ul>
+  <li>The same return every month. Real returns vary from month to month, and a fund's can be negative for years.</li>
+  <li>No tax, exit load or stamp duty is taken off; the return is after the fund's expense ratio.</li>
+  <li>Every instalment is paid; none is skipped.</li>
+</ul>
+<p>These are the sums Pocket's Goals page runs, and its SIPs are paid the same way.</p>
+<h2>The same sums in Pocket</h2>
+<p>Pocket works the same figures out from your own entries, on your own device, and keeps each one's working a tap away. It is free on Windows, macOS, Linux and Android: <a href="download.html">download Pocket</a>.</p>
+<div class="lnote">Other calculators: <a href="calc-tax-regime.html">Old vs new tax regime calculator</a> · <a href="calc-net-worth.html">Net worth calculator</a>. Pocket is a tracking and planning tool; these calculators work figures out, they are not financial, tax or investment advice.</div>
+</div>
+</div>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+      <p>The money app that shows its working. Your figures stay on your own device.</p>
+      <p class="sf-trust">No account · No bank logins · No trackers</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+<script src="assets/calc.js" defer></script>
+<script src="assets/calc-sip.js" defer></script>
+</body>
+</html>

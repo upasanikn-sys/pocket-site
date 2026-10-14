@@ -17,16 +17,17 @@
 <meta property="og:site_name" content="Pocket">
 <meta property="og:url" content="https://mypocketfi.com/terms.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://mypocketfi.com/assets/og-pocket.png">
+<meta property="og:image" content="https://mypocketfi.com/assets/og/terms.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pocket — the money app that shows its working. Net worth, investments, cash flow, debt, tax and goals, computed on your own machine.">
-<meta name="twitter:image" content="https://mypocketfi.com/assets/og-pocket.png">
+<meta property="og:image:alt" content="Pocket. Terms of Service The terms that govern your use of the Pocket application and website, including plans, payments, and the financial-information disclaimer.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og/terms.png">
 <link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=4">
-<link rel="stylesheet" href="assets/observatory.css?v=7">
-<link rel="stylesheet" href="assets/site-shell.css?v=3">
+<link rel="stylesheet" href="assets/observatory.css?v=8">
+<link rel="stylesheet" href="assets/inner.css?v=8">
+<link rel="stylesheet" href="assets/site-shell.css?v=4">
 </head>
 <body>
 <!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
@@ -39,23 +40,25 @@
     <nav class="sh-links" aria-label="Primary">
       <a href="why-pocket.html">Why Pocket</a>
       <a href="features.html">Features</a>
-      <a href="ai-copilot.html">AI Copilot</a>
+      <a href="ai-copilot.html">Ask Pocket</a>
       <a href="security.html">Security</a>
       <a href="pricing.html">Pricing</a>
-      <a href="roadmap.html">Roadmap</a>
+      <a href="guides.html">Guides</a>
+      <a href="changelog.html">Changelog</a>
     </nav>
-    <a class="sh-cta" href="download.html">Download</a>
+    <a class="sh-cta" href="download.html">Download free</a>
     <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <nav class="sh-menu" id="site-menu" aria-label="Menu">
     <a href="why-pocket.html">Why Pocket</a>
     <a href="features.html">Features</a>
-    <a href="ai-copilot.html">AI Copilot</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
     <a href="security.html">Security</a>
     <a href="pricing.html">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="changelog.html">Changelog</a>
     <a href="roadmap.html">Roadmap</a>
-    <a href="download.html">Download</a>
-    <a class="sh-menu-cta" href="download.html">Download</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
   </nav>
 </header>
 
@@ -63,7 +66,7 @@
 <div class="wrap">
 <article class="prose">
   <h1>Terms of Service</h1>
-  <div class="ldate">Effective 10 October 2026 · Governs the Pocket application and this website</div>
+  <div class="ldate">Effective 13 October 2026 · Governs the Pocket application and this website</div>
 
   <div class="lsum">
     <b>Plain-English summary:</b> Pocket is planning software, not a financial adviser. Your data is
@@ -72,24 +75,45 @@
     you out of your own data — the app simply returns to the Free plan.
   </div>
 
-  <h2>1. Agreement</h2>
+  <nav class="ltoc" aria-label="Contents">
+    <p class="ltoc-h">Contents</p>
+    <ol>
+      <li><a href="#agreement">Agreement</a></li>
+      <li><a href="#product">The product</a></li>
+      <li><a href="#advice">Not financial advice</a></li>
+      <li><a href="#ask">Ask Pocket and AI</a></li>
+      <li><a href="#plans">Plans, payments and cancellation</a></li>
+      <li><a href="#data">Your data and your responsibilities</a></li>
+      <li><a href="#use">Acceptable use</a></li>
+      <li><a href="#support">Updates and support</a></li>
+      <li><a href="#liability">Warranty disclaimer and liability</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#law">Governing law</a></li>
+      <li><a href="#changes">Changes and contact</a></li>
+      <li><a href="#history">Version history</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="agreement">1. Agreement</h2>
   <p>These terms are an agreement between you and Pocket, an independent, India-based software
-  product ("we", "us"). <span class="phnote">The registered operating entity will be named here before paid launch.</span> By downloading, installing or using the Pocket application, or by purchasing
+  product ("we", "us"). By downloading, installing or using the Pocket application, or by purchasing
   a plan, you accept these terms together with the <a href="privacy.html">Privacy Policy</a>,
   <a href="refunds.html">Refund Policy</a> and <a href="license.html">License Terms</a>, which form
   part of this agreement. If you do not accept them, do not use the software.</p>
+  <!-- co:entity --><!-- /co:entity -->
 
-  <h2>2. The product, and its current status</h2>
+  <h2 id="product">2. The product</h2>
   <p>Pocket is a local-first personal finance application: it tracks, organises, analyses and
-  projects the financial information you put into it, on your own device. Pocket is currently in
-  <b>early access</b>: the Windows, macOS, Linux and Android builds are downloaded from this website, the
-  iPhone app is in development, and features may change between releases.</p>
+  projects the financial information you put into it, on your own device. It is released for
+  <!-- co:platforms -->Windows 10 and 11, macOS, Linux and Android<!-- /co:platforms -->, downloaded from this website;
+  each release, with what it changed and what is still limited, is on the
+  <a href="changelog.html">Changelog</a>. Features may change between releases.</p>
 
-  <h2>3. Not financial advice</h2>
+  <h2 id="advice">3. Not financial advice</h2>
   <p><b>Pocket is an educational planning tool.</b> It is not registered with SEBI or any other
   regulator as an investment adviser, and nothing it produces — scores, projections, probabilities,
-  recommendations, tax estimates, AI answers — constitutes investment, tax, legal or insurance
-  advice.</p>
+  recommendations, tax estimates, Ask Pocket's answers — constitutes investment, tax, legal or
+  insurance advice.</p>
   <ul>
     <li>Projections and probabilities are illustrative models computed from <b>your inputs and
     editable assumptions</b>. Real outcomes will differ.</li>
@@ -103,30 +127,30 @@
   </ul>
   <p>You are solely responsible for your financial decisions.</p>
 
-  <h2>4. AI features</h2>
-  <p>Pocket's intelligence runs on your device and generates output from your data combined with
-  built-in financial models and assumptions. AI output can be wrong, incomplete or out of date.
-  Treat it as a starting point for your own judgement, not as a directive. Any optional hosted AI
+  <h2 id="ask">4. Ask Pocket and AI</h2>
+  <p>Ask Pocket answers your questions on your device, by built-in rules applied to your data and
+  editable assumptions; it is not an AI model. Its answers can be wrong, incomplete or out of date.
+  Treat them as a starting point for your own judgement, not as a directive. Any optional hosted AI
   feature is off by default, is described where you enable it, and is subject to fair-use limits
   described in the <a href="license.html">License Terms</a>.</p>
 
-  <h2>5. Plans, payments and cancellation</h2>
+  <h2 id="plans">5. Plans, payments and cancellation</h2>
   <ul>
     <li>Current plans and prices are listed on the <a href="pricing.html">pricing page</a>. Prices
     may change; changes never apply retroactively to an already-paid period or to a lifetime
     purchase.</li>
-    <li>Payments are processed by a third-party payment processor under its own terms. Applicable
-    taxes may be added at checkout.</li>
-    <li>Subscriptions renew for the period you chose until cancelled. You may cancel at any time;
-    premium features remain active until the end of the paid period, after which the app returns to
-    the Free plan.</li>
+    <li>Payments are taken by <b>Gumroad</b>, under its own terms. Applicable taxes may be added at
+    checkout.</li>
+    <li>Subscriptions renew for the period you chose until cancelled. You may cancel at any time, on
+    Gumroad or by email; premium features remain active until the end of the paid period, after which
+    the app returns to the Free plan.</li>
     <li><b>The Free plan is permanent:</b> whatever happens to your subscription, you keep the app,
     your data stays readable and editable on your device, and CSV export always works. We never hold
     your data hostage.</li>
     <li>Refunds are governed by the <a href="refunds.html">Refund Policy</a> (30 days).</li>
   </ul>
 
-  <h2>6. Your data and your responsibilities</h2>
+  <h2 id="data">6. Your data and your responsibilities</h2>
   <ul>
     <li>Your financial data is stored on your device and remains yours. We cannot access, restore or
     recover it — which also means <b>backups are your responsibility</b>. Pocket provides encrypted
@@ -137,20 +161,20 @@
     Pocket on.</li>
   </ul>
 
-  <h2>7. Acceptable use</h2>
+  <h2 id="use">7. Acceptable use</h2>
   <p>You may not: share or publish license keys; circumvent or remove licensing checks; redistribute,
   resell or rent the application; use the software to violate any law; or misrepresent Pocket output
   as professional financial advice to third parties. Reverse engineering is permitted only to the
   extent a right to do so cannot be excluded under applicable law.</p>
 
-  <h2>8. Updates and support</h2>
+  <h2 id="support">8. Updates and support</h2>
   <p>Update entitlements depend on your plan and are stated at purchase. Support is provided by email,
   at the address on <a href="contact.html">our Contact page</a>, on a reasonable-efforts basis; paid
   plans receive priority. We may discontinue optional online conveniences (such as market-price
   feeds) if the underlying public services become unavailable — the core, offline application will
   keep working.</p>
 
-  <h2>9. Warranty disclaimer and liability</h2>
+  <h2 id="liability">9. Warranty disclaimer and liability</h2>
   <p>The software is provided <b>"as is"</b>, without warranties of any kind, express or implied,
   including merchantability, fitness for a particular purpose and non-infringement. To the maximum
   extent permitted by law, our total liability for any claim arising out of or relating to the
@@ -159,20 +183,35 @@
   decisions you make. Nothing in these terms limits rights you have under applicable consumer
   protection law that cannot be contractually excluded.</p>
 
-  <h2>10. Termination</h2>
+  <h2 id="termination">10. Termination</h2>
   <p>We may terminate or suspend a license for material breach of these terms (for example, key
   sharing or piracy), and keys are deactivated when a purchase is refunded. Termination never affects
   the data on your device, which remains yours and exportable.</p>
 
-  <h2>11. Governing law</h2>
+  <h2 id="law">11. Governing law</h2>
   <p>These terms are governed by the laws of India, and the courts of Pune, Maharashtra have
   exclusive jurisdiction, subject to any non-excludable consumer rights in your place of
   residence.</p>
 
-  <h2>12. Changes and contact</h2>
+  <h2 id="changes">12. Changes and contact</h2>
   <p>We may update these terms; the current version with its effective date always lives at this
-  address, and material changes will be noted on the download page. Questions:
-  write to the address on <a href="contact.html">our Contact page</a>.</p>
+  address, each change is listed in the <a href="#history">version history</a>, and material changes
+  will be noted on the download page. Questions: write to the address on
+  <a href="contact.html">our Contact page</a>.</p>
+
+  <h2 id="history">13. Version history</h2>
+  <dl class="lhist">
+    <dt><time datetime="2026-10-13">13 October 2026</time></dt>
+    <dd>Section 2 names the platforms Pocket is released for, and no longer an iPhone app in
+    development or a pre-release status; on-device answers are called Ask Pocket; Gumroad is named;
+    contents and this history added.</dd>
+    <dt><time datetime="2026-10-10">10 October 2026</time></dt>
+    <dd>The macOS, Linux and Android builds are downloaded from this website.</dd>
+    <dt><time datetime="2026-09-28">28 September 2026</time></dt>
+    <dd>Support by email at the address on the Contact page.</dd>
+    <dt><time datetime="2026-07-17">17 July 2026</time></dt>
+    <dd>The first version.</dd>
+  </dl>
 
   <div class="lnote">Related: <a href="privacy.html">Privacy Policy</a> ·
   <a href="refunds.html">Refund Policy</a> · <a href="license.html">License Terms</a></div>
@@ -185,16 +224,16 @@
   <div class="sf-in">
     <div class="sf-brand">
       <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
-      <p>A privacy-first financial operating system. Understand, grow and protect your wealth — on your own device.</p>
-      <p class="sf-trust">No cloud required · No tracking · No ads</p>
+      <p>The money app that shows its working. Your figures stay on your own device.</p>
+      <p class="sf-trust">No account · No bank logins · No trackers</p>
     </div>
-    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">AI Copilot</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a><a href="guides.html">Guides</a></nav>
-    <nav class="sf-col" aria-label="Download"><p class="sf-h">Download</p><a href="download.html">Windows app</a><a href="download.html">macOS</a><a href="download.html">Android</a><a href="download.html">Linux</a></nav>
-    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
   <div class="sf-base">
-    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Market data is delayed and unofficial.</p>
-    <p class="sf-copy">© 2026 Pocket · Made in India</p>
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
   </div>
 </footer>
 

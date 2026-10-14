@@ -6,7 +6,7 @@
   function all(sel, root) { return [].slice.call((root || d).querySelectorAll(sel)); }
   function anim(el, frames, o) { if (!rm && el.animate) return el.animate(frames, o); }
 
-  /* Show working: trace 480ms, 40ms stagger (cap 8), notes at half-line, close 120ms */
+  /* Show working: trace 480ms, 40ms stagger (cap 8), notes at half-line, lines staggered, close 120ms */
   var plate = d.getElementById("plate"), sw = plate && plate.querySelector(".sw");
   function trace() {
     all(".lead", plate).forEach(function (l, i) {
@@ -17,6 +17,22 @@
       anim(n, [{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }],
         { duration: 200, delay: Math.min(i, 7) * 40 + 240, easing: UI, fill: "backwards" });
     });
+    /* the lines the first total is made of open one after another, 40ms apart (the ninth with the eighth) */
+    all("#lines .ln", plate).filter(function (l) { return l.offsetParent; }).forEach(function (l, i) {
+      anim(l, [{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }],
+        { duration: 200, delay: Math.min(i, 7) * 40, easing: UI, fill: "backwards" });
+    });
+  }
+  /* totals: with the working open each carries its paise; closed, its rupee form (data-r). They roll only when the
+     switch is pressed, never on load: the paise rise in over --t-roll, or the figure settles to the rupee */
+  var totals = all("[data-r]", plate).map(function (el) { return { el: el, open: el.innerHTML }; });
+  function roll(on) {
+    totals.forEach(function (t) {
+      t.el.innerHTML = on ? t.open : t.el.getAttribute("data-r");
+      var p = on && t.el.querySelector(".p");
+      anim(p || t.el, [{ opacity: 0, transform: "translateY(" + (on ? 4 : -4) + "px)" }, { opacity: 1, transform: "none" }],
+        { duration: 320, easing: UI });
+    });
   }
   if (sw) {
     var fades = []; // reopening cancels a closing fade
@@ -24,6 +40,7 @@
       var on = sw.getAttribute("aria-checked") !== "true";
       sw.setAttribute("aria-checked", String(on));
       fades.forEach(function (a) { a.cancel(); }); fades = [];
+      roll(on);
       if (on) { plate.classList.remove("bare"); trace(); return; }
       all(".lead,.tnote,.lines", plate).forEach(function (p) {
         var a = anim(p, [{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "cubic-bezier(.23,1,.32,1)" });
@@ -33,6 +50,55 @@
     });
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(trace); else trace();
   }
+
+  /* a phone shows three lines, then "Show all N lines"; focus moves to the fourth */
+  var ol = d.getElementById("lines");
+  if (ol && ol.children.length > 3) {
+    var all7 = d.createElement("button");
+    all7.type = "button"; all7.className = "more lines-all"; all7.setAttribute("aria-expanded", "false");
+    all7.setAttribute("aria-controls", "lines"); all7.textContent = "Show all " + ol.children.length + " lines";
+    ol.parentNode.insertBefore(all7, ol.nextSibling);
+    all7.addEventListener("click", function () {
+      plate.classList.add("all"); all7.setAttribute("aria-expanded", "true"); all7.hidden = true;
+      var li = ol.children[3]; li.tabIndex = -1; li.focus();
+    });
+  }
+
+  /* product tour: tabs (arrow keys, Home, End); the underline moves to the tab, the capture cross-fades */
+  var tl = d.querySelector(".tour-tabs");
+  if (tl) {
+    var tabs = all("[role=tab]", tl), ul = tl.querySelector(".tour-ul");
+    var mark = function (t) { ul.style.transform = "translateX(" + t.offsetLeft + "px) scaleX(" + t.offsetWidth / 100 + ")"; };
+    var pick = function (t, focus) {
+      tabs.forEach(function (x) {
+        var on = x === t, panel = d.getElementById(x.getAttribute("aria-controls"));
+        x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; panel.classList.toggle("on", on);
+      });
+      mark(t); if (focus) t.focus();
+    };
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { pick(t); });
+      t.addEventListener("keydown", function (e) {
+        var n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+        if (n === undefined) return;
+        e.preventDefault(); pick(tabs[(n + tabs.length) % tabs.length], true);
+      });
+    });
+    // on a phone a desktop capture is too small to read, so the tour opens on the phone's own screens
+    var first = matchMedia("(max-width:560px)").matches ? tabs[tabs.length - 1] : tabs[0];
+    ul.style.transition = "none"; pick(first); ul.offsetWidth; ul.style.transition = "";
+    addEventListener("resize", function () { mark(tabs.filter(function (t) { return t.tabIndex === 0; })[0]); });
+  }
+
+  /* what would leave: each connection's payload, and its switch closed in the drawing while it is open */
+  all(".conn .lv-b").forEach(function (b) {
+    var k = b.parentNode.getAttribute("data-conn"), box = d.getElementById(b.getAttribute("aria-controls"));
+    b.addEventListener("click", function () {
+      var on = b.getAttribute("aria-expanded") !== "true";
+      b.setAttribute("aria-expanded", String(on)); box.classList.toggle("open", on);
+      all('.schem g[data-conn="' + k + '"]').forEach(function (g) { g.classList.toggle("on", on); });
+    });
+  });
 
   /* ledger: five rows, then "… N more"; focus moves to the new rows */
   all("table.ledger").forEach(function (t) {

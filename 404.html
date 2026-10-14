@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- The 404 is served at whatever address was missing, often a nested one, so every relative link resolves from the root -->
+<base href="/">
 <title>Page not found — Pocket</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/pocket-icon.svg" type="image/svg+xml">
@@ -12,21 +14,78 @@
 <link rel="preload" href="assets/fonts/plusjakartasans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/vestora-tokens.css?v=4">
-<link rel="stylesheet" href="/assets/observatory.css?v=7">
-<link rel="stylesheet" href="/assets/site-shell.css?v=3">
+<link rel="stylesheet" href="/assets/observatory.css?v=8">
+<link rel="stylesheet" href="/assets/inner.css?v=8">
+<link rel="stylesheet" href="/assets/company-pages.css?v=1">
+<link rel="stylesheet" href="/assets/site-shell.css?v=4">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- With <base href="/">, "#main" alone would mean the homepage's #main: the skip link keeps to this address -->
+<script>document.querySelector(".skip").setAttribute("href", location.pathname + location.search + "#main")</script>
+
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="ai-copilot.html">Ask Pocket</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="guides.html">Guides</a>
+      <a href="changelog.html">Changelog</a>
+    </nav>
+    <a class="sh-cta" href="download.html">Download free</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
+  </nav>
+</header>
+
 <main id="main" class="nf">
   <div class="wrap">
-    <a class="sh-brand nf-brand" href="/" aria-label="Pocket home"><picture><source srcset="/assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="/assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
     <h1 class="d">This page doesn't exist.</h1>
-    <p class="sub">Like a good local-first app, we keep things where they belong — this page just isn't one of them.</p>
+    <p class="sub">The address may be mistyped, or the page may have moved. The main pages are below, and the footer links every page.</p>
     <div class="hbtns">
       <a class="cta" href="/">Back to home</a>
-      <a class="ghost" href="/contact.html">Get support</a>
+      <a class="ghost" href="/download.html">Download free</a>
     </div>
-    <p class="nf-links">404 — not found · Popular: <a href="/features.html">Features</a> · <a href="/pricing.html">Pricing</a> · <a href="/download.html">Download</a> · <a href="/security.html">Security</a></p>
+    <ul class="nf-go">
+      <li><a href="/guides.html"><b>Guides</b><span>Worked examples, every figure computed by Pocket's own engine</span></a></li>
+      <li><a href="/download.html"><b>Download</b><span>Windows, macOS, Linux and Android, with checksums</span></a></li>
+      <li><a href="/changelog.html"><b>Changelog</b><span>Every published version, newest first</span></a></li>
+      <li><a href="/pricing.html"><b>Pricing</b><span>Free, Founder Pro and Lifetime Founder</span></a></li>
+      <li><a href="/contact.html"><b>Support</b><span>support@mypocketfi.com, and the known issues</span></a></li>
+    </ul>
   </div>
 </main>
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+      <p>The money app that shows its working. Your figures stay on your own device.</p>
+      <p class="sf-trust">No account · No bank logins · No trackers</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <div class="sf-base">
+    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
+    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
+  </div>
+</footer>
+
+<script src="/assets/vestora.js" defer></script>
 </body>
 </html>

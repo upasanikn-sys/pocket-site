@@ -12,7 +12,7 @@
 .nf-go a{text-decoration:none}
 .nf-go a:hover{background:var(--raised)}
 .nf-go a:hover b{text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:3px}
-.nf-go b{font:700 var(--fs-lede)/1.3 var(--display); letter-spacing:-.01em; color:var(--ink)}
+.nf-go b{font:600 var(--fs-lede)/1.3 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .nf-go span{color:var(--ink-3); font-size:var(--fs-small); line-height:1.5}
 @media (max-width:560px){ .nf{padding:64px 0 56px} .nf-go a{grid-template-columns:1fr; gap:4px} }
 
@@ -63,7 +63,7 @@ html:not(.js) .bill{display:none}
 .plan .price-alt{min-height:44px; line-height:1.5}
 .family{margin:24px 0 0; max-width:80ch; font-size:var(--fs-body); color:var(--ink-2)}
 .family b{color:var(--ink); font-weight:600}
-.cmp3 .cmp-group th{padding:28px 0 10px; font:700 var(--fs-h3)/1.2 var(--display); letter-spacing:-.01em;
+.cmp3 .cmp-group th{padding:28px 0 10px; font:600 var(--fs-h3)/1.2 var(--display); letter-spacing:-.01em;
   border-bottom:1px solid var(--rule-2)}
 .cmp3 .cmp-group a{color:var(--ink); text-decoration:none}
 .cmp3 .cmp-group a:hover{text-decoration:underline; text-underline-offset:3px}
@@ -89,7 +89,7 @@ html[data-os] .plat.js-dl:not(.is-yours){background:transparent; box-shadow:none
 .dl-more{border-top:1px solid var(--rule-2)}
 .dl-more:last-of-type{border-bottom:1px solid var(--rule-2)}
 .dl-more summary{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:64px; padding:12px 4px;
-  cursor:pointer; list-style:none; font:700 var(--fs-h3)/1.25 var(--display); letter-spacing:-.01em; color:var(--ink)}
+  cursor:pointer; list-style:none; font:600 var(--fs-h3)/1.25 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .dl-more summary::-webkit-details-marker{display:none}
 .dl-more summary::after{content:""; flex:none; width:10px; height:10px; margin-right:6px; border-right:1.5px solid currentColor;
   border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-3px); transition:transform var(--t-ui) var(--ease-ui)}

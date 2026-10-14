@@ -18,12 +18,12 @@
 /* the instrument plate: a card on film, no shadow at rest */
 .plate{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-3);padding:20px 24px}
 .plate-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-8px 0 0}
-.fig-a{margin:4px 0 0;font:700 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
+.fig-a{margin:4px 0 0;font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
 .p{font-size:max(12px,.72em);font-weight:600;color:var(--ink-3);letter-spacing:0}
 .eq{margin-top:12px}
 .term{display:grid;grid-template-columns:16px auto minmax(24px,1fr) minmax(0,auto);align-items:center;gap:0 12px;padding:8px 0}
 .op{font:600 var(--fs-fig-s)/1 var(--display);color:var(--ink-3);text-align:center}
-.t{font:700 var(--fs-fig-m)/1.1 var(--display);letter-spacing:-.02em;white-space:nowrap}
+.t{font:600 var(--fs-fig-m)/1.1 var(--display);letter-spacing:-.02em;white-space:nowrap}
 .tnote{font-size:var(--fs-caption);line-height:1.35;color:var(--ink-2);text-align:right}
 .tnote b{display:block;font-weight:600;color:var(--ink)}
 /* leader line: a 1px hairline, nothing at either end (DESIGN.md "Leader line", Gate 4); drawn from its left end */
@@ -72,13 +72,13 @@
 .ledger .r{white-space:normal}
 .fr tfoot :is(th,td){border:0;border-top:1px solid var(--ink);padding-top:10px;font-weight:600;font-size:var(--fs-small);color:var(--ink)}
 .eqn th{font-size:var(--fs-body);color:var(--ink)}
-.eqn td{font:700 var(--fs-fig-m)/1.1 var(--display);letter-spacing:-.02em;color:var(--ink)}
+.eqn td{font:600 var(--fs-fig-m)/1.1 var(--display);letter-spacing:-.02em;color:var(--ink)}
 .eqn tfoot td{font-size:var(--fs-fig-l);letter-spacing:-.035em}
 .fr .tblock{margin-top:24px}
 .more{min-height:44px;padding:0;border:0;background:none;font:500 var(--fs-caption)/1 var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--edge);cursor:pointer}
 .more:hover{text-decoration-thickness:2px;text-decoration-color:var(--ink)}
 .stage{display:none}
-.pinned.scene{height:300vh;padding:0}
+.pinned.scene{height:240vh;padding:0}
 .pinned .scene-in{position:sticky;top:73px;height:calc(100vh - 73px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:64px;align-items:center}
 .pinned .steps li{grid-template-columns:48px minmax(0,1fr);padding:18px 0;border-bottom:0}
 .pinned .steps li::before{transition:color var(--t-ui)}
@@ -93,7 +93,7 @@
 .wires-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
 .wires .lede{margin:20px 0 0;max-width:31em}
 .count{display:flex;align-items:baseline;gap:16px;margin-top:32px;padding-top:16px;border-top:1px solid var(--rule-2)}
-.count b{font:700 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
+.count b{font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
 .count p{margin:0;font-size:var(--fs-small);color:var(--ink-2);max-width:17em}
 .schem{display:block;width:100%;height:auto;margin-bottom:16px}
 .schem.narrow{display:none}
@@ -113,13 +113,35 @@
 .conn span{grid-column:1;font-size:var(--fs-small);color:var(--ink-2)}
 .conn em{grid-column:2;grid-row:1;font:500 var(--fs-prov)/1.6 var(--mono);letter-spacing:.04em;text-transform:uppercase;font-style:normal;color:var(--ink-2)}
 .conn .local em{color:var(--ink)}
-/* what Pocket will never do */
-.never-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+/* what Pocket will never do: one centred statement over five columns (14 Oct 2026: the copy is DESIGN.md's, word for
+   word; only the layout changed, so the page stops repeating one split) */
+.never-in{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+.never-in>div{text-align:center}
 .never-in>div p{margin:16px 0 0;color:var(--ink-2)}
-.never ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
-.never li{display:grid;grid-template-columns:minmax(0,.36fr) minmax(0,.64fr);gap:24px;padding:16px 0;border-bottom:1px solid var(--rule)}
-.never strong{font:700 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
+.never ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 24px;border-top:1px solid var(--ink)}
+.never li{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:20px 0 0}
+.never strong{font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
 .never li span{color:var(--ink-2)}
+
+/* the far end of each connection: a hairline node, its wire dashed while no current flows; opened, the wire draws */
+.schem rect.far{stroke:var(--rule-2);stroke-width:1;stroke-dasharray:none}
+.schem g.on rect.far{stroke:var(--ink)}
+.schem g rect.far{transition:stroke var(--t-ui) var(--ease-ui)}
+
+/* the page's last pieces: the count of every request, and the phone's download bar */
+.count-all[hidden]{display:none}
+.dock{display:none}
+.rel-pace{margin:0 0 24px;color:var(--ink-2)}
+.rel-pace b{font:600 var(--fs-fig)/1 var(--display);letter-spacing:-.02em;color:var(--ink);margin-right:4px}
+
+/* presses answer on pointer-down (DESIGN.md "Do": translateY(1px) within 120ms) */
+.tour-tabs [role=tab]:active,.more:active{transform:translateY(1px)}
+.more{transition:transform var(--t-fast) var(--ease-ui)}
+
+/* the scene, pinned: each frame's rows are counted into the figure as the visitor scrolls through its third (home.js);
+   a row not yet counted stands back. Reduced motion, phones and short screens never pin, so every row is plain. */
+.pinned .stage [data-q]{transition:opacity var(--t-ui) var(--ease-ui)}
+.pinned .stage [data-q]:not(.lit){opacity:.28}
 /* SITE_TO_9, Home (13 Oct 2026). An anchor lands below the sticky header (72px and its rule), not under it */
 html{scroll-padding-top:88px}
 
@@ -134,7 +156,7 @@ html{scroll-padding-top:88px}
 /* product tour (DESIGN.md "Product tour"): tabs that are buttons; the underline moves and the capture cross-fades
    over --t-ui; without script, all four panels stand one under another */
 .tour-tabs{position:relative;display:flex;gap:4px;border-bottom:1px solid var(--rule-2);margin-bottom:24px;overflow-x:auto}
-.tour-tabs [role=tab]{min-height:44px;padding:0 16px;border:0;background:none;font:500 var(--fs-body)/1 var(--sans);color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:color var(--t-fast) var(--ease-ui)}
+.tour-tabs [role=tab]{min-height:44px;padding:0 16px;border:0;background:none;font:500 var(--fs-body)/1 var(--sans);color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:color var(--t-fast) var(--ease-ui),transform var(--t-fast) var(--ease-ui)}
 .tour-tabs [role=tab]:hover,.tour-tabs [aria-selected=true]{color:var(--ink)}
 .tour-tabs [aria-selected=true]{font-weight:600}
 .tour-ul{position:absolute;left:0;bottom:-1px;width:100px;height:2px;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform var(--t-ui) var(--ease-ui)}
@@ -150,22 +172,67 @@ html{scroll-padding-top:88px}
 .tp figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:16px;color:var(--ink-2);font-size:var(--fs-small)}
 .tp:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:var(--r-2)}
 
-/* the film: loads on play, captioned; the transcript opens under it */
-.film-note{margin:0 0 16px;color:var(--ink-2);max-width:60ch}
+/* the stage (14 Oct 2026 audit): the product sits on one dark band between light sections, the page's high point.
+   These are DESIGN.md's dark tokens, not new colours; in the dark theme the band steps up to plate so it still reads
+   as a band. Captures keep the visitor's scheme (light on light systems), like pictures on a gallery wall. */
+.on-dark{color-scheme:dark;
+  --paper:#0F1419;--plate:#151B22;--card:#1B222A;--raised:#252D37;
+  --rule:rgba(230,234,238,.10);--rule-2:rgba(230,234,238,.20);--edge:#7A8693;
+  --ink:#E6EAEE;--ink-hover:#C9D1D9;--ink-2:#B3BCC6;--ink-3:#8F9AA6;--on-ink:#0F1419;
+  --signal:#E9803F;--signal-wash:rgba(233,128,63,.10);--gain:#3FBF86;--loss:#F2808F;
+  background:var(--paper);color:var(--ink);border-top-color:transparent}
+@media (prefers-color-scheme: dark){ .on-dark{--paper:#151B22;--card:#1B222A} }
+.tour-tabs .tab-n{margin-left:6px;font:500 var(--fs-prov)/1 var(--mono);color:var(--ink-3)}
+
+/* the film, the tour's last tab: a poster and one play button; the file loads on play, captioned */
 .film-fig{margin:0}
-.film-fig video{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:var(--r-3);background:var(--card)}
+.film-box{position:relative}
+.film-box video{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:var(--r-3);background:var(--card)}
+.film-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;
+  min-height:56px;padding:0 24px 0 20px;border:0;border-radius:var(--r-2);background:var(--ink);color:var(--on-ink);
+  font:600 var(--fs-body)/1 var(--sans);white-space:nowrap;cursor:pointer;
+  transition:background var(--t-fast) var(--ease-ui),transform var(--t-fast) var(--ease-ui)}
+.film-play[hidden]{display:none}
+.film-play:hover{background:var(--ink-hover)}
+/* on the dark band the poster is still a light capture, so the button turns to dark ink to stand off it */
+.on-dark .film-play{background:var(--on-ink);color:var(--ink)}
+.on-dark .film-play:hover{background:var(--raised)}
+.film-play:active{transform:translate(-50%,calc(1px - 50%))}
+.film-play svg{width:20px;height:20px;fill:currentColor}
+.film-play .tab-n{font:500 var(--fs-prov)/1 var(--mono);color:inherit;opacity:.75}
+.film-fig figcaption{margin-top:16px;color:var(--ink-2);font-size:var(--fs-small);max-width:70ch}
 .film-tx{margin-top:16px;max-width:60ch}
 .film-tx summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-weight:600}
 .film-tx ol{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--rule)}
 .film-tx li{padding:10px 0;border-bottom:1px solid var(--rule);color:var(--ink-2)}
 .film-tx time{display:inline-block;min-width:3.5em;font:500 var(--fs-caption)/1 var(--mono);color:var(--ink-3)}
 
-/* what it reads: definition rows on a rule */
-.reads-l{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin:0;border-top:1px solid var(--ink)}
-.reads-l>div{padding:18px 0;border-bottom:1px solid var(--rule)}
-.reads-l dt{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font:700 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
-.reads-l dd{margin:8px 0 0;color:var(--ink-2);max-width:46ch}
-.reads-n{margin:24px 0 0;color:var(--ink-2);max-width:72ch}
+/* what it reads: four short columns on a rule (the full rules are on Features) */
+.reads-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0;border-top:1px solid var(--ink)}
+.reads-l>div{padding:18px 0}
+.reads-l dt{display:flex;flex-direction:column;gap:6px;font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
+.reads-l dt .tag{order:-1}
+.reads-l dd{margin:8px 0 0;color:var(--ink-2)}
+.reads-n{margin:16px 0 0;padding-top:16px;border-top:1px solid var(--rule);color:var(--ink-2);max-width:none}
+
+/* the salary tool: a slider, then both regimes as an instrument reading; every figure is the engine's */
+.try{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.try-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:8px 16px;padding-top:8px}
+.try-in label{font:600 var(--fs-body)/1.3 var(--sans)}
+.try-g{font:600 var(--fs-fig)/1 var(--display);letter-spacing:-.02em;text-align:right}
+.try-in input{grid-column:1/-1;width:100%;height:44px;margin:8px 0 0;cursor:pointer}
+.try-ends{grid-column:1/-1;display:flex;justify-content:space-between;margin:0;font:400 var(--fs-prov)/1.3 var(--mono);color:var(--ink-3)}
+html:not(.js) .try-in :is(input,.try-ends){display:none}
+.try-out{background:var(--card);border:1px solid var(--rule);border-radius:var(--r-3);padding:20px 24px 24px}
+.try-figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--ink)}
+.try-figs>div{display:flex;flex-direction:column;justify-content:space-between;padding:0 0 16px}
+.try-figs>div+div{padding-left:24px;border-left:1px solid var(--rule-2)}
+.try-out .lbl{margin:0;font-size:var(--fs-small);color:var(--ink-2)}
+.try-out .lbl small{display:block;margin-top:2px;font-size:var(--fs-caption);color:var(--ink-3)}
+.try-out .fig{margin:10px 0 0;font:600 var(--fs-fig-l)/1 var(--display);letter-spacing:-.035em}
+.try-out .say{margin:16px 0 0;font-weight:600}
+.try-out .say2{margin:6px 0 0;font-size:var(--fs-small);color:var(--ink-2)}
+.try-more{margin:16px 0 0;font-size:var(--fs-small)}
 
 /* what would leave: each connection's payload one tap away; opening it closes that switch in the drawing */
 .conn .lv-b{grid-column:1;justify-self:start;min-height:44px;margin:4px 0 -10px}
@@ -181,18 +248,19 @@ html{scroll-padding-top:88px}
 /* asked first, and the last three releases */
 .faq-l{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;border-top:1px solid var(--ink)}
 .faq-l>div{padding:20px 0;border-bottom:1px solid var(--rule)}
-.faq-l h3{margin:0;font:700 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
+.faq-l h3{margin:0;font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
 .faq-l p{margin:8px 0 0;color:var(--ink-2);max-width:52ch}
 .rel-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ink)}
 .rel-l li{padding:20px 0 0}
-.rel-l h3{margin:0;font:700 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
+.rel-l h3{margin:0;font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
 .rel-l .tag{display:block;margin-top:6px}
 .rel-l p{margin:12px 0;color:var(--ink-2)}
 .close .soon{font-family:var(--sans)}
 
 @media (max-width:900px){
-  .home-in,.wires-in,.never-in{grid-template-columns:minmax(0,1fr);gap:40px}
-  .reads-l,.faq-l{grid-template-columns:minmax(0,1fr)}
+  .home-in,.wires-in,.never-in,.try{grid-template-columns:minmax(0,1fr);gap:40px}
+  .faq-l{grid-template-columns:minmax(0,1fr)}
+  .reads-l,.never ul{grid-template-columns:repeat(2,minmax(0,1fr))}
   .rel-l{grid-template-columns:minmax(0,1fr)}
   .rel-l li+li{border-top:1px solid var(--rule)}
   .scene .steps li{grid-template-columns:48px minmax(0,1fr)}
@@ -231,4 +299,21 @@ html{scroll-padding-top:88px}
   .tp.phone picture+picture{display:none}
   .tp.phone picture{flex-basis:100%}
   .tour-tabs [role=tab]{padding:0 12px}
+  /* a phone keeps two short columns, and the newest release only (the pace line counts the rest) */
+  .reads-l,.never ul{gap:0 16px}
+  .reads-l dt,.never strong{font-size:var(--fs-body)}
+  .reads-l dd,.never li span{font-size:var(--fs-small)}
+  .rel-l li:nth-child(n+2){display:none}
+  .never-in>div{text-align:left}
+  .try-out{padding:16px}
+  .try-figs>div+div{padding-left:16px}
+  .try-out .fig{font-size:var(--fs-fig)}
+  .film-play{min-height:48px;padding:0 16px 0 14px;font-size:var(--fs-small)}
+  .film-play .tab-n{display:none}
+  /* the download bar: in reach once the hero's button has scrolled away, gone again by the page's last one */
+  .js .dock{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-sticky);display:flex;
+    padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));background:var(--paper);border-top:1px solid var(--rule);
+    transform:translateY(110%);visibility:hidden;transition:transform var(--t-panel) var(--ease-ui),visibility 0s linear var(--t-panel)}
+  .js .dock.up{transform:none;visibility:visible;transition:transform var(--t-panel) var(--ease-ui)}
+  .dock .cta{flex:1}
 }

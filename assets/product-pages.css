@@ -57,7 +57,7 @@
 .sum small{display:block; margin-top:2px; font-size:var(--fs-caption); color:var(--ink-3); line-height:1.5}
 .sum li.tot{border-bottom:1px solid var(--rule-2); color:var(--ink); font-weight:600}
 .sum li.tot .op{color:var(--signal)}
-.sum li.tot .v{font:700 var(--fs-fig-m)/1.1 var(--display); letter-spacing:-.02em}
+.sum li.tot .v{font:600 var(--fs-fig-m)/1.1 var(--display); letter-spacing:-.02em}
 
 /* ---------------------------------------------------------------- carried from inner.css
    These five pages load tokens, observatory, site-shell and this sheet, not inner.css: with it they would load
@@ -92,7 +92,7 @@
 .answers dt{font-size:var(--fs-small); color:var(--ink-2)}
 .answers dt a{color:inherit; text-decoration:underline; text-decoration-color:var(--rule-2); text-underline-offset:3px}
 .answers dt a:hover{color:var(--ink); text-decoration-color:var(--ink)}
-.answers dd{margin:0; text-align:right; font:700 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink);
+.answers dd{margin:0; text-align:right; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink);
   font-variant-numeric:tabular-nums; white-space:nowrap}
 .answers dd span{display:block; font:400 var(--fs-caption)/1.4 var(--sans); letter-spacing:0; color:var(--ink-3)}
 .answers-src{margin:12px 0 0; font:500 var(--fs-prov)/1.4 var(--mono); color:var(--ink-3)}

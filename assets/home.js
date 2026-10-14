@@ -7,7 +7,7 @@
   function anim(el, frames, o) { if (!rm && el.animate) return el.animate(frames, o); }
   var RISE = [{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }];
 
-  /* Show working: trace 480ms, 40ms stagger (cap 8), notes at half-line, lines staggered, close 120ms */
+  /* Show working: trace, notes, lines; close 120ms */
   var plate = d.getElementById("plate"), sw = plate && plate.querySelector(".sw");
   function trace() {
     all(".lead", plate).forEach(function (l, i) {
@@ -66,7 +66,7 @@
     });
   }
 
-  /* tour: tabs (arrows, Home, End); the last is the film, one play button over its poster */
+  /* tour tabs; the last is the film */
   var tl = d.querySelector(".tour-tabs"), film = d.querySelector(".film-box video"), play = d.querySelector(".film-play");
   if (film && play) {
     film.removeAttribute("controls"); play.hidden = false;
@@ -98,7 +98,7 @@
     addEventListener("resize", function () { mark(tabs.filter(function (t) { return t.tabIndex === 0; })[0]); });
   }
 
-  /* what would leave: open, the drawing's switch closes and the wire draws to the far end */
+  /* what would leave: open closes the drawing's switch */
   all(".conn .lv-b").forEach(function (b) {
     var k = b.parentNode.getAttribute("data-conn"), box = d.getElementById(b.getAttribute("aria-controls"));
     b.addEventListener("click", function () {
@@ -129,7 +129,7 @@
     });
   });
 
-  /* scene: pinned if wide, tall, motion allowed; frames change at thirds, and in its third a frame's rows light up */
+  /* scene: pins if wide and tall; either way a frame's rows count in as it scrolls */
   var flow = d.querySelector(".scene"), mq = matchMedia("(min-width:1000px) and (min-height:720px) and (prefers-reduced-motion: no-preference)");
   if (flow) {
     var steps = all(".steps li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
@@ -144,29 +144,31 @@
       steps.forEach(function (s, i) { s.classList.toggle("on", i === n - 1); });
       frames.forEach(function (f, i) { f.classList.toggle("on", i === n - 1); });
     };
+    var light = function (rows, k) { rows.forEach(function (r, j) { r.classList.toggle("lit", j < k); }); };
     var onScroll = function () {
+      if (!flow.classList.contains("pinned")) return frames.forEach(function (f, i) {
+        var r = f.getBoundingClientRect();
+        if (r.height) light(parts[i], Math.ceil((innerHeight * .9 - r.top) / r.height * parts[i].length * 1.25));
+      });
       var span = flow.offsetHeight - innerHeight, p = Math.min(1, Math.max(0, (scrollY - flow.offsetTop) / span)),
           n = p < 1 / 3 ? 1 : p < 2 / 3 ? 2 : 3, q = p * 3 - n + 1;
       show(n);
-      parts.forEach(function (rows, i) {
-        var k = i < n - 1 ? rows.length : i > n - 1 ? 0 : Math.ceil(q * rows.length * 1.25) + 1;
-        rows.forEach(function (r, j) { r.classList.toggle("lit", j < k); });
-      });
+      parts.forEach(function (rows, i) { light(rows, i < n - 1 ? rows.length : i > n - 1 ? 0 : Math.ceil(q * rows.length * 1.25) + 1); });
     };
     var mode = function () {
       var pin = mq.matches; cur = 0;
       flow.classList.toggle("pinned", pin);
-      parts.forEach(function (rows) { rows.forEach(function (r) { r.toggleAttribute("data-q", pin); }); });
+      parts.forEach(function (rows) { rows.forEach(function (r) { r.toggleAttribute("data-q", !rm); }); });
       frames.forEach(function (f, i) { (pin ? stage : steps[i]).appendChild(f); f.classList.remove("on"); });
       steps.forEach(function (s) { s.classList.remove("on"); });
       removeEventListener("scroll", onScroll);
-      if (pin) { addEventListener("scroll", onScroll, { passive: true }); onScroll(); }
+      if (!rm) { addEventListener("scroll", onScroll, { passive: true }); onScroll(); }
     };
     mode();
     if (mq.addEventListener) mq.addEventListener("change", mode);
   }
 
-  /* wires draw once: 700ms, 140ms apart */
+  /* wires draw once */
   if (!rm && IO) {
     all(".schem").forEach(function (s) {
       var wires = all(".w", s);
@@ -181,7 +183,7 @@
     });
   }
 
-  /* requests, all and third-party, as the browser makes them; in view the total counts up */
+  /* requests, counted as the browser makes them */
   var cnt = d.querySelector(".count"), tot = d.querySelector("[data-all]"), n = 0, x = 0, shown = 0, live = false;
   var say = function () { all("[data-tp]").forEach(function (el) { el.textContent = x; }); if (tot) tot.textContent = shown; };
   var up = function () { if (shown < n) { shown += 1; say(); requestAnimationFrame(up); } };
@@ -191,9 +193,8 @@
       if (live && !rm) up(); else { if (live) shown = n; say(); }
     }).observe({ type: "resource", buffered: true });
     if (tot && cnt && IO) {
-      tot.parentNode.hidden = false;
       new IntersectionObserver(function (es, o) {
-        if (!es[0].isIntersecting) return; o.disconnect(); live = true;
+        if (!es[0].isIntersecting) return; o.disconnect(); live = true; tot.parentNode.hidden = false;
         if (rm) { shown = n; say(); } else up();
       }, { threshold: .6 }).observe(cnt);
     }

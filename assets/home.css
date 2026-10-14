@@ -138,10 +138,11 @@
 .tour-tabs [role=tab]:active,.more:active{transform:translateY(1px)}
 .more{transition:transform var(--t-fast) var(--ease-ui)}
 
-/* the scene, pinned: each frame's rows are counted into the figure as the visitor scrolls through its third (home.js);
-   a row not yet counted stands back. Reduced motion, phones and short screens never pin, so every row is plain. */
-.pinned .stage [data-q]{transition:opacity var(--t-ui) var(--ease-ui)}
-.pinned .stage [data-q]:not(.lit){opacity:.28}
+/* the scene: each frame's rows are counted into the figure as the visitor scrolls (home.js): pinned, through the
+   frame's third; unpinned (short or narrow windows, phones), as the frame rises up the window. A row not yet counted
+   stands back. Reduced motion marks nothing, so every row is plain. */
+.scene [data-q]{transition:opacity var(--t-ui) var(--ease-ui)}
+.scene [data-q]:not(.lit){opacity:.28}
 /* SITE_TO_9, Home (13 Oct 2026). An anchor lands below the sticky header (72px and its rule), not under it */
 html{scroll-padding-top:88px}
 

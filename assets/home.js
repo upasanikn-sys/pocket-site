@@ -129,8 +129,8 @@
     });
   });
 
-  /* scene: pins if wide and tall; either way a frame's rows count in as it scrolls */
-  var flow = d.querySelector(".scene"), mq = matchMedia("(min-width:1000px) and (min-height:720px) and (prefers-reduced-motion: no-preference)");
+  /* scene: pins from 1000x560, with or without motion (a layout; reduced motion swaps at once); rows count in */
+  var flow = d.querySelector(".scene"), mq = matchMedia("(min-width:1000px) and (min-height:560px)");
   if (flow) {
     var steps = all(".steps li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
         parts = frames.map(function (f, i) {
@@ -158,11 +158,11 @@
     var mode = function () {
       var pin = mq.matches; cur = 0;
       flow.classList.toggle("pinned", pin);
-      parts.forEach(function (rows) { rows.forEach(function (r) { r.toggleAttribute("data-q", !rm); }); });
+      parts.forEach(function (rows) { rows.forEach(function (r) { r.setAttribute("data-q", ""); }); });
       frames.forEach(function (f, i) { (pin ? stage : steps[i]).appendChild(f); f.classList.remove("on"); });
       steps.forEach(function (s) { s.classList.remove("on"); });
       removeEventListener("scroll", onScroll);
-      if (!rm) { addEventListener("scroll", onScroll, { passive: true }); onScroll(); }
+      addEventListener("scroll", onScroll, { passive: true }); onScroll();
     };
     mode();
     if (mq.addEventListener) mq.addEventListener("change", mode);

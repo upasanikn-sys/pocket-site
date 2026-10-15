@@ -144,7 +144,8 @@
 .wires-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
 .wires .lede{margin:20px 0 0;max-width:31em}
 .count{display:flex;align-items:baseline;gap:16px;margin-top:32px;padding-top:16px;border-top:1px solid var(--rule-2)}
-.count b{font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
+.count b{font:600 var(--fs-proof)/.9 var(--display);letter-spacing:-.05em}
+@media (max-height:799px){.count b{font-size:var(--fs-anchor);letter-spacing:-.04em}}
 .count p{margin:0;font-size:var(--fs-small);color:var(--ink-2);max-width:17em}
 .schem{display:block;width:100%;height:auto;margin:32px 0 0}
 /* drawn text: 14 units at every size keeps it at 12px or more on screen (see index.html) */
@@ -355,7 +356,7 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 }
 
 /* the home page's rhythm (SL1, 14 Oct 2026): sections 80px, 64 on tablets, 48 on phones (the site's are 96/72/56) */
-:root{--sec:80px}
+:root{--sec:80px;--fs-proof:clamp(72px, 40px + 4vw, 112px)}   /* M2: the one proof figure (DESIGN.md "proof") */
 @media (max-width:900px){:root{--sec:64px}}
 @media (max-width:560px){:root{--sec:48px}}
 /* what it reads: one line in the scene's first step; on a short pinned screen it gives way to the steps */
@@ -459,7 +460,6 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
   /* PH2 (15 Oct 2026): a phone drops what the same screen already says: the drawing restates the list under it, the
      balances are the plate's Accounts and Liabilities lines, and the files Pocket reads are on Features */
   .schem,.ledger tbody.bal,.reads-1{display:none}
-  .count b{font-size:var(--fs-fig-l)}
   .never li{grid-template-columns:minmax(0,1fr);gap:4px}
   .tp.phone picture+picture{display:none}
   .tp.phone picture{flex-basis:100%}

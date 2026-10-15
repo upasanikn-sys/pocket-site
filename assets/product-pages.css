@@ -6,7 +6,7 @@
    ============================================================================ */
 
 /* ---------------------------------------------------------------- shared */
-.ph-cap{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3); max-width:72ch; line-height:1.6}
+.ph-cap{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3); max-width:68ch; line-height:1.6}
 .proof{margin:16px 0 0; font-size:var(--fs-small); color:var(--ink-3); line-height:1.6; max-width:68ch}
 .sec-body{max-width:62ch; min-width:0}
 .sec-body.wide{max-width:none}
@@ -251,3 +251,16 @@ html:not(.js) .ask-qs{display:none}
 .fade-img{opacity:0}
 .fade-img.in{opacity:1; transition:opacity var(--t-roll) var(--ease-ui)}
 @media (prefers-reduced-motion:reduce){ .fade-img.in{transition:none} }
+
+/* Stream A, round 2 (L3b): the tour sits beside Features' statement, so the first screen holds both */
+.ph-split > .tour{margin-top:0; min-width:0}
+.ph-split > .tour .ph-cap{margin-top:12px}
+.ph-split:has(> .tour){grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:start}
+@media (max-width:900px){ .ph-split:has(> .tour){grid-template-columns:minmax(0,1fr)} }
+
+/* Stream A, round 2 (T5): captions and limits at 68ch at most; <small> is the caption size, not the browser's 13.33px */
+.ph-cap, .limits li, .sec-body p, .cap-fig figcaption{max-width:68ch}
+.flow2 small, .arch small{font-size:var(--fs-caption)}
+
+/* Stream A, round 2 (C1): a closing band on plate where the sections before it end on paper */
+.close.alt{background:var(--plate); border-top:1px solid var(--rule)}

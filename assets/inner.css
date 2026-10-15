@@ -316,3 +316,35 @@ a.plat:active{transform:translateY(1px)}
 .nf-links{margin-top:40px; font-size:var(--fs-small); color:var(--ink-3)}
 
 @media (max-width:560px){ .has.cols{columns:1} }
+
+/* ---- Stream A, 14 Oct 2026 (STRIPE_LEVEL L3): an inner page's hero with its product beside it ---------------------
+   The statement left, one real capture (cropped to the part that proves the statement) right, on a rule: the same
+   pattern product-pages.css has for the product pages, here for the company pages. */
+.ph-split{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; align-items:center}
+.ph-split .sub{margin-bottom:0}
+.ph-split .hnote{margin-top:28px}
+.ph-vis{margin:0; min-width:0}
+.ph-vis figcaption{margin-top:12px; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3)}
+.crop{margin:0; overflow:hidden; aspect-ratio:calc(var(--w) / var(--h)); border:1px solid var(--rule-2);
+  border-radius:var(--r-3); background:var(--card)}
+.crop.phone{max-width:280px}
+.crop picture{display:block}
+.crop img{display:block; max-width:none; height:auto; width:calc(var(--sw) / var(--w) * 100%);
+  margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--w) * -100%)}
+@media (max-width:900px){ .ph-split{grid-template-columns:minmax(0,1fr); gap:40px} }
+
+/* a table's "Included": a mark in ink (the word stays for screen readers); a dash is still a dash */
+.yes{display:inline-block; width:14px; height:8px; margin-top:2px; border-left:2px solid var(--ink); border-bottom:2px solid var(--ink);
+  transform:rotate(-45deg) translate(2px,-3px)}
+.ph-split{padding-bottom:48px}
+.ph + .plans-sec{padding-top:64px}
+
+/* ---- Stream A, 15 Oct 2026 (STRIPE_LEVEL P1, P2): states for every control, and captures that fade in ---------
+   A control with no handler of its own still shows hover, press and disabled; img-fade.js adds .fade-img only to an
+   image that is still loading, so a cached one is never hidden. */
+.ghost:active{opacity:.7}
+.cta[aria-disabled="true"], .btn-line[aria-disabled="true"], .ghost[aria-disabled="true"], .plat[aria-disabled="true"],
+.cta:disabled, .btn-line:disabled, .ghost:disabled{opacity:.45; cursor:not-allowed; pointer-events:none; transform:none}
+.fade-img{opacity:0}
+.fade-img.in{opacity:1; transition:opacity var(--t-roll) var(--ease-ui)}
+@media (prefers-reduced-motion:reduce){ .fade-img.in{transition:none} }

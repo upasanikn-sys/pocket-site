@@ -83,8 +83,28 @@ html:not(.js) .bill{display:none}
 .dl-main .cta{min-height:56px; padding:0 28px; font-size:var(--fs-lede)}
 .dl-what{margin:0; font-size:var(--fs-small); color:var(--ink-3); font-variant-numeric:tabular-nums}
 .dl-file{color:var(--ink-2)}
-html[data-os] .plat.js-dl:not(.is-yours){background:transparent; box-shadow:none}
-.plat.is-yours{background:var(--card); box-shadow:inset 0 2px 0 var(--ink)}
+/* every platform in one frame of five columns; the first is the visitor's (download.js moves theirs first) and wears
+   the ink rule, so the list reads: yours, its size, its checksum, then the others (STRIPE_LEVEL CV3) */
+.platforms{max-width:none; grid-template-columns:repeat(5,minmax(0,1fr))}
+.slot{display:flex; flex-direction:column; min-width:0}
+.slot + .slot{border-left:1px solid var(--rule)}
+.slot:first-child{background:var(--card); box-shadow:inset 0 2px 0 var(--ink)}
+.slot .plat{flex:1; flex-direction:column; align-items:flex-start; gap:8px; padding:20px 20px 12px}
+.slot .plat + .plat{border-top:0}
+.slot .plat-state{font-variant-numeric:tabular-nums; text-wrap:balance}
+.plat-sha{margin:0; padding:0 20px 20px; font-size:var(--fs-prov); line-height:1.5; color:var(--ink-3)}
+.plat-sha .hash{display:block; margin-top:4px; font-size:var(--fs-prov)}
+.dl-sha{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3)}
+.dl-sha .hash{display:block; margin-top:2px}
+/* a hash in even lines (two of 32, three of 22 in a slot), never a five-character orphan (15 Oct 2026); a release
+   note's link stays whole */
+.dl-sha .hash{max-width:32ch; letter-spacing:0}
+.plat-sha .hash{max-width:22ch; letter-spacing:0}
+.dl-what a[href^="changelog.html"]{white-space:nowrap}
+@media (max-width:1100px){ .platforms{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .slot:nth-child(3n+1){border-left:0} .slot:nth-child(n+4){border-top:1px solid var(--rule)} }
+@media (max-width:640px){ .platforms{grid-template-columns:minmax(0,1fr)}
+  .slot + .slot, .slot:nth-child(n+4){border-left:0; border-top:1px solid var(--rule)} }
 .first5{max-width:880px}
 .dl-more{border-top:1px solid var(--rule-2)}
 .dl-more:last-of-type{border-bottom:1px solid var(--rule-2)}
@@ -108,3 +128,11 @@ html[data-os]:not([data-os="windows"]) .close .dl-other{display:inline-block}
 .prose .limits{padding-left:0}
 .prose .limits li{margin:0}
 .prose .press li b{margin-right:6px}
+.ph-split.ph-wide{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+@media (max-width:900px){ .ph-split.ph-wide{grid-template-columns:minmax(0,1fr)} }
+/* on a phone the visitor's checksum is the hero's line, and every file's is under Verify: one hash a row would make the page long */
+@media (max-width:640px){ html.js .plat-sha{display:none} .slot .plat{padding:16px 16px} }
+
+/* Stream A, 15 Oct 2026 (P4): the 404's list is rows, not in-text links: the shell's link underline stops at the row,
+   the title underlines on hover (the shell's :is() rule is heavier than .nf-go a, so this one names more). */
+.nf-go li > a[href]:not(.cta):not(.ghost):not(.sh-cta){text-decoration:none}

@@ -25,9 +25,9 @@
 <link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=5">
-<link rel="stylesheet" href="assets/observatory.css?v=9">
-<link rel="stylesheet" href="assets/inner.css?v=9">
-<link rel="stylesheet" href="assets/company-pages.css?v=2">
+<link rel="stylesheet" href="assets/observatory.css?v=10">
+<link rel="stylesheet" href="assets/inner.css?v=10">
+<link rel="stylesheet" href="assets/company-pages.css?v=3">
 <link rel="stylesheet" href="assets/site-shell.css?v=4">
 </head>
 <body>
@@ -62,14 +62,20 @@
 
 <main id="main">
   <section class="ph">
-    <div class="wrap">
-      <h1 class="d">Everything you track is free. Pro adds four things.</h1>
-      <p class="sub">Net worth, budgets, goals, the Health Score and Ask Pocket cost nothing and never expire. Founder Pro adds encrypted backup to a folder you choose, print-ready reports, the tax optimiser and the document vault, for <!-- co:pro-mo -->₹499<!-- /co:pro-mo --> a month.</p>
-      <div class="hnote">
-        <span><b></b> <!-- co:trial -->14 days<!-- /co:trial --> of Pro on every new install, no card</span>
-        <span><b></b> A 30-day refund on every charge</span>
-        <span><b></b> Paid through Gumroad, which never sees your figures</span>
+    <div class="wrap ph-split">
+      <div>
+        <h1 class="d">Everything you track is free. Pro adds four things.</h1>
+        <p class="sub">Net worth, budgets, goals, the Health Score and Ask Pocket cost nothing and never expire. Founder Pro adds the backup, the reports, the tax optimiser and the vault, for <!-- co:pro-mo -->₹499<!-- /co:pro-mo --> a month.</p>
+        <div class="hnote">
+          <span><b></b> <!-- co:trial -->14 days<!-- /co:trial --> of Pro on every new install, no card</span>
+          <span><b></b> A 30-day refund on every charge</span>
+          <span><b></b> Paid through Gumroad, which never sees your figures</span>
+        </div>
       </div>
+      <figure class="ph-vis">
+        <div class="crop" style="--x:270;--y:205;--w:500;--h:345;--sw:1280"><picture><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-plan-dark.webp 1280w, assets/cap-plan-dark-2x.webp 2560w" sizes="(min-width: 901px) 1460px, calc((100vw - 32px) * 2.56)"><source type="image/webp" srcset="assets/cap-plan.webp 1280w, assets/cap-plan-2x.webp 2560w" sizes="(min-width: 901px) 1460px, calc((100vw - 32px) * 2.56)"><img src="assets/cap-plan.png" width="1280" height="800" decoding="async" alt="Settings, Plan, in Pocket on the sample data: Free at ₹0 with its seven things, then Founder Pro at ₹499 a month or ₹4,999 a year with Free's list plus encrypted backup, print-ready reports, the tax optimiser and the encrypted document vault."></picture></div>
+        <figcaption>Settings, Plan, in the app: what Free has, and the four things Pro adds.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -144,32 +150,32 @@
 
   <section class="sec alt" id="compare">
     <div class="wrap">
-      <div class="sec-head"><h2 class="d">Plan by plan</h2><p>Grouped as the <a href="features.html">Features</a> page groups them. On the Free plan, a 24-hour preview opens the reports and the vault once, on your own figures.</p></div>
+      <div class="sec-head"><h2 class="d">Plan by plan</h2><p>Grouped as <a href="features.html">Features</a> groups them. Free gets a 24-hour preview of the reports and the vault.</p></div>
       <div class="tablewrap" tabindex="0" role="region" aria-label="Plans compared, scrolls sideways">
         <table class="spec cmp3">
           <thead><tr><th scope="col"><span class="sr">What you get</span></th><th scope="col">Free</th><th scope="col">Founder Pro</th><th scope="col">Lifetime Founder</th></tr></thead>
           <tbody>
             <!-- co:cmp-price --><tr class="cmp-price"><th scope="row">Price</th><td data-l="Free">₹0</td><td data-l="Founder Pro">₹499 a month, or ₹4,999 a year</td><td data-l="Lifetime Founder">₹14,999 once</td></tr><!-- /co:cmp-price -->
             <tr class="cmp-group"><th scope="colgroup" colspan="4"><a href="features.html#track">Track</a></th></tr>
-            <tr><th scope="row">Net worth, accounts, investments and debt</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Budgets, cash flow and bills</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Bank statement and mutual-fund statement (CAS) import</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Investment analytics: allocation, exposure, gains</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
+            <tr><th scope="row">Net worth, accounts, investments and debt</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Budgets, cash flow and bills</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Bank statement and mutual-fund statement (CAS) import</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Investment analytics: allocation, exposure, gains</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
             <tr class="cmp-group"><th scope="colgroup" colspan="4"><a href="features.html#plan">Plan</a></th></tr>
-            <tr><th scope="row">Goals, retirement and scenarios</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Financial Health Score</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Ask Pocket, answered on your device</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
+            <tr><th scope="row">Goals, retirement and scenarios</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Financial Health Score</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Ask Pocket, answered on your device</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
             <tr class="cmp-group"><th scope="colgroup" colspan="4"><a href="features.html#tax">Tax</a></th></tr>
-            <tr><th scope="row">The year's estimate, advance tax and capital gains</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Tax optimiser: both regimes side by side, deductions against their limits</th><td data-l="Free">—</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Print-ready reports</th><td data-l="Free">One 24-hour preview</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
+            <tr><th scope="row">The year's estimate, advance tax and capital gains</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Tax optimiser: both regimes side by side, deductions against their limits</th><td data-l="Free">—</td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Print-ready reports</th><td data-l="Free">One 24-hour preview</td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
             <tr class="cmp-group"><th scope="colgroup" colspan="4"><a href="features.html#protect">Protect</a></th></tr>
-            <tr><th scope="row">Encrypted document vault</th><td data-l="Free">One 24-hour preview</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">Encrypted backup and restore through your own cloud folder</th><td data-l="Free">—</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
-            <tr><th scope="row">CSV export and local backups</th><td data-l="Free">Included</td><td data-l="Founder Pro">Included</td><td data-l="Lifetime Founder">Included</td></tr>
+            <tr><th scope="row">Encrypted document vault</th><td data-l="Free">One 24-hour preview</td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">Encrypted backup and restore through your own cloud folder</th><td data-l="Free">—</td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
+            <tr><th scope="row">CSV export and local backups</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Lifetime Founder"><span class="yes"><span class="sr">Included</span></span></td></tr>
             <tr class="cmp-group"><th scope="colgroup" colspan="4"><a href="#questions">The plan itself</a></th></tr>
             <tr><th scope="row">Devices</th><td data-l="Free">Any number</td><td data-l="Founder Pro">Up to 3 of yours, one key</td><td data-l="Lifetime Founder">Up to 3 of yours, one key</td></tr>
-            <tr><th scope="row">Support by email</th><td data-l="Free">Included</td><td data-l="Founder Pro">Priority</td><td data-l="Lifetime Founder">Priority, from the founder</td></tr>
+            <tr><th scope="row">Support by email</th><td data-l="Free"><span class="yes"><span class="sr">Included</span></span></td><td data-l="Founder Pro">Priority</td><td data-l="Lifetime Founder">Priority, from the founder</td></tr>
             <tr><th scope="row">Refund</th><td data-l="Free">Nothing to refund</td><td data-l="Founder Pro">30 days on every charge</td><td data-l="Lifetime Founder">30 days</td></tr>
           </tbody>
         </table>
@@ -181,12 +187,12 @@
     <div class="wrap">
       <div class="sec-head solo"><h2 class="d">Questions about paying</h2></div>
       <div class="qa">
-        <div><h3>What does the trial include?</h3><p>Every new install of Pocket runs as Founder Pro for its first <!-- co:trial -->14 days<!-- /co:trial -->: the backup, the reports, the tax optimiser and the vault, with no card and no sign-up. Then it is the Free plan, with everything you entered still there.</p></div>
-        <div><h3>What happens if I stop paying?</h3><p>Pocket becomes the Free plan. Reading, exporting, backing up and deleting your own data are never behind a plan, nothing is deleted, and the documents already in the vault stay readable.</p></div>
-        <div><h3>How does my key arrive, and how many devices does it cover?</h3><p>After you pay on Gumroad, your licence key comes by email from support@mypocketfi.com. Paste it into Pocket's Settings (on the phone, Plans &amp; pricing); it is checked on the device, with no account and no network call. One key covers up to 3 devices that you use yourself.</p></div>
-        <div><h3>How do refunds work?</h3><p>Email <a href="mailto:support@mypocketfi.com?subject=Refund%20request">support@mypocketfi.com</a> within 30 days of any charge (a first payment, a renewal or Lifetime) with your order number; no reason is needed. The money goes back through Gumroad to how you paid, and Pocket returns to the Free plan with your data as it was. The <a href="refunds.html">Refund Policy</a> has the details.</p></div>
-        <div><h3>How do I cancel Founder Pro?</h3><p>On Gumroad, or by email to <a href="mailto:support@mypocketfi.com?subject=Cancel%20Founder%20Pro">support@mypocketfi.com</a>. Pro runs to the end of the period you paid for, then Pocket is the Free plan. A renewal you meant to cancel is refunded within 30 days.</p></div>
-        <div><h3>Which currency, and how do I pay?</h3><p>Prices are in rupees. Gumroad takes the payment at <a href="https://pocketfinance.gumroad.com">pocketfinance.gumroad.com</a>, by the methods its checkout offers, and sends your receipt. Pocket never sees your card, and Gumroad never sees your figures.</p></div>
+        <div><h3>What does the trial include?</h3><p>Every new install runs as Founder Pro for its first <!-- co:trial -->14 days<!-- /co:trial -->, with no card and no sign-up. Then it is the Free plan, with everything you entered still there.</p></div>
+        <div><h3>What happens if I stop paying?</h3><p>Pocket becomes the Free plan. Reading, exporting, backing up and deleting your own data are never behind a plan, and the documents already in the vault stay readable.</p></div>
+        <div><h3>How does my key arrive, and how many devices does it cover?</h3><p>After you pay on Gumroad, your licence key comes by email. Paste it into Settings (on the phone, Plans &amp; pricing); it is checked on the device, with no account and no network call. One key covers up to 3 devices that you use yourself.</p></div>
+        <div><h3>How do refunds work?</h3><p>Email <a href="mailto:support@mypocketfi.com?subject=Refund%20request">support@mypocketfi.com</a> within 30 days of any charge, with your order number; no reason is needed. The money goes back through Gumroad to how you paid, and Pocket returns to the Free plan with your data as it was. The <a href="refunds.html">Refund Policy</a> has the details.</p></div>
+        <div><h3>How do I cancel Founder Pro?</h3><p>On Gumroad, or by email to <a href="mailto:support@mypocketfi.com?subject=Cancel%20Founder%20Pro">support@mypocketfi.com</a>. Pro runs to the end of the period you paid for, then Pocket is the Free plan.</p></div>
+        <div><h3>Which currency, and how do I pay?</h3><p>Prices are in rupees. Gumroad takes the payment at <a href="https://pocketfinance.gumroad.com">pocketfinance.gumroad.com</a> and sends your receipt. Pocket never sees your card, and Gumroad never sees your figures.</p></div>
       </div>
     </div>
   </section>
@@ -221,6 +227,7 @@
 </footer>
 
 <script src="assets/vestora.js" defer></script>
+<script src="assets/img-fade.js?v=1" defer></script>
 <script src="assets/pricing.js" defer></script>
 </body>
 </html>

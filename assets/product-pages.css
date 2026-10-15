@@ -241,3 +241,13 @@ html:not(.js) .ask-qs{display:none}
   .flow2 .pc{border-right:0; border-bottom:1px solid var(--rule)}
   .flow2 .outs li{grid-template-columns:24px auto minmax(0,1fr)}
 }
+
+/* ---- Stream A, 15 Oct 2026 (STRIPE_LEVEL P1, P2): states for every control, and captures that fade in ---------
+   A control with no handler of its own still shows hover, press and disabled; img-fade.js adds .fade-img only to an
+   image that is still loading, so a cached one is never hidden. */
+.ghost:active{opacity:.7}
+.cta[aria-disabled="true"], .btn-line[aria-disabled="true"], .ghost[aria-disabled="true"], .plat[aria-disabled="true"],
+.cta:disabled, .btn-line:disabled, .ghost:disabled{opacity:.45; cursor:not-allowed; pointer-events:none; transform:none}
+.fade-img{opacity:0}
+.fade-img.in{opacity:1; transition:opacity var(--t-roll) var(--ease-ui)}
+@media (prefers-reduced-motion:reduce){ .fade-img.in{transition:none} }

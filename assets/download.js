@@ -16,6 +16,11 @@
     file.textContent = "Not on " + SAY[os] + " yet: Windows, macOS, Linux and Android are below";
     return;
   }
+  // CV3 (STRIPE_LEVEL, 14 Oct 2026): the visitor's platform first in the list, its checksum beside the button
+  var slot = row.parentNode, list = slot && slot.parentNode;
+  if (slot && list && list.classList.contains("platforms") && list.firstElementChild !== slot) list.insertBefore(slot, list.firstElementChild);
+  var sha = slot && slot.querySelector(".plat-sha code"), line = document.querySelector(".dl-sha");
+  if (sha && line) { line.querySelector("code").textContent = sha.textContent; line.hidden = false; }
   var href = row.getAttribute("href"), ext = href.split(".").pop();
   var size = (row.textContent.match(/\d+ MB/) || [""])[0];
   go.setAttribute("href", href);

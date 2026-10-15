@@ -388,6 +388,25 @@ html:not(.js) .try-in :is(input,.try-ends){display:none}
 .rel-l .tag{display:block;margin-top:6px}
 .rel-l p{margin:12px 0;color:var(--ink-2)}
 .close .soon{font-family:var(--sans)}
+/* the brand close (B5/M3/CV1/CV2, 15 Oct 2026; DESIGN.md "Close"): the mark, the hero's promise over a drafting
+   dimension rule, the action and what it costs; beside it, what happens after you download */
+.brand-close{text-align:left}
+.close-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px 80px;align-items:end}
+.close-mark{display:block;width:50px;height:auto;margin:0 0 28px}
+.close-st{width:fit-content;max-width:100%}
+.brand-close h2{margin:0;max-width:13ch;font-size:var(--fs-display);line-height:1.04;letter-spacing:-.035em}
+.close-rule{display:block;height:9px;margin:20px 0 32px;border-inline:1px solid var(--ink-3);
+  background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
+.brand-close .hbtns{justify-content:flex-start}
+.brand-close .offer{margin:16px 0 0;max-width:52ch;text-wrap:pretty}
+.brand-close .soon{margin:8px 0 0;max-width:none;font-size:var(--fs-small);color:var(--ink-3)}
+.close-b .tag{margin:0 0 12px}
+.after{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);counter-reset:after}
+.after li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:4px 0;padding:16px 0;border-bottom:1px solid var(--rule);counter-increment:after}
+.after li::before{content:counter(after,decimal-leading-zero);grid-row:1/span 2;font:500 var(--fs-prov)/1.9 var(--mono);color:var(--ink-3)}
+.after b{font-weight:600}
+.after span{grid-column:2;font-size:var(--fs-small);color:var(--ink-2)}
+@media (max-width:900px){.close-in{grid-template-columns:minmax(0,1fr);gap:40px}}
 
 @media (max-width:900px){
   .wires-in,.never-in,.try,.rel-in{grid-template-columns:minmax(0,1fr);gap:40px}

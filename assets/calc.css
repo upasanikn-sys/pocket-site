@@ -1,10 +1,11 @@
 /* The calculators (.calc, DESIGN.md "The 9 bar"): a form beside its working, the working drawn as the homepage plate
-   draws it. Tokens only; loaded after inner.css by calc-*.html (tools/site_calculators.py). */
-.calcpage{padding:64px 0 0}
+   draws it. The plate, the working's rows and leaders, the title block and the breadcrumbs are working.css's, which
+   the guides share (CO2). Tokens only; loaded after working.css by calc-*.html (tools/site_calculators.py). */
+.calcpage{padding-top:64px; padding-bottom:0}   /* the sides stay .wrap's gutter */
 .calc-head{max-width:68ch}
 .calc-head h1{margin:0 0 16px; font:600 var(--fs-headline)/1.08 var(--display); letter-spacing:-.03em; text-wrap:balance}
 .calc-head .lede{margin:0 0 12px; font-size:var(--fs-lede); line-height:1.55; color:var(--ink-2)}
-.stamp{margin:0; font:500 var(--fs-prov)/1.35 var(--mono); color:var(--ink-3); text-transform:uppercase; letter-spacing:.04em}
+.calcpage > .tblock{margin-top:24px}
 
 .calc{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:48px; align-items:start; margin:40px 0 0}
 
@@ -16,16 +17,18 @@
 .fld label{display:block; margin:0 0 6px; font:500 var(--fs-caption)/1.3 var(--sans); color:var(--ink)}
 .box{display:flex; align-items:center; min-height:44px; padding:0 12px; background:var(--card); border:1px solid var(--edge);
   border-radius:var(--r-2); transition:border-color var(--t-fast) var(--ease-ui)}
+.box:hover{border-color:var(--ink-3)}
 .box:focus-within{border-color:var(--ink); outline:2px solid var(--ink); outline-offset:3px}
 .box input{flex:1; min-width:0; height:42px; padding:0; border:0; background:none; outline:0; color:var(--ink);
   font:400 var(--fs-body)/1 var(--sans); font-variant-numeric:tabular-nums; text-align:right}
 .box .pre,.box .post{flex:none; font:400 var(--fs-body)/1 var(--sans); color:var(--ink-3)}
 .box .pre{margin-right:8px}
 .box .post{margin-left:8px}
-.box.bad{border-color:var(--loss)}
+.box.bad, .box.bad:hover{border-color:var(--loss)}
 .hint{margin:6px 0 0; font-size:var(--fs-caption); line-height:1.4; color:var(--ink-3)}
 .err{margin:6px 0 0; font-size:var(--fs-caption); line-height:1.4; color:var(--loss)}
 .chk{display:flex; align-items:center; gap:10px; min-height:44px; margin:4px 0 0; font-size:var(--fs-small); color:var(--ink-2); cursor:pointer}
+.chk:hover{color:var(--ink)}
 .chk input{width:18px; height:18px; margin:0; accent-color:var(--ink)}
 .calc-act{margin:24px 0 0}
 .reset{min-height:44px; padding:0; border:0; background:none; color:var(--ink); cursor:pointer;
@@ -35,7 +38,7 @@
 .calc-private{margin:16px 0 0; font-size:var(--fs-caption); line-height:1.45; color:var(--ink-3)}
 
 /* the working: a plate, kept in view beside the form on wide screens */
-.calc-out{position:sticky; top:88px; background:var(--card); border:1px solid var(--rule); border-radius:var(--r-3); padding:20px 24px}
+.calc-out{position:sticky; top:88px}
 .out-h{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:-8px 0 12px}
 .out-h h2{margin:0; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em}
 .lbl{margin:0 0 6px; font:500 var(--fs-caption)/1.3 var(--sans); color:var(--ink-2)}
@@ -52,22 +55,12 @@
 .work{margin:20px 0 0; padding:4px 0 0; border-top:1px solid var(--rule)}
 .work h3{margin:20px 0 4px; font:600 var(--fs-small)/1.3 var(--display); color:var(--ink)}
 .work.two{display:grid; grid-template-columns:1fr 1fr; gap:0 24px}
+/* the result's foot (D3): what Pocket adds to the same sums, and the way to try it */
+.calc-try{margin:20px 0 0; padding:16px 0 0; border-top:1px solid var(--rule); font-size:var(--fs-small); line-height:1.5; color:var(--ink-2)}
+.calc-try a{font-weight:500}
 .calc-out:not(.open) .work{display:none}
 .stale .figs,.stale .fig,.stale .eqn,.stale .say2,.stale .work,.stale .lbl{display:none}
 
-.wk{margin:0; padding:0; list-style:none}
-.wr{display:grid; grid-template-columns:minmax(8em,auto) minmax(16px,1fr) auto; column-gap:10px; align-items:start;
-  padding:7px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); line-height:1.4}
-.wl{color:var(--ink)}
-.wl small{display:block; margin-top:2px; font:400 var(--fs-prov)/1.4 var(--mono); color:var(--ink-3)}
-.wa{color:var(--ink); white-space:nowrap; text-align:right; font-variant-numeric:tabular-nums}
-.ld{align-self:start; height:1px; margin-top:.72em; background:var(--signal); transform-origin:left}
-.wr.tot,.wr.sub{grid-template-columns:minmax(0,1fr) auto}
-.wr.tot .ld,.wr.sub .ld{display:none}
-.wr.tot{border-bottom:1px solid var(--rule-2); font-weight:600}
-.wr.tot .wl::before{content:"= "; color:var(--ink-3); font-weight:400}
-.wr.sub{padding-top:14px; font-weight:600}
-.wr.na .wa{color:var(--ink-3)}
 .work .tablewrap{margin:8px 0 0; overflow-x:auto}
 .work .spec{font-size:var(--fs-small)}
 .work .spec th,.work .spec td{padding:8px 12px 8px 0}
@@ -80,6 +73,7 @@
   transition:transform var(--t-ui) var(--ease-ui), background var(--t-ui)}
 .sw[aria-checked="true"] i{background:var(--signal); border-color:var(--signal)}
 .sw[aria-checked="true"] i::after{transform:translateX(14px); background:var(--card)}
+.sw:hover i{border-color:var(--ink-2)}
 .sw:active{transform:translateY(1px)}
 
 .calc-notes{margin:0; padding:72px 0 96px}
@@ -92,9 +86,7 @@
   .calc-notes{padding:56px 0 80px}
 }
 @media (max-width:560px){
-  .calc-out{padding:16px}
   .figs{gap:12px}
   .fig{font-size:var(--fs-fig)}
   .fig-a{font-size:var(--fs-fig-l)}
-  .wr{grid-template-columns:minmax(10em,1fr) minmax(12px,.3fr) auto}
 }

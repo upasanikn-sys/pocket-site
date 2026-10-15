@@ -198,10 +198,8 @@ footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-capt
 .close .hbtns{justify-content:center}
 @media (max-width:560px){ .has.cols{columns:1} }
 
-/* STRIPE_LEVEL T3, T6, MI4 (15 Oct 2026), on every page: headings balance and running text never ends on an orphan;
-   every table's figures are tabular (running text keeps proportional figures); every button and disclosure answers
-   on pointer-down (DESIGN.md "Do": translateY(1px) within 120ms) */
+/* STRIPE_LEVEL T3, T6, MI4 (15 Oct 2026): balanced heads, no orphans, tabular tables, presses (DESIGN.md "Do") */
 h2,h3{text-wrap:balance}
 p,li,dd,figcaption{text-wrap:pretty}
 table{font-variant-numeric:tabular-nums}
-:where(button:not(:disabled),summary):active{transform:translateY(1px)}   /* :where: a component's own :active wins (.film-play) */
+:where(button:not(:disabled),summary):active{transform:translateY(1px)}

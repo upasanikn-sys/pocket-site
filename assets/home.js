@@ -225,7 +225,16 @@
   if (rng) {
     var T = JSON.parse(d.getElementById("try-data").textContent), box = rng.closest(".try"),
         put = function (k, v) { box.querySelector('[data-t="' + k + '"]').textContent = v; };
+    /* MI1: PageUp/PageDown move a tick (Rs 5 lakh); the track fills to the thumb */
+    rng.addEventListener("keydown", function (e) {
+      var k = { PageUp: 1, PageDown: -1 }[e.key];
+      if (!k) return;
+      e.preventDefault();
+      rng.value = Math.min(+rng.max, Math.max(+rng.min, +rng.value + k * T.tick));
+      rng.dispatchEvent(new Event("input"));
+    });
     rng.addEventListener("input", function () {
+      rng.style.setProperty("--f", (rng.value - rng.min) / (rng.max - rng.min));
       var r = T.p[Math.round((rng.value - T.from) / T.step)];
       box.querySelector(".try-g").textContent = r[0]; put("new", r[1]); put("old", r[2]);
       put("say", r[3] ? T.lower.replace("%w", r[3]).replace("%d", r[4]) : T.same);
@@ -233,6 +242,17 @@
       rng.setAttribute("aria-valuetext", r[0] + " a year: new regime " + r[1] + ", old regime " + r[2]);
     });
   }
+
+  /* MO1: each section's heading and its first line rise 8px once as the section comes in, 40ms apart (home.css .rv);
+     reduced motion, or no observer, leaves them as they are */
+  if (!rm && IO) all("main .sec").forEach(function (s) {
+    var rv = all("h2, h2 + p, .sec-head > p", s).slice(0, 3);
+    rv.forEach(function (e, i) { e.classList.add("rv"); e.style.setProperty("--i", i); });
+    new IntersectionObserver(function (es, o) {
+      if (!es[0].isIntersecting) return; o.disconnect();
+      rv.forEach(function (e) { e.classList.add("in"); });
+    }, { threshold: .15 }).observe(s);
+  });
 
   /* phone download bar: up past the hero's button, down at the last one or the footer */
   var dock = d.querySelector(".dock"), hero = d.querySelector(".home .cta"), ends = [d.querySelector(".close .cta"), d.querySelector(".sf")], seen = {};

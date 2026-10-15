@@ -25,11 +25,13 @@
 <link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=5">
-<link rel="stylesheet" href="assets/observatory.css?v=10">
+<link rel="stylesheet" href="assets/observatory.css?v=11">
 <link rel="stylesheet" href="assets/inner.css?v=10">
-<link rel="stylesheet" href="assets/site-shell.css?v=4">
-<link rel="stylesheet" href="assets/calc.css?v=2">
+<link rel="stylesheet" href="assets/site-shell.css?v=5">
+<link rel="stylesheet" href="assets/working.css?v=1">
+<link rel="stylesheet" href="assets/calc.css?v=4">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Old vs new tax regime calculator, FY 2026-27","url":"https://mypocketfi.com/calc-tax-regime.html","description":"Income tax on your salary for FY 2026-27 under both regimes, every step shown: deductions, slabs, the ₹12 lakh rebate, surcharge and cess.","applicationCategory":"FinanceApplication","operatingSystem":"Any, in a web browser","isAccessibleForFree":true,"inLanguage":"en-IN","publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mypocketfi.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mypocketfi.com/guides.html"},{"@type":"ListItem","position":3,"name":"Calculators","item":"https://mypocketfi.com/guides.html#calculators"},{"@type":"ListItem","position":4,"name":"Old vs new tax regime calculator","item":"https://mypocketfi.com/calc-tax-regime.html"}]}</script>
 </head>
 <body>
 <!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
@@ -64,12 +66,13 @@
 
 <main id="main">
 <div class="wrap calcpage">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="guides.html">Guides</a></li><li><a href="guides.html#calculators">Calculators</a></li><li aria-current="page">Old vs new tax regime calculator</li></ol></nav>
 <div class="calc-head">
 <h1>Old vs new tax regime calculator</h1>
 <p class="lede">Your salary's income tax for FY 2026-27 under both regimes, with every step of the sum shown: the
 deductions each allows, the slabs, the rebate and its marginal relief, the surcharge and the cess.</p>
-<p class="stamp">FY 2026-27 · AY 2027-28 · resident, under 60 · reviewed 13 Oct 2026</p>
 </div>
+<dl class="tblock"><div><dt>Rules</dt><dd>FY 2026-27 · AY 2027-28</dd></div><div><dt>For</dt><dd>Resident, under 60</dd></div><div><dt>Reviewed</dt><dd><time datetime="2026-10-13">13 Oct 2026</time></dd></div><div><dt>Computed</dt><dd>In your browser</dd></div></dl>
 <script type="application/json" id="calc-rules">{"tax":{"cess":0.04,"c80":150000,"d80":25000,"d80s":50000,"new":{"slabs":[[400000,0.0],[800000,0.05],[1200000,0.1],[1600000,0.15],[2000000,0.2],[2400000,0.25],[null,0.3]],"rebate":1200000,"sd":75000,"sur":[[50000000,0.25],[20000000,0.25],[10000000,0.15],[5000000,0.1]]},"old":{"slabs":[[250000,0.0],[500000,0.05],[1000000,0.2],[null,0.3]],"rebate":500000,"sd":50000,"sur":[[50000000,0.37],[20000000,0.25],[10000000,0.15],[5000000,0.1]]}}}</script>
 <div class="calc" data-calc="tax">
 <form class="calc-in" novalidate aria-label="Your salary and deductions">
@@ -85,7 +88,7 @@ deductions each allows, the slabs, the rebate and its marginal relief, the surch
 <div class="calc-act"><button class="reset" type="button">Back to the example</button></div>
 <p class="calc-private">What you type stays in this page: the sums run in your browser, and nothing is sent anywhere.</p>
 </form>
-<section class="calc-out open" aria-labelledby="tax-h">
+<section class="calc-out plate open" aria-labelledby="tax-h">
 <div class="out-h"><h2 id="tax-h">Tax for FY 2026-27</h2><button class="sw" type="button" role="switch" aria-checked="true"><i></i>Show working</button></div>
 <div class="figs">
 <div class="fbox low" data-o="new-box"><p class="lbl">New regime</p><p class="fig num" data-o="new">₹1,50,800</p></div>
@@ -93,16 +96,17 @@ deductions each allows, the slabs, the rebate and its marginal relief, the surch
 </div>
 <p class="say" data-o="say">The new regime is ₹1,45,600 lower on these figures.</p>
 <p class="say2" data-o="be">On a salary of ₹18,00,000, the old regime costs no more than the new once its deductions, beyond its standard deduction, reach ₹6,41,667. These figures have ₹1,75,000.</p>
-<p class="sr sr-say" aria-live="polite"></p>
+<p class="sr sr-say" aria-live="polite" aria-atomic="true"></p>
 <div class="work two">
 <div><h3>New regime, line by line</h3><ol class="wk" data-o="new-rows"><li class="wr"><span class="wl">Salary</span><span class="ld" aria-hidden="true"></span><span class="wa">₹18,00,000.00</span></li><li class="wr"><span class="wl">Standard deduction</span><span class="ld" aria-hidden="true"></span><span class="wa">−₹75,000.00</span></li><li class="wr na"><span class="wl">80C, 80D and other deductions<small>not allowed in the new regime</small></span><span class="ld" aria-hidden="true"></span><span class="wa">none</span></li><li class="wr tot"><span class="wl">Taxable income</span><span class="ld" aria-hidden="true"></span><span class="wa">₹17,25,000.00</span></li><li class="wr"><span class="wl">Up to ₹4,00,000<small>nil</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹0.00</span></li><li class="wr"><span class="wl">₹4,00,001 to ₹8,00,000<small>5% of ₹4,00,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹20,000.00</span></li><li class="wr"><span class="wl">₹8,00,001 to ₹12,00,000<small>10% of ₹4,00,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹40,000.00</span></li><li class="wr"><span class="wl">₹12,00,001 to ₹16,00,000<small>15% of ₹4,00,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹60,000.00</span></li><li class="wr"><span class="wl">₹16,00,001 to ₹20,00,000<small>20% of ₹1,25,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹25,000.00</span></li><li class="wr tot"><span class="wl">Tax on the slabs</span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,45,000.00</span></li><li class="wr"><span class="wl">Health and education cess<small>4% of ₹1,45,000.00</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹5,800.00</span></li><li class="wr tot"><span class="wl">Tax for the year</span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,50,800.00</span></li></ol></div>
 <div><h3>Old regime, line by line</h3><ol class="wk" data-o="old-rows"><li class="wr"><span class="wl">Salary</span><span class="ld" aria-hidden="true"></span><span class="wa">₹18,00,000.00</span></li><li class="wr"><span class="wl">Standard deduction</span><span class="ld" aria-hidden="true"></span><span class="wa">−₹50,000.00</span></li><li class="wr"><span class="wl">80C<small>EPF, PPF, ELSS and others, at most ₹1,50,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">−₹1,50,000.00</span></li><li class="wr"><span class="wl">80D<small>health insurance: yours ₹25,000 of at most ₹25,000, your parents' ₹0 of at most ₹25,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">−₹25,000.00</span></li><li class="wr"><span class="wl">Other deductions<small>as typed</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹0.00</span></li><li class="wr tot"><span class="wl">Taxable income</span><span class="ld" aria-hidden="true"></span><span class="wa">₹15,75,000.00</span></li><li class="wr"><span class="wl">Up to ₹2,50,000<small>nil</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹0.00</span></li><li class="wr"><span class="wl">₹2,50,001 to ₹5,00,000<small>5% of ₹2,50,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹12,500.00</span></li><li class="wr"><span class="wl">₹5,00,001 to ₹10,00,000<small>20% of ₹5,00,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,00,000.00</span></li><li class="wr"><span class="wl">Above ₹10,00,000<small>30% of ₹5,75,000</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹1,72,500.00</span></li><li class="wr tot"><span class="wl">Tax on the slabs</span><span class="ld" aria-hidden="true"></span><span class="wa">₹2,85,000.00</span></li><li class="wr"><span class="wl">Health and education cess<small>4% of ₹2,85,000.00</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹11,400.00</span></li><li class="wr tot"><span class="wl">Tax for the year</span><span class="ld" aria-hidden="true"></span><span class="wa">₹2,96,400.00</span></li></ol></div>
 </div>
+<p class="calc-try">In Pocket the same two regimes run on your own payslip and entries, with capital gains and the TDS already paid taken in. <a href="download.html">Try your own numbers in Pocket</a>.</p>
 </section>
 </div>
 <div class="prose calc-notes">
 <h2>The rules it follows</h2>
-<p>These are the rules Pocket's own Tax page uses, for a resident individual under 60. Budget 2026 left the slabs,
+<p class="q">These are the rules Pocket's own Tax page uses, for a resident individual under 60. Budget 2026 left the slabs,
 the rebate and the surcharge as they were for FY 2025-26.</p>
 <h3>New regime</h3>
 <div class="tablewrap fit" tabindex="0" role="region" aria-label="New regime slabs"><table class="spec"><thead><tr><th scope="col">Taxable income</th><th scope="col" class="n">Rate</th></tr></thead><tbody>
@@ -123,16 +127,16 @@ the rebate and the surcharge as they were for FY 2025-26.</p>
 </tbody></table></div>
 <ul>
   <li><b>Standard deduction</b> from a salary: ₹75,000 in the new regime, ₹50,000 in the old.</li>
-  <li><b>Rebate:</b> no tax on taxable income up to ₹12,00,000 in the new regime, and up to ₹5,00,000 in the old (section 87A of
-  the Income-tax Act, 1961; section 156 of the Income-tax Act, 2025).</li>
+  <li><b>Rebate:</b> no tax on taxable income up to ₹12,00,000 in the new regime, and up to ₹5,00,000 in the old. That is section 87A of
+  the Income-tax Act, 1961, and section 156 of the Income-tax Act, 2025.</li>
   <li><b>Marginal relief</b> in the new regime: just above ₹12,00,000, the tax is at most the income above it. The old
   regime has none, so one rupee over ₹5,00,000 costs the whole slab tax.</li>
   <li><b>Surcharge</b> on taxable income above ₹50 lakh: 10% of the tax, 15% above ₹1 crore and 25% above ₹2
-  crore in both regimes; above ₹5 crore, 37% in the old regime and still 25% in the new. Marginal relief keeps the
+  crore in both regimes. Above ₹5 crore it is 37% in the old regime and still 25% in the new. Marginal relief keeps the
   extra tax above each threshold to at most the income above it.</li>
   <li><b>Cess:</b> 4% of the tax and surcharge, in both.</li>
-  <li><b>80C</b> counts up to ₹1,50,000 in all; <b>80D</b> up to ₹25,000 for you, your spouse and children and ₹25,000 more for
-  your parents, each ₹50,000 when one of them is 60 or over (section 80D; section 126 of the Income-tax Act, 2025).
+  <li><b>80C</b> counts up to ₹1,50,000 in all. <b>80D</b> counts up to ₹25,000 for you, your spouse and children, and ₹25,000 more for
+  your parents. Each is ₹50,000 when one of them is 60 or over (section 80D; section 126 of the Income-tax Act, 2025).
   Neither is allowed in the new regime.</li>
 </ul>
 <h2>What it leaves out</h2>
@@ -146,11 +150,12 @@ the rebate and the surcharge as they were for FY 2025-26.</p>
   <li>Rounding: a return rounds income and tax to the nearest ₹10 (sections 288A and 288B of the 1961 Act). This
   calculator works to the paisa, as Pocket does.</li>
 </ul>
-<p>It is a planning estimate for salary income, not a tax return or tax advice: the Income Tax Department's own
+<p>It is a planning estimate for salary income, not a tax return or tax advice. The Income Tax Department's own
 calculator, at <a href="https://www.incometaxindia.gov.in/" rel="noopener">incometaxindia.gov.in</a>, and a chartered
 accountant have the final word.</p>
 <h2>The same sums in Pocket</h2>
-<p>Pocket works the same figures out from your own entries, on your own device, and keeps each one's working a tap away. It is free on Windows, macOS, Linux and Android: <a href="download.html">download Pocket</a>.</p>
+<p class="q">Pocket works the same figures out from your own entries, on your own device, and keeps each one's working a tap away. It is free on Windows, macOS, Linux and Android: <a href="download.html">download Pocket</a>.</p>
+<figure class="gshot"><div class="gpic"><picture><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-tax-regimes-dark.webp 1012w, assets/cap-tax-regimes-dark-2x.webp 2024w" sizes="(max-width: 760px) calc(100vw - 32px), 720px"><source type="image/webp" srcset="assets/cap-tax-regimes.webp 1012w, assets/cap-tax-regimes-2x.webp 2024w" sizes="(max-width: 760px) calc(100vw - 32px), 720px"><img src="assets/cap-tax-regimes.png" width="1012" height="555" alt="Pocket&#x27;s Tax page: both regimes on the payslip&#x27;s figures, and the year&#x27;s estimate, on the sample person&#x27;s data." loading="lazy" decoding="async" onload="this.classList.add('in')" onerror="this.classList.add('in')"></picture><ol class="marks" aria-hidden="true"><li style="left:50.40%;top:6.67%">1</li><li style="left:16.30%;top:48.11%">2</li></ol></div><figcaption><ol class="notes"><li>Both regimes on the same income and deductions, the lower one outlined.</li><li>The estimate in five lines: income, tax, TDS and what is left to pay.</li></ol>Pocket's Tax page, on its sample person, whose figures are not the example's. The same two regimes, on a payslip and the entries in Pocket.</figcaption></figure>
 <div class="lnote">Other calculators: <a href="calc-sip.html">SIP calculator</a> · <a href="calc-net-worth.html">Net worth calculator</a>. The guide: <a href="guide-old-vs-new-tax-regime.html">Old vs new tax regime, worked through</a>. Pocket is a tracking and planning tool; these calculators work figures out, they are not financial, tax or investment advice.</div>
 </div>
 </div>
@@ -161,17 +166,18 @@ accountant have the final word.</p>
   <div class="sf-in">
     <div class="sf-brand">
       <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
-      <p>The money app that shows its working. Your figures stay on your own device.</p>
-      <p class="sf-trust">No account · No bank logins · No trackers</p>
+      <p>Your figures stay on your own device.</p>
     </div>
     <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
     <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
-    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
+    <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
-  <div class="sf-base">
-    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
-    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
-  </div>
+  <dl class="sf-base">
+    <div class="discl"><dt>Not advice</dt><dd>Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</dd></div>
+    <div><dt>Your data</dt><dd>No account · No bank logins · No trackers</dd></div>
+    <div class="sf-copy"><dt>Pocket</dt><dd>© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></dd></div>
+  </dl>
 </footer>
 
 <script src="assets/vestora.js" defer></script>

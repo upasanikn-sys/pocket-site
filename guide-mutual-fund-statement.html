@@ -25,12 +25,14 @@
 <link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=5">
-<link rel="stylesheet" href="assets/observatory.css?v=10">
+<link rel="stylesheet" href="assets/observatory.css?v=11">
 <link rel="stylesheet" href="assets/inner.css?v=10">
-<link rel="stylesheet" href="assets/site-shell.css?v=4">
-<link rel="stylesheet" href="assets/guides.css?v=2">
+<link rel="stylesheet" href="assets/site-shell.css?v=5">
+<link rel="stylesheet" href="assets/working.css?v=1">
+<link rel="stylesheet" href="assets/guides.css?v=4">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Track your mutual funds from a CAMS or KFintech statement","description":"How to read your mutual funds from a CAMS or KFintech CAS: getting the detailed statement, what is checked, and what is imported.","datePublished":"2026-10-11","dateModified":"2026-10-12","inLanguage":"en-IN","mainEntityOfPage":"https://mypocketfi.com/guide-mutual-fund-statement.html","image":"https://mypocketfi.com/assets/og-pocket.png","author":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"},"articleSection":"Investing","timeRequired":"PT5M","publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/","logo":{"@type":"ImageObject","url":"https://mypocketfi.com/assets/apple-touch-icon.png"}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en-IN","mainEntity":[{"@type":"Question","name":"What is a CAS?","acceptedAnswer":{"@type":"Answer","text":"A Consolidated Account Statement from CAMS or KFintech: a password-protected PDF listing every mutual fund you hold across fund houses. The detailed one has every transaction; the summary has only the closing figures."}},{"@type":"Question","name":"Why would Pocket leave a fund out?","acceptedAnswer":{"@type":"Answer","text":"When the statement starts after the first purchase (the cost of the units already held is not on it), when its lines do not add up, or when it is a summary statement. The reason is shown beside the fund."}},{"@type":"Question","name":"Is the statement's password stored?","acceptedAnswer":{"@type":"Answer","text":"No. It opens the PDF once, in memory, and is never stored or logged."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mypocketfi.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mypocketfi.com/guides.html"},{"@type":"ListItem","position":3,"name":"Investing","item":"https://mypocketfi.com/guides.html#investing"},{"@type":"ListItem","position":4,"name":"Track your mutual funds from a CAMS or KFintech statement","item":"https://mypocketfi.com/guide-mutual-fund-statement.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en-IN","mainEntity":[{"@type":"Question","name":"What is a CAS?","acceptedAnswer":{"@type":"Answer","text":"A Consolidated Account Statement from CAMS or KFintech: a password-protected PDF listing every mutual fund you hold across fund houses. The detailed one has every transaction; the summary has only the closing figures."}},{"@type":"Question","name":"Why would Pocket leave a fund out?","acceptedAnswer":{"@type":"Answer","text":"When the statement starts after the first purchase (the cost of the units already held is not on it). Or when its lines do not add up, or when it is a summary statement. The reason is shown beside the fund."}},{"@type":"Question","name":"Is the statement's password stored?","acceptedAnswer":{"@type":"Answer","text":"No. It opens the PDF once, in memory, and is never stored or logged."}}]}</script>
 </head>
 <body>
 <!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
@@ -66,23 +68,25 @@
 <main id="main">
 <div class="wrap">
 <article class="prose">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="guides.html">Guides</a></li><li><a href="guides.html#investing">Investing</a></li><li aria-current="page">Track your mutual funds from a CAMS or KFintech statement</li></ol></nav>
 <h1>Track your mutual funds from a CAMS or KFintech statement</h1>
-<div class="ldate gby">Investing · By Pocket · Reviewed <time datetime="2026-10-12">12 Oct 2026</time> · 5 min read</div>
-<div class="lsum"><b>In short:</b> a Consolidated Account Statement (CAS) from CAMS or KFintech lists every mutual
+<dl class="tblock gby"><div><dt>Category</dt><dd>Investing</dd></div><div><dt>By</dt><dd>Pocket</dd></div><div><dt>Reviewed</dt><dd><time datetime="2026-10-12">12 Oct 2026</time></dd></div><div><dt>Read</dt><dd>5 min</dd></div></dl>
+<div class="lsum"><b>In short:</b> a Consolidated Account Statement (<abbr class="term" tabindex="0" title="Consolidated Account Statement: A password-protected PDF from CAMS or KFintech that lists every mutual fund you hold across fund houses. The detailed one has every transaction.">CAS</abbr>) from CAMS or KFintech lists every mutual
 fund you hold across fund houses, with every purchase and redemption. Pocket reads the detailed CAS on your own
 device, checks that each fund's lines add up, shows you what it read, and imports only what you say yes to. No broker
 login, and nothing uploaded.</div>
 <nav class="toc" aria-label="Contents"><p class="toc-h">Contents</p><ol><li><a href="#what-a-cas-is">What a CAS is</a></li><li><a href="#getting-one">Getting one</a></li><li><a href="#how-pocket-checks-it">How Pocket checks it</a></li><li><a href="#why-a-fund-can-be-left-out">Why a fund can be left out</a></li><li><a href="#after-the-import">After the import</a></li><li><a href="#an-honest-note">An honest note</a></li><li><a href="#questions">Questions</a></li><li><a href="#sources">Sources</a></li></ol></nav>
 
 <h2 id="what-a-cas-is">What a CAS is</h2>
-<p>Most Indian mutual funds keep their records with one of two registrars, CAMS or KFintech. Either can send a
+<p class="q">Most Indian mutual funds keep their records with one of two registrars, CAMS or KFintech.</p>
+<p>Either can send a
 Consolidated Account Statement covering funds from both: a password-protected PDF, by email. The <b>detailed</b>
 statement lists each folio and scheme, the units it opened with, every transaction (its date, amount, units, NAV and
-the unit balance after it), and the units it closed with, at a NAV and a market value. A <b>summary</b> statement has
+the unit balance after it). It ends with the units it closed with, at a NAV and a market value. A <b>summary</b> statement has
 only the closing figures, which is not enough to know what each fund cost.</p>
 
 <h2 id="getting-one">Getting one</h2>
-<p>On the CAMS website (<a href="https://www.camsonline.com/" rel="noopener">camsonline.com</a>) the statement is
+<p class="q">On the CAMS website (<a href="https://www.camsonline.com/" rel="noopener">camsonline.com</a>) the statement is
 under its investor services as the CAS covering CAMS and KFintech funds. The request asks for:</p>
 <ul>
   <li>the <b>detailed</b> statement, with transactions;</li>
@@ -94,12 +98,12 @@ under its investor services as the CAS covering CAMS and KFintech funds. The req
 has the current steps.</p>
 
 <h2 id="how-pocket-checks-it">How Pocket checks it</h2>
-<p>Pocket opens the PDF with the password you type; the password is used once, in memory, and never stored or
+<p class="q">Pocket opens the PDF with the password you type; the password is used once, in memory, and never stored or
 logged. It then imports a fund only when the statement's own lines agree with each other:</p>
 <ul>
   <li>every line's unit balance is the one before it plus the line's units, and the last is the closing balance;</li>
   <li>the closing units at the statement's NAV come to the market value it states;</li>
-  <li>every line with units is one Pocket can place: a purchase, a SIP, a switch, a reinvestment or a redemption.</li>
+  <li>every line with units is one Pocket can place: a purchase, a <abbr class="term" tabindex="0" title="Systematic investment plan: A fixed amount put into a mutual fund on the same day each month.">SIP</abbr>, a switch, a reinvestment or a redemption.</li>
 </ul>
 <p>Here is what that looks like for one fund (an illustration, not a real statement):</p>
 <div class="tablewrap fit" tabindex="0" role="region" aria-label="A fund&#x27;s lines, scrolls sideways"><table class="spec"><thead><tr><th scope="col">Date</th><th scope="col">Transaction</th><th scope="col" class="n">Units</th><th scope="col" class="n">Unit balance</th></tr></thead><tbody>
@@ -134,18 +138,18 @@ reason shown.</p>
 </ul>
 
 <h2 id="an-honest-note">An honest note</h2>
-<p>Pocket's statement import is built to the detailed CAS's published layout and tested on statements made to it.
-Real statements vary; if one of yours is read wrongly, <a href="contact.html">tell us</a> what Pocket showed, and
+<p class="q">Pocket's statement import is built to the detailed CAS's published layout and tested on statements made to it.</p>
+<p>Real statements vary; if one of yours is read wrongly, <a href="contact.html">tell us</a> what Pocket showed, and
 nothing is imported until you say yes.</p>
 
 
-<figure class="gshot"><picture><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-cas-dark.webp 1008w, assets/cap-cas-dark-2x.webp 2016w" sizes="(max-width: 760px) calc(100vw - 32px), 720px"><source type="image/webp" srcset="assets/cap-cas.webp 1008w, assets/cap-cas-2x.webp 2016w" sizes="(max-width: 760px) calc(100vw - 32px), 720px"><img src="assets/cap-cas.png" width="1008" height="453" alt="Pocket reading a mutual-fund statement (CAS) before importing it, on the sample person&#x27;s data." loading="lazy" decoding="async"></picture><figcaption>Pocket reading a CAS before it imports anything, on its sample person, whose figures are not the example's.</figcaption></figure>
+<figure class="gshot"><div class="gpic"><picture><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-cas-dark.webp 1008w, assets/cap-cas-dark-2x.webp 2016w" sizes="(max-width: 760px) calc(100vw - 32px), 720px"><source type="image/webp" srcset="assets/cap-cas.webp 1008w, assets/cap-cas-2x.webp 2016w" sizes="(max-width: 760px) calc(100vw - 32px), 720px"><img src="assets/cap-cas.png" width="1008" height="453" alt="Pocket reading a mutual-fund statement (CAS) before importing it, on the sample person&#x27;s data." loading="lazy" decoding="async" onload="this.classList.add('in')" onerror="this.classList.add('in')"></picture><ol class="marks" aria-hidden="true"><li style="left:58.53%;top:34.00%">1</li><li style="left:31.75%;top:81.24%">2</li></ol></div><figcaption><ol class="notes"><li>What Pocket found, and which funds add up, shown before anything is imported.</li><li>A fund that does not add up is left out, with its reason.</li></ol>Pocket reading a CAS before it imports anything, on its sample person, whose figures are not the example's.</figcaption></figure>
 
 <h2 id="questions">Questions</h2>
 <h3>What is a CAS?</h3>
 <p>A Consolidated Account Statement from CAMS or KFintech: a password-protected PDF listing every mutual fund you hold across fund houses. The detailed one has every transaction; the summary has only the closing figures.</p>
 <h3>Why would Pocket leave a fund out?</h3>
-<p>When the statement starts after the first purchase (the cost of the units already held is not on it), when its lines do not add up, or when it is a summary statement. The reason is shown beside the fund.</p>
+<p>When the statement starts after the first purchase (the cost of the units already held is not on it). Or when its lines do not add up, or when it is a summary statement. The reason is shown beside the fund.</p>
 <h3>Is the statement&#x27;s password stored?</h3>
 <p>No. It opens the PDF once, in memory, and is never stored or logged.</p>
 
@@ -154,6 +158,8 @@ nothing is imported until you say yes.</p>
   <li><a href="https://www.camsonline.com/" rel="noopener">CAMS, the Consolidated Account Statement</a></li>
   <li><a href="https://www.kfintech.com/" rel="noopener">KFintech, the registrar</a></li>
 </ul>
+
+<nav class="next" aria-label="Next guide"><p class="next-h">Next guide</p><a href="guide-old-vs-new-tax-regime.html"><b>Old vs new tax regime, worked through</b><span>FY 2026-27&#x27;s slabs, the ₹12 lakh rebate and its marginal relief, and when the old regime costs less.</span></a></nav>
 
 <nav class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="guide-capital-gains-tax.html">Capital gains on mutual funds and shares, worked through</a></li><li><a href="guide-ltcg-exemption.html">The ₹1.25 lakh LTCG room, worked through</a></li><li><a href="guide-step-up-vs-flat-sip.html">Step-up vs flat SIP, worked through</a></li></ul></nav>
 <p>Pocket is free on Windows, macOS, Linux and Android, and keeps everything on your own device: <a href="download.html">download Pocket</a>.</p>
@@ -167,19 +173,21 @@ nothing is imported until you say yes.</p>
   <div class="sf-in">
     <div class="sf-brand">
       <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
-      <p>The money app that shows its working. Your figures stay on your own device.</p>
-      <p class="sf-trust">No account · No bank logins · No trackers</p>
+      <p>Your figures stay on your own device.</p>
     </div>
     <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
     <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
-    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
+    <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
-  <div class="sf-base">
-    <p class="discl">Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</p>
-    <p class="sf-copy">© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></p>
-  </div>
+  <dl class="sf-base">
+    <div class="discl"><dt>Not advice</dt><dd>Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</dd></div>
+    <div><dt>Your data</dt><dd>No account · No bank logins · No trackers</dd></div>
+    <div class="sf-copy"><dt>Pocket</dt><dd>© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></dd></div>
+  </dl>
 </footer>
 
 <script src="assets/vestora.js" defer></script>
+<script src="assets/guides.js" defer></script>
 </body>
 </html>

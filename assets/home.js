@@ -5,20 +5,11 @@
       TRACE = "cubic-bezier(.65,0,.35,1)", UI = "cubic-bezier(.2,.8,.2,1)", IO = "IntersectionObserver" in window;
   function all(sel, root) { return [].slice.call((root || d).querySelectorAll(sel)); }
   function anim(el, frames, o) { if (!rm && el.animate) return el.animate(frames, o); }
-  var RISE = [{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }];
-
-  /* Show working: trace, notes, lines; close 120ms */
+  /* Show working: the tree draws itself (home.css .trace); on load the figure lands last ("first"); close 120ms */
   var plate = d.getElementById("plate"), sw = plate && plate.querySelector(".sw");
-  function trace() {
-    all(".lead", plate).forEach(function (l, i) {
-      anim(l, [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 480, delay: Math.min(i, 7) * 40, easing: TRACE, fill: "backwards" });
-    });
-    all(".tnote", plate).forEach(function (n, i) {
-      anim(n, RISE, { duration: 200, delay: Math.min(i, 7) * 40 + 240, easing: UI, fill: "backwards" });
-    });
-    all("#lines .ln", plate).filter(function (l) { return l.offsetParent; }).forEach(function (l, i) {
-      anim(l, RISE, { duration: 200, delay: Math.min(i, 7) * 40, easing: UI, fill: "backwards" });
-    });
+  function trace(first) {
+    plate.classList.remove("trace", "first"); void plate.offsetWidth;
+    plate.classList.add("trace"); if (first) plate.classList.add("first");
   }
   /* totals roll (paise in or out) only when the switch is pressed */
   var totals = all("[data-r]", plate).map(function (el) { return { el: el, open: el.innerHTML }; });
@@ -38,33 +29,22 @@
       fades.forEach(function (a) { a.cancel(); }); fades = [];
       roll(on);
       if (on) { plate.classList.remove("bare"); trace(); return; }
-      all(".lead,.tnote,.lines", plate).forEach(function (p) {
+      all(".tr,.tnote,.lines", plate).forEach(function (p) {
         var a = anim(p, [{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "cubic-bezier(.23,1,.32,1)" });
         if (a) fades.push(a);
       });
       if (fades[0]) fades[0].onfinish = function () { plate.classList.add("bare"); }; else plate.classList.add("bare");
     });
-    // on load the figure lands last, after its parts
-    var land = function () {
-      trace();
-      anim(d.getElementById("nw"), [{ opacity: .35, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }],
-        { duration: 320, delay: 240 + 320, easing: UI, fill: "backwards" });
-    };
-    if (d.fonts && d.fonts.ready) d.fonts.ready.then(land); else land();
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(function () { trace(1); }); else trace(1);
   }
 
-  /* a phone shows three lines, then "Show all N lines" */
-  var ol = d.getElementById("lines");
-  if (ol && ol.children.length > 3) {
-    var all7 = d.createElement("button");
-    all7.type = "button"; all7.className = "more lines-all"; all7.setAttribute("aria-expanded", "false");
-    all7.setAttribute("aria-controls", "lines"); all7.textContent = "Show all " + ol.children.length + " lines";
-    ol.parentNode.insertBefore(all7, ol.nextSibling);
-    all7.addEventListener("click", function () {
-      plate.classList.add("all"); all7.setAttribute("aria-expanded", "true"); all7.hidden = true;
-      var li = ol.children[3]; li.tabIndex = -1; li.focus();
-    });
-  }
+  /* the investments show four lines, then "Show all N lines" */
+  var all7 = d.querySelector(".lines-all");
+  if (all7) all7.addEventListener("click", function () {
+    var li = all(".ln", plate).filter(function (l) { return !l.offsetParent; })[0];
+    plate.classList.add("all"); all7.setAttribute("aria-expanded", "true");
+    if (li) { li.tabIndex = -1; li.focus(); }
+  });
 
   /* tour tabs; the last is the film */
   var tl = d.querySelector(".tour-tabs"), film = d.querySelector(".film-box video"), play = d.querySelector(".film-play");
@@ -104,15 +84,20 @@
     b.addEventListener("click", function () {
       var on = b.getAttribute("aria-expanded") !== "true";
       b.setAttribute("aria-expanded", String(on)); box.classList.toggle("open", on);
-      all('.schem g[data-conn="' + k + '"]').forEach(function (g) {
-        g.classList.toggle("on", on);
-        if (on) all("path.far", g).forEach(function (f) {
-          var L = f.getTotalLength(), a = L + " " + L;
-          anim(f, [{ strokeDasharray: a, strokeDashoffset: L }, { strokeDasharray: a, strokeDashoffset: 0 }], { duration: 480, easing: TRACE });
-        });
-      });
+      swing(k, "on", on);
     });
   });
+  /* a switch shown shut, by a press (on) or a turn (try); its far wire draws when it first shuts */
+  function swing(k, c, on) {
+    all('.schem g[data-conn="' + k + '"]').forEach(function (g) {
+      var was = g.classList.contains("on") || g.classList.contains("try");
+      g.classList.toggle(c, on);
+      if (on && !was) all("path.far", g).forEach(function (f) {
+        var L = f.getTotalLength(), a = L + " " + L;
+        anim(f, [{ strokeDasharray: a, strokeDashoffset: L }, { strokeDasharray: a, strokeDashoffset: 0 }], { duration: 480, easing: TRACE });
+      });
+    });
+  }
 
   /* ledger: five rows, then "… N more" */
   all("table.ledger").forEach(function (t) {
@@ -134,17 +119,36 @@
   if (flow) {
     var steps = all(".steps li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
         parts = frames.map(function (f, i) {
-          return all(["tr:not([hidden]):not(.grp)", "tbody tr,tfoot tr", ".eqn tr,.tblock"][i], f)
+          return all(["tr:not([hidden]):not(.grp)", "tbody tr,tfoot tr", ".eqn tr"][i], f)
             .filter(function (r) { return !r.querySelector("button"); });
         });
     stage.className = "stage";
     flow.querySelector(".scene-in").appendChild(stage);
+    /* MO2: rows travel to what they become (data-to) and back to what they came from (data-k); pinned only */
+    var travel = function (a, b, f) {
+      var s = f ? "data-to" : "data-k", t = f ? "data-k" : "data-to", c = a.getBoundingClientRect(), at = {};
+      all("[" + s + "]", a).forEach(function (r) {
+        var q = r.getBoundingClientRect(), k = r.getAttribute(s);
+        if (q.height) (at[k] = at[k] || []).push([r, Math.min(Math.max(q.top + q.height / 2, c.top), c.bottom)]);
+      });
+      return function () {
+        all("[" + t + "]", b).forEach(function (r) {
+          var m = at[r.getAttribute(t)], q = r.getBoundingClientRect(), y = q.top + q.height / 2;
+          if (!m || !q.height) return; // clear while rows cross
+          anim(r, [{ transform: "translateY(" + ((m[0][1] + m[m.length - 1][1]) / 2 - y) + "px)", opacity: 0 }, { opacity: .15, offset: .5 }, { transform: "none", opacity: 1 }], { duration: 320, easing: UI });
+          m.forEach(function (o) { anim(o[0], [{ transform: "none" }, { transform: "translateY(" + (y - o[1]) + "px)" }], { duration: 240, easing: UI }); });
+        });
+      };
+    };
     var show = function (n) {
-      if (n === cur) return; cur = n;
+      if (n === cur) return;
+      var go = cur && flow.classList.contains("pinned") ? travel(frames[cur - 1], frames[n - 1], n > cur) : null;
+      cur = n;
       steps.forEach(function (s, i) { s.classList.toggle("on", i === n - 1); });
       frames.forEach(function (f, i) { f.classList.toggle("on", i === n - 1); });
+      if (go) go();
     };
-    var light = function (rows, k) { rows.forEach(function (r, j) { r.classList.toggle("lit", j < k); }); };
+    var light = function (rows, k) { rows.forEach(function (r, j) { r.classList.toggle("lit", j < k); r.classList.toggle("now", j === k - 1); }); };
     var onScroll = function () {
       if (!flow.classList.contains("pinned")) return frames.forEach(function (f, i) {
         var r = f.getBoundingClientRect();
@@ -168,20 +172,12 @@
     if (mq.addEventListener) mq.addEventListener("change", mode);
   }
 
-  /* wires draw once */
-  if (!rm && IO) {
-    all(".schem").forEach(function (s) {
-      var wires = all(".w", s);
-      wires.forEach(function (w) { w.style.strokeDasharray = "1"; w.style.strokeDashoffset = "1"; });
-      new IntersectionObserver(function (es, o) {
-        if (!es[0].isIntersecting) return; o.disconnect();
-        wires.forEach(function (w, i) {
-          var a = w.animate([{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 700, delay: i * 140, easing: TRACE, fill: "forwards" });
-          a.onfinish = function () { w.style.strokeDasharray = ""; w.style.strokeDashoffset = ""; };
-        });
-      }, { threshold: .4 }).observe(s);
-    });
-  }
+  /* wires draw once (home.css .drawn) */
+  if (!rm && IO) all(".schem").forEach(function (s) {
+    all(".w", s).forEach(function (w, i) { w.style.animationDelay = i * 140 + "ms"; });
+    s.classList.add("wd");
+    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); s.classList.add("drawn"); } }, { threshold: .4 }).observe(s);
+  });
 
   /* requests, counted as the browser makes them */
   var cnt = d.querySelector(".count"), tot = d.querySelector("[data-all]"), n = 0, x = 0, shown = 0, live = false;
@@ -199,6 +195,30 @@
       }, { threshold: .6 }).observe(cnt);
     }
   } catch (_) {}
+
+  /* S2: the privacy section pins where it fits, on wide windows; each connection takes a turn (its row ticked, its
+     switch shown shut), then the section ends on its 0. Reduced motion pins too; the states change at once. */
+  var ws = d.getElementById("wires"), wq = matchMedia("(min-width:1000px)");
+  if (ws && cnt) {
+    var win = ws.querySelector(".wires-in"), wr = all(".conn li[data-conn]", ws), turn = -1;
+    var take = function (n) {
+      if (n === turn) return; turn = n;
+      wr.forEach(function (r, i) { r.classList.toggle("now", i === n); swing(r.getAttribute("data-conn"), "try", i === n); });
+      cnt.classList.toggle("now", n >= wr.length);
+    };
+    var wscroll = function () {
+      var p = (scrollY - ws.offsetTop) / (ws.offsetHeight - innerHeight);
+      take(p < 0 ? -1 : Math.min(wr.length, Math.floor(p * (wr.length + 2)) - 1));
+    };
+    var wmode = function () {
+      removeEventListener("scroll", wscroll); take(-1);
+      ws.classList.toggle("pinned", wq.matches);
+      var h = Math.max.apply(0, [].map.call(win.children, function (c) { return c.offsetHeight; }));
+      if (h > innerHeight - 97) ws.classList.remove("pinned");
+      if (ws.classList.contains("pinned")) { addEventListener("scroll", wscroll, { passive: true }); wscroll(); }
+    };
+    wmode(); addEventListener("resize", wmode);
+  }
 
   /* salary tool: each step's words and figures are the engine's (tools/site_home.py) */
   var rng = d.getElementById("try-g");

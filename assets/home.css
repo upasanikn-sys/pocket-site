@@ -10,34 +10,69 @@
    ============================================================================ */
 .tag{font:500 var(--fs-prov)/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .sym{font-family:var(--mono);font-weight:500}
-.home{padding:56px 0 var(--sec)}
-.home-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
-.home h1{margin:24px 0 0;max-width:13ch}
-.home .sub{margin:24px 0 32px;max-width:34em}
-.trust{margin:20px 0 0;font-size:var(--fs-small);color:var(--ink-3)}
+.home{padding:48px 0 var(--sec)}
+/* the hero (STRIPE_LEVEL B1/L1, 14 Oct 2026): the statement and its action on one line of the grid, then the figure
+   with its working as the page's signature drawing, the full width of the page */
+.home h1{margin:0;max-width:none;font-size:clamp(44px, 26px + 3.4vw, 76px);line-height:1;letter-spacing:-.045em}
+.home-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:64px;align-items:start;margin-top:28px}
+.home-copy>*{grid-column:2}
+.home .sub{grid-column:1;grid-row:1/span 3;margin:0;max-width:36em}
+.trust{margin:16px 0 0;font-size:var(--fs-small);color:var(--ink-3)}
 /* the instrument plate: a card on film, no shadow at rest */
 .plate{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-3);padding:20px 24px}
 .plate-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-8px 0 0}
 .fig-a{margin:4px 0 0;font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
 .p{font-size:max(12px,.72em);font-weight:600;color:var(--ink-3);letter-spacing:0}
-.eq{margin-top:12px}
-.term{display:grid;grid-template-columns:16px auto minmax(24px,1fr) minmax(0,auto);align-items:center;gap:0 12px;padding:8px 0}
-.op{font:600 var(--fs-fig-s)/1 var(--display);color:var(--ink-3);text-align:center}
+/* the working tree: the figure, a stem, a bus, and a drop to each part, every one a 1px signal leader (DESIGN.md
+   "Leader line"); each part's lines hang from its drop on a short tick. Drawn on load by .trace (CSS, below). */
+.tree{margin:40px 0 0;padding:24px 32px 28px;--t-stagger:40ms}
+.tree .fig-a{margin:8px 0 0;font-size:clamp(48px, 30px + 3.2vw, 76px);letter-spacing:-.045em}
+.branches{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;margin-top:20px;padding-top:28px}
+.tr{position:absolute;background:var(--signal)}
+.tr-stem{left:12px;top:-20px;width:1px;height:20px;transform-origin:top}
+.tr-bus{left:12px;top:0;height:1px;width:calc((100% - 64px) * 2 / 3 + 64px);transform-origin:left}
+.br{position:relative;padding-left:28px}
+.tr-drop{left:12px;top:-28px;bottom:14px;width:1px;transform-origin:top}
+.term{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;gap:2px 8px}
+.term::before,.ln::before{content:"";position:absolute;left:-16px;width:10px;height:1px;background:var(--signal)}
+.term::before{top:.85em}
+.op{font:600 var(--fs-fig-s)/1 var(--display);color:var(--ink-3)}
 .t{font:600 var(--fs-fig-m)/1.1 var(--display);letter-spacing:-.02em;white-space:nowrap}
-.tnote{font-size:var(--fs-caption);line-height:1.35;color:var(--ink-2);text-align:right}
+.tnote{grid-column:1/-1;font-size:var(--fs-caption);line-height:1.35;color:var(--ink-2)}
 .tnote b{display:block;font-weight:600;color:var(--ink)}
-/* leader line: a 1px hairline, nothing at either end (DESIGN.md "Leader line", Gate 4); drawn from its left end */
-.plate .lead{position:relative;margin:0;height:1px;background:var(--signal);transform-origin:left}
-.lines{list-style:none;margin:0 0 8px 28px;padding:0 0 0 16px;border-left:1px solid var(--signal)}
-.ln{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto) auto;gap:2px 16px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--rule)}
+.lines{list-style:none;margin:12px 0 0;padding:0;border-top:1px solid var(--rule-2)}
+.ln{position:relative;padding:8px 0;border-bottom:1px solid var(--rule)}
+.ln-r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:baseline}
+/* a holding opens to its entries, investing cash to its parts (D2): the working one level down */
+.ln summary{cursor:pointer;list-style:none;border-radius:var(--r-1)}
+.ln summary::-webkit-details-marker{display:none}
+.ln summary .nm::after{content:" +";color:var(--ink-3);font-weight:400}
+.ln details[open] summary .nm::after{content:" −"}
+.ln summary:hover .nm{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.ents{list-style:none;margin:8px 0 2px;padding:0 0 0 12px;border-left:1px solid var(--signal);font:400 var(--fs-prov)/1.5 var(--mono);color:var(--ink-2)}
+.ents li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;padding:3px 0}
+.ents li>:first-child{white-space:nowrap}
+.ents li>:last-child{text-align:right}
+.ln details[open] .ents{animation:tr-rise var(--t-ui) var(--ease-ui)}
+.ln::before{top:1.2em}
 .ln:last-child{border-bottom:0}
 .nm{font-size:var(--fs-small);font-weight:500}
-.nm small,.wk small{display:block;font:400 var(--fs-prov)/1.35 var(--sans);color:var(--ink-3)}
-.nm .sym{font-family:var(--mono)}
-.wk{font:400 var(--fs-prov)/1.35 var(--mono);color:var(--ink-2);text-align:right}
-.v{font:600 var(--fs-small)/1.3 var(--display);text-align:right;white-space:nowrap}
-.bare .lead,.bare .tnote{visibility:hidden}
+.wk{grid-column:1/-1;grid-row:2;font:400 var(--fs-prov)/1.35 var(--mono);color:var(--ink-2)}
+.v{grid-column:2;grid-row:1;font:600 var(--fs-small)/1.3 var(--display);text-align:right;white-space:nowrap}
+.bare .tr,.bare .tnote,.bare .term::before{visibility:hidden}
 .bare .lines{display:none}
+/* drawn on load and on each opening: stem, bus, the drops one after another, then the notes, the lines, and the figure
+   lands last as the result of its sum. Reduced motion collapses every duration to an instant (tokens.css). */
+@keyframes tr-down{from{transform:scaleY(0)}}
+@keyframes tr-across{from{transform:scaleX(0)}}
+@keyframes tr-rise{from{opacity:0;transform:translateY(4px)}}
+@keyframes tr-land{from{opacity:.35;transform:translateY(4px)}}
+.tree.trace .tr-stem{animation:tr-down var(--t-ui) var(--ease-trace) both}
+.tree.trace .tr-bus{animation:tr-across var(--t-trace) var(--ease-trace) both;animation-delay:var(--t-ui)}
+.tree.trace .tr-drop{animation:tr-down var(--t-trace) var(--ease-trace) both;animation-delay:calc(var(--t-ui) + var(--i) * var(--t-stagger) * 3)}
+.tree.trace .tnote{animation:tr-rise var(--t-ui) var(--ease-ui) both;animation-delay:calc(var(--t-trace) + var(--i) * var(--t-stagger) * 3)}
+.tree.trace .ln{animation:tr-rise var(--t-ui) var(--ease-ui) both;animation-delay:calc(var(--t-trace) + var(--t-ui) + var(--i) * var(--t-stagger))}
+.tree.first .fig-a{animation:tr-land var(--t-roll) var(--ease-ui) both;animation-delay:calc(var(--t-trace) + var(--t-roll))}
 /* title block: the corner box of a drawing */
 .tblock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:16px 0 0;border-top:1px solid var(--ink)}
 .tblock div{padding:10px 12px 0;border-left:1px solid var(--rule-2)}
@@ -78,7 +113,7 @@
 .more{min-height:44px;padding:0;border:0;background:none;font:500 var(--fs-caption)/1 var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--edge);cursor:pointer}
 .more:hover{text-decoration-thickness:2px;text-decoration-color:var(--ink)}
 .stage{display:none}
-.pinned.scene{height:240vh;padding:0}
+.pinned.scene{height:210vh;padding:0}
 .pinned .scene-in{position:sticky;top:73px;height:calc(100vh - 73px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:64px;align-items:center}
 .pinned .steps li{grid-template-columns:48px minmax(0,1fr);padding:18px 0;border-bottom:0}
 .pinned .steps li::before{transition:color var(--t-ui)}
@@ -111,7 +146,7 @@
 .count{display:flex;align-items:baseline;gap:16px;margin-top:32px;padding-top:16px;border-top:1px solid var(--rule-2)}
 .count b{font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
 .count p{margin:0;font-size:var(--fs-small);color:var(--ink-2);max-width:17em}
-.schem{display:block;width:100%;height:auto;margin-bottom:16px}
+.schem{display:block;width:100%;height:auto;margin:32px 0 0}
 .schem.narrow{display:none}
 /* drawn text: 14 units at every size keeps it at 12px or more on screen (see index.html) */
 .schem text{font:400 14px var(--sans);fill:var(--ink-2)}
@@ -123,6 +158,10 @@
 .schem .lv{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round}
 .schem .o{fill:none;stroke:var(--ink);stroke-width:1.5}
 .schem .far{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:3 4}
+/* the wires draw once, in order, when the drawing is in view (home.js adds .wd, then .drawn; reduced motion: drawn) */
+.schem.wd .w{stroke-dasharray:1;stroke-dashoffset:1}
+.schem.drawn .w{animation:wire 700ms var(--ease-trace) forwards}
+@keyframes wire{to{stroke-dashoffset:0}}
 .conn{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
 .conn li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--rule)}
 .conn b{font-weight:600}
@@ -141,7 +180,7 @@
 
 /* the far end of each connection: a hairline node, its wire dashed while no current flows; opened, the wire draws */
 .schem rect.far{stroke:var(--rule-2);stroke-width:1;stroke-dasharray:none}
-.schem g.on rect.far{stroke:var(--ink)}
+.schem :is(g.on,g.try) rect.far{stroke:var(--ink)}
 .schem g rect.far{transition:stroke var(--t-ui) var(--ease-ui)}
 
 /* the page's last pieces: the count of every request, and the phone's download bar */
@@ -156,9 +195,12 @@
 
 /* the scene: each frame's rows are counted into the figure as the visitor scrolls (home.js): pinned, through the
    frame's third; unpinned (short or narrow windows, phones), as the frame rises up the window. A row not yet counted
-   stands back. Reduced motion marks nothing, so every row is plain. */
-.scene [data-q]{transition:opacity var(--t-ui) var(--ease-ui)}
-.scene [data-q]:not(.lit){opacity:.28}
+   is plain; a counted one carries a signal tick, and the row being counted the signal wash, like a pen going down the
+   ledger. Text never dims, so it keeps its contrast (axe, 14 Oct 2026: rows at 28% opacity read 1.6:1). */
+.scene [data-q]>:first-child{padding-left:10px}
+.scene [data-q].lit>:first-child{box-shadow:inset 2px 0 var(--signal)}
+.scene [data-q]{transition:background-color var(--t-ui) var(--ease-ui)}
+.scene [data-q].now{background-color:var(--signal-wash)}
 /* SITE_TO_9, Home (13 Oct 2026). An anchor lands below the sticky header (72px and its rule), not under it */
 html{scroll-padding-top:88px}
 
@@ -167,8 +209,19 @@ html{scroll-padding-top:88px}
 .offer{margin:16px 0 0;font-size:var(--fs-small);color:var(--ink-2)}
 .offer a{color:var(--ink);white-space:nowrap}
 
-/* a phone shows three lines, then "Show all 7 lines" (home.js); without script, all of them */
+/* the investments show four lines, then "Show every line" (site_home.py; home.js opens them and the button goes,
+   15 Oct 2026), at every width so the hero fits one screen; without script, all of them and no button */
 .lines-all{display:none}
+.js .plate:not(.all) #lines .ln:nth-child(n+5){display:none}
+.js .plate:not(.all) #lines .ln:nth-child(4){border-bottom:0}
+.js .lines-all{display:inline-flex;margin:4px 0 0}
+.js .bare .lines-all,.js .all .lines-all{display:none}
+@media (max-width:560px){
+  /* a phone: the three parts, the first three investments, and one button for every other line */
+  .js .plate:not(.all) #lines .ln:nth-child(n+4){display:none}
+  .js .plate:not(.all) #lines .ln:nth-child(3){border-bottom:0}
+  .js .plate:not(.all) .br:not([data-br=assets]) .lines{display:none}
+}
 
 /* product tour (DESIGN.md "Product tour"): tabs that are buttons; the underline moves and the capture cross-fades
    over --t-ui; without script, all four panels stand one under another */
@@ -182,7 +235,19 @@ html{scroll-padding-top:88px}
 .js .tour-panels .tp{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity var(--t-ui) var(--ease-ui),visibility 0s linear var(--t-ui)}
 .js .tour-panels .tp.on{opacity:1;visibility:visible;transition:opacity var(--t-ui) var(--ease-ui)}
 .tp figure{margin:0}
-.tp-pics{display:flex;justify-content:center;gap:24px}
+.tp-pics{position:relative;display:flex;justify-content:center;gap:24px}
+/* numbered callouts on a desktop capture (I1): dark on a light capture, light on a dark one; their notes below */
+:root{--t-stagger:40ms}
+.tp-marks{position:absolute;inset:0;list-style:none;margin:0;padding:0;pointer-events:none}
+.tp-marks li{position:absolute;display:grid;place-items:center;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--on-ink);color:var(--ink);font:600 var(--fs-caption)/1 var(--sans);box-shadow:0 0 0 2px var(--ink)}
+.tp.on .tp-marks li{animation:tr-rise var(--t-ui) var(--ease-ui) both;animation-delay:calc(var(--i) * var(--t-stagger) * 2)}
+@media (prefers-color-scheme: dark){ .tp-marks li{background:var(--ink);color:var(--on-ink);box-shadow:0 0 0 2px var(--on-ink)} }
+@media (max-width:900px){ .tp-notes{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:560px){ .tp-marks{display:none} .tp-notes{grid-template-columns:minmax(0,1fr)} }
+.tp-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px;width:100%;margin:0 0 12px;padding:0;list-style:none;counter-reset:note}
+.tp-notes li{counter-increment:note;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;color:var(--ink-2)}
+.tp-notes li::before{content:counter(note);font:600 var(--fs-caption)/1.6 var(--sans);color:var(--ink)}
+.tp-say{flex:1 1 auto}
 .tp-pics picture{display:block;flex:1 1 0;min-width:0}
 .tp img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:var(--r-3);background:var(--card)}
 .tp.phone picture{flex:0 1 330px}
@@ -252,17 +317,51 @@ html:not(.js) .try-in :is(input,.try-ends){display:none}
 .try-more{margin:16px 0 0;font-size:var(--fs-small)}
 
 /* what would leave: each connection's payload one tap away; opening it closes that switch in the drawing */
-.conn .lv-b{grid-column:1;justify-self:start;min-height:44px;margin:4px 0 -10px}
+.conn .lv-b{grid-column:2;grid-row:2;justify-self:end;align-self:start;min-height:44px;margin:-12px 0 -12px;white-space:nowrap}
 .conn .lv{grid-column:1/-1;margin:4px 0 0;padding:12px 14px;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-2);font-size:var(--fs-small);color:var(--ink-2)}
 .js .conn .lv{display:none}
 .js .conn .lv.open{display:block}
 .schem .lv{transition:transform var(--t-ui) var(--ease-ui);transform-box:fill-box;transform-origin:0 100%}
-.schem g.on .lv{transform:rotate(27deg)}
-.schem g.on .far{stroke:var(--ink-2);stroke-dasharray:none}
+.schem :is(g.on,g.try) .lv{transform:rotate(27deg)}
+.schem :is(g.on,g.try) .far{stroke:var(--ink-2);stroke-dasharray:none}
 .schem g .k{transition:opacity var(--t-ui) var(--ease-ui)}
-.schem g.on .k{opacity:0}
+.schem :is(g.on,g.try) .k:not(.if){opacity:0}
+/* a switch shown shut says so: IF ON, never a bare shut switch beside "Off" */
+.schem .k.if{opacity:0;fill:var(--ink)}
+.schem :is(g.on,g.try) .k.if{opacity:1}
 
-/* asked first, and the last three releases */
+/* S2 (15 Oct 2026): where it fits, the privacy section pins (home.js, wide windows only). Each connection takes a
+   turn, its row ticked in signal and its switch shown shut, then it opens again; the section ends on its 0. */
+.pinned.wires{height:210vh;padding:0}
+.pinned .wires-in{position:sticky;top:73px;min-height:calc(100vh - 73px);align-content:center;padding:12px 0}
+.pinned .conn li{padding-left:12px;transition:background-color var(--t-ui) var(--ease-ui)}
+.conn li.now{background:var(--signal-wash);box-shadow:inset 2px 0 var(--signal)}
+.count{transition:border-color var(--t-ui) var(--ease-ui)}
+.count.now{border-top-color:var(--signal);box-shadow:inset 0 1px var(--signal)}
+@media (max-height:799px){
+  .pinned .wires .lede{margin-top:12px}
+  .pinned .count{margin-top:20px}
+  .pinned .schem{margin-top:16px}
+  .pinned .conn li{padding-top:10px;padding-bottom:10px}
+}
+
+/* the home page's rhythm (SL1, 14 Oct 2026): sections 80px, 64 on tablets, 48 on phones (the site's are 96/72/56) */
+:root{--sec:80px}
+@media (max-width:900px){:root{--sec:64px}}
+@media (max-width:560px){:root{--sec:48px}}
+/* what it reads: one line in the scene's first step; on a short pinned screen it gives way to the steps */
+.reads-1{margin:12px 0 0;font-size:var(--fs-small);color:var(--ink-2);max-width:42em}
+@media (max-height:799px){.pinned .reads-1{display:none}}
+/* the releases strip: the pace as the heading, the newest three as rows that open their notes */
+.rel-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px 64px;align-items:start}
+.rel-top p{margin:12px 0 0;color:var(--ink-2)}
+.rel .rel-l{display:block;border-top:1px solid var(--ink)}
+.rel .rel-l li{padding:0;border-bottom:1px solid var(--rule)}
+.rel .rel-l a{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:4px 16px;align-items:baseline;min-height:56px;padding:14px 0;color:var(--ink)}
+.rel .rel-l a:hover span:last-child{text-decoration:underline;text-underline-offset:3px}
+.rel .rel-l h3{margin:0;font:600 var(--fs-body)/1.3 var(--display);letter-spacing:-.01em}
+.rel .rel-l span:last-child{color:var(--ink-2);font-size:var(--fs-small)}
+/* asked first */
 /* asked first: the questions only, each answer one press away (Keyur, 14 Oct 2026). The heading sits beside one list,
    so opening an answer never leaves a gap in a second column. A native <details>: keyboard and no-script work, and
    find-in-page opens the answer it finds. The answer fades and rises in; nothing changes height on a timer. */
@@ -291,7 +390,17 @@ html:not(.js) .try-in :is(input,.try-ends){display:none}
 .close .soon{font-family:var(--sans)}
 
 @media (max-width:900px){
-  .home-in,.wires-in,.never-in,.try{grid-template-columns:minmax(0,1fr);gap:40px}
+  .wires-in,.never-in,.try,.rel-in{grid-template-columns:minmax(0,1fr);gap:40px}
+  /* the tree stands up: one spine from the figure through the three parts */
+  .home-copy{grid-template-columns:minmax(0,1fr);row-gap:20px}
+  .home .sub,.home-copy>*{grid-column:1;grid-row:auto}
+  .tree{padding:20px 24px 24px}
+  .branches{grid-template-columns:minmax(0,1fr);padding-top:0}
+  .tr-bus{display:none}
+  .br+.br{margin-top:20px}
+  .br .tr-drop{top:-20px;bottom:0}
+  .br:first-child .tr-drop{top:0}
+  .br:last-child .tr-drop{bottom:14px}
   .faq-in{grid-template-columns:minmax(0,1fr);gap:32px}
   .qa p{padding-right:0}
   .reads-l,.never ul{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -304,14 +413,11 @@ html:not(.js) .try-in :is(input,.try-ends){display:none}
   .home{padding-top:24px}
   .home .hbtns{flex-direction:column;align-items:stretch}
   .plate{padding:16px}
-  .fig-a{font-size:var(--fs-fig-l)}
-  .term{grid-template-columns:14px auto minmax(12px,1fr)}
-  .term .tnote{grid-column:2/-1;text-align:left;margin-top:4px}
+  .tree .fig-a{font-size:var(--fs-anchor)}
   .t{font-size:var(--fs-fig-s)}
-  .lines{margin-left:6px;padding-left:12px}
-  .ln{grid-template-columns:minmax(0,1fr) auto}
-  .ln .wk{grid-column:1/-1;grid-row:2;text-align:left}
-  .ln .v{grid-column:2;grid-row:1}
+  .br{padding-left:24px}
+  .tr-stem,.tr-drop{left:8px}
+  .term::before,.ln::before{left:-16px;width:12px}
   .tblock{grid-template-columns:1fr 1fr}
   .tblock div:nth-child(3){padding-left:0;border-left:0}
   .tblock div:nth-child(n+3){margin-top:10px;border-top:1px solid var(--rule)}
@@ -326,10 +432,6 @@ html:not(.js) .try-in :is(input,.try-ends){display:none}
   .schem.narrow{display:block;max-width:360px}
   .count b{font-size:var(--fs-fig-l)}
   .never li{grid-template-columns:minmax(0,1fr);gap:4px}
-  .js .plate:not(.all) .ln:nth-child(n+4){display:none}
-  .js .plate:not(.all) .ln:nth-child(3){border-bottom:0}
-  .js .lines-all{display:inline-flex;margin:0 0 4px 22px}
-  .js .bare .lines-all{display:none}
   .tp.phone picture+picture{display:none}
   .tp.phone picture{flex-basis:100%}
   .tour-tabs [role=tab]{padding:0 12px}

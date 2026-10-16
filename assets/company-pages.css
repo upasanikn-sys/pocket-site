@@ -180,3 +180,14 @@ html[data-os]:not([data-os="windows"]) .close .dl-other{display:inline-block}
 
 /* Stream A, round 3 (MI3): the Copy button beside a SHA-256 is a .ghost, at the caption size and the 44px target */
 .ghost[data-copy]{display:block; background:none; border:0; font-family:inherit; cursor:pointer; text-align:left; min-height:44px; padding:0 4px; font-size:var(--fs-small)}
+
+/* Stream A, round 4 (N4): "On this page" under a long page's hero: one quiet line of the sections, on phones a strip that
+   scrolls sideways; every section a link lands on clears the sticky header */
+.ltoc.strip{border-bottom:1px solid var(--rule)}
+.ltoc.strip .wrap{display:flex; align-items:center; gap:24px}
+.ltoc.strip .ltoc-h{flex:none; margin:0; font-size:var(--fs-small); color:var(--ink-3)}
+.ltoc.strip ol{display:flex; gap:24px; margin:0; padding:0; list-style:none; overflow-x:auto}
+.ltoc.strip li{flex:none; font-size:var(--fs-small)}
+.ltoc.strip a{display:inline-flex; align-items:center; min-height:44px; white-space:nowrap}
+.sec[id], .phase[id]{scroll-margin-top:88px}
+@media (max-width:560px){ .ltoc.strip .wrap{gap:12px} .ltoc.strip ol{gap:16px} }

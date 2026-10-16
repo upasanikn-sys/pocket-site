@@ -207,3 +207,16 @@ table{font-variant-numeric:tabular-nums}
 h1.d::after{content:""; display:block; width:96px; height:9px; margin-top:16px; border-inline:1px solid var(--ink-3);
   background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 @media (max-height:649px){ h1.d::after{display:none} }   /* a short window keeps its action above the fold */
+/* A5 (16 Oct 2026): forced colours drop backgrounds; what is drawn with them is redrawn in system colours */
+@media (forced-colors:active){
+html .cta{border:1px solid ButtonText}
+html .tr,html .ld,html .term::before,html .ln::before{forced-color-adjust:none;background:CanvasText}
+html h1.d::after,html .close-rule{forced-color-adjust:none;border-color:CanvasText;background:linear-gradient(CanvasText,CanvasText) center/100% 1px no-repeat}
+html .sw i{forced-color-adjust:none;border-color:ButtonText;background:Canvas}
+html .sw i::after{forced-color-adjust:none;background:ButtonText}
+html .sw[aria-checked="true"] i{background:Highlight;border-color:Highlight}
+html .sw[aria-checked="true"] i::after{background:HighlightText}
+html .rng::-webkit-slider-runnable-track,html .try-in input::-webkit-slider-runnable-track{forced-color-adjust:none;background:CanvasText}
+html .rng::-moz-range-track,html .try-in input::-moz-range-track{forced-color-adjust:none;background:CanvasText}
+html .try-ticks{forced-color-adjust:none;background:linear-gradient(to right,CanvasText 1px,transparent 1px) 0 0/calc((100% - 1px)/var(--n)) 100% repeat-x}
+}

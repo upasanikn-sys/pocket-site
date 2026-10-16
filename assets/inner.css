@@ -306,3 +306,4 @@ a.plat:active{transform:translateY(1px)}
 .nf-links{margin-top:40px; font-size:var(--fs-small); color:var(--ink-3)}
 
 @media (max-width:560px){ .has.cols{columns:1} }
+@media (max-width:560px){ .prose .ltoc ol{display:flex; gap:16px; padding:0; list-style:none; overflow-x:auto} .prose .ltoc li{flex:none} .prose .ltoc a{white-space:nowrap} }

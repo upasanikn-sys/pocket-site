@@ -1,13 +1,6 @@
-/* POCKET — homepage patterns (DESIGN.md: Plate, Title block, Show working, Leader line, Entries ledger,
-   Connections schematic, Never do). Loaded after observatory.css by index.html only. Split from
-   observatory.css on 12 Oct 2026. */
+/* POCKET homepage patterns, after observatory.css (DESIGN.md); breakpoints 560/900/1000 */
 
-/* ============================================================================
-   HOMEPAGE, Direction C "The Open Instrument" (DESIGN.md: Plate, Title block, Show working,
-   Leader line, Entries ledger, Connections schematic, Never do). Three breakpoints only:
-   compact <=560, medium <=900, wide >=1000 (the pinned scene also needs >=560px of height).
-   Signal is spent only on the working: the leaders, the open switch, the rule beside the lines.
-   ============================================================================ */
+/* HOMEPAGE, Direction C "The Open Instrument": DESIGN.md (Plate, Title block, Show working, Leader line) */
 .tag{font:500 var(--fs-prov)/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .sym{font-family:var(--mono);font-weight:500}
 .home{padding:48px 0 var(--sec)}
@@ -23,8 +16,7 @@
 .plate-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-8px 0 0}
 .fig-a{margin:4px 0 0;font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
 .p{font-size:max(12px,.72em);font-weight:600;color:var(--ink-3);letter-spacing:0}
-/* the working tree: the figure, a stem, a bus, and a drop to each part, every one a 1px signal leader (DESIGN.md
-   "Leader line"); each part's lines hang from its drop on a short tick. Drawn on load by .trace (CSS, below). */
+/* the working tree: 1px signal leaders from the figure to each part and its lines (DESIGN.md "Leader line") */
 .tree{margin:40px 0 0;padding:24px 32px 28px;--t-stagger:40ms}
 .tree .fig-a{margin:8px 0 0;font-size:clamp(48px, 30px + 3.2vw, 76px);letter-spacing:-.045em}
 .branches{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;margin-top:20px;padding-top:28px}
@@ -61,8 +53,7 @@
 .v{grid-column:2;grid-row:1;font:600 var(--fs-small)/1.3 var(--display);text-align:right;white-space:nowrap}
 .bare .tr,.bare .tnote,.bare .term::before{visibility:hidden}
 .bare .lines{display:none}
-/* drawn on load and on each opening: stem, bus, the drops one after another, then the notes, the lines, and the figure
-   lands last as the result of its sum. Reduced motion collapses every duration to an instant (tokens.css). */
+/* drawn on load and on each opening: stem, bus, drops, notes, lines, then the figure lands (DESIGN.md "Show working") */
 @keyframes tr-down{from{transform:scaleY(0)}}
 @keyframes tr-across{from{transform:scaleX(0)}}
 @keyframes tr-rise{from{opacity:0;transform:translateY(4px)}}
@@ -191,10 +182,7 @@
 .tour-tabs [role=tab]:active,.more:active{transform:translateY(1px)}
 .more{transition:transform var(--t-fast) var(--ease-ui)}
 
-/* the scene: each frame's rows are counted into the figure as the visitor scrolls (home.js): pinned, through the
-   frame's third; unpinned (short or narrow windows, phones), as the frame rises up the window. A row not yet counted
-   is plain; a counted one carries a signal tick, and the row being counted the signal wash, like a pen going down the
-   ledger. Text never dims, so it keeps its contrast (axe, 14 Oct 2026: rows at 28% opacity read 1.6:1). */
+/* the scene: rows count into the figure as it scrolls (home.js); a counted row gets the signal tick, the current one the wash; text never dims (axe) */
 .scene [data-q]>:first-child{padding-left:10px}
 .scene [data-q].lit>:first-child{box-shadow:inset 2px 0 var(--signal)}
 .scene [data-q]{transition:background-color var(--t-ui) var(--ease-ui)}
@@ -253,9 +241,7 @@ html{scroll-padding-top:88px}
 .tp figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:16px;color:var(--ink-2);font-size:var(--fs-small)}
 .tp:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:var(--r-2)}
 
-/* the stage (14 Oct 2026 audit): the product sits on one dark band between light sections, the page's high point.
-   These are DESIGN.md's dark tokens, not new colours; in the dark theme the band steps up to plate so it still reads
-   as a band. Captures keep the visitor's scheme (light on light systems), like pictures on a gallery wall. */
+/* the stage: the one dark band, DESIGN.md's dark tokens re-declared (DESIGN.md "Stage band") */
 .on-dark{color-scheme:dark;
   --paper:#0F1419;--plate:#151B22;--card:#1B222A;--raised:#252D37;
   --rule:rgba(230,234,238,.10);--rule-2:rgba(230,234,238,.20);--edge:#7A8693;
@@ -337,9 +323,7 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .schem .k.if{opacity:0;fill:var(--ink)}
 .schem :is(g.on,g.try) .k.if{opacity:1}
 
-/* S2 (15 Oct 2026): where it fits, the privacy section pins (home.js, wide windows only). Each connection takes a
-   turn, its row marked in ink and its switch shown shut, then it opens again; the section ends on its 0. Ink, not
-   signal: these rows are connections, not working, and the 0 is a figure (DESIGN.md "The Signal Rule", C2). */
+/* S2: pinned where it fits; each connection takes a turn in ink (not signal: connections, not working), ending on the 0 */
 .pinned.wires{height:210vh;padding:0}
 .pinned .wires-in{position:sticky;top:73px;min-height:calc(100vh - 73px);align-content:center;padding:12px 0}
 .pinned .conn li{padding-left:12px;transition:background-color var(--t-ui) var(--ease-ui)}
@@ -374,9 +358,7 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .rel .rel-l span:last-child{color:var(--ink-2);font-size:var(--fs-small)}
 @media (max-width:900px){.rel .rel-l{grid-template-columns:minmax(0,1fr)}.rel .rel-l li{border-bottom:1px solid var(--rule)}.rel .rel-l a{padding:14px 0}}
 /* asked first */
-/* asked first: the questions only, each answer one press away (Keyur, 14 Oct 2026). The heading sits beside one list,
-   so opening an answer never leaves a gap in a second column. A native <details>: keyboard and no-script work, and
-   find-in-page opens the answer it finds. The answer fades and rises in; nothing changes height on a timer. */
+/* asked first: native <details>, all closed, heading beside one list (DESIGN.md "Asked first") */
 .faq-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
 .faq-in .sec-head{display:block;margin:0}
 .faq-in .sec-head p{margin-top:16px}

@@ -63,7 +63,7 @@
   <section class="ph">
     <div class="wrap">
       <h1 class="d">Four connections, each off until you turn it on.</h1>
-      <p class="sub">Everything else happens on your computer. Switch each connection on to see what would leave, and where it would go.</p>
+      <p class="sub">Everything else stays on your computer. Switch one on to see what would leave.</p>
       <div class="board" data-board>
         <div class="board-sw">
           <h2 class="h3">Pocket's connections</h2>
@@ -77,17 +77,17 @@
           <h2 class="h3">What would leave this computer</h2>
           <p>For the sample person's six holdings.</p>
           <ul class="req" aria-live="polite">
-            <li class="none" data-none>Nothing. Pocket opens, works out every figure and answers questions with no connection at all.</li>
+            <li class="none" data-none>Nothing. Pocket works with no connection at all.</li>
             <li data-conn="prices" hidden><b>Yahoo Finance: the symbols, for their last price</b><code>NIFTYBEES.NS  HDFCBANK.NS  AAPL  GC=F (gold)  INR=X (dollar rate)</code></li>
-            <li data-conn="prices" hidden><b>AMFI: its whole daily NAV file</b><code>GET https://www.amfiindia.com/spages/NAVAll.txt</code>The fund is found in the file on your computer, so no fund name is sent.</li>
-            <li data-conn="prices" hidden><b>Binance's public data: the crypto pair</b><code>GET https://data-api.binance.vision/api/v3/ticker/price?symbol=BTCUSDT</code>If Binance does not answer, Hyperliquid's public price list is asked instead.</li>
+            <li data-conn="prices" hidden><b>AMFI: its whole daily NAV file</b><code>GET https://www.amfiindia.com/spages/NAVAll.txt</code>The fund is found on your computer, so no name is sent.</li>
+            <li data-conn="prices" hidden><b>Binance's public data: the crypto pair</b><code>GET https://data-api.binance.vision/api/v3/ticker/price?symbol=BTCUSDT</code>If Binance is silent, Hyperliquid's public list is asked.</li>
             <li data-conn="update" hidden><b>mypocketfi.com: the latest version number</b><code>GET https://mypocketfi.com/latest.json   User-Agent: Pocket</code>Nothing about you or your figures.</li>
-            <li data-conn="sync" hidden><b>An encrypted copy to a folder you choose</b><code>pocket-sync envelope, sealed with your passphrase (scrypt, AES-256-GCM)</code>Pocket writes the file; if the folder is one Dropbox, OneDrive or Google Drive syncs, their app uploads what it cannot read.</li>
-            <li data-conn="phone" hidden><b>Your Wi-Fi only: your own phone</b><code>a second listener on this computer's Wi-Fi address</code>Reached only by a phone paired through a link that works once, for ten minutes. Nothing goes to the internet.</li>
+            <li data-conn="sync" hidden><b>An encrypted copy to a folder you choose</b><code>pocket-sync envelope, sealed with your passphrase (scrypt, AES-256-GCM)</code>Pocket writes the file; if a sync app watches the folder, it uploads what it cannot read.</li>
+            <li data-conn="phone" hidden><b>Your Wi-Fi only: your own phone</b><code>a second listener on this computer's Wi-Fi address</code>Only a phone paired by a one-time, ten-minute link. Nothing goes to the internet.</li>
           </ul>
         </div>
       </div>
-      <p class="ph-cap">No Pocket server, no account, no analytics, no crash reports. Licence keys are checked on your computer. Claude is not in the download (<a href="ai-copilot.html#claude">what it would send</a>). The full list, with the code behind each line, is in the <a href="security-architecture.html#connections">security architecture</a>.</p>
+      <p class="ph-cap">No Pocket server, account, analytics or crash reports. Licence keys are checked on your computer. Claude is not in the download (<a href="ai-copilot.html#claude">what it would send</a>). The full list is in the <a href="security-architecture.html#connections">security architecture</a>.</p>
       <div class="hbtns">
         <a class="cta" href="download.html">Download free</a>
         <a class="ghost" href="security-architecture.html">Read the security architecture</a>
@@ -99,13 +99,13 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="d">What is not finished yet.</h2>
-        <p>Read this before relying on Pocket. Each line is true of the build on the Download page.</p>
+        <p>Read this before relying on Pocket.</p>
       </div>
       <ul class="limits">
-        <li><strong>Database encryption at rest is yours to turn on.</strong> On Windows, Pocket encrypts its database and its backups once you turn it on in Settings, Privacy &amp; security (SQLCipher, AES-256), with a recovery passphrase only you hold. On a Mac or Linux it does not yet: use FileVault or full-disk encryption. The Android app always encrypts its database.</li>
-        <li><strong>The builds are not code-signed yet.</strong> Windows and macOS warn on the first run. The <a href="download.html">Download page</a> gives each file's SHA-256: check the file against it before you open it.</li>
-        <li><strong>No independent security audit has been done.</strong> This page and the architecture page are Pocket's own account, checked against the source code.</li>
-        <li><strong>While Pocket runs, its database is open to it,</strong> and to anything else running as you, as with any app. Malware on the computer defeats every protection here.</li>
+        <li><strong>Database encryption at rest is yours to turn on.</strong> On Windows, turn it on in Settings, Privacy &amp; security (SQLCipher, AES-256, with a recovery passphrase only you hold). On a Mac or Linux it does not yet: use FileVault or full-disk encryption. Android always encrypts.</li>
+        <li><strong>The builds are not code-signed yet.</strong> Windows and macOS warn on first run. Check the file against its SHA-256 on the <a href="download.html">Download page</a> first.</li>
+        <li><strong>No independent security audit has been done.</strong> These pages are Pocket's own account, checked against the source.</li>
+        <li><strong>While Pocket runs, its database is open to it,</strong> and to anything else running as you. Malware on the computer defeats every protection here.</li>
       </ul>
     </div>
   </section>
@@ -114,7 +114,7 @@
     <div class="wrap with-shot phone">
       <div class="sec-body wide">
         <h2 class="d">The same switches, in the app.</h2>
-        <p>On the computer, the foot of the sidebar lists the connections, each Off until you turn it on, and opens Settings, Privacy &amp; security, which says each one in full. The phone says the same. These are the sample person's screens, as Pocket ships.</p>
+        <p>The sidebar's foot lists the connections, each Off until you turn it on, and opens Settings, Privacy &amp; security. The phone says the same.</p>
         <figure class="cap-fig"><div class="frame"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-overview-dark.avif 1280w, assets/cap-overview-dark-2x.avif 2560w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-overview-dark.webp 1280w, assets/cap-overview-dark-2x.webp 2560w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><source type="image/avif" srcset="assets/cap-overview.avif 1280w, assets/cap-overview-2x.avif 2560w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><source type="image/webp" srcset="assets/cap-overview.webp 1280w, assets/cap-overview-2x.webp 2560w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><img src="assets/cap-overview.png" width="1280" height="800" loading="lazy" decoding="async" alt="Pocket on a computer, sample data: the Overview, with the sidebar&#x27;s foot listing Connections: live prices, encrypted sync, hosted AI and the update check, each off."></picture></div><figcaption>The sidebar's foot: Connections, all four off.</figcaption></figure>
         <figure class="cap-fig second"><div class="frame"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-privacy-dark.avif 1012w, assets/cap-privacy-dark-2x.avif 2024w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-privacy-dark.webp 1012w, assets/cap-privacy-dark-2x.webp 2024w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><source type="image/avif" srcset="assets/cap-privacy.avif 1012w, assets/cap-privacy-2x.avif 2024w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><source type="image/webp" srcset="assets/cap-privacy.webp 1012w, assets/cap-privacy-2x.webp 2024w" sizes="(min-width: 1256px) 740px, (min-width: 901px) 45vw, 100vw"><img src="assets/cap-privacy.png" width="1012" height="344" loading="lazy" decoding="async" alt="Pocket&#x27;s Settings, Privacy &amp; security, sample data: the data on this device only, live market prices off and what they would send, the update check off, Ask Pocket answered on this device."></picture></div><figcaption>Settings, Privacy &amp; security: what each would send.</figcaption></figure>
       </div>
@@ -151,9 +151,9 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="d">Found a problem? Write to the founder.</h2>
-        <p>Email <a href="mailto:support@mypocketfi.com?subject=SECURITY">support@mypocketfi.com</a> with SECURITY in the subject. A person answers, and credits you in the changelog or keeps you anonymous, as you choose.</p>
+        <p>Email <a href="mailto:support@mypocketfi.com?subject=SECURITY">support@mypocketfi.com</a> with SECURITY in the subject. A person answers, and credits or protects you as you choose.</p>
       </div>
-      <p class="proof">The same address is in <a href=".well-known/security.txt">security.txt</a>, where security tools look for it. There is no bug bounty.</p>
+      <p class="proof">The same address is in <a href=".well-known/security.txt">security.txt</a>. There is no bug bounty.</p>
     </div>
   </section>
 

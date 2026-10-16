@@ -74,20 +74,4 @@
 .gcard .gmeta{margin:0; font:400 var(--fs-prov)/1.4 var(--mono); color:var(--ink-3)}
 @media (max-width:900px){ .gcards{grid-template-columns:1fr} }
 
-@media print{
-  html, body{background:#fff !important; color:#000 !important}
-  .sh, .skip, .sf-in, .sf-copy, .toc, .related, .gjump, .gshot, .prose > p:has(> a[href="download.html"]){display:none !important}
-  .prose{max-width:none; padding:0; color:#000}
-  .prose *{color:#000 !important}
-  .prose .tablewrap{overflow:visible}
-  .prose .tablewrap table{min-width:0}
-  .prose a{text-decoration:none}
-  .prose .sources a::after{content:" (" attr(href) ")"; font-size:var(--fs-caption)}
-  .prose h2, .prose h3{break-after:avoid}
-  .prose tr, .prose .gcard, .prose .plate{break-inside:avoid}
-  .tip{display:none !important}
-  .prose .term{text-decoration:none}
-  .prose .plate{background:none; border-color:#000}
-  .prose .ld{background:#000}
-  .prose .tblock, .prose .tblock div, .prose .wr{border-color:#000}
-}
+@media print{ .gcard{break-inside:avoid} }

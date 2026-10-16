@@ -103,6 +103,17 @@ html:not(.js) .rng{display:none}
   .fig-a{font-size:var(--fs-fig-l)}
 }
 
+/* P3: a calculator prints its inputs, its result and its working (open or not on the screen), and the not-advice line;
+   working.css has the rest of the print rules */
+@media print{
+  .calc{display:block; margin-top:20px}
+  .calc-out{position:static; margin-top:20px}
+  .calc-out .work, .calc-out:not(.open) .work{display:block !important}
+  .calc-notes{padding:24px 0 0}
+  .calc-notes > :not(.lnote){display:none}
+  .fld{break-inside:avoid}
+}
+
 /* inner.css subset: begin (tools/css_subset.py; do not edit by hand) */
 .prose b{color:var(--ink); font-weight:600}
 .prose .lnote{margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3)}

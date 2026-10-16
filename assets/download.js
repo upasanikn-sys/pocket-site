@@ -27,3 +27,37 @@
   go.textContent = "Download for " + SAY[os];
   file.textContent = [KIND[ext] || "File", size].filter(Boolean).join(", ") + ", for " + NAMES[os];
 })();
+
+// MI3 (STRIPE_LEVEL, 16 Oct 2026): a Copy button after every SHA-256, which says "Copied" in place and to a screen reader.
+// Added here, so with no script the hash is simply text; the button reads the hash when pressed (the one beside the
+// download button is filled in above).
+(function () {
+  "use strict";
+  var hashes = document.querySelectorAll("code.hash");
+  if (!hashes.length) return;
+  var live = document.createElement("span");
+  live.className = "sr"; live.setAttribute("role", "status"); live.setAttribute("aria-live", "polite");
+  document.body.appendChild(live);
+  function copy(text, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function () {}); return; }
+    var t = document.createElement("textarea");
+    t.value = text; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select();
+    try { if (document.execCommand("copy")) done(); } catch (e) {}
+    document.body.removeChild(t);
+  }
+  Array.prototype.forEach.call(hashes, function (code) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "ghost"; b.setAttribute("data-copy", ""); b.textContent = "Copy";
+    b.setAttribute("aria-label", "Copy the SHA-256");
+    var timer;
+    b.addEventListener("click", function () {
+      copy(code.textContent.trim(), function () {
+        b.textContent = "Copied"; live.textContent = "SHA-256 copied";
+        clearTimeout(timer);
+        timer = setTimeout(function () { b.textContent = "Copy"; live.textContent = ""; }, 2000);
+      });
+    });
+    code.parentNode.insertBefore(b, code.nextSibling);
+  });
+})();

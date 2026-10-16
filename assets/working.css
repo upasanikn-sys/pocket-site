@@ -101,3 +101,32 @@ sup{font-size:max(12px, .75em); line-height:0}
   .tblock div:nth-child(n+3){margin-top:10px; border-top:1px solid var(--rule)}
   .wr{grid-template-columns:minmax(10em,1fr) minmax(12px,.3fr) auto}
 }
+
+/* P3 (Stripe level, 16 Oct 2026): a guide or a calculator on paper, in ink only. The shell, the contents, the captures
+   and every control stay on the screen; the prose, the figures, the working and the sources print, black on white, with
+   where the page came from at its foot (data-print). tools/print_check.py prints each page to PDF and checks it. */
+@media print{
+  @page{margin:16mm 15mm}
+  html, body{background:#fff !important; color:#000 !important; font-size:11pt}
+  .sh, .skip, .sf, .crumbs, .tip, .marks, .toc, .related, .next, .gjump, .gshot, .sw, .reset, .rng, .calc-act,
+  .calc-private, .calc-try, button, .prose > p:has(> a[href="download.html"]){display:none !important}
+  main, main *{color:#000 !important; text-shadow:none; box-shadow:none}
+  .wrap{max-width:none; padding:0}
+  .prose, .calcpage{max-width:none; margin:0; padding:0}
+  a{text-decoration:none}
+  h1.d::after{border-color:#000; background:linear-gradient(#000,#000) center/100% 1px no-repeat}
+  .plate, .lsum, .box{background:none !important; border:1px solid #000; border-radius:0}
+  .tblock, .tblock div{border-color:#000}
+  .wr, .prose td, .prose th, .prose .lnote{border-color:#999}
+  .ld{background:#000; animation:none !important; transform:none !important}   /* a leader is drawn whole on paper */
+  .prose h2 + p.q, .say, .say2{max-width:none}
+  .tablewrap{overflow:visible}
+  .tablewrap table, .tablewrap.fit table{min-width:0}
+  h1, h2, h3{break-after:avoid}
+  p, li{orphans:3; widows:3}
+  tr, .wr, .plate, .lsum, .tblock{break-inside:avoid}
+  thead{display:table-header-group}
+  .prose .sources a::after{content:" (" attr(href) ")"; font-size:9pt}
+  [data-print]::after{content:attr(data-print); display:block; margin-top:20px; padding-top:8px; border-top:1px solid #000;
+    font:400 9pt/1.4 var(--mono)}
+}

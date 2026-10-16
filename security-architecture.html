@@ -91,21 +91,18 @@
     connections exist, each off until you turn it on, and section 9 lists exactly what each sends.
   </div>
 
-  <figure class="ph-vis"><div class="crop" style="--x:0;--y:0;--w:1012;--h:344;--sw:1012"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-privacy-dark.avif 1012w, assets/cap-privacy-dark-2x.avif 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-privacy-dark.webp 1012w, assets/cap-privacy-dark-2x.webp 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><source type="image/avif" srcset="assets/cap-privacy.avif 1012w, assets/cap-privacy-2x.avif 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><source type="image/webp" srcset="assets/cap-privacy.webp 1012w, assets/cap-privacy-2x.webp 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><img src="assets/cap-privacy.png" width="1012" height="344" loading="lazy" decoding="async" alt="Settings, Privacy and security in Pocket on the sample data: where your data is (on this device only, in ~/FinOSData), live market prices off, the update check off, Ask Pocket answered on the device."></picture></div><figcaption>Settings, Privacy &amp; security, as Pocket ships: each connection off, and what it would send once on.</figcaption></figure>
+  <figure class="ph-vis"><div class="crop" style="--x:0;--y:0;--w:1012;--h:344;--sw:1012"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-privacy-dark.avif 1012w, assets/cap-privacy-dark-2x.avif 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-privacy-dark.webp 1012w, assets/cap-privacy-dark-2x.webp 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><source type="image/avif" srcset="assets/cap-privacy.avif 1012w, assets/cap-privacy-2x.avif 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><source type="image/webp" srcset="assets/cap-privacy.webp 1012w, assets/cap-privacy-2x.webp 2024w" sizes="(min-width: 901px) 760px, calc((100vw - 32px) * 2)"><img src="assets/cap-privacy.png" width="1012" height="344" loading="lazy" decoding="async" alt="Settings, Privacy and security in Pocket on the sample data: where your data is (on this device only, in ~/FinOSData), live market prices off, the update check off, Ask Pocket answered on the device."></picture></div><figcaption>Settings, Privacy &amp; security: each connection off.</figcaption></figure>
 
   <h2 id="threats">1. Threat model</h2>
   <p>Pocket is built against the ways financial data is lost at scale:</p>
   <ul>
-    <li><b>Server breaches:</b> there is no Pocket server and no copy of your data anywhere but your devices and the
-    folder you choose for backups.</li>
+    <li><b>Server breaches:</b> no Pocket server, and no copy of your data beyond your devices and your backup folder.</li>
     <li><b>Harvesting and resale:</b> no telemetry, no analytics library, no advertising and no account.</li>
-    <li><b>Network interception:</b> the only requests Pocket can make carry market symbols, a version check, an
-    encrypted file or your own phone's traffic on your Wi-Fi, and each is off until you switch it on (section 9).</li>
+    <li><b>Network interception:</b> the only requests carry market symbols, a version check, an encrypted file or your phone's Wi-Fi traffic, each off until you switch it on (section 9).</li>
     <li><b>Someone at your computer:</b> a PIN locks the pages and the API; the vault and backups need your
     passphrase.</li>
   </ul>
-  <p>Outside the model: malware running as you, or someone with your unlocked computer or an unencrypted disk. No
-  desktop app can defend against a compromised operating system (section 10).</p>
+  <p>Outside the model: malware running as you, or someone with your unlocked computer or an unencrypted disk. No desktop app can defend a compromised system (section 10).</p>
 
   <h2 id="flow">2. How data moves</h2>
   <figure class="flow2" aria-labelledby="flow-cap">
@@ -121,49 +118,35 @@
       <li><span class="wire" aria-hidden="true"></span><span class="off">Off</span><span>A folder you choose <small>an encrypted copy</small></span></li>
       <li><span class="wire" aria-hidden="true"></span><span class="off">Off</span><span>Your phone, on your Wi-Fi <small>paired once</small></span></li>
     </ul>
-    <figcaption id="flow-cap">Everything Pocket works out stays inside this computer. Each line out is off as Pocket ships; section 9 says what travels on it once you turn it on.</figcaption>
+    <figcaption id="flow-cap">Everything Pocket works out stays inside this computer. Each line out is off as shipped; section 9 says what it carries.</figcaption>
   </figure>
 
   <h2 id="data">3. Where your data lives</h2>
   <p>Everything you enter is stored in one SQLite database, with a vault folder beside it, in <code>FinOSData</code>
-  in your user folder. It is created, read and changed on your computer and never sent anywhere by Pocket. Copy it,
-  back it up or delete it like any file; deleting it removes your data for good.</p>
-  <p><b>Database encryption (Windows, since 3.2.8, when you turn it on):</b> in Settings, Privacy &amp; security,
-  Pocket encrypts its database and every backup copy of it with <b>SQLCipher 4</b> (AES-256, page by page) under a
-  random 256-bit key. The key is kept twice beside your data: locked to your Windows account with Windows' own data
-  protection (DPAPI), so Pocket opens with no prompt; and under a <b>recovery passphrase</b> you choose (scrypt, then
-  AES-256-GCM), needed only on another computer or after Windows is reinstalled. Nobody can recover a lost
-  passphrase. Turning it on encrypts into a new file, checks every table holds the same rows, and only then replaces
-  the plain one; turning it off decrypts the same way.</p>
-  <p><b>Honest detail:</b> it is off until you turn it on, and on macOS and Linux Pocket does not yet encrypt its
-  database: there it is protected by your account and your disk encryption. Use BitLocker or Windows Device
-  Encryption, FileVault, or full-disk encryption everywhere: they cover the rest of the disk too. The Android app
-  always encrypts its database (SQLCipher, with a random key in the phone's secure storage).</p>
+  in your user folder. Pocket never sends it anywhere. Copy, back up or delete it like any file; deleting it removes your data for good.</p>
+  <p><b>Database encryption (Windows, since 3.2.8, when you turn it on):</b> Pocket encrypts its database and every backup copy with <b>SQLCipher 4</b> (AES-256, page by page) under a
+  random 256-bit key. The key is kept twice beside your data: under your Windows account (DPAPI), so Pocket opens with no prompt; and under a <b>recovery passphrase</b> you choose (scrypt, then AES-256-GCM), needed only on another computer or after a reinstall. A lost passphrase cannot be recovered. Turning it on encrypts into a new file, checks every table has the same rows, and only then replaces the plain one.</p>
+  <p><b>Honest detail:</b> it is off until you turn it on, and on macOS and Linux Pocket does not yet encrypt its database: your account and disk encryption protect it. Use BitLocker, FileVault or full-disk encryption everywhere. Android always encrypts its database (SQLCipher, key in the phone's secure storage).</p>
 
   <h2 id="vault">4. Document vault (Founder Pro)</h2>
   <ul>
     <li><b>Key:</b> your passphrase through <b>scrypt</b> (n=2<sup>14</sup>, r=8, p=1) with a fresh random 16-byte
-    salt per file, giving a 32-byte key. scrypt is memory-hard, which makes guessing passphrases expensive.</li>
-    <li><b>Encryption:</b> <b>AES-256-GCM</b> with a fresh random 12-byte nonce per file. GCM is authenticated: a
-    tampered file, or a wrong passphrase, fails instead of decrypting to garbage. Files written by earlier builds
+    salt per file, giving a 32-byte key. scrypt is memory-hard, so guessing is expensive.</li>
+    <li><b>Encryption:</b> <b>AES-256-GCM</b> with a fresh random 12-byte nonce per file. GCM is authenticated: a tampered file or wrong passphrase fails. Files written by earlier builds
     (Fernet) still open and are re-sealed with AES-256-GCM the next time.</li>
     <li><b>Nothing to recover from:</b> the passphrase and key are never stored. A lost passphrase means a lost
     document.</li>
-    <li><b>What stays readable:</b> each document's name, label, size and date, so the vault can list them without
-    the passphrase. Rename a file whose name is itself sensitive before adding it. Up to 10&nbsp;MB a file.</li>
+    <li><b>What stays readable:</b> each document's name, label, size and date, so the vault can list them. Rename a sensitive file before adding it. Up to 10&nbsp;MB a file.</li>
   </ul>
 
   <h2 id="backup">5. Encrypted backup (Founder Pro)</h2>
   <ul>
-    <li>A backup copies the database with SQLite's online backup (safe while Pocket runs), then seals the copy with
-    the vault's scheme, under a passphrase you choose.</li>
+    <li>A backup copies the database with SQLite's online backup (safe while Pocket runs), then seals it with the vault's scheme under your passphrase.</li>
     <li>The result is <b>an encrypted copy to a folder you choose</b>: one file, <code>vestora-sync.enc</code>. If the
     folder is one your Dropbox, OneDrive or Google Drive app syncs, that app uploads a file it cannot read. Pocket
     runs no sync server and holds no key.</li>
-    <li>Restoring takes the newest copy and first makes a safety copy of the current database. Restoring your own
-    backup is free on every plan.</li>
-    <li>The local backups Pocket makes before an import or a risky change are copies of the database: encrypted when
-    the database is, plain when it is not.</li>
+    <li>Restoring takes the newest copy after a safety copy of the current database. It is free on every plan.</li>
+    <li>Local backups before an import or risky change follow the database: encrypted when it is, plain when it is not.</li>
   </ul>
 
   <h2 id="lock">6. App lock and your phone</h2>
@@ -185,7 +168,7 @@
     site's page makes in your browser, and accepts changes only as JSON, which another site cannot send without
     asking first.</li>
     <li>An optional token can be required on every request, compared in constant time.</li>
-    <li>Pocket notes each change it makes in a log beside your data: the kind of change, never what you typed.</li>
+    <li>Each change is logged beside your data: its kind, never what you typed.</li>
   </ul>
 
   <h2 id="imports">8. Imported statements are untrusted</h2>
@@ -193,14 +176,12 @@
   treated as untrusted input. Pocket's interface is a web page, and text from a file must never become code running
   beside your financial data.</p>
   <ul>
-    <li>Text shown on a page is HTML-escaped, so markup in a payee's name shows as characters.</li>
-    <li>Text handed to a page's script as data is encoded so it cannot end the script.</li>
-    <li>Text inside a button's action is escaped for JavaScript, then for HTML, because the browser undoes them in
-    the opposite order. Names like O'Brien keep their apostrophe.</li>
+    <li>Page text is HTML-escaped, so markup in a payee's name shows as characters.</li>
+    <li>Text handed to a script is encoded so it cannot end the script.</li>
+    <li>Text in a button's action is escaped for JavaScript, then HTML, the order the browser undoes them.</li>
     <li>A mutual-fund statement's password is typed by you, used to open the file and never stored or logged.</li>
   </ul>
-  <p>Each is covered by an automated test that fails when the protection is removed, and a browser probe tries known
-  injection payloads on Pocket's pages.</p>
+  <p>Each has a test that fails when the protection is removed, and a browser probe tries known injection payloads.</p>
 
   <h2 id="connections">9. Every network connection, listed</h2>
   <div class="tablewrap" tabindex="0" role="region" aria-label="Network connections, scrolls sideways">

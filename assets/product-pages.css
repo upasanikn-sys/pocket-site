@@ -264,3 +264,6 @@ html:not(.js) .ask-qs{display:none}
 
 /* Stream A, round 2 (C1): a closing band on plate where the sections before it end on paper */
 .close.alt{background:var(--plate); border-top:1px solid var(--rule)}
+
+/* Stream A, round 3 (H4): Ask Pocket's capture beside its statement */
+.ph-split > .hero-cap{margin-top:0; min-width:0}

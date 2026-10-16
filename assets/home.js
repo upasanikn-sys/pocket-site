@@ -229,7 +229,7 @@
        moves only when the salary does) and lands on the engine's own text; reduced motion sets it at once */
     var num = function (s) { return +String(s).replace(/[^\d]/g, ""); }, rolls = {},
         inr = function (n) { var s = String(n), h = s.slice(0, -3); return "₹" + (h ? h.replace(/\B(?=(\d{2})+$)/g, ",") + "," + s.slice(-3) : s); },
-        roll = function (k, v) {
+        rollFig = function (k, v) {   // not "roll": that name is the switch's totals (16 Oct 2026 bug)
           var el = box.querySelector('[data-t="' + k + '"]'), a = num(el.textContent), b = num(v), t0 = 0;
           cancelAnimationFrame(rolls[k]);
           if (rm || a === b || !/^₹[\d,]+$/.test(v)) return put(k, v);
@@ -256,7 +256,7 @@
     rng.addEventListener("input", function () {
       rng.style.setProperty("--f", (rng.value - rng.min) / (rng.max - rng.min));
       var r = T.p[Math.round((rng.value - T.from) / T.step)];
-      box.querySelector(".try-g").textContent = r[0]; roll("new", r[1]); roll("old", r[2]);
+      box.querySelector(".try-g").textContent = r[0]; rollFig("new", r[1]); rollFig("old", r[2]);
       put("say", r[3] ? T.lower.replace("%w", r[3]).replace("%d", r[4]) : T.same);
       put("be", T.be[r[5]] || T.be[2].replace("%s", r[5]));
       rng.setAttribute("aria-valuetext", r[0] + " a year: new regime " + r[1] + ", old regime " + r[2]);

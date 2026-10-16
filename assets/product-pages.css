@@ -1,11 +1,3 @@
-/* ============================================================================
-   POCKET: THE PRODUCT PAGES (Why Pocket, Features, Ask Pocket, Security, Security architecture)
-   Loaded after inner.css by those five pages only (SITE_TO_9.md, Stream 1, 12 Oct 2026).
-   Every colour, radius, size, duration and easing is a token from vestora-tokens.css (DESIGN.md);
-   nothing here adds one. Signal marks the working only: the "=" of a sum, and a switch that is on.
-   ============================================================================ */
-
-/* ---------------------------------------------------------------- shared */
 .ph-cap{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3); max-width:68ch; line-height:1.6}
 .proof{margin:16px 0 0; font-size:var(--fs-small); color:var(--ink-3); line-height:1.6; max-width:68ch}
 .sec-body{max-width:62ch; min-width:0}
@@ -13,10 +5,8 @@
 .sec-body h2{margin:0 0 16px; text-wrap:balance}
 .sec-body > p{margin:0 0 24px; color:var(--ink-2)}
 .badge{display:inline-block; vertical-align:middle; margin-left:6px; padding:1px 8px; border:1px solid var(--rule-2);
-  border-radius:var(--r-1); font:500 var(--fs-caption)/1.5 var(--sans); letter-spacing:0; color:var(--ink-2); white-space:nowrap}
+border-radius:var(--r-1); font:500 var(--fs-caption)/1.5 var(--sans); letter-spacing:0; color:var(--ink-2); white-space:nowrap}
 .badge.pro{border-color:var(--ink); color:var(--ink)}
-
-/* a table that is the proof: rules, tabular figures, labelled rows on phones (The Stacked Table Rule) */
 .facts{width:100%; border-collapse:collapse; font-size:var(--fs-small); font-variant-numeric:tabular-nums}
 .facts th, .facts td{text-align:left; vertical-align:top; padding:12px 16px 12px 0; border-bottom:1px solid var(--rule); line-height:1.5}
 .facts thead th{font:600 var(--fs-caption)/1.3 var(--sans); color:var(--ink-3); border-bottom:1px solid var(--rule-2)}
@@ -25,15 +15,13 @@
 .facts .n{text-align:right; white-space:nowrap}
 .facts td.off{color:var(--ink); white-space:nowrap}
 @media (max-width:560px){
-  .facts thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
-  .facts, .facts tbody, .facts tr, .facts th, .facts td{display:block; width:100%}
-  .facts tr{padding:12px 0; border-bottom:1px solid var(--rule)}
-  .facts th, .facts td{border:0; padding:2px 0}
-  .facts td[data-l]::before{content:attr(data-l) ": "; color:var(--ink-3)}
-  .facts .n, .facts td.off{text-align:left; white-space:normal}
+.facts thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+.facts, .facts tbody, .facts tr, .facts th, .facts td{display:block; width:100%}
+.facts tr{padding:12px 0; border-bottom:1px solid var(--rule)}
+.facts th, .facts td{border:0; padding:2px 0}
+.facts td[data-l]::before{content:attr(data-l) ": "; color:var(--ink-3)}
+.facts .n, .facts td.off{text-align:left; white-space:normal}
 }
-
-/* a real capture beside its words: the product is the image (DESIGN_STANDARD.md, imagery) */
 .with-shot{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:56px; align-items:start}
 .with-shot.phone{grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr)}
 .cap-fig{margin:0; min-width:0}
@@ -47,21 +35,15 @@
 .hero-cap{margin-top:44px; max-width:1034px}
 .ask-cap{margin-top:20px}
 @media (max-width:900px){ .with-shot, .with-shot.phone{grid-template-columns:minmax(0,1fr); gap:32px} }
-
-/* the working: a sum on rules, its "=" in signal */
 .sum{margin:0; padding:0; list-style:none; border-top:1px solid var(--rule-2); font-variant-numeric:tabular-nums}
 .sum li{display:grid; grid-template-columns:20px minmax(0,1fr) auto; gap:12px; align-items:baseline;
-  padding:12px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-2)}
+padding:12px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-2)}
 .sum .op{color:var(--ink-3); text-align:center}
 .sum .v{color:var(--ink); white-space:nowrap; font:600 var(--fs-body)/1.3 var(--sans); text-align:right}
 .sum small{display:block; margin-top:2px; font-size:var(--fs-caption); color:var(--ink-3); line-height:1.5}
 .sum li.tot{border-bottom:1px solid var(--rule-2); color:var(--ink); font-weight:600}
 .sum li.tot .op{color:var(--signal)}
 .sum li.tot .v{font:600 var(--fs-fig-m)/1.1 var(--display); letter-spacing:-.02em}
-
-/* ---------------------------------------------------------------- carried from inner.css
-   These five pages load tokens, observatory, site-shell and this sheet, not inner.css: with it they would load
-   64.6 KB of CSS, over DESIGN_STANDARD.md's 64 KB a page. The rules below are inner.css's own, as of 12 Oct 2026. */
 .has{list-style:none; margin:0; padding:0; font-size:var(--fs-small); color:var(--ink-3)}
 .has li{display:grid; grid-template-columns:14px 1fr; gap:8px; line-height:1.5; padding:1px 0}
 .has li::before{content:""; width:8px; height:1px; margin-top:.75em; background:var(--ink-3)}
@@ -73,18 +55,16 @@
 @media (max-width:900px){ .ph-grid{grid-template-columns:1fr; gap:48px} .capture{width:230px} }
 .limits{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule-2)}
 .limits li{position:relative; padding:20px 0 20px 26px; border-bottom:1px solid var(--rule); max-width:96ch;
-  color:var(--ink-2); font-size:var(--fs-body); line-height:1.65}
+color:var(--ink-2); font-size:var(--fs-body); line-height:1.65}
 .limits li::before{content:""; position:absolute; left:1px; top:29px; width:8px; height:8px; border-radius:50%;
-  border:1.5px solid var(--ink-3)}
+border:1.5px solid var(--ink-3)}
 .limits strong{color:var(--ink); font-weight:600}
 .limits.one{margin-top:18px; border-top:0}
 .prose .ldate{margin:0 0 28px; font-size:var(--fs-small); color:var(--ink-3)}
 .prose .lsum{margin:0 0 12px; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
-  color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
+color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
 .prose .lsum b, .prose b{color:var(--ink); font-weight:600}
 .prose .lnote{margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3)}
-
-/* ---------------------------------------------------------------- Why Pocket: six answers */
 .ph-split{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:56px; align-items:center}
 .answers{margin:0; padding:8px 24px 16px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card)}
 .answers dl{margin:0}
@@ -93,21 +73,19 @@
 .answers dt a{color:inherit; text-decoration:underline; text-decoration-color:var(--rule-2); text-underline-offset:3px}
 .answers dt a:hover{color:var(--ink); text-decoration-color:var(--ink)}
 .answers dd{margin:0; text-align:right; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink);
-  font-variant-numeric:tabular-nums; white-space:nowrap}
+font-variant-numeric:tabular-nums; white-space:nowrap}
 .answers dd span{display:block; font:400 var(--fs-caption)/1.4 var(--sans); letter-spacing:0; color:var(--ink-3)}
 .answers-src{margin:12px 0 0; font:500 var(--fs-prov)/1.4 var(--mono); color:var(--ink-3)}
 @media (max-width:900px){ .ph-split{grid-template-columns:minmax(0,1fr); gap:40px} }
 @media (max-width:560px){ .answers{padding:4px 16px 12px} .answers dd span{white-space:normal} }
-
-/* ---------------------------------------------------------------- Features: the tour and the modules */
 .tour{margin-top:48px}
 .tour-tabs{position:relative; display:flex; flex-wrap:wrap; gap:4px; border-bottom:1px solid var(--rule-2)}
 .tour-tabs [role="tab"]{min-height:44px; padding:0 16px; background:none; border:0; color:var(--ink-3);
-  font:500 var(--fs-body)/1 var(--sans); cursor:pointer; transition:color var(--t-fast) var(--ease-ui)}
+font:500 var(--fs-body)/1 var(--sans); cursor:pointer; transition:color var(--t-fast) var(--ease-ui)}
 .tour-tabs [role="tab"]:hover, .tour-tabs [aria-selected="true"]{color:var(--ink)}
 .tour-tabs [role="tab"]:active{transform:translateY(1px)}
 .tour-bar{position:absolute; left:0; bottom:-1px; width:1px; height:2px; background:var(--ink); transform-origin:0 0;
-  transform:scaleX(0); transition:transform var(--t-ui) var(--ease-ui)}
+transform:scaleX(0); transition:transform var(--t-ui) var(--ease-ui)}
 .tour-panels{margin-top:24px}
 .tour-panel{margin:0 0 24px}
 .tour-panel img{display:block; width:100%; height:auto; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card)}
@@ -115,32 +93,29 @@
 .tour-panel figcaption a{color:var(--ink-2)}
 .js .tour-panels{display:grid}
 .js .tour-panel{grid-area:1/1; margin:0; opacity:0; visibility:hidden;
-  transition:opacity var(--t-ui) var(--ease-ui), visibility var(--t-ui) var(--ease-ui)}
+transition:opacity var(--t-ui) var(--ease-ui), visibility var(--t-ui) var(--ease-ui)}
 .js .tour-panel.on{opacity:1; visibility:visible}
 html:not(.js) .tour-tabs{display:none}
-
 .mods2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px; border-top:1px solid var(--rule-2)}
 .mod2{padding:24px 0; border-bottom:1px solid var(--rule); scroll-margin-top:88px}
 .mod2 h3{margin:0 0 8px; font-size:var(--fs-h3)}
 .crop{margin:0 0 16px; overflow:hidden; aspect-ratio:calc(var(--w) / var(--h)); border:1px solid var(--rule-2);
-  border-radius:var(--r-3); background:var(--card)}
+border-radius:var(--r-3); background:var(--card)}
 .crop.phone{max-width:280px}
 .crop picture{display:block}
 .crop img{display:block; max-width:none; height:auto; width:calc(var(--sw) / var(--w) * 100%);
-  margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--w) * -100%)}
+margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--w) * -100%)}
 .mod2 p{margin:0; color:var(--ink-2); font-size:var(--fs-body); line-height:1.6}
 .mod2 .eg{margin-top:12px; padding-left:12px; border-left:2px solid var(--rule-2); color:var(--ink); font-size:var(--fs-small);
-  font-variant-numeric:tabular-nums}
+font-variant-numeric:tabular-nums}
 .limits.coming{margin-top:32px}
 @media (max-width:900px){ .mods2{grid-template-columns:minmax(0,1fr)} }
-
-/* ---------------------------------------------------------------- Ask Pocket: the demo and the payload */
 .askdemo{display:grid; grid-template-columns:minmax(0,.36fr) minmax(0,.64fr); gap:40px; align-items:start}
 .ask-qs{display:flex; flex-direction:column; border-top:1px solid var(--rule-2)}
 .ask-qs [role="tab"]{min-height:52px; padding:0 16px 0 14px; text-align:left; background:none; border:0; border-bottom:1px solid var(--rule);
-  border-left:2px solid transparent;
-  color:var(--ink-2); font:500 var(--fs-body)/1.3 var(--sans); cursor:pointer;
-  transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui)}
+border-left:2px solid transparent;
+color:var(--ink-2); font:500 var(--fs-body)/1.3 var(--sans); cursor:pointer;
+transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui)}
 .ask-qs [role="tab"]:hover{background:var(--raised); color:var(--ink)}
 .ask-qs [role="tab"]:active{transform:translateY(1px)}
 .ask-qs [aria-selected="true"]{color:var(--ink); background:var(--card); border-left-color:var(--ink)}
@@ -149,14 +124,14 @@ html:not(.js) .tour-tabs{display:none}
 .said{margin:0 0 20px; font:500 var(--fs-lede)/1.5 var(--sans); color:var(--ink); text-wrap:pretty}
 .js .ask-as{display:grid}
 .js .ask-a{grid-area:1/1; margin:0; opacity:0; visibility:hidden;
-  transition:opacity var(--t-ui) var(--ease-ui), visibility var(--t-ui) var(--ease-ui)}
+transition:opacity var(--t-ui) var(--ease-ui), visibility var(--t-ui) var(--ease-ui)}
 .js .ask-a.on{opacity:1; visibility:visible}
 html:not(.js) .ask-qs{display:none}
 @media (max-width:900px){
-  .askdemo{grid-template-columns:minmax(0,1fr); gap:20px}
-  .ask-qs{flex-direction:row; flex-wrap:wrap; gap:8px; border-top:0}
-  .ask-qs [role="tab"]{min-height:44px; border:1px solid var(--edge); border-radius:var(--r-2)}
-  .ask-qs [aria-selected="true"]{border-color:var(--ink); background:var(--ink); color:var(--on-ink)}
+.askdemo{grid-template-columns:minmax(0,1fr); gap:20px}
+.ask-qs{flex-direction:row; flex-wrap:wrap; gap:8px; border-top:0}
+.ask-qs [role="tab"]{min-height:44px; border:1px solid var(--edge); border-radius:var(--r-2)}
+.ask-qs [aria-selected="true"]{border-color:var(--ink); background:var(--ink); color:var(--on-ink)}
 }
 .claude{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:48px; align-items:start}
 .claude h3{margin:0 0 8px; font-size:var(--fs-h3)}
@@ -164,34 +139,32 @@ html:not(.js) .ask-qs{display:none}
 .claude .has{font-size:var(--fs-small); color:var(--ink-2)}
 .claude .has li{padding:4px 0}
 .payload{margin:0; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
-  overflow-x:auto; font:400 var(--fs-prov)/1.6 var(--mono); color:var(--ink-2); white-space:pre}
+overflow-x:auto; font:400 var(--fs-prov)/1.6 var(--mono); color:var(--ink-2); white-space:pre}
 .payload code{font:inherit}
 @media (max-width:900px){ .claude{grid-template-columns:minmax(0,1fr); gap:24px} }
-
-/* ---------------------------------------------------------------- Security: the switchboard */
 .ph .board{margin:8px 0 0}
 .board{display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); border:1px solid var(--rule-2);
-  border-radius:var(--r-3); background:var(--card); overflow:hidden}
+border-radius:var(--r-3); background:var(--card); overflow:hidden}
 .board-sw{padding:24px; border-right:1px solid var(--rule)}
 .board .h3{margin:0 0 4px; font-size:var(--fs-h3); letter-spacing:-.01em}
 .board-sw > p, .board-out > p{margin:0 0 16px; font-size:var(--fs-small); color:var(--ink-3)}
 .sw{display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%; min-height:56px; padding:8px 0;
-  background:none; border:0; border-top:1px solid var(--rule); color:var(--ink); text-align:left; cursor:pointer;
-  font:500 var(--fs-body)/1.3 var(--sans)}
+background:none; border:0; border-top:1px solid var(--rule); color:var(--ink); text-align:left; cursor:pointer;
+font:500 var(--fs-body)/1.3 var(--sans)}
 .sw:last-child{border-bottom:1px solid var(--rule)}
 .sw b{display:block; font-weight:600}
 .sw small{display:block; margin-top:2px; font-size:var(--fs-caption); font-weight:400; color:var(--ink-3)}
 .sw .track{flex:none; position:relative; width:34px; height:20px; border-radius:10px; background:var(--card);
-  border:1px solid var(--edge); transition:background var(--t-ui) var(--ease-ui), border-color var(--t-ui) var(--ease-ui)}
+border:1px solid var(--edge); transition:background var(--t-ui) var(--ease-ui), border-color var(--t-ui) var(--ease-ui)}
 .sw .track::after{content:""; position:absolute; top:3px; left:3px; width:12px; height:12px; border-radius:50%;
-  background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui), background var(--t-ui) var(--ease-ui)}
+background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui), background var(--t-ui) var(--ease-ui)}
 .sw[aria-pressed="true"] .track{background:var(--signal); border-color:var(--signal)}
 .sw[aria-pressed="true"] .track::after{transform:translateX(14px); background:var(--card)}
 .sw:active .track{transform:translateY(1px)}
 .board-out{padding:24px; min-width:0}
 .req{margin:0; padding:0; list-style:none}
 .req li{padding:12px 0; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3); line-height:1.55;
-  animation:arrive var(--t-ui) var(--ease-ui)}
+animation:arrive var(--t-ui) var(--ease-ui)}
 .req li:last-child{border-bottom:1px solid var(--rule)}
 .req b{display:block; font-weight:600; color:var(--ink)}
 .req code{display:block; margin:4px 0; font:400 var(--fs-prov)/1.6 var(--mono); color:var(--ink-2); overflow-wrap:anywhere; white-space:pre-wrap}
@@ -200,8 +173,6 @@ html:not(.js) .ask-qs{display:none}
 .ph .board + .ph-cap{margin-bottom:28px}
 @media (max-width:900px){ .board{grid-template-columns:minmax(0,1fr)} .board-sw{border-right:0; border-bottom:1px solid var(--rule)} }
 @media (max-width:560px){ .board-sw, .board-out{padding:16px} }
-
-/* ---------------------------------------------------------------- Security architecture */
 .arch{display:grid; grid-template-columns:200px minmax(0,68ch); gap:56px; justify-content:center; align-items:start}
 .arch .prose{margin:0; min-width:0}
 .toc{position:sticky; top:88px; padding-top:84px; font-size:var(--fs-small)}
@@ -211,65 +182,50 @@ html:not(.js) .ask-qs{display:none}
 .toc a:hover{color:var(--ink)}
 .prose [id]{scroll-margin-top:88px}
 .prose code{font:400 var(--fs-prov)/1.5 var(--mono); color:var(--ink); background:var(--plate); padding:1px 4px;
-  border-radius:var(--r-1); overflow-wrap:anywhere}
+border-radius:var(--r-1); overflow-wrap:anywhere}
 .prose table.conns td, .prose table.history td{font-size:var(--fs-small)}
 .prose table.conns th[scope="row"], .prose table.history th[scope="row"]{color:var(--ink); font-weight:600; font-size:var(--fs-small)}
 .prose table.history th[scope="row"]{font-variant-numeric:tabular-nums; white-space:nowrap}
 .flow2{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); margin:24px 0 8px; border:1px solid var(--rule-2);
-  border-radius:var(--r-3); background:var(--card); overflow:hidden}
+border-radius:var(--r-3); background:var(--card); overflow:hidden}
 .flow2 .pc{padding:20px; border-right:1px solid var(--rule)}
 .flow2 .pc-h{margin:0 0 12px; font:500 var(--fs-prov)/1.3 var(--mono); color:var(--ink-3)}
 .flow2 .node{position:relative; margin:0; padding:10px 12px; border:1px solid var(--rule-2); border-radius:var(--r-2);
-  font-size:var(--fs-small); color:var(--ink); line-height:1.4}
+font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .flow2 .node + .node{margin-top:20px}
 .flow2 .node + .node::before{content:""; position:absolute; left:50%; top:-21px; width:1px; height:20px; background:var(--ink)}
 .flow2 .node.here{border-color:var(--ink); background:var(--plate)}
 .flow2 small{display:block; font-size:var(--fs-caption); color:var(--ink-3)}
 .flow2 .outs{margin:0; padding:20px; list-style:none; display:flex; flex-direction:column; justify-content:center; gap:4px}
 .flow2 .outs li{display:grid; grid-template-columns:40px auto minmax(0,1fr); gap:10px; align-items:center; padding:8px 0;
-  margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
+margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .flow2 .wire{height:0; border-top:1px dashed var(--ink-3)}
 .flow2 .off{font:500 var(--fs-prov)/1 var(--mono); color:var(--ink-3); padding:2px 4px; border:1px solid var(--rule-2); border-radius:var(--r-1)}
 .flow2 figcaption{grid-column:1 / -1; padding:12px 20px; border-top:1px solid var(--rule); font-size:var(--fs-caption); color:var(--ink-3)}
 @media (max-width:900px){
-  .arch{grid-template-columns:minmax(0,1fr); gap:0}
-  .toc{position:static; padding-top:56px}
-  .arch .prose{padding-top:40px}
+.arch{grid-template-columns:minmax(0,1fr); gap:0}
+.toc{position:static; padding-top:56px}
+.arch .prose{padding-top:40px}
 }
 @media (max-width:560px){
-  .flow2{grid-template-columns:minmax(0,1fr)}
-  .flow2 .pc{border-right:0; border-bottom:1px solid var(--rule)}
-  .flow2 .outs li{grid-template-columns:24px auto minmax(0,1fr)}
+.flow2{grid-template-columns:minmax(0,1fr)}
+.flow2 .pc{border-right:0; border-bottom:1px solid var(--rule)}
+.flow2 .outs li{grid-template-columns:24px auto minmax(0,1fr)}
 }
-
-/* ---- Stream A, 15 Oct 2026 (STRIPE_LEVEL P1, P2): states for every control, and captures that fade in ---------
-   A control with no handler of its own still shows hover, press and disabled; img-fade.js adds .fade-img only to an
-   image that is still loading, so a cached one is never hidden. */
 .ghost:active{opacity:.7}
 .cta[aria-disabled="true"], .btn-line[aria-disabled="true"], .ghost[aria-disabled="true"], .plat[aria-disabled="true"],
 .cta:disabled, .btn-line:disabled, .ghost:disabled{opacity:.45; cursor:not-allowed; pointer-events:none; transform:none}
 .fade-img{opacity:0}
 .fade-img.in{opacity:1; transition:opacity var(--t-roll) var(--ease-ui)}
 @media (prefers-reduced-motion:reduce){ .fade-img.in{transition:none} }
-
-/* Stream A, round 2 (L3b): the tour sits beside Features' statement, so the first screen holds both */
 .ph-split > .tour{margin-top:0; min-width:0}
 .ph-split > .tour .ph-cap{margin-top:12px}
 .ph-split:has(> .tour){grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:start}
 @media (max-width:900px){ .ph-split:has(> .tour){grid-template-columns:minmax(0,1fr)} }
-
-/* Stream A, round 2 (T5): captions and limits at 68ch at most; <small> is the caption size, not the browser's 13.33px */
 .ph-cap, .limits li, .sec-body p, .cap-fig figcaption{max-width:68ch}
 .flow2 small, .arch small{font-size:var(--fs-caption)}
-
-/* Stream A, round 2 (C1): a closing band on plate where the sections before it end on paper */
 .close.alt{background:var(--plate); border-top:1px solid var(--rule)}
-
-/* Stream A, round 3 (H4): Ask Pocket's capture beside its statement */
 .ph-split > .hero-cap{margin-top:0; min-width:0}
-
-/* Stream A, round 4 (N4): "On this page" under a long page's hero: one quiet line of the sections, on phones a strip that
-   scrolls sideways; every section a link lands on clears the sticky header */
 .ltoc.strip{border-bottom:1px solid var(--rule)}
 .ltoc.strip .wrap{display:flex; align-items:center; gap:24px}
 .ltoc.strip .ltoc-h{flex:none; margin:0; font-size:var(--fs-small); color:var(--ink-3)}

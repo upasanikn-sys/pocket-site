@@ -1,22 +1,15 @@
-/* POCKET — the company pages' own patterns (SITE_TO_9.md, Stream 2, 12 Oct 2026): Pricing, Download, Roadmap, About,
-   Contact, the four policies and the 404. Loaded after inner.css; tokens only (DESIGN.md). Nothing here is used by
-   another page, so a change here moves only these. */
-
-/* ---- 404: the hero's voice, and the five places worth going ---- */
 .nf{min-height:0; display:block; padding:96px 0 var(--sec)}
 .nf h1{max-width:16ch}
 .nf-go{list-style:none; margin:56px 0 0; padding:0; border-top:1px solid var(--rule-2); max-width:760px}
 .nf-go li{border-bottom:1px solid var(--rule)}
 .nf-go a{display:grid; grid-template-columns:minmax(0,.3fr) minmax(0,.7fr); gap:24px; align-items:baseline; min-height:56px;
-  padding:16px 4px; transition:background var(--t-fast) var(--ease-ui)}
+padding:16px 4px; transition:background var(--t-fast) var(--ease-ui)}
 .nf-go a{text-decoration:none}
 .nf-go a:hover{background:var(--raised)}
 .nf-go a:hover b{text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:3px}
 .nf-go b{font:600 var(--fs-lede)/1.3 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .nf-go span{color:var(--ink-3); font-size:var(--fs-small); line-height:1.5}
 @media (max-width:560px){ .nf{padding:64px 0 56px} .nf-go a{grid-template-columns:1fr; gap:4px} }
-
-/* ---- Roadmap: Shipped / Now / Next / Later on the .phases rows ---- */
 .rm .phases{margin-top:0}
 .rm .ph-when h2.when{font-size:36px}
 .asof{font-variant-numeric:tabular-nums}
@@ -28,34 +21,32 @@
 .rm-more{margin:16px 0 0; font-size:var(--fs-small)}
 .rm-items{list-style:none; margin:20px 0 0; padding:0; border-top:1px solid var(--rule-2)}
 .rm-items li{display:grid; grid-template-columns:minmax(0,.36fr) minmax(0,.64fr); gap:6px 24px; align-items:baseline; padding:14px 0;
-  border-bottom:1px solid var(--rule); font-size:var(--fs-small); line-height:1.55; color:var(--ink-2)}
+border-bottom:1px solid var(--rule); font-size:var(--fs-small); line-height:1.55; color:var(--ink-2)}
 .rm-items b{color:var(--ink); font-weight:600; font-size:var(--fs-body)}
 .vote-list li{grid-template-columns:minmax(0,.34fr) minmax(0,.66fr) auto; align-items:center}
 .vote{display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 14px; border:1px solid var(--edge);
-  border-radius:var(--r-2); font:600 var(--fs-caption)/1 var(--sans); color:var(--ink); white-space:nowrap;
-  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+border-radius:var(--r-2); font:600 var(--fs-caption)/1 var(--sans); color:var(--ink); white-space:nowrap;
+transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
 .vote:hover{background:var(--raised)}
 .vote:active{transform:translateY(1px)}
 .rm-close{justify-content:center}
 @media (max-width:900px){
-  .rm .ph-when h2.when{font-size:28px}
-  .rm-items li, .vote-list li{grid-template-columns:1fr}
-  .vote{justify-self:start; margin-top:6px}
+.rm .ph-when h2.when{font-size:28px}
+.rm-items li, .vote-list li{grid-template-columns:1fr}
+.vote{justify-self:start; margin-top:6px}
 }
 @media (max-width:560px){
-  .rm-shipped thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
-  .rm-shipped tr{display:grid; grid-template-columns:auto minmax(0,1fr); gap:2px 12px; align-items:baseline; padding:14px 0;
-    border-bottom:1px solid var(--rule)}
-  .rm-shipped th[scope=row], .rm-shipped td{display:block; width:auto; padding:0; border:0}
-  .rm-shipped td:last-child{grid-column:1 / -1}
+.rm-shipped thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+.rm-shipped tr{display:grid; grid-template-columns:auto minmax(0,1fr); gap:2px 12px; align-items:baseline; padding:14px 0;
+border-bottom:1px solid var(--rule)}
+.rm-shipped th[scope=row], .rm-shipped td{display:block; width:auto; padding:0; border:0}
+.rm-shipped td:last-child{grid-column:1 / -1}
 }
-
-/* ---- Pricing: three plans on one frame, Family on a line, the table by Features' groups, six answers open ---- */
 html:not(.js) .bill{display:none}
 .bill{position:relative; display:inline-grid; grid-template-columns:1fr 1fr}
 .bill button{position:relative; z-index:1; min-width:104px}
 .bill-pill{position:absolute; top:3px; bottom:3px; left:3px; width:calc(50% - 3px); border-radius:var(--r-1);
-  background:var(--card); box-shadow:inset 0 0 0 1px var(--rule-2); transition:transform var(--t-ui) var(--ease-ui)}
+background:var(--card); box-shadow:inset 0 0 0 1px var(--rule-2); transition:transform var(--t-ui) var(--ease-ui)}
 .bill[data-now="yearly"] .bill-pill{transform:translateX(100%)}
 .bill button[aria-pressed="true"]{color:var(--ink)}
 .plan .under{margin:10px 0 0; font-size:var(--fs-caption); line-height:1.5; color:var(--ink-3)}
@@ -64,7 +55,7 @@ html:not(.js) .bill{display:none}
 .family{margin:24px 0 0; max-width:80ch; font-size:var(--fs-body); color:var(--ink-2)}
 .family b{color:var(--ink); font-weight:600}
 .cmp3 .cmp-group th{padding:28px 0 10px; font:600 var(--fs-h3)/1.2 var(--display); letter-spacing:-.01em;
-  border-bottom:1px solid var(--rule-2)}
+border-bottom:1px solid var(--rule-2)}
 .cmp3 .cmp-group a{color:var(--ink); text-decoration:none}
 .cmp3 .cmp-group a:hover{text-decoration:underline; text-underline-offset:3px}
 .cmp3 .cmp-price td, .cmp3 .cmp-price th{font-weight:600; color:var(--ink)}
@@ -75,16 +66,12 @@ html:not(.js) .bill{display:none}
 @media (max-width:900px){ .qa{grid-template-columns:1fr} }
 @media (max-width:560px){ .cmp3 .cmp-group{padding-top:20px; border-bottom:0} .cmp3 .cmp-group th{padding:0 0 4px; border:0} }
 .plan .even{margin:12px 0 0; padding:10px 12px; border:1px solid var(--rule); border-radius:var(--r-2); background:var(--card);
-  font-size:var(--fs-caption); line-height:1.5; color:var(--ink-2); font-variant-numeric:tabular-nums}
+font-size:var(--fs-caption); line-height:1.5; color:var(--ink-2); font-variant-numeric:tabular-nums}
 .plan .even + .has{margin-top:24px}
-
-/* ---- Download: one button for the visitor's platform, the list beneath; Verify and Install help as disclosures ---- */
 .dl-main{display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin:32px 0 0}
 .dl-main .cta{min-height:56px; padding:0 28px; font-size:var(--fs-lede)}
 .dl-what{margin:0; font-size:var(--fs-small); color:var(--ink-3); font-variant-numeric:tabular-nums}
 .dl-file{color:var(--ink-2)}
-/* every platform in one frame of five columns; the first is the visitor's (download.js moves theirs first) and wears
-   the ink rule, so the list reads: yours, its size, its checksum, then the others (STRIPE_LEVEL CV3) */
 .platforms{max-width:none; grid-template-columns:repeat(5,minmax(0,1fr))}
 .slot{display:flex; flex-direction:column; min-width:0}
 .slot + .slot{border-left:1px solid var(--rule)}
@@ -96,23 +83,21 @@ html:not(.js) .bill{display:none}
 .plat-sha .hash{display:block; margin-top:4px; font-size:var(--fs-prov)}
 .dl-sha{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3)}
 .dl-sha .hash{display:block; margin-top:2px}
-/* a hash in even lines (two of 32, three of 22 in a slot), never a five-character orphan (15 Oct 2026); a release
-   note's link stays whole */
 .dl-sha .hash{max-width:32ch; letter-spacing:0}
 .plat-sha .hash{max-width:22ch; letter-spacing:0}
 .dl-what a[href^="changelog.html"]{white-space:nowrap}
 @media (max-width:1100px){ .platforms{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .slot:nth-child(3n+1){border-left:0} .slot:nth-child(n+4){border-top:1px solid var(--rule)} }
+.slot:nth-child(3n+1){border-left:0} .slot:nth-child(n+4){border-top:1px solid var(--rule)} }
 @media (max-width:640px){ .platforms{grid-template-columns:minmax(0,1fr)}
-  .slot + .slot, .slot:nth-child(n+4){border-left:0; border-top:1px solid var(--rule)} }
+.slot + .slot, .slot:nth-child(n+4){border-left:0; border-top:1px solid var(--rule)} }
 .first5{max-width:880px}
 .dl-more{border-top:1px solid var(--rule-2)}
 .dl-more:last-of-type{border-bottom:1px solid var(--rule-2)}
 .dl-more summary{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:64px; padding:12px 4px;
-  cursor:pointer; list-style:none; font:600 var(--fs-h3)/1.25 var(--display); letter-spacing:-.01em; color:var(--ink)}
+cursor:pointer; list-style:none; font:600 var(--fs-h3)/1.25 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .dl-more summary::-webkit-details-marker{display:none}
 .dl-more summary::after{content:""; flex:none; width:10px; height:10px; margin-right:6px; border-right:1.5px solid currentColor;
-  border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-3px); transition:transform var(--t-ui) var(--ease-ui)}
+border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-3px); transition:transform var(--t-ui) var(--ease-ui)}
 .dl-more[open] summary::after{transform:rotate(225deg) translateY(-3px)}
 .dl-more summary:hover{background:var(--raised)}
 .dl-body{padding:8px 0 32px}
@@ -121,8 +106,6 @@ html:not(.js) .bill{display:none}
 html[data-os]:not([data-os="windows"]) .close .js-dl{display:none}
 html[data-os]:not([data-os="windows"]) .close .dl-other{display:inline-block}
 @media (max-width:560px){ .dl-main .cta{width:100%} }
-
-/* ---- Contact and About: rows of request types, each with its ready-made email; the release's known limits ---- */
 .support .srow h2{margin:0; padding:0; border:0}
 .support .srow .btn-line{min-height:44px; padding:0 16px; font-size:var(--fs-small)}
 .prose .limits{padding-left:0}
@@ -130,59 +113,34 @@ html[data-os]:not([data-os="windows"]) .close .dl-other{display:inline-block}
 .prose .press li b{margin-right:6px}
 .ph-split.ph-wide{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
 @media (max-width:900px){ .ph-split.ph-wide{grid-template-columns:minmax(0,1fr)} }
-/* on a phone the visitor's checksum is the hero's line, and every file's is under Verify: one hash a row would make the page long */
 @media (max-width:640px){ html.js .plat-sha{display:none} .slot .plat{padding:16px 16px} }
-
-/* Stream A, 15 Oct 2026 (P4): the 404's list is rows, not in-text links: the shell's link underline stops at the row,
-   the title underlines on hover (the shell's :is() rule is heavier than .nf-go a, so this one names more). */
 .nf-go li > a[href]:not(.cta):not(.ghost):not(.sh-cta){text-decoration:none}
-
-/* Stream A, round 2 (T5): the same measure on the company pages' prose and lists */
 .limits li, .steps li > span, .steps li p, .flow li > span, .rm-rules dd, .ph-foot{max-width:68ch}
 .rm .ph-when h2.when{font-size:var(--fs-fig-l)}
-
-/* ---- Stream A, 14 Oct 2026 (STRIPE_LEVEL L3): an inner page's hero with its product beside it ---------------------
-   The statement left, one real capture (cropped to the part that proves the statement) right, on a rule: the same
-   pattern product-pages.css has for the product pages, here for the company pages. */
 .ph-split{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; align-items:center}
 .ph-split .sub{margin-bottom:0}
 .ph-split .hnote{margin-top:28px}
 .ph-vis{margin:0; min-width:0}
 .ph-vis figcaption{margin-top:12px; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3)}
 .crop{margin:0; overflow:hidden; aspect-ratio:calc(var(--w) / var(--h)); border:1px solid var(--rule-2);
-  border-radius:var(--r-3); background:var(--card)}
+border-radius:var(--r-3); background:var(--card)}
 .crop.phone{max-width:280px}
 .crop picture{display:block}
 .crop img{display:block; max-width:none; height:auto; width:calc(var(--sw) / var(--w) * 100%);
-  margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--w) * -100%)}
+margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--w) * -100%)}
 @media (max-width:900px){ .ph-split{grid-template-columns:minmax(0,1fr); gap:40px} }
-
-/* a table's "Included": a mark in ink (the word stays for screen readers); a dash is still a dash */
 .yes{display:inline-block; width:14px; height:8px; margin-top:2px; border-left:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink);
-  transform:rotate(-45deg) translate(2px,-3px)}
+transform:rotate(-45deg) translate(2px,-3px)}
 .ph-split{padding-bottom:48px}
 .ph + .plans-sec{padding-top:64px}
-
-/* ---- Stream A, 15 Oct 2026 (STRIPE_LEVEL P1, P2): states for every control, and captures that fade in ---------
-   A control with no handler of its own still shows hover, press and disabled; img-fade.js adds .fade-img only to an
-   image that is still loading, so a cached one is never hidden. */
 .ghost:active{opacity:.7}
 .cta[aria-disabled="true"], .btn-line[aria-disabled="true"], .ghost[aria-disabled="true"], .plat[aria-disabled="true"],
 .cta:disabled, .btn-line:disabled, .ghost:disabled{opacity:.45; cursor:not-allowed; pointer-events:none; transform:none}
 .fade-img{opacity:0}
 .fade-img.in{opacity:1; transition:opacity var(--t-roll) var(--ease-ui)}
 @media (prefers-reduced-motion:reduce){ .fade-img.in{transition:none} }
-
-/* Stream A, round 2 (T5): prose is 68ch at most; a size comes from the scale */
-
-/* Stream A, round 2 (C1): a closing band on plate where the sections before it end on paper */
 .close.alt{background:var(--plate); border-top:1px solid var(--rule)}
-
-/* Stream A, round 3 (MI3): the Copy button beside a SHA-256 is a .ghost, at the caption size and the 44px target */
 .ghost[data-copy]{display:block; background:none; border:0; font-family:inherit; cursor:pointer; text-align:left; min-height:44px; padding:0 4px; font-size:var(--fs-small)}
-
-/* Stream A, round 4 (N4): "On this page" under a long page's hero: one quiet line of the sections, on phones a strip that
-   scrolls sideways; every section a link lands on clears the sticky header */
 .ltoc.strip{border-bottom:1px solid var(--rule)}
 .ltoc.strip .wrap{display:flex; align-items:center; gap:24px}
 .ltoc.strip .ltoc-h{flex:none; margin:0; font-size:var(--fs-small); color:var(--ink-3)}

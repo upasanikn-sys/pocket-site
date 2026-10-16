@@ -1,34 +1,17 @@
-/* ============================================================================
-   POCKET — THE PAGE GRAMMAR
-   Every public page is built from this one grammar (DESIGN.md "Website: the page
-   grammar"). Phase 3 re-skins it through the Direction C tokens: film, ink,
-   Jakarta, no gold. Phase 4 rebuilds each inner page inside it.
-   Section 1 is the homepage's shared base, 2 the core inner patterns, 3 the reading layout;
-   inner.css holds the page-specific patterns, home.css the homepage's.
-   Load order: vestora-tokens.css -> observatory.css -> inner.css | home.css -> site-shell.css
-   Every colour, radius, duration and family below is a token; no literals.
-   ============================================================================ */
-
-/* ================================================================ 1. WORLD (the homepage) */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0; background:var(--paper); color:var(--ink);
-  font:400 var(--fs-body)/1.55 var(--sans);
-  -webkit-font-smoothing:antialiased; overflow-x:hidden}
-
-/* ---- the display voice: Instrument Sans 600 (14 Oct 2026; was Plus Jakarta Sans 700). Statements and figures, never running text. ---- */
+font:400 var(--fs-body)/1.55 var(--sans);
+-webkit-font-smoothing:antialiased; overflow-x:hidden}
 h1,h2,h3{font-family:var(--display); font-weight:600}
 .d{font-family:var(--display); font-weight:600; letter-spacing:-.03em}
 .d-sm{letter-spacing:-.02em}
-
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 a{color:inherit; text-decoration:none}
 img{max-width:100%; display:block}
-
-/* ---- the primary action: ink, at most one per view ---- */
 .cta{display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 22px;
-  border-radius:var(--r-2); background:var(--ink); color:var(--on-ink); font:600 var(--fs-body)/1 var(--sans);
-  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+border-radius:var(--r-2); background:var(--ink); color:var(--on-ink); font:600 var(--fs-body)/1 var(--sans);
+transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
 .cta:hover{background:var(--ink-hover)}
 .cta:active{transform:translateY(1px)}
 h1{font-size:var(--fs-display); line-height:1.03; letter-spacing:-.035em; margin:0 0 24px; text-wrap:balance}
@@ -36,35 +19,28 @@ h1 em{font-style:normal; color:var(--ink-2); display:block}
 .sub{font-size:var(--fs-lede); color:var(--ink-2); max-width:38ch; margin:0 0 32px; text-wrap:pretty}
 .hbtns{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
 .ghost{font-size:var(--fs-body); font-weight:500; padding:12px 4px; color:var(--ink);
-  text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}
+text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}
 .ghost:hover{text-decoration-thickness:2px; text-decoration-color:var(--ink)}
 .hnote{margin-top:32px; font-size:var(--fs-caption); color:var(--ink-3); display:flex; gap:20px; flex-wrap:wrap}
 .hnote span{display:inline-flex; align-items:center; gap:8px}
 .hnote b{width:4px; height:4px; border-radius:50%; background:var(--ink-3)}
-/* the product: complete, full container width, on a rule rather than lifted */
 .shot{position:relative; margin-top:44px; border-radius:var(--r-3); overflow:hidden; border:1px solid var(--rule-2)}
 .shot img{width:100%; height:auto}
 .shotcap{margin-top:12px; font-size:var(--fs-caption); color:var(--ink-3); text-align:right}
-/* phones: a 1440px dashboard scaled to 330px is unreadable, so show the phone app in a device body */
 @media (max-width:560px){
-  .shot{max-width:250px; margin:40px auto 0; padding:0; border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card)}
-  .shot img{border-radius:0}
-  .shotcap{text-align:center}
+.shot{max-width:250px; margin:40px auto 0; padding:0; border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card)}
+.shot img{border-radius:0}
+.shotcap{text-align:center}
 }
 @media (max-width:900px){ .shot{margin-top:44px} }
-
 h2{font-size:var(--fs-headline); line-height:1.08; letter-spacing:-.03em; margin:0}
 h3{line-height:1.3; letter-spacing:-.01em}
-
 .mlist{border-top:1px solid var(--rule-2)}
 .mrow{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:36px; padding:24px 4px;
-  border-bottom:1px solid var(--rule)}
+border-bottom:1px solid var(--rule)}
 .mrow h3{margin:0; font-size:var(--fs-h3)}
 .mrow p{margin:0; color:var(--ink-3); font-size:var(--fs-body); line-height:1.6}
 @media (max-width:900px){ .mrow{grid-template-columns:1fr; gap:8px} }
-
-
-/* ---- close + footer ---- */
 .close{padding:var(--sec) 0; text-align:center}
 .close h2{max-width:20ch; margin:0 auto 16px; text-wrap:balance}
 .close p{color:var(--ink-2); max-width:48ch; margin:0 auto 32px}
@@ -74,25 +50,15 @@ footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-capt
 .frow .grow{flex:1}
 .frow a{color:var(--ink-2)} .frow a:hover{color:var(--ink)}
 .disc{margin-top:16px; font-size:var(--fs-prov); color:var(--ink-3); max-width:78ch; line-height:1.6}
-
 .skip{position:absolute; left:-9999px}
 .skip:focus{left:16px; top:12px; z-index:var(--z-toast); background:var(--card); color:var(--ink);
-  border:1px solid var(--rule-2); padding:0 16px; min-height:44px; display:flex; align-items:center; border-radius:var(--r-2)}
-/* links inside running text are defined once, in site-shell.css (DESIGN.md "Text link") */
-
-/* ================================================================ 2. INNER PAGES
-   Statements in Jakarta, everything read or operated in Inter, rules instead of boxes,
-   one ink action per view. */
-
-/* page hero: one display statement, a sub, at most one ink action and a proof line */
+border:1px solid var(--rule-2); padding:0 16px; min-height:44px; display:flex; align-items:center; border-radius:var(--r-2)}
 .ph{position:relative; padding:88px 0 60px; overflow:hidden}
 .ph .wrap{position:relative}
 .ph h1{margin:0 0 24px; max-width:17ch}
 .ph .sub{max-width:52ch}
 .ph-proof{margin-top:52px}
 @media (max-width:900px){ .ph{padding:64px 0 44px} }
-
-/* section rhythm: vary density inside one grammar */
 .sec{padding:var(--sec) 0; border-top:1px solid var(--rule)}
 .sec.alt{background:var(--plate)}
 .sec.tight{padding:72px 0}
@@ -101,8 +67,6 @@ footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-capt
 .sec-head.solo{display:block; max-width:62ch}
 .sec-head.solo p{margin-top:16px}
 @media (max-width:900px){ .sec-head{grid-template-columns:1fr; gap:16px} .sec.tight{padding:56px 0} }
-
-/* two positions compared on rules, never in boxes; ours is marked with an ink rule */
 .pair{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule-2)}
 .pair > div{padding:28px 36px 4px 0}
 .pair > div + div{padding:28px 0 4px 36px; border-left:1px solid var(--rule)}
@@ -110,70 +74,55 @@ footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-capt
 .pair h3{margin:0 0 12px; font-size:var(--fs-h3)}
 .pair ul{list-style:none; margin:0; padding:0}
 .pair li{display:grid; grid-template-columns:18px 1fr; gap:10px; padding:12px 0; border-top:1px solid var(--rule);
-  color:var(--ink-2); font-size:var(--fs-body); line-height:1.5}
+color:var(--ink-2); font-size:var(--fs-body); line-height:1.5}
 .pair li::before{content:""; width:10px; height:1px; margin-top:.78em; background:var(--ink-3)}
 .pair .ours li{color:var(--ink)}
 .pair .ours li::before{background:var(--ink)}
 @media (max-width:900px){
-  .pair{grid-template-columns:1fr}
-  .pair > div, .pair > div + div{padding:24px 0 4px; border-left:0}
-  .pair > div + div{border-top:1px solid var(--rule)}
+.pair{grid-template-columns:1fr}
+.pair > div, .pair > div + div{padding:24px 0 4px; border-left:0}
+.pair > div + div{border-top:1px solid var(--rule)}
 }
-
-/* an ordered sequence: numerals appear here only because the order IS the information */
 .steps{list-style:none; margin:0; padding:0; counter-reset:step; border-top:1px solid var(--rule-2)}
 .steps li{counter-increment:step; display:grid; grid-template-columns:64px minmax(0,1fr); gap:16px;
-  padding:24px 0; border-bottom:1px solid var(--rule)}
+padding:24px 0; border-bottom:1px solid var(--rule)}
 .steps li::before{content:counter(step); font:600 28px/1 var(--display); font-variant-numeric:tabular-nums; color:var(--ink-3)}
 .steps h3{margin:0 0 6px; font-size:var(--fs-h3)}
 .steps p{margin:0; color:var(--ink-3); font-size:var(--fs-body); line-height:1.6; max-width:60ch}
-
-/* rule tables: numbers align on the digit */
 .spec{width:100%; border-collapse:collapse; font-size:var(--fs-body); font-variant-numeric:tabular-nums}
 .spec th, .spec td{text-align:left; padding:14px 16px 14px 0; border-bottom:1px solid var(--rule); vertical-align:top}
 .spec thead th{font:600 var(--fs-caption)/1.3 var(--sans); color:var(--ink-3); border-bottom:1px solid var(--rule-2)}
-/* row labels are words: Inter's tnum also widens the hyphen ("Multi - Account"), so labels opt out */
 .spec tbody th{font-weight:600; color:var(--ink); font-variant-numeric:normal}
 .spec td{color:var(--ink-2)}
 .spec .n{text-align:right}
 .tablewrap{overflow-x:auto}
-
-/* questions and answers on rules */
 .faq{border-top:1px solid var(--rule-2)}
 .faq-item{border-bottom:1px solid var(--rule)}
 .faq-q{position:relative; padding:20px 44px 20px 0; font:600 var(--fs-lede)/1.45 var(--sans); color:var(--ink); cursor:pointer}
 .faq-q::before, .faq-q::after{content:""; position:absolute; right:6px; top:50%; width:14px; height:1.5px;
-  background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui)}
+background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui)}
 .faq-q::after{transform:rotate(90deg)}
 .faq-item.open .faq-q::after{transform:rotate(0deg)}
 .faq-a{display:none; padding:0 0 24px; color:var(--ink-2); font-size:var(--fs-body); line-height:1.65; max-width:70ch}
 .faq-item.open .faq-a{display:block}
-
-/* a real capture with its honest caption */
 .figure{margin:0}
 .figure img{width:100%; height:auto}
 .figure figcaption{margin-top:12px; font-size:var(--fs-caption); color:var(--ink-3); text-align:right}
-
-/* a quiet aside: a rule on card, no coloured side-stripe */
 .note{border:1px solid var(--rule); border-radius:var(--r-3); padding:16px 20px; background:var(--card);
-  color:var(--ink-2); font-size:var(--fs-small); line-height:1.65}
+color:var(--ink-2); font-size:var(--fs-small); line-height:1.65}
 .note strong{color:var(--ink)}
-
-/* definition rows: a term and what it means, on rules */
 .defs{margin:0; border-top:1px solid var(--rule-2)}
 .defs > div{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:36px; padding:20px 4px;
-  border-bottom:1px solid var(--rule)}
+border-bottom:1px solid var(--rule)}
 .defs dt{margin:0; font-weight:600; font-size:var(--fs-body); color:var(--ink)}
 .defs dd{margin:0; color:var(--ink-3); font-size:var(--fs-body); line-height:1.6}
 @media (max-width:900px){ .defs > div{grid-template-columns:1fr; gap:6px} }
-
-/* ================================================================ 3. READING PAGES */
 .prose{max-width:68ch; margin:0 auto; padding:76px 0 104px}
 .prose h1{font-size:var(--fs-headline); line-height:1.08; letter-spacing:-.03em; margin:0 0 16px; text-wrap:balance}
 .prose .lede{font-size:var(--fs-lede); color:var(--ink-2); line-height:1.6; margin:0 0 10px}
 .prose .meta{font-size:var(--fs-caption); color:var(--ink-3)}
 .prose h2{font-size:24px; line-height:1.2; letter-spacing:-.02em;
-  margin:52px 0 12px; padding-top:28px; border-top:1px solid var(--rule)}
+margin:52px 0 12px; padding-top:28px; border-top:1px solid var(--rule)}
 .prose h3{font-size:var(--fs-lede); margin:28px 0 8px}
 .prose p, .prose li{color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
 .prose ul, .prose ol{padding-left:1.2em}
@@ -184,30 +133,23 @@ footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-capt
 .prose th, .prose td{text-align:left; padding:12px 14px 12px 0; border-bottom:1px solid var(--rule); vertical-align:top}
 .prose thead th{font:600 var(--fs-caption)/1.3 var(--sans); color:var(--ink-3); border-bottom:1px solid var(--rule-2)}
 @media (max-width:900px){ .prose{padding:56px 0 80px} }
-
-
-/* shared by the homepage and the inner pages (moved here when the sheet was split, 12 Oct 2026) */
 .close .hnote{justify-content:center; margin:0 0 32px}
 .close .soon{margin:20px auto 0; max-width:60ch; text-wrap:balance}
 .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 .btn-line{display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 20px; border:1px solid var(--edge);
-  border-radius:var(--r-2); font:600 var(--fs-body)/1 var(--sans); color:var(--ink); background:transparent;
-  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+border-radius:var(--r-2); font:600 var(--fs-body)/1 var(--sans); color:var(--ink); background:transparent;
+transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
 .btn-line:hover{background:var(--raised)}
 .btn-line:active{transform:translateY(1px)}
 .close .hbtns{justify-content:center}
 @media (max-width:560px){ .has.cols{columns:1} }
-
-/* STRIPE_LEVEL T3, T6, MI4 (15 Oct 2026): balanced heads, no orphans, tabular tables, presses (DESIGN.md "Do") */
 h2,h3{text-wrap:balance}
 p,li,dd,figcaption{text-wrap:pretty}
 table{font-variant-numeric:tabular-nums}
 :where(button:not(:disabled),summary):active{transform:translateY(1px)}
-/* B2 (15 Oct 2026): the dimension mark under each page's statement, the close's rule in short (DESIGN.md) */
 h1.d::after{content:""; display:block; width:96px; height:9px; margin-top:16px; border-inline:1px solid var(--ink-3);
-  background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
-@media (max-height:649px){ h1.d::after{display:none} }   /* a short window keeps its action above the fold */
-/* A5 (16 Oct 2026): forced colours drop backgrounds; what is drawn with them is redrawn in system colours */
+background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
+@media (max-height:649px){ h1.d::after{display:none} }
 @media (forced-colors:active){
 html .cta{border:1px solid ButtonText}
 html .tr,html .ld,html .term::before,html .ln::before{forced-color-adjust:none;background:CanvasText}

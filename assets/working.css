@@ -1,34 +1,21 @@
-/* The working, as the guides and the calculators share it (CO2, Stripe level, 15 Oct 2026): where the page sits
-   (breadcrumbs), the title block at the head of the sheet, the plate a sum is worked on, and the working itself, one
-   row per line with a 1px signal leader from its label to its figure (DESIGN.md "Leader line"). The same rules the
-   homepage plate draws (.plate, .tblock in home.css). Loaded after site-shell.css by guides.html, guide-*.html and
-   calc-*.html (tools/site_guides.py, tools/site_calculators.py), before guides.css and calc.css. Tokens only. */
-
-/* breadcrumbs (N1): where this page sits */
 .crumbs{margin:0 0 8px}
 .crumbs ol{display:flex; flex-wrap:wrap; align-items:center; margin:0; padding:0; list-style:none;
-  font-size:var(--fs-caption); line-height:1.3; color:var(--ink-3)}
+font-size:var(--fs-caption); line-height:1.3; color:var(--ink-3)}
 .crumbs li{min-width:0; max-width:100%; margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-  font-size:inherit; line-height:inherit; color:inherit}
-.crumbs li:not(:last-child)::after{content:"/"; content:"/" / ""; margin:0 8px; color:var(--edge)}   /* after, so a wrapped trail ends its line on the slash */
+font-size:inherit; line-height:inherit; color:inherit}
+.crumbs li:not(:last-child)::after{content:"/"; content:"/" / ""; margin:0 8px; color:var(--edge)}
 .crumbs a{display:inline-block; padding:14px 0; color:var(--ink-3); text-decoration:none}
 .crumbs a:hover{color:var(--ink); text-decoration:underline; text-underline-offset:3px}
 .crumbs [aria-current]{color:var(--ink-2)}
-
-/* the title block: the corner box of a drawing, four cells of what the sheet is made from */
 .tblock{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:16px 0 0; border-top:1px solid var(--ink)}
 .tblock div{min-width:0; padding:10px 12px 0; border-left:1px solid var(--rule-2)}
 .tblock div:first-child{padding-left:0; border-left:0}
 .tblock dt{font:500 var(--fs-prov)/1.3 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3)}
 .tblock dd{margin:4px 0 0; font-size:var(--fs-small); line-height:1.4; color:var(--ink); font-variant-numeric:tabular-nums}
-
-/* the plate: a card on film, no shadow at rest */
 .plate{margin:0; background:var(--card); border:1px solid var(--rule); border-radius:var(--r-3); padding:20px 24px}
-
-/* the working: label, leader, figure; a small mono line under the label says how the figure was made */
 .wk{margin:0; padding:0; list-style:none}
 .wr{display:grid; grid-template-columns:minmax(8em,auto) minmax(16px,1fr) auto; column-gap:10px; align-items:start;
-  margin:0; padding:7px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); line-height:1.4}
+margin:0; padding:7px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); line-height:1.4}
 .wl{color:var(--ink)}
 .wl small{display:block; margin-top:2px; font:400 var(--fs-prov)/1.4 var(--mono); color:var(--ink-3)}
 .wa{color:var(--ink); white-space:nowrap; text-align:right; font-variant-numeric:tabular-nums}
@@ -39,94 +26,74 @@
 .wr.tot .wl::before{content:"= "; color:var(--ink-3); font-weight:400}
 .wr.sub{padding-top:14px; font-weight:600}
 .wr.na .wa{color:var(--ink-3)}
-/* a guide's worked sum draws its leaders in as it scrolls into view, where the browser can (scroll-driven animation);
-   nowhere else is anything held back, and with reduced motion they are simply drawn */
 @keyframes ld-draw{from{transform:scaleX(0)}}
 @media (prefers-reduced-motion:no-preference){
-  @supports (animation-timeline:view()){
-    .prose .plate .ld{animation:ld-draw linear both; animation-timeline:view(); animation-range:entry 0% entry 80%}
-  }
+@supports (animation-timeline:view()){
+.prose .plate .ld{animation:ld-draw linear both; animation-timeline:view(); animation-range:entry 0% entry 80%}
 }
-
-/* a section is a statement (its h2, on a hairline) and then one qualifying line: the first paragraph under it, set a
-   step above the body in ink-2 (H2); the plate, the table or the capture that follows is the section's one focal
-   element (H1), the rest steps down */
+}
 .prose h2 + p.q{margin:0 0 20px; max-width:60ch; font-size:var(--fs-lede); line-height:1.5; color:var(--ink-2)}
 .prose h2 + p.q + .plate, .prose h2 + p.q + .gshot, .prose h2 + p.q + .tablewrap{margin-top:8px}
-
-/* T5: text runs 60 to 68ch where it can; a caption, a source and a plate's lines set smaller, so their ch is smaller
-   and each is capped on its own. A superscript never falls under the 12px floor. */
 .gshot figcaption, .prose .sources li, .say, .say2, .calc-try{max-width:68ch}
 sup{font-size:max(12px, .75em); line-height:0}
-
-/* a working on a plate in a guide's text: the plate's own heading, then its rows */
 .prose .plate{margin:16px 0 20px}
 .prose .plate h3{margin:0 0 4px; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .prose .plate .wk{margin:0; padding:0}
 .prose .wk .wr{margin:0; color:var(--ink); font-size:var(--fs-small); line-height:1.4}
 .prose .wk .wr:last-child{border-bottom:0}
-
-/* a real capture, at its true aspect ratio (width and height are on the img), with one or two numbered callouts (I4):
-   marks over the picture beside what they name, their notes in the caption; as the homepage tour draws them */
 .gshot{margin:32px 0}
 .gshot .gpic{position:relative}
 .gshot img{display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:var(--r-3); background:var(--card);
-  transition:opacity var(--t-roll) var(--ease-ui)}
-.js .gshot img:not(.in){opacity:0}   /* held back only when script is on to show it (the img adds .in when it loads) */
+transition:opacity var(--t-roll) var(--ease-ui)}
+.js .gshot img:not(.in){opacity:0}
 .gshot figcaption{margin-top:12px; font-size:var(--fs-caption); line-height:1.5; color:var(--ink-3)}
 .gshot .marks{position:absolute; inset:0; margin:0; padding:0; list-style:none; pointer-events:none}
 .gshot .marks li{position:absolute; display:grid; place-items:center; width:28px; height:28px; margin:-14px 0 0 -14px; padding:0;
-  border-radius:50%; background:var(--on-ink); color:var(--ink); font:600 var(--fs-caption)/1 var(--sans); box-shadow:0 0 0 2px var(--ink)}
+border-radius:50%; background:var(--on-ink); color:var(--ink); font:600 var(--fs-caption)/1 var(--sans); box-shadow:0 0 0 2px var(--ink)}
 @media (prefers-color-scheme: dark){ .gshot .marks li{background:var(--ink); color:var(--on-ink); box-shadow:0 0 0 2px var(--on-ink)} }
 .gshot .notes{display:grid; gap:6px; margin:0 0 12px; padding:0; list-style:none; counter-reset:note}
 .gshot .notes li{counter-increment:note; display:grid; grid-template-columns:24px minmax(0,1fr); gap:8px; margin:0;
-  font-size:var(--fs-small); line-height:1.5; color:var(--ink-2)}
+font-size:var(--fs-small); line-height:1.5; color:var(--ink-2)}
 .gshot .notes li::before{content:counter(note); font:600 var(--fs-caption)/1.7 var(--sans); color:var(--ink)}
-/* a phone's screen, at its own width, with its notes beside it */
 .gshot.phone{display:grid; grid-template-columns:minmax(0,330px) minmax(0,1fr); gap:0 32px; align-items:start}
 .gshot.phone figcaption{margin-top:0}
-
 @media (max-width:760px){
-  .gshot.phone{grid-template-columns:minmax(0,1fr)}
-  .gshot.phone .gpic{max-width:330px}
-  .gshot.phone figcaption{margin-top:12px}
+.gshot.phone{grid-template-columns:minmax(0,1fr)}
+.gshot.phone .gpic{max-width:330px}
+.gshot.phone figcaption{margin-top:12px}
 }
 @media (max-width:560px){
-  .plate{padding:16px}
-  .gshot:not(.phone) .marks{display:none}
-  .gshot:not(.phone) .notes li{grid-template-columns:minmax(0,1fr)}
-  .gshot:not(.phone) .notes li::before{content:none}
-  .tblock{grid-template-columns:1fr 1fr}
-  .tblock div:nth-child(3){padding-left:0; border-left:0}
-  .tblock div:nth-child(n+3){margin-top:10px; border-top:1px solid var(--rule)}
-  .wr{grid-template-columns:minmax(10em,1fr) minmax(12px,.3fr) auto}
+.plate{padding:16px}
+.gshot:not(.phone) .marks{display:none}
+.gshot:not(.phone) .notes li{grid-template-columns:minmax(0,1fr)}
+.gshot:not(.phone) .notes li::before{content:none}
+.tblock{grid-template-columns:1fr 1fr}
+.tblock div:nth-child(3){padding-left:0; border-left:0}
+.tblock div:nth-child(n+3){margin-top:10px; border-top:1px solid var(--rule)}
+.wr{grid-template-columns:minmax(10em,1fr) minmax(12px,.3fr) auto}
 }
-
-/* P3 (Stripe level, 16 Oct 2026): a guide or a calculator on paper, in ink only. The shell, the contents, the captures
-   and every control stay on the screen; the prose, the figures, the working and the sources print, black on white, with
-   where the page came from at its foot (data-print). tools/print_check.py prints each page to PDF and checks it. */
 @media print{
-  @page{margin:16mm 15mm}
-  html, body{background:#fff !important; color:#000 !important; font-size:11pt}
-  .sh, .skip, .sf, .crumbs, .tip, .marks, .toc, .related, .next, .gjump, .gshot, .sw, .reset, .rng, .calc-act,
-  .calc-private, .calc-try, button, .prose > p:has(> a[href="download.html"]){display:none !important}
-  main, main *{color:#000 !important; text-shadow:none; box-shadow:none}
-  .wrap{max-width:none; padding:0}
-  .prose, .calcpage{max-width:none; margin:0; padding:0}
-  a{text-decoration:none}
-  h1.d::after{border-color:#000; background:linear-gradient(#000,#000) center/100% 1px no-repeat}
-  .plate, .lsum, .box{background:none !important; border:1px solid #000; border-radius:0}
-  .tblock, .tblock div{border-color:#000}
-  .wr, .prose td, .prose th, .prose .lnote{border-color:#999}
-  .ld{background:#000; animation:none !important; transform:none !important}   /* a leader is drawn whole on paper */
-  .prose h2 + p.q, .say, .say2{max-width:none}
-  .tablewrap{overflow:visible}
-  .tablewrap table, .tablewrap.fit table{min-width:0}
-  h1, h2, h3{break-after:avoid}
-  p, li{orphans:3; widows:3}
-  tr, .wr, .plate, .lsum, .tblock{break-inside:avoid}
-  thead{display:table-header-group}
-  .prose .sources a::after{content:" (" attr(href) ")"; font-size:9pt}
-  [data-print]::after{content:attr(data-print); display:block; margin-top:20px; padding-top:8px; border-top:1px solid #000;
-    font:400 9pt/1.4 var(--mono)}
+@page{margin:16mm 15mm}
+html, body{background:#fff !important; color:#000 !important; font-size:11pt}
+.sh, .skip, .sf, .crumbs, .tip, .marks, .toc, .related, .next, .gjump, .gshot, .sw, .reset, .rng, .calc-act,
+.calc-private, .calc-try, button, .prose > p:has(> a[href="download.html"]){display:none !important}
+main, main *{color:#000 !important; text-shadow:none; box-shadow:none}
+.wrap{max-width:none; padding:0}
+.prose, .calcpage{max-width:none; margin:0; padding:0}
+a{text-decoration:none}
+h1.d::after{border-color:#000; background:linear-gradient(#000,#000) center/100% 1px no-repeat}
+.plate, .lsum, .box{background:none !important; border:1px solid #000; border-radius:0}
+.tblock, .tblock div{border-color:#000}
+.wr, .prose td, .prose th, .prose .lnote{border-color:#999}
+.ld{background:#000; animation:none !important; transform:none !important}
+.prose h2 + p.q, .say, .say2{max-width:none}
+.tablewrap{overflow:visible}
+.tablewrap table, .tablewrap.fit table{min-width:0}
+h1, h2, h3{break-after:avoid}
+p, li{orphans:3; widows:3}
+tr, .wr, .plate, .lsum, .tblock{break-inside:avoid}
+thead{display:table-header-group}
+.prose .sources a::after{content:" (" attr(href) ")"; font-size:9pt}
+[data-print]::after{content:attr(data-print); display:block; margin-top:20px; padding-top:8px; border-top:1px solid #000;
+font:400 9pt/1.4 var(--mono)}
 }

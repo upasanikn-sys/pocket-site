@@ -1,139 +1,100 @@
-/* ============================================================================
-   POCKET — SITE SHELL
-   The pieces every page shares, defined once: the header, the phone menu,
-   in-text links, and the browser surfaces a page never draws itself.
-   Loaded LAST on every page so it wins at equal specificity.
-
-   Why it exists (Sep 2026 audit): the site had six different header variants
-   across 15 pages, two different taglines, and the homepage had no phone menu
-   at all, so a phone visitor could not reach Features, Pricing or Security
-   from the header. New class names (.sh-*) so no legacy rule can leak in.
-   Direction C: the live nav re-skinned onto film. Paper, a rule, no blur.
-   ============================================================================ */
-
-/* ---------------------------------------------------------------- header */
 .sh{
-  position:sticky; top:0; z-index:var(--z-sticky);
-  background:var(--paper);
-  border-bottom:1px solid transparent;
-  transition:border-color var(--t-ui) var(--ease-ui);
+position:sticky; top:0; z-index:var(--z-sticky);
+background:var(--paper);
+border-bottom:1px solid transparent;
+transition:border-color var(--t-ui) var(--ease-ui);
 }
-/* once the page has moved, the bar gains its rule; nothing floats on a shadow */
 .sh.scrolled{border-bottom-color:var(--rule)}
 .sh-bar{
-  max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter);
-  height:72px; display:flex; align-items:center; gap:32px;
+max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter);
+height:72px; display:flex; align-items:center; gap:32px;
 }
 .sh-brand{display:flex; align-items:center; gap:12px; margin-right:auto; color:var(--ink);
-  text-decoration:none; border-radius:var(--r-2); min-height:44px}
-.sh-logo{display:block; height:30px; width:auto}  /* the Pocket logo, as supplied (brand/) */
-
+text-decoration:none; border-radius:var(--r-2); min-height:44px}
+.sh-logo{display:block; height:30px; width:auto}
 .sh-links{display:flex; align-items:center; gap:28px}
 .sh-links a{position:relative; display:inline-flex; align-items:center; min-height:44px; font:500 var(--fs-small)/1 var(--sans);
-  color:var(--ink-2); text-decoration:none; transition:color var(--t-fast) var(--ease-ui)}
+color:var(--ink-2); text-decoration:none; transition:color var(--t-fast) var(--ease-ui)}
 .sh-links a:hover{color:var(--ink)}
-/* the current page: ink text and a 2px ink bar under it (DESIGN.md "Navigation") */
 .sh-links a[aria-current="page"]{color:var(--ink); font-weight:600}
 .sh-links a[aria-current="page"]::after{content:""; position:absolute; left:0; right:0; bottom:2px; height:2px;
-  background:var(--ink)}
-
-/* a line button: the page's own hero owns the one ink action in the view */
+background:var(--ink)}
 .sh-cta{display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:var(--r-2);
-  border:1px solid var(--edge); color:var(--ink); background:transparent; text-decoration:none;
-  font:600 var(--fs-small)/1 var(--sans); white-space:nowrap;
-  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+border:1px solid var(--edge); color:var(--ink); background:transparent; text-decoration:none;
+font:600 var(--fs-small)/1 var(--sans); white-space:nowrap;
+transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
 .sh-cta:hover{background:var(--raised)}
 .sh-cta:active{transform:translateY(1px)}
-
 .sh-menu-btn{display:none; width:44px; height:44px; align-items:center; justify-content:center; flex:none;
-  background:transparent; color:var(--ink); border:1px solid var(--edge);
-  border-radius:var(--r-2); cursor:pointer;
-  transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
+background:transparent; color:var(--ink); border:1px solid var(--edge);
+border-radius:var(--r-2); cursor:pointer;
+transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
 .sh-menu-btn:hover{background:var(--raised)}
 .sh-menu-btn:active{transform:translateY(1px)}
 .sh-menu-btn svg{width:20px; height:20px}
 .sh-menu-btn .sh-x{display:none}
 .sh-menu-btn[aria-expanded="true"] .sh-x{display:block}
 .sh-menu-btn[aria-expanded="true"] .sh-burger{display:none}
-
-/* ---------------------------------------------------------------- phone menu */
 .sh-menu{display:none; padding:4px var(--gutter) 24px; border-top:1px solid var(--rule); background:var(--paper)}
 .sh-menu a{display:flex; align-items:center; min-height:48px; border-bottom:1px solid var(--rule);
-  font:500 var(--fs-body)/1.2 var(--sans); color:var(--ink-2); text-decoration:none}
+font:500 var(--fs-body)/1.2 var(--sans); color:var(--ink-2); text-decoration:none}
 .sh-menu a[aria-current="page"]{color:var(--ink); font-weight:600}
 .sh-menu a.sh-menu-cta{justify-content:center; margin-top:20px; border:0; border-radius:var(--r-2);
-  background:var(--ink); color:var(--on-ink); font-weight:600}
+background:var(--ink); color:var(--on-ink); font-weight:600}
 .sh-menu a.sh-menu-cta:active{transform:translateY(1px)}
 .sh-menu.open{display:grid; animation:sh-menu-in var(--t-ui) var(--ease-ui)}
 @keyframes sh-menu-in{from{opacity:.4; transform:translateY(-4px)} to{opacity:1; transform:none}}
-
 @media (max-width:900px){
-  .sh-links{display:none}
-  .sh-menu-btn{display:inline-flex}
-  .sh-bar{height:64px; gap:12px}
-  /* no JavaScript: the menu is simply shown, so navigation never depends on a script */
-  html:not(.js) .sh-menu{display:grid}
-  html:not(.js) .sh-menu-btn{display:none}
+.sh-links{display:none}
+.sh-menu-btn{display:inline-flex}
+.sh-bar{height:64px; gap:12px}
+html:not(.js) .sh-menu{display:grid}
+html:not(.js) .sh-menu-btn{display:none}
 }
 @media (max-width:560px){
-  .sh-cta{display:none}          /* the menu carries the action; two actions never compete at 390px */
+.sh-cta{display:none}
 }
 @media (min-width:901px){ .sh-menu{display:none !important} }
-
-/* ---------------------------------------------------------------- in-text links
-   DESIGN.md "Text link": ink, underlined 1px at a 3px offset; on hover the underline
-   thickens to 2px. Distinguishable without colour (WCAG 1.4.1). Buttons are excluded. */
 :is(p, li, dd, td, blockquote, figcaption, .note, .lsum, .lnote, .disc, .discl) a:not([class*="btn"]):not(.cta):not(.ghost):not(.sh-cta){
-  color:var(--ink);
-  text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:3px;
-  text-decoration-color:currentColor;
+color:var(--ink);
+text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:3px;
+text-decoration-color:currentColor;
 }
 :is(p, li, dd, td, blockquote, figcaption, .note, .lsum, .lnote, .disc, .discl) a:not([class*="btn"]):not(.cta):not(.ghost):not(.sh-cta):hover{
-  text-decoration-thickness:2px;
+text-decoration-thickness:2px;
 }
-
-/* ---------------------------------------------------------------- browser surfaces */
 input, textarea{caret-color:var(--ink)}
 input[type="checkbox"], input[type="radio"], input[type="range"], progress{accent-color:var(--ink)}
 input:focus-visible, textarea:focus-visible, select:focus-visible{border-color:var(--ink)}
-/* a keyboard-reachable scroll region shows where focus is (the global ink ring, a little further out) */
 .tablewrap:focus-visible{outline-offset:4px; border-radius:var(--r-2)}
-
-/* ---------------------------------------------------------------- footer
-   One footer everywhere (was five inner variants plus the homepage's own). */
 .sf{border-top:1px solid var(--rule); background:var(--paper); color:var(--ink-3);
-  font:400 var(--fs-small)/1.6 var(--sans)}
+font:400 var(--fs-small)/1.6 var(--sans)}
 .sf-in{max-width:var(--maxw); margin:0 auto; padding:64px var(--gutter) 40px;
-  display:grid; grid-template-columns:minmax(0,1.4fr) repeat(4, minmax(0,1fr)); gap:40px}
+display:grid; grid-template-columns:minmax(0,1.4fr) repeat(4, minmax(0,1fr)); gap:40px}
 .sf-brand p{margin:16px 0 0; max-width:30ch; color:var(--ink-2)}
 .sf-col{display:flex; flex-direction:column; gap:0}
 .sf-h{margin:0 0 4px; font:600 var(--fs-caption)/1.3 var(--sans); color:var(--ink)}
 .sf-col a{color:var(--ink-2); text-decoration:none; width:fit-content; display:flex; align-items:center; min-height:44px;
-  transition:color var(--t-fast) var(--ease-ui)}
+transition:color var(--t-fast) var(--ease-ui)}
 .sf-col a:hover{color:var(--ink); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
-/* the title block (L5, 15 Oct 2026): an ink rule over three cells between hairlines, mono labels like the plate's */
 .sf-base{max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter) 40px; display:grid;
-  grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1.3fr)}
+grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1.3fr)}
 .sf-base>div{padding:14px 20px 0; border-top:1px solid var(--ink); border-left:1px solid var(--rule)}
 .sf-base>div:first-child{padding-left:0; border-left:0}
 .sf-base dt{font:500 var(--fs-prov)/1.3 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3)}
 .sf-base dd{margin:6px 0 0; font-size:var(--fs-caption); line-height:1.55; color:var(--ink-2)}
 .sf-base .discl dd{max-width:72ch}
 @media (max-width:900px){
-  .sf-in{grid-template-columns:1fr 1fr; gap:32px} .sf-brand{grid-column:1 / -1}
-  .sf-base{grid-template-columns:1fr 1fr} .sf-base .discl{grid-column:1 / -1}
-  .sf-base .discl+div{padding-left:0; border-left:0}
+.sf-in{grid-template-columns:1fr 1fr; gap:32px} .sf-brand{grid-column:1 / -1}
+.sf-base{grid-template-columns:1fr 1fr} .sf-base .discl{grid-column:1 / -1}
+.sf-base .discl+div{padding-left:0; border-left:0}
 }
 @media (max-width:560px){
-  .sf-in{padding:48px var(--gutter) 24px; gap:24px 16px}
-  .sf-base{grid-template-columns:1fr; padding-bottom:32px}
-  .sf-base>div{padding:12px 0; border-left:0}
-  .sf-base>div+div{border-top-color:var(--rule)}
+.sf-in{padding:48px var(--gutter) 24px; gap:24px 16px}
+.sf-base{grid-template-columns:1fr; padding-bottom:32px}
+.sf-base>div{padding:12px 0; border-left:0}
+.sf-base>div+div{border-top-color:var(--rule)}
 }
-
-/* ---------------------------------------------------------------- going to another page (SITE_TO_9 A12)
-   A short cross-fade over --t-ui while the header stays where it is: the one thing that says the visitor
-   is still on the same site. Reduced motion: no transition at all. */
 @view-transition{navigation:auto}
 .sh{view-transition-name:site-header}
 ::view-transition-group(site-header){animation:none}

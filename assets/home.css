@@ -1,22 +1,15 @@
-/* POCKET homepage patterns, after observatory.css (DESIGN.md); breakpoints 560/900/1000 */
-
-/* HOMEPAGE, Direction C "The Open Instrument": DESIGN.md (Plate, Title block, Show working, Leader line) */
 .tag{font:500 var(--fs-prov)/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .sym{font-family:var(--mono);font-weight:500}
 .home{padding:48px 0 var(--sec)}
-/* the hero (STRIPE_LEVEL B1/L1, 14 Oct 2026): the statement and its action on one line of the grid, then the figure
-   with its working as the page's signature drawing, the full width of the page */
 .home h1{margin:0;max-width:none;font-size:clamp(44px, 26px + 3.4vw, 80px);line-height:1;letter-spacing:-.045em}
 .home-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:64px;align-items:start;margin-top:28px}
 .home-copy>*{grid-column:2}
 .home .sub{grid-column:1;grid-row:1/span 3;margin:0;max-width:36em}
 .trust{margin:16px 0 0;font-size:var(--fs-small);color:var(--ink-3)}
-/* the instrument plate: a card on film, no shadow at rest */
 .plate{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-3);padding:20px 24px}
 .plate-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-8px 0 0}
 .fig-a{margin:4px 0 0;font:600 var(--fs-anchor)/1 var(--display);letter-spacing:-.04em}
 .p{font-size:max(12px,.72em);font-weight:600;color:var(--ink-3);letter-spacing:0}
-/* the working tree: 1px signal leaders from the figure to each part and its lines (DESIGN.md "Leader line") */
 .tree{margin:40px 0 0;padding:24px 32px 28px;--t-stagger:40ms}
 .tree .fig-a{margin:8px 0 0;font-size:clamp(48px, 30px + 3.2vw, 76px);letter-spacing:-.045em}
 .branches{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;margin-top:20px;padding-top:28px}
@@ -35,7 +28,6 @@
 .lines{list-style:none;margin:12px 0 0;padding:0;border-top:1px solid var(--rule-2)}
 .ln{position:relative;padding:8px 0;border-bottom:1px solid var(--rule)}
 .ln-r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:baseline}
-/* a holding opens to its entries, investing cash to its parts (D2): the working one level down */
 .ln summary{cursor:pointer;list-style:none;border-radius:var(--r-1)}
 .ln summary::-webkit-details-marker{display:none}
 .ln summary .nm::after{content:" +";color:var(--ink-3);font-weight:400}
@@ -53,7 +45,6 @@
 .v{grid-column:2;grid-row:1;font:600 var(--fs-small)/1.3 var(--display);text-align:right;white-space:nowrap}
 .bare .tr,.bare .tnote,.bare .term::before{visibility:hidden}
 .bare .lines{display:none}
-/* drawn on load and on each opening: stem, bus, drops, notes, lines, then the figure lands (DESIGN.md "Show working") */
 @keyframes tr-down{from{transform:scaleY(0)}}
 @keyframes tr-across{from{transform:scaleX(0)}}
 @keyframes tr-rise{from{opacity:0;transform:translateY(4px)}}
@@ -64,20 +55,17 @@
 .tree.trace .tnote{animation:tr-rise var(--t-ui) var(--ease-ui) both;animation-delay:calc(var(--t-trace) + var(--i) * var(--t-stagger) * 3)}
 .tree.trace .ln{animation:tr-rise var(--t-ui) var(--ease-ui) both;animation-delay:calc(var(--t-trace) + var(--t-ui) + var(--i) * var(--t-stagger))}
 .tree.first .fig-a{animation:tr-land var(--t-roll) var(--ease-ui) both;animation-delay:calc(var(--t-trace) + var(--t-roll))}
-/* title block: the corner box of a drawing */
 .tblock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:16px 0 0;border-top:1px solid var(--ink)}
 .tblock div{padding:10px 12px 0;border-left:1px solid var(--rule-2)}
 .tblock div:first-child{padding-left:0;border-left:0}
 .tblock dt{font:500 var(--fs-prov)/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .tblock dd{margin:4px 0 0;font-size:var(--fs-small)}
-/* Show working switch: 44px target, 34x20 track, the knob travels 14px */
 .sw{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;border:0;background:none;font:500 var(--fs-caption)/1 var(--sans);color:var(--ink);cursor:pointer}
 .sw i{position:relative;flex:none;width:34px;height:20px;box-sizing:border-box;border:1px solid var(--edge);border-radius:999px;background:var(--card);transition:background var(--t-ui),border-color var(--t-ui)}
 .sw i::after{content:"";position:absolute;top:3px;left:3px;width:12px;height:12px;border-radius:50%;background:var(--ink-2);transition:transform var(--t-ui) var(--ease-ui),background var(--t-ui)}
 .sw[aria-checked="true"] i{background:var(--signal);border-color:var(--signal)}
 .sw[aria-checked="true"] i::after{transform:translateX(14px);background:var(--card)}
 .sw:active{transform:translateY(1px)}
-/* from what you entered to one number: static by default, pinned by home.js */
 .scene .steps{margin-top:40px}
 .scene .steps li{grid-template-columns:64px minmax(0,.7fr) minmax(0,1.2fr);grid-template-rows:auto 1fr;column-gap:16px;padding:32px 0}
 .scene .steps li::before{grid-row:1/span 2}
@@ -113,25 +101,22 @@
 .pinned .steps .on h3{color:var(--ink)}
 .pinned .steps .on p{color:var(--ink-2)}
 .pinned .stage{display:block;position:relative;height:min(620px,calc(100vh - 169px))}
-/* a short window pins too (14 Oct 2026: from 560px tall, which covers laptops at 125-150% scaling): the stage takes
-   the window less the header, and the steps and frames tighten so a whole frame shows */
 @media (max-height:799px){
-  .pinned .steps{margin-top:20px}
-  .pinned .steps li{padding:10px 0}
-  .pinned .steps p{font-size:var(--fs-small)}
-  .pinned .stage{height:calc(100vh - 113px)}
-  .pinned .stage .fr{padding:12px 16px 14px}
-  .pinned .stage .fr-h{padding-bottom:6px}
-  .pinned .stage .fr :is(th,td){padding-top:4px;padding-bottom:4px}
-  .pinned .stage .fr .grp th{padding-top:8px}
+.pinned .steps{margin-top:20px}
+.pinned .steps li{padding:10px 0}
+.pinned .steps p{font-size:var(--fs-small)}
+.pinned .stage{height:calc(100vh - 113px)}
+.pinned .stage .fr{padding:12px 16px 14px}
+.pinned .stage .fr-h{padding-bottom:6px}
+.pinned .stage .fr :is(th,td){padding-top:4px;padding-bottom:4px}
+.pinned .stage .fr .grp th{padding-top:8px}
 }
 @media (max-height:649px){
-  .pinned .steps li{padding:6px 0}
-  .pinned .stage .fr :is(th,td){padding-top:3px;padding-bottom:3px}
+.pinned .steps li{padding:6px 0}
+.pinned .stage .fr :is(th,td){padding-top:3px;padding-bottom:3px}
 }
 .stage .fr{position:absolute;inset:0 0 auto;max-height:100%;overflow:auto;opacity:0;visibility:hidden;transition:opacity 220ms var(--ease-ui),visibility 0s linear 220ms}
 .stage .fr.on{opacity:1;visibility:visible;transition:opacity 220ms var(--ease-ui)}
-/* connections: current flows from this PC and stops at every open switch */
 .wires-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
 .wires .lede{margin:20px 0 0;max-width:31em}
 .count{display:flex;align-items:baseline;gap:16px;margin-top:32px;padding-top:16px;border-top:1px solid var(--rule-2)}
@@ -139,7 +124,6 @@
 @media (max-height:799px){.count b{font-size:var(--fs-anchor);letter-spacing:-.04em}}
 .count p{margin:0;font-size:var(--fs-small);color:var(--ink-2);max-width:17em}
 .schem{display:block;width:100%;height:auto;margin:32px 0 0}
-/* drawn text: 14 units at every size keeps it at 12px or more on screen (see index.html) */
 .schem text{font:400 14px var(--sans);fill:var(--ink-2)}
 .schem .k{font:500 14px var(--mono);letter-spacing:.04em;fill:var(--ink-3)}
 .schem .b{font-weight:600;fill:var(--ink)}
@@ -149,7 +133,6 @@
 .schem .lv{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round}
 .schem .o{fill:none;stroke:var(--ink);stroke-width:1.5}
 .schem .far{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:3 4}
-/* the wires draw once, in order, when the drawing is in view (home.js adds .wd, then .drawn; reduced motion: drawn) */
 .schem.wd .w{stroke-dasharray:1;stroke-dashoffset:1}
 .schem.drawn .w{animation:wire 700ms var(--ease-trace) forwards}
 @keyframes wire{to{stroke-dashoffset:0}}
@@ -159,8 +142,6 @@
 .conn span{grid-column:1;font-size:var(--fs-small);color:var(--ink-2)}
 .conn em{grid-column:2;grid-row:1;font:500 var(--fs-prov)/1.6 var(--mono);letter-spacing:.04em;text-transform:uppercase;font-style:normal;color:var(--ink-2)}
 .conn .local em{color:var(--ink)}
-/* what Pocket will never do: one centred statement over five columns (14 Oct 2026: the copy is DESIGN.md's, word for
-   word; only the layout changed, so the page stops repeating one split) */
 .never-in{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
 .never-in>div{text-align:center}
 .never-in>div p{margin:16px 0 0;color:var(--ink-2)}
@@ -168,49 +149,31 @@
 .never li{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:20px 0 0}
 .never strong{font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
 .never li span{color:var(--ink-2)}
-
-/* the far end of each connection: a hairline node, its wire dashed while no current flows; opened, the wire draws */
 .schem rect.far{stroke:var(--rule-2);stroke-width:1;stroke-dasharray:none}
 .schem :is(g.on,g.try) rect.far{stroke:var(--ink)}
 .schem g rect.far{transition:stroke var(--t-ui) var(--ease-ui)}
-
-/* the page's last pieces: the count of every request, and the phone's download bar */
 .count-all[hidden]{display:none}
 .dock{display:none}
-
-/* presses answer on pointer-down (DESIGN.md "Do": translateY(1px) within 120ms) */
 .tour-tabs [role=tab]:active,.more:active{transform:translateY(1px)}
 .more{transition:transform var(--t-fast) var(--ease-ui)}
-
-/* the scene: rows count into the figure as it scrolls (home.js); a counted row gets the signal tick, the current one the wash; text never dims (axe) */
 .scene [data-q]>:first-child{padding-left:10px}
 .scene [data-q].lit>:first-child{box-shadow:inset 2px 0 var(--signal)}
 .scene [data-q]{transition:background-color var(--t-ui) var(--ease-ui)}
 .scene [data-q].now{background-color:var(--signal-wash)}
-/* SITE_TO_9, Home (13 Oct 2026). An anchor lands below the sticky header (72px and its rule), not under it */
 html{scroll-padding-top:88px}
-
-/* the hero's offer, from tiers.py; the button names the visitor's platform and the build's size (vestora.js) */
 .cta small{font-size:var(--fs-small);font-weight:500}
 .offer{margin:16px 0 0;font-size:var(--fs-small);color:var(--ink-2)}
 .offer a{color:var(--ink);white-space:nowrap}
-
-/* the investments show four lines, then "Show every line" (site_home.py; home.js opens them and the button goes,
-   15 Oct 2026), at every width so the hero fits one screen; without script, all of them and no button */
 .lines-all{display:none}
 .js .plate:not(.all) #lines .ln:nth-child(n+5){display:none}
 .js .plate:not(.all) #lines .ln:nth-child(4){border-bottom:0}
 .js .lines-all{display:inline-flex;margin:4px 0 0}
 .js .bare .lines-all,.js .all .lines-all{display:none}
 @media (max-width:560px){
-  /* a phone: the three parts, the first three investments, and one button for every other line */
-  .js .plate:not(.all) #lines .ln:nth-child(n+4){display:none}
-  .js .plate:not(.all) #lines .ln:nth-child(3){border-bottom:0}
-  .js .plate:not(.all) .br:not([data-br=assets]) .lines{display:none}
+.js .plate:not(.all) #lines .ln:nth-child(n+4){display:none}
+.js .plate:not(.all) #lines .ln:nth-child(3){border-bottom:0}
+.js .plate:not(.all) .br:not([data-br=assets]) .lines{display:none}
 }
-
-/* product tour (DESIGN.md "Product tour"): tabs that are buttons; the underline moves and the capture cross-fades
-   over --t-ui; without script, all four panels stand one under another */
 .tour-tabs{position:relative;display:flex;gap:4px;border-bottom:1px solid var(--rule-2);margin-bottom:24px;overflow-x:auto}
 .tour-tabs [role=tab]{min-height:44px;padding:0 16px;border:0;background:none;font:500 var(--fs-body)/1 var(--sans);color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:color var(--t-fast) var(--ease-ui),transform var(--t-fast) var(--ease-ui)}
 .tour-tabs [role=tab]:hover,.tour-tabs [aria-selected=true]{color:var(--ink)}
@@ -222,7 +185,6 @@ html{scroll-padding-top:88px}
 .js .tour-panels .tp.on{opacity:1;visibility:visible;transition:opacity var(--t-ui) var(--ease-ui)}
 .tp figure{margin:0}
 .tp-pics{position:relative;display:flex;justify-content:center;gap:24px}
-/* numbered callouts on a desktop capture (I1): dark on a light capture, light on a dark one; their notes below */
 :root{--t-stagger:40ms}
 .tp-marks{position:absolute;inset:0;list-style:none;margin:0;padding:0;pointer-events:none}
 .tp-marks li{position:absolute;display:grid;place-items:center;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--on-ink);color:var(--ink);font:600 var(--fs-caption)/1 var(--sans);box-shadow:0 0 0 2px var(--ink)}
@@ -231,7 +193,6 @@ html{scroll-padding-top:88px}
 .tp-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px;width:100%;margin:0 0 12px;padding:0;list-style:none;counter-reset:note}
 .tp-notes li{counter-increment:note;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;color:var(--ink-2)}
 .tp-notes li::before{content:counter(note);font:600 var(--fs-caption)/1.6 var(--sans);color:var(--ink)}
-/* after the base rule, or it wins: a phone kept three columns of notes and scrolled sideways (A3, 16 Oct 2026) */
 @media (max-width:900px){ .tp-notes{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:560px){ .tp-marks{display:none} .tp-notes{grid-template-columns:minmax(0,1fr)} }
 .tp-say{flex:1 1 auto}
@@ -240,28 +201,23 @@ html{scroll-padding-top:88px}
 .tp.phone picture{flex:0 1 330px}
 .tp figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:16px;color:var(--ink-2);font-size:var(--fs-small)}
 .tp:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:var(--r-2)}
-
-/* the stage: the one dark band, DESIGN.md's dark tokens re-declared (DESIGN.md "Stage band") */
 .on-dark{color-scheme:dark;
-  --paper:#0F1419;--plate:#151B22;--card:#1B222A;--raised:#252D37;
-  --rule:rgba(230,234,238,.10);--rule-2:rgba(230,234,238,.20);--edge:#7A8693;
-  --ink:#E6EAEE;--ink-hover:#C9D1D9;--ink-2:#B3BCC6;--ink-3:#8F9AA6;--on-ink:#0F1419;
-  --signal:#E9803F;--signal-wash:rgba(233,128,63,.10);--gain:#3FBF86;--loss:#F2808F;
-  background:var(--paper);color:var(--ink);border-top-color:transparent}
+--paper:#0F1419;--plate:#151B22;--card:#1B222A;--raised:#252D37;
+--rule:rgba(230,234,238,.10);--rule-2:rgba(230,234,238,.20);--edge:#7A8693;
+--ink:#E6EAEE;--ink-hover:#C9D1D9;--ink-2:#B3BCC6;--ink-3:#8F9AA6;--on-ink:#0F1419;
+--signal:#E9803F;--signal-wash:rgba(233,128,63,.10);--gain:#3FBF86;--loss:#F2808F;
+background:var(--paper);color:var(--ink);border-top-color:transparent}
 @media (prefers-color-scheme: dark){ .on-dark{--paper:#151B22;--card:#1B222A} }
 .tour-tabs .tab-n{margin-left:6px;font:500 var(--fs-prov)/1 var(--mono);color:var(--ink-3)}
-
-/* the film, the tour's last tab: a poster and one play button; the file loads on play, captioned */
 .film-fig{margin:0}
 .film-box{position:relative}
 .film-box video{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:var(--r-3);background:var(--card)}
 .film-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;
-  min-height:56px;padding:0 24px 0 20px;border:0;border-radius:var(--r-2);background:var(--ink);color:var(--on-ink);
-  font:600 var(--fs-body)/1 var(--sans);white-space:nowrap;cursor:pointer;
-  transition:background var(--t-fast) var(--ease-ui),transform var(--t-fast) var(--ease-ui)}
+min-height:56px;padding:0 24px 0 20px;border:0;border-radius:var(--r-2);background:var(--ink);color:var(--on-ink);
+font:600 var(--fs-body)/1 var(--sans);white-space:nowrap;cursor:pointer;
+transition:background var(--t-fast) var(--ease-ui),transform var(--t-fast) var(--ease-ui)}
 .film-play[hidden]{display:none}
 .film-play:hover{background:var(--ink-hover)}
-/* on the dark band the poster is still a light capture, so the button turns to dark ink to stand off it */
 .on-dark .film-play{background:var(--on-ink);color:var(--ink)}
 .on-dark .film-play:hover{background:var(--raised)}
 .film-play:active{transform:translate(-50%,calc(1px - 50%))}
@@ -273,11 +229,7 @@ html{scroll-padding-top:88px}
 .film-tx ol{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--rule)}
 .film-tx li{padding:10px 0;border-bottom:1px solid var(--rule);color:var(--ink-2)}
 .film-tx time{display:inline-block;min-width:3.5em;font:500 var(--fs-caption)/1 var(--mono);color:var(--ink-3)}
-
-/* what it reads: four short columns on a rule (the full rules are on Features) */
 .reads-n{margin:16px 0 0;padding-top:16px;border-top:1px solid var(--rule);color:var(--ink-2);max-width:none}
-
-/* the salary tool: a slider, then both regimes as an instrument reading; every figure is the engine's */
 .try{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
 .try-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:8px 16px;padding-top:8px}
 .try-in label{font:600 var(--fs-body)/1.3 var(--sans)}
@@ -285,8 +237,6 @@ html{scroll-padding-top:88px}
 .try-in input{grid-column:1/-1;width:100%;height:44px;margin:8px 0 0;cursor:pointer}
 .try-ends{grid-column:1/-1;display:flex;justify-content:space-between;margin:0;font:400 var(--fs-prov)/1.3 var(--mono);color:var(--ink-3)}
 html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
-/* MI1 (15 Oct 2026): one thumb in every browser (20px, ink ring on card), so the ticks every Rs 5 lakh sit under its
-   centre; the track fills in ink up to the thumb (--f, home.js). Focus keeps the site's ink ring. */
 .try-in input{-webkit-appearance:none;appearance:none;background:transparent}
 .try-in input::-webkit-slider-runnable-track{height:2px;background:linear-gradient(to right,var(--ink) calc(10px + (100% - 20px) * var(--f,0)),var(--rule-2) 0)}
 .try-in input::-moz-range-track{height:2px;background:linear-gradient(to right,var(--ink) calc(10px + (100% - 20px) * var(--f,0)),var(--rule-2) 0)}
@@ -308,8 +258,6 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .try-more label{flex:1 0 100%;color:var(--ink-2)}
 .try-more input{width:11em;min-height:44px;padding:0 12px;border:1px solid var(--edge);border-radius:var(--r-2);background:var(--card);color:var(--ink);font:500 var(--fs-body)/1 var(--sans);font-variant-numeric:tabular-nums}
 .try-more .btn-line{min-height:44px}
-
-/* what would leave: each connection's payload one tap away; opening it closes that switch in the drawing */
 .conn .lv-b{grid-column:2;grid-row:2;justify-self:end;align-self:start;min-height:44px;margin:-12px 0 -12px;white-space:nowrap}
 .conn .lv{grid-column:1/-1;margin:4px 0 0;padding:12px 14px;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-2);font-size:var(--fs-small);color:var(--ink-2)}
 .js .conn .lv{display:none}
@@ -319,11 +267,8 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .schem :is(g.on,g.try) .far{stroke:var(--ink-2);stroke-dasharray:none}
 .schem g .k{transition:opacity var(--t-ui) var(--ease-ui)}
 .schem :is(g.on,g.try) .k:not(.if){opacity:0}
-/* a switch shown shut says so: IF ON, never a bare shut switch beside "Off" */
 .schem .k.if{opacity:0;fill:var(--ink)}
 .schem :is(g.on,g.try) .k.if{opacity:1}
-
-/* S2: pinned where it fits; each connection takes a turn in ink (not signal: connections, not working), ending on the 0 */
 .pinned.wires{height:210vh;padding:0}
 .pinned .wires-in{position:sticky;top:73px;min-height:calc(100vh - 73px);align-content:center;padding:12px 0}
 .pinned .conn li{padding-left:12px;transition:background-color var(--t-ui) var(--ease-ui)}
@@ -331,21 +276,16 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .count{transition:border-color var(--t-ui) var(--ease-ui)}
 .count.now{border-top-color:var(--ink);box-shadow:inset 0 1px var(--ink)}
 @media (max-height:799px){
-  .pinned .wires .lede{margin-top:12px}
-  .pinned .count{margin-top:20px}
-  .pinned .schem{margin-top:16px}
-  .pinned .conn li{padding-top:10px;padding-bottom:10px}
+.pinned .wires .lede{margin-top:12px}
+.pinned .count{margin-top:20px}
+.pinned .schem{margin-top:16px}
+.pinned .conn li{padding-top:10px;padding-bottom:10px}
 }
-
-/* the home page's rhythm (SL1, 14 Oct 2026): sections 80px, 64 on tablets, 48 on phones (the site's are 96/72/56) */
-:root{--sec:80px;--fs-proof:clamp(72px, 40px + 4vw, 112px)}   /* M2: the one proof figure (DESIGN.md "proof") */
+:root{--sec:80px;--fs-proof:clamp(72px, 40px + 4vw, 112px)}
 @media (max-width:900px){:root{--sec:64px}}
 @media (max-width:560px){:root{--sec:48px}}
-/* what it reads: one line in the scene's first step; on a short pinned screen it gives way to the steps */
 .reads-1{margin:12px 0 0;font-size:var(--fs-small);color:var(--ink-2);max-width:42em}
 @media (max-height:799px){.pinned .reads-1{display:none}}
-/* the releases strip (L2, 16 Oct 2026): the pace as one row over the newest three side by side, so the page never
-   runs two heading-beside-list sections in a row (the questions above are one); a phone keeps them as rows */
 .rel-in{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
 .rel-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 32px}
 .rel-top p{margin:0;color:var(--ink-2)}
@@ -357,8 +297,6 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .rel .rel-l h3{margin:0;font:600 var(--fs-body)/1.3 var(--display);letter-spacing:-.01em}
 .rel .rel-l span:last-child{color:var(--ink-2);font-size:var(--fs-small)}
 @media (max-width:900px){.rel .rel-l{grid-template-columns:minmax(0,1fr)}.rel .rel-l li{border-bottom:1px solid var(--rule)}.rel .rel-l a{padding:14px 0}}
-/* asked first */
-/* asked first: native <details>, all closed, heading beside one list (DESIGN.md "Asked first") */
 .faq-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
 .faq-in .sec-head{display:block;margin:0}
 .faq-in .sec-head p{margin-top:16px}
@@ -382,15 +320,13 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .rel-l .tag{display:block;margin-top:6px}
 .rel-l p{margin:12px 0;color:var(--ink-2)}
 .close .soon{font-family:var(--sans)}
-/* the brand close (B5/M3/CV1/CV2, 15 Oct 2026; DESIGN.md "Close"): the mark, the hero's promise over a drafting
-   dimension rule, the action and what it costs; beside it, what happens after you download */
 .brand-close{text-align:left}
 .close-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px 80px;align-items:end}
 .close-mark{display:block;width:50px;height:auto;margin:0 0 28px}
 .close-st{width:fit-content;max-width:100%}
 .brand-close h2{margin:0;max-width:13ch;font-size:var(--fs-display);line-height:1.04;letter-spacing:-.035em}
 .close-rule{display:block;height:9px;margin:20px 0 32px;border-inline:1px solid var(--ink-3);
-  background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
+background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .brand-close .hbtns{justify-content:flex-start}
 .brand-close .offer{margin:16px 0 0;max-width:52ch;text-wrap:pretty}
 .brand-close .soon{margin:8px 0 0;max-width:none;font-size:var(--fs-small);color:var(--ink-3)}
@@ -401,80 +337,66 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .after b{font-weight:600}
 .after span{grid-column:2;font-size:var(--fs-small);color:var(--ink-2)}
 @media (max-width:900px){.close-in{grid-template-columns:minmax(0,1fr);gap:40px}}
-
 @media (max-width:900px){
-  .wires-in,.never-in,.try,.rel-in{grid-template-columns:minmax(0,1fr);gap:40px}
-  /* the tree stands up: one spine from the figure through the three parts */
-  .home-copy{grid-template-columns:minmax(0,1fr);row-gap:20px}
-  .home .sub,.home-copy>*{grid-column:1;grid-row:auto}
-  .tree{padding:20px 24px 24px}
-  .branches{grid-template-columns:minmax(0,1fr);padding-top:0}
-  .tr-bus{display:none}
-  .br+.br{margin-top:20px}
-  .br .tr-drop{top:-20px;bottom:0}
-  .br:first-child .tr-drop{top:0}
-  .br:last-child .tr-drop{bottom:14px}
-  .faq-in{grid-template-columns:minmax(0,1fr);gap:32px}
-  .qa p{padding-right:0}
-  .never ul{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .rel-l{grid-template-columns:minmax(0,1fr)}
-  .rel-l li+li{border-top:1px solid var(--rule)}
-  .scene .steps li{grid-template-columns:48px minmax(0,1fr)}
-  .scene .steps li>.fr{grid-column:1/-1;grid-row:auto;margin:20px 0 0}
+.wires-in,.never-in,.try,.rel-in{grid-template-columns:minmax(0,1fr);gap:40px}
+.home-copy{grid-template-columns:minmax(0,1fr);row-gap:20px}
+.home .sub,.home-copy>*{grid-column:1;grid-row:auto}
+.tree{padding:20px 24px 24px}
+.branches{grid-template-columns:minmax(0,1fr);padding-top:0}
+.tr-bus{display:none}
+.br+.br{margin-top:20px}
+.br .tr-drop{top:-20px;bottom:0}
+.br:first-child .tr-drop{top:0}
+.br:last-child .tr-drop{bottom:14px}
+.faq-in{grid-template-columns:minmax(0,1fr);gap:32px}
+.qa p{padding-right:0}
+.never ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rel-l{grid-template-columns:minmax(0,1fr)}
+.rel-l li+li{border-top:1px solid var(--rule)}
+.scene .steps li{grid-template-columns:48px minmax(0,1fr)}
+.scene .steps li>.fr{grid-column:1/-1;grid-row:auto;margin:20px 0 0}
 }
 @media (max-width:560px){
-  .home{padding-top:24px}
-  .home .hbtns{flex-direction:column;align-items:stretch}
-  .plate{padding:16px}
-  .tree .fig-a{font-size:var(--fs-anchor)}
-  .t{font-size:var(--fs-fig-s)}
-  .br{padding-left:24px}
-  .tr-stem,.tr-drop{left:8px}
-  .term::before,.ln::before{left:-16px;width:12px}
-  .tblock{grid-template-columns:1fr 1fr}
-  .tblock div:nth-child(3){padding-left:0;border-left:0}
-  .tblock div:nth-child(n+3){margin-top:10px;border-top:1px solid var(--rule)}
-  .fr{padding:14px}
-  .ledger :is(th,td):nth-child(2){display:none}
-  /* steps 2 and 3 repeat what the hero plate already shows; on phones the plate carries them */
-  .scene .steps li:nth-child(n+2)>.fr{display:none}
-  .fr .r{white-space:normal}
-  .eqn td{font-size:var(--fs-fig-s)}
-  .eqn tfoot td{font-size:var(--fs-fig)}
-  /* PH2 (15 Oct 2026): a phone drops what the same screen already says: the drawing restates the list under it, the
-     balances are the plate's Accounts and Liabilities lines, and the files Pocket reads are on Features */
-  .schem,.ledger tbody.bal,.reads-1{display:none}
-  .never li{grid-template-columns:minmax(0,1fr);gap:4px}
-  .tp.phone picture+picture{display:none}
-  .tp.phone picture{flex-basis:100%}
-  .tour-tabs [role=tab]{padding:0 12px}
-  /* a phone keeps two short columns, and the newest release only (the pace line counts the rest) */
-  .never ul{gap:0 16px}
-  .never strong{font-size:var(--fs-body)}
-  .never li span{font-size:var(--fs-small)}
-  .rel-l li:nth-child(n+2){display:none}
-  .never-in>div{text-align:left}
-  .try-out{padding:16px}
-  .try-figs>div+div{padding-left:16px}
-  .try-out .fig{font-size:var(--fs-fig)}
-  .film-play{min-height:48px;padding:0 16px 0 14px;font-size:var(--fs-small)}
-  .film-play .tab-n{display:none}
-  /* the download bar: in reach once the hero's button has scrolled away, gone again by the page's last one */
-  .js .dock{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-sticky);display:flex;
-    padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));background:var(--paper);border-top:1px solid var(--rule);
-    transform:translateY(110%);visibility:hidden;transition:transform var(--t-panel) var(--ease-ui),visibility 0s linear var(--t-panel)}
-  .js .dock.up{transform:none;visibility:visible;transition:transform var(--t-panel) var(--ease-ui)}
-  .dock .cta{flex:1}
+.home{padding-top:24px}
+.home .hbtns{flex-direction:column;align-items:stretch}
+.plate{padding:16px}
+.tree .fig-a{font-size:var(--fs-anchor)}
+.t{font-size:var(--fs-fig-s)}
+.br{padding-left:24px}
+.tr-stem,.tr-drop{left:8px}
+.term::before,.ln::before{left:-16px;width:12px}
+.tblock{grid-template-columns:1fr 1fr}
+.tblock div:nth-child(3){padding-left:0;border-left:0}
+.tblock div:nth-child(n+3){margin-top:10px;border-top:1px solid var(--rule)}
+.fr{padding:14px}
+.ledger :is(th,td):nth-child(2){display:none}
+.scene .steps li:nth-child(n+2)>.fr{display:none}
+.fr .r{white-space:normal}
+.eqn td{font-size:var(--fs-fig-s)}
+.eqn tfoot td{font-size:var(--fs-fig)}
+.schem,.ledger tbody.bal,.reads-1{display:none}
+.never li{grid-template-columns:minmax(0,1fr);gap:4px}
+.tp.phone picture+picture{display:none}
+.tp.phone picture{flex-basis:100%}
+.tour-tabs [role=tab]{padding:0 12px}
+.never ul{gap:0 16px}
+.never strong{font-size:var(--fs-body)}
+.never li span{font-size:var(--fs-small)}
+.rel-l li:nth-child(n+2){display:none}
+.never-in>div{text-align:left}
+.try-out{padding:16px}
+.try-figs>div+div{padding-left:16px}
+.try-out .fig{font-size:var(--fs-fig)}
+.film-play{min-height:48px;padding:0 16px 0 14px;font-size:var(--fs-small)}
+.film-play .tab-n{display:none}
+.js .dock{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-sticky);display:flex;
+padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));background:var(--paper);border-top:1px solid var(--rule);
+transform:translateY(110%);visibility:hidden;transition:transform var(--t-panel) var(--ease-ui),visibility 0s linear var(--t-panel)}
+.js .dock.up{transform:none;visibility:visible;transition:transform var(--t-panel) var(--ease-ui)}
+.dock .cta{flex:1}
 }
-
-/* MO1 (15 Oct 2026): a section's heading and first line rise 8px once as it comes in, 40ms apart. home.js adds .rv
-   only when motion is allowed, so without script, or with reduced motion, nothing waits to be shown */
 .rv{opacity:0;transform:translateY(8px)}
 .rv.in{opacity:1;transform:none;transition:opacity var(--t-panel) var(--ease-ui),transform var(--t-panel) var(--ease-ui);
-  transition-delay:calc(var(--i,0) * var(--t-stagger))}
-
-/* HC3 (16 Oct 2026): on a short wide window (1366x600) the plate's figure stands whole above the fold */
+transition-delay:calc(var(--i,0) * var(--t-stagger))}
 @media (min-width:901px) and (max-height:649px){ .home{padding-top:32px} .home .tree{margin-top:32px} }
-/* PH2b (16 Oct 2026): a phone's close drops its two repeats: the release line (the releases strip is directly above)
-   and "See every feature" (the menu has Features); the download, the price and the three steps stay */
 @media (max-width:560px){ .brand-close .soon,.brand-close .hbtns .btn-line{display:none} }

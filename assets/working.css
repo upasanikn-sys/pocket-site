@@ -54,6 +54,11 @@
 .prose h2 + p.q{margin:0 0 20px; max-width:60ch; font-size:var(--fs-lede); line-height:1.5; color:var(--ink-2)}
 .prose h2 + p.q + .plate, .prose h2 + p.q + .gshot, .prose h2 + p.q + .tablewrap{margin-top:8px}
 
+/* T5: text runs 60 to 68ch where it can; a caption, a source and a plate's lines set smaller, so their ch is smaller
+   and each is capped on its own. A superscript never falls under the 12px floor. */
+.gshot figcaption, .prose .sources li, .say, .say2, .calc-try{max-width:68ch}
+sup{font-size:max(12px, .75em); line-height:0}
+
 /* a working on a plate in a guide's text: the plate's own heading, then its rows */
 .prose .plate{margin:16px 0 20px}
 .prose .plate h3{margin:0 0 4px; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink)}

@@ -13,7 +13,7 @@
 .home{padding:48px 0 var(--sec)}
 /* the hero (STRIPE_LEVEL B1/L1, 14 Oct 2026): the statement and its action on one line of the grid, then the figure
    with its working as the page's signature drawing, the full width of the page */
-.home h1{margin:0;max-width:none;font-size:clamp(44px, 26px + 3.4vw, 76px);line-height:1;letter-spacing:-.045em}
+.home h1{margin:0;max-width:none;font-size:clamp(44px, 26px + 3.4vw, 80px);line-height:1;letter-spacing:-.045em}
 .home-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:64px;align-items:start;margin-top:28px}
 .home-copy>*{grid-column:2}
 .home .sub{grid-column:1;grid-row:1/span 3;margin:0;max-width:36em}
@@ -242,11 +242,12 @@ html{scroll-padding-top:88px}
 .tp-marks li{position:absolute;display:grid;place-items:center;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--on-ink);color:var(--ink);font:600 var(--fs-caption)/1 var(--sans);box-shadow:0 0 0 2px var(--ink)}
 .tp.on .tp-marks li{animation:tr-rise var(--t-ui) var(--ease-ui) both;animation-delay:calc(var(--i) * var(--t-stagger) * 2)}
 @media (prefers-color-scheme: dark){ .tp-marks li{background:var(--ink);color:var(--on-ink);box-shadow:0 0 0 2px var(--on-ink)} }
-@media (max-width:900px){ .tp-notes{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@media (max-width:560px){ .tp-marks{display:none} .tp-notes{grid-template-columns:minmax(0,1fr)} }
 .tp-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px;width:100%;margin:0 0 12px;padding:0;list-style:none;counter-reset:note}
 .tp-notes li{counter-increment:note;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;color:var(--ink-2)}
 .tp-notes li::before{content:counter(note);font:600 var(--fs-caption)/1.6 var(--sans);color:var(--ink)}
+/* after the base rule, or it wins: a phone kept three columns of notes and scrolled sideways (A3, 16 Oct 2026) */
+@media (max-width:900px){ .tp-notes{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:560px){ .tp-marks{display:none} .tp-notes{grid-template-columns:minmax(0,1fr)} }
 .tp-say{flex:1 1 auto}
 .tp-pics picture{display:block;flex:1 1 0;min-width:0}
 .tp img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:var(--r-3);background:var(--card)}
@@ -324,7 +325,10 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .try-out .fig{margin:10px 0 0;font:600 var(--fs-fig-l)/1 var(--display);letter-spacing:-.035em}
 .try-out .say{margin:16px 0 0;font-weight:600}
 .try-out .say2{margin:6px 0 0;font-size:var(--fs-small);color:var(--ink-2)}
-.try-more{margin:16px 0 0;font-size:var(--fs-small)}
+.try-more{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:16px 0 0;font-size:var(--fs-small)}
+.try-more label{flex:1 0 100%;color:var(--ink-2)}
+.try-more input{width:11em;min-height:44px;padding:0 12px;border:1px solid var(--edge);border-radius:var(--r-2);background:var(--card);color:var(--ink);font:500 var(--fs-body)/1 var(--sans);font-variant-numeric:tabular-nums}
+.try-more .btn-line{min-height:44px}
 
 /* what would leave: each connection's payload one tap away; opening it closes that switch in the drawing */
 .conn .lv-b{grid-column:2;grid-row:2;justify-self:end;align-self:start;min-height:44px;margin:-12px 0 -12px;white-space:nowrap}
@@ -341,13 +345,14 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .schem :is(g.on,g.try) .k.if{opacity:1}
 
 /* S2 (15 Oct 2026): where it fits, the privacy section pins (home.js, wide windows only). Each connection takes a
-   turn, its row ticked in signal and its switch shown shut, then it opens again; the section ends on its 0. */
+   turn, its row marked in ink and its switch shown shut, then it opens again; the section ends on its 0. Ink, not
+   signal: these rows are connections, not working, and the 0 is a figure (DESIGN.md "The Signal Rule", C2). */
 .pinned.wires{height:210vh;padding:0}
 .pinned .wires-in{position:sticky;top:73px;min-height:calc(100vh - 73px);align-content:center;padding:12px 0}
 .pinned .conn li{padding-left:12px;transition:background-color var(--t-ui) var(--ease-ui)}
-.conn li.now{background:var(--signal-wash);box-shadow:inset 2px 0 var(--signal)}
+.conn li.now{background:var(--plate);box-shadow:inset 2px 0 var(--ink)}
 .count{transition:border-color var(--t-ui) var(--ease-ui)}
-.count.now{border-top-color:var(--signal);box-shadow:inset 0 1px var(--signal)}
+.count.now{border-top-color:var(--ink);box-shadow:inset 0 1px var(--ink)}
 @media (max-height:799px){
   .pinned .wires .lede{margin-top:12px}
   .pinned .count{margin-top:20px}
@@ -362,15 +367,19 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 /* what it reads: one line in the scene's first step; on a short pinned screen it gives way to the steps */
 .reads-1{margin:12px 0 0;font-size:var(--fs-small);color:var(--ink-2);max-width:42em}
 @media (max-height:799px){.pinned .reads-1{display:none}}
-/* the releases strip: the pace as the heading, the newest three as rows that open their notes */
-.rel-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px 64px;align-items:start}
-.rel-top p{margin:12px 0 0;color:var(--ink-2)}
-.rel .rel-l{display:block;border-top:1px solid var(--ink)}
-.rel .rel-l li{padding:0;border-bottom:1px solid var(--rule)}
-.rel .rel-l a{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:4px 16px;align-items:baseline;min-height:56px;padding:14px 0;color:var(--ink)}
+/* the releases strip (L2, 16 Oct 2026): the pace as one row over the newest three side by side, so the page never
+   runs two heading-beside-list sections in a row (the questions above are one); a phone keeps them as rows */
+.rel-in{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.rel-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 32px}
+.rel-top p{margin:0;color:var(--ink-2)}
+.rel .rel-l{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ink)}
+.rel .rel-l li{padding:0}
+.rel .rel-l a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:baseline;min-height:56px;padding:16px 0 4px;color:var(--ink)}
+.rel .rel-l a span:last-child{grid-column:1/-1}
 .rel .rel-l a:hover span:last-child{text-decoration:underline;text-underline-offset:3px}
 .rel .rel-l h3{margin:0;font:600 var(--fs-body)/1.3 var(--display);letter-spacing:-.01em}
 .rel .rel-l span:last-child{color:var(--ink-2);font-size:var(--fs-small)}
+@media (max-width:900px){.rel .rel-l{grid-template-columns:minmax(0,1fr)}.rel .rel-l li{border-bottom:1px solid var(--rule)}.rel .rel-l a{padding:14px 0}}
 /* asked first */
 /* asked first: the questions only, each answer one press away (Keyur, 14 Oct 2026). The heading sits beside one list,
    so opening an answer never leaves a gap in a second column. A native <details>: keyboard and no-script work, and

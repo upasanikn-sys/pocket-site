@@ -5,7 +5,7 @@
   "use strict";
   var imgs = document.querySelectorAll(".crop img, .frame img, .capture img");
   Array.prototype.forEach.call(imgs, function (img) {
-    if (img.complete) return;
+    if (img.complete || img.loading !== "lazy") return;   // an eager image is above the fold: it shows as it loads (PF3)
     img.classList.add("fade-img");
     var show = function () { img.classList.add("in"); };
     img.addEventListener("load", show, { once: true });

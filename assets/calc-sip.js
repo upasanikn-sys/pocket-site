@@ -48,5 +48,33 @@
       ["What the delay costs", lost + "% of " + rs(fv), rs(fv - dfv), "tot"]]));
     return say;
   };
+  /* sliders (MI-calc): each range sits under its field, moves it and follows it; the typed field is what the sum reads.
+     PageUp and PageDown move data-page steps, the arrows one step; the track fills to the thumb (--f) */
+  var rngs = [].slice.call(C.form.querySelectorAll(".rng"));
+  function fill(g) { g.style.setProperty("--f", (g.value - g.min) / (g.max - g.min)); }
+  rngs.forEach(function (g) {
+    var f = C.form.elements[g.getAttribute("data-for")], big = Number(g.getAttribute("data-page"));
+    g.addEventListener("input", function () {
+      f.value = g.value; fill(g);
+      f.dispatchEvent(new Event("input", {bubbles: true}));
+    });
+    g.addEventListener("keydown", function (e) {
+      var k = {PageUp: 1, PageDown: -1}[e.key];
+      if (!k) return;
+      e.preventDefault();
+      g.value = Math.min(+g.max, Math.max(+g.min, +g.value + k * big));
+      g.dispatchEvent(new Event("input", {bubbles: true}));
+    });
+    f.addEventListener("input", function () {
+      var v = C.val(f.name);
+      if (String(v).trim() !== "" && isFinite(v)) { g.value = v; fill(g); }
+    });
+  });
+  function reach() {                                          // starting later can be as long as the SIP
+    var d = C.form.querySelector('.rng[data-for="d"]'), n = C.whole(C.val("y"));
+    if (d && n) { d.max = n * 12; fill(d); }
+  }
+  C.form.elements.y.addEventListener("input", reach);
+  C.form.addEventListener("reset", function () { setTimeout(function () { reach(); rngs.forEach(fill); }, 0); });
   C.start();
 })();

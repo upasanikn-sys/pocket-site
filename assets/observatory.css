@@ -203,3 +203,7 @@ h2,h3{text-wrap:balance}
 p,li,dd,figcaption{text-wrap:pretty}
 table{font-variant-numeric:tabular-nums}
 :where(button:not(:disabled),summary):active{transform:translateY(1px)}
+/* B2 (15 Oct 2026): the dimension mark under each page's statement, the close's rule in short (DESIGN.md) */
+h1.d::after{content:""; display:block; width:96px; height:9px; margin-top:16px; border-inline:1px solid var(--ink-3);
+  background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
+@media (max-height:649px){ h1.d::after{display:none} }   /* a short window keeps its action above the fold */

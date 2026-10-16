@@ -2,6 +2,20 @@
    capture, questions, sources and related guides on a guide; the index's guide rows; and how a guide prints. Loaded
    after working.css (the title block, plates and the working's rows) and site-shell.css by guides.html and the
    guide-*.html pages only. Rows on rules, never boxed cards (DESIGN.md), the worked sums apart. */
+/* inner.css subset: begin (tools/css_subset.py; do not edit by hand) */
+.prose .ldate{margin:0 0 28px; font-size:var(--fs-small); color:var(--ink-3)}
+.prose .lsum{margin:0 0 12px; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card); color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
+.prose .lsum b{color:var(--ink)}
+.prose b{color:var(--ink); font-weight:600}
+.prose .lnote{margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3)}
+.prose h2[id]{scroll-margin-top:96px}
+.prose code{font:400 var(--fs-caption)/1.5 var(--mono); color:var(--ink); padding:1px 5px; border:1px solid var(--rule); border-radius:var(--r-1); background:var(--plate); word-break:break-all}
+.prose .tablewrap{margin:16px 0}
+.prose .tablewrap table{margin:0; min-width:560px}
+.prose .tablewrap.fit table{min-width:0}
+.prose td, .prose th{color:var(--ink-2); font-size:var(--fs-small); line-height:1.55}
+.prose tbody td:first-child{color:var(--ink); font-weight:500}
+/* inner.css subset: end */
 .prose h2[id], .prose h3[id]{scroll-margin-top:88px}
 
 /* the title block under the heading: what kind of guide, who wrote it, when it was last checked (working.css's
@@ -42,6 +56,7 @@
 /* the index: one row per guide, two columns on wide screens */
 .prose.gindex{max-width:none}
 .gindex .glede{max-width:65ch; font-size:var(--fs-lede); color:var(--ink-2)}
+.gindex > p{max-width:68ch}   /* T5: the index is wide for its two columns of cards, not for its sentences */
 .gindex .gjump{display:flex; flex-wrap:wrap; gap:4px 20px; margin:24px 0 8px}
 .gindex .gjump a{display:inline-block; padding:10px 0; font-size:var(--fs-small)}
 .gindex h2{margin-top:56px}

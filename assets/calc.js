@@ -89,6 +89,8 @@
     });
     var reset = root.querySelector(".reset");
     if (reset) reset.addEventListener("click", function () { form.reset(); C.run(true); });
+    var h = /salary=(\d+)/.exec(location.hash), s = form.salary;
+    if (h && s) s.value = grp(h[1]);
     C.run(false);
   };
 

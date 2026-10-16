@@ -225,6 +225,21 @@
   if (rng) {
     var T = JSON.parse(d.getElementById("try-data").textContent), box = rng.closest(".try"),
         put = function (k, v) { box.querySelector('[data-t="' + k + '"]').textContent = v; };
+    /* MO3: a regime's figure rolls from the last salary's to this one's over --t-roll (the slider is the cause, so it
+       moves only when the salary does) and lands on the engine's own text; reduced motion sets it at once */
+    var num = function (s) { return +String(s).replace(/[^\d]/g, ""); }, rolls = {},
+        inr = function (n) { var s = String(n), h = s.slice(0, -3); return "₹" + (h ? h.replace(/\B(?=(\d{2})+$)/g, ",") + "," + s.slice(-3) : s); },
+        roll = function (k, v) {
+          var el = box.querySelector('[data-t="' + k + '"]'), a = num(el.textContent), b = num(v), t0 = 0;
+          cancelAnimationFrame(rolls[k]);
+          if (rm || a === b || !/^₹[\d,]+$/.test(v)) return put(k, v);
+          var step = function (t) {
+            t0 = t0 || t; var p = Math.min(1, (t - t0) / 320), e = 1 - Math.pow(1 - p, 3);
+            el.textContent = p < 1 ? inr(Math.round(a + (b - a) * e)) : v;
+            if (p < 1) rolls[k] = requestAnimationFrame(step);
+          };
+          rolls[k] = requestAnimationFrame(step);
+        };
     /* MI1: PageUp/PageDown move a tick (Rs 5 lakh); the track fills to the thumb */
     rng.addEventListener("keydown", function (e) {
       var k = { PageUp: 1, PageDown: -1 }[e.key];
@@ -233,10 +248,15 @@
       rng.value = Math.min(+rng.max, Math.max(+rng.min, +rng.value + k * T.tick));
       rng.dispatchEvent(new Event("input"));
     });
+    /* D1: an exact salary goes to the tax calculator in the fragment, never sent (calc.js reads #salary=) */
+    var tx = d.getElementById("try-x");
+    if (tx) tx.form.addEventListener("submit", function (e) {
+      e.preventDefault(); var v = tx.value.replace(/\D/g, ""); location.href = tx.form.action + (v ? "#salary=" + v : "");
+    });
     rng.addEventListener("input", function () {
       rng.style.setProperty("--f", (rng.value - rng.min) / (rng.max - rng.min));
       var r = T.p[Math.round((rng.value - T.from) / T.step)];
-      box.querySelector(".try-g").textContent = r[0]; put("new", r[1]); put("old", r[2]);
+      box.querySelector(".try-g").textContent = r[0]; roll("new", r[1]); roll("old", r[2]);
       put("say", r[3] ? T.lower.replace("%w", r[3]).replace("%d", r[4]) : T.same);
       put("be", T.be[r[5]] || T.be[2].replace("%s", r[5]));
       rng.setAttribute("aria-valuetext", r[0] + " a year: new regime " + r[1] + ", old regime " + r[2]);

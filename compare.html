@@ -26,8 +26,9 @@
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=6">
 <link rel="stylesheet" href="assets/observatory.css?v=14">
-<link rel="stylesheet" href="assets/product-pages.css?v=11">
-<link rel="stylesheet" href="assets/site-shell.css?v=5">
+<link rel="stylesheet" href="assets/product-pages.css?v=15">
+<link rel="stylesheet" href="assets/working.css?v=8">
+<link rel="stylesheet" href="assets/site-shell.css?v=6">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -53,6 +54,7 @@
     <a href="pricing.html">Pricing</a>
     <a href="guides.html">Guides</a>
     <a href="ai-copilot.html">Ask Pocket</a>
+    <a href="compare.html" aria-current="page">Compare</a>
     <a href="changelog.html">Changelog</a>
     <a href="roadmap.html">Roadmap</a>
     <a class="sh-menu-cta" href="download.html">Download free</a>
@@ -71,7 +73,14 @@
         </div>
         <p class="ph-cap">No ranking and no named products: each category is for something different.</p>
       </div>
-      <figure class="ph-vis"><div class="crop cut" style="--x:270;--y:115;--w:980;--h:125;--sw:1280" data-cap="overview"><picture><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-overview-270-115-980-125-dark.webp 980w, assets/crop-overview-270-115-980-125-dark-2x.webp 1960w" sizes="(min-width: 1200px) 408px, (min-width: 901px) calc(45vw - 132px), (min-width: 561px) calc(100vw - 138px), calc(100vw - 114px)"><source type="image/webp" srcset="assets/crop-overview-270-115-980-125.webp 980w, assets/crop-overview-270-115-980-125-2x.webp 1960w" sizes="(min-width: 1200px) 408px, (min-width: 901px) calc(45vw - 132px), (min-width: 561px) calc(100vw - 138px), calc(100vw - 114px)"><img src="assets/crop-overview-270-115-980-125.png" width="980" height="125" alt="Overview in Pocket on the sample data: net worth ₹19,18,637, as investments ₹9,16,037 plus accounts ₹14,41,000 minus liabilities ₹4,38,400." loading="lazy" decoding="async"></picture></div><figcaption>Overview, sample data: net worth as its sum.</figcaption></figure>
+      <figure class="ph-vis"><div class="crop cut" style="--x:270;--y:115;--w:980;--h:125;--sw:1280" data-cap="overview"><picture><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-overview-270-115-980-125-dark.webp 980w, assets/crop-overview-270-115-980-125-dark-2x.webp 1960w" sizes="(min-width: 1200px) 408px, (min-width: 901px) calc(45vw - 132px), (min-width: 561px) calc(100vw - 138px), calc(100vw - 114px)"><source type="image/webp" srcset="assets/crop-overview-270-115-980-125.webp 980w, assets/crop-overview-270-115-980-125-2x.webp 1960w" sizes="(min-width: 1200px) 408px, (min-width: 901px) calc(45vw - 132px), (min-width: 561px) calc(100vw - 138px), calc(100vw - 114px)"><img src="assets/crop-overview-270-115-980-125.png" width="980" height="125" alt="Overview in Pocket on the sample data: net worth ₹19,18,637, as investments ₹9,16,037 plus accounts ₹14,41,000 minus liabilities ₹4,38,400." loading="lazy" decoding="async"></picture></div><figcaption>Overview, sample data: net worth as its sum.</figcaption>
+        <div class="plate" id="wk-nw"><ol class="wk" aria-label="Net worth, the sample person">
+<li class="wr"><span class="wl"><span class="op">+</span>Investments<small>6 holdings and cash · 7 lines</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹9,16,037</span></li>
+<li class="wr"><span class="wl"><span class="op">+</span>Accounts<small>5 accounts</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹14,41,000</span></li>
+<li class="wr"><span class="wl"><span class="op">&minus;</span>Liabilities<small>2 balances</small></span><span class="ld" aria-hidden="true"></span><span class="wa">₹4,38,400</span></li>
+<li class="wr tot"><span class="wl">Net worth</span><span class="ld" aria-hidden="true"></span><span class="wa">₹19,18,637</span></li>
+</ol></div>
+        <button type="button" class="ghost" data-wk aria-pressed="true" aria-controls="wk-nw">Show working</button></figure>
     </div>
   </section>
 
@@ -160,10 +169,12 @@
     <div><dt>Your data</dt><dd>No account · No bank logins · No trackers</dd></div>
     <div class="sf-copy"><dt>Pocket</dt><dd>© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></dd></div>
   </dl>
+  <div class="sf-dock"><a class="cta" href="download.html">Download free</a></div>
 </footer>
 
 <script src="assets/vestora.js" defer></script>
 <script src="assets/img-fade.js?v=2" defer></script>
+<script src="assets/wk-switch.js?v=1" defer></script>
 <script src="assets/product-pages.js?v=1" defer></script>
 </body>
 </html>

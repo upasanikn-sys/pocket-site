@@ -1,5 +1,5 @@
 .calcpage{padding-top:64px; padding-bottom:0}
-.calc-head{max-width:68ch}
+.calc-head{max-width:65ch}
 .calc-head h1{margin:0 0 16px; font:600 var(--fs-headline)/1.08 var(--display); letter-spacing:-.03em; text-wrap:balance}
 .calc-head .lede{margin:0 0 12px; font-size:var(--fs-lede); line-height:1.55; color:var(--ink-2)}
 .calcpage > .tblock{margin-top:24px}
@@ -8,7 +8,7 @@
 .calcpage{padding-top:32px}
 .calc-head{max-width:none}
 .calc-head h1{max-width:30em; margin-bottom:10px}
-.calc-head .lede{max-width:68ch; margin-bottom:8px}
+.calc-head .lede{max-width:65ch; margin-bottom:8px}
 .calcpage > .tblock{margin-top:16px}
 .calc{margin-top:24px}
 }
@@ -36,7 +36,7 @@ font:400 var(--fs-body)/1 var(--sans); font-variant-numeric:tabular-nums; text-a
 .rng:active::-moz-range-thumb{transform:scale(1.1)}
 html:not(.js) .rng{display:none}
 .rng + .hint{margin-top:0}
-.hint{margin:6px 0 0; font-size:var(--fs-caption); line-height:1.4; color:var(--ink-3)}
+.hint{max-width:65ch; margin:6px 0 0; font-size:var(--fs-caption); line-height:1.4; color:var(--ink-3)}
 .err{margin:6px 0 0; font-size:var(--fs-caption); line-height:1.4; color:var(--loss)}
 .chk{display:flex; align-items:center; gap:10px; min-height:44px; margin:4px 0 0; font-size:var(--fs-small); color:var(--ink-2); cursor:pointer}
 .chk:hover{color:var(--ink)}
@@ -46,7 +46,7 @@ html:not(.js) .rng{display:none}
 font:500 var(--fs-small)/1 var(--sans); text-decoration:underline 1px; text-underline-offset:3px}
 .reset:hover{text-decoration-thickness:2px}
 .reset:active{transform:translateY(1px)}
-.calc-private{margin:16px 0 0; font-size:var(--fs-caption); line-height:1.45; color:var(--ink-3)}
+.calc-private{max-width:65ch; margin:16px 0 0; font-size:var(--fs-caption); line-height:1.45; color:var(--ink-3)}
 .calc-out{position:sticky; top:88px}
 .out-h{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:-8px 0 12px}
 .out-h h2{margin:0; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em}
@@ -80,7 +80,7 @@ transition:transform var(--t-ui) var(--ease-ui), background var(--t-ui)}
 .sw[aria-checked="true"] i::after{transform:translateX(14px); background:var(--card)}
 .sw:hover i{border-color:var(--ink-2)}
 .sw:active{transform:translateY(1px)}
-.calc-notes{margin:0; padding:72px 0 96px}
+.calc-notes{max-width:65ch; margin:0; padding:72px 0 96px}
 @media (max-width:900px){
 .calc{grid-template-columns:minmax(0,1fr); gap:32px}
 .calc-out{position:static}

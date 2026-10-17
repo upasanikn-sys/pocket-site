@@ -100,3 +100,17 @@ grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1.3fr)}
 ::view-transition-group(site-header){animation:none}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:var(--t-ui); animation-timing-function:var(--ease-ui)}
 @media (prefers-reduced-motion:reduce){ @view-transition{navigation:none} }
+.sf-dock{position:fixed; left:0; right:0; bottom:0; z-index:var(--z-sticky); display:none; visibility:hidden;
+padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px)); background:var(--paper);
+border-top:1px solid var(--rule); transform:translateY(110%)}
+.sf-dock .cta{flex:1; justify-content:center}
+@keyframes sf-dock{0%,10%{visibility:hidden; transform:translateY(110%)} 14%,86%{visibility:visible; transform:none}
+90%,100%{visibility:hidden; transform:translateY(110%)}}
+@media (max-width:560px){
+@supports (animation-timeline: scroll()){
+.sf-dock{display:flex; animation:sf-dock linear both; animation-timeline:scroll(root)}
+}
+}
+@media (prefers-reduced-motion:reduce){
+@keyframes sf-dock{0%,12%{visibility:hidden} 12.1%,88%{visibility:visible; transform:none} 88.1%,100%{visibility:hidden}}
+}

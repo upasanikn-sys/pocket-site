@@ -24,7 +24,7 @@
   var href = row.getAttribute("href"), ext = href.split(".").pop();
   var size = (row.textContent.match(/\d+ MB/) || [""])[0];
   go.setAttribute("href", href);
-  go.textContent = "Download for " + SAY[os];
+  go.textContent = "Download free for " + SAY[os];
   file.textContent = [KIND[ext] || "File", size].filter(Boolean).join(", ") + ", for " + NAMES[os];
 })();
 

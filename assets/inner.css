@@ -41,8 +41,8 @@ font:600 24px/1.25 var(--display); letter-spacing:-.02em}
 .tier{display:inline-block; padding:2px 8px; border:1px solid var(--rule-2); border-radius:var(--r-1); white-space:nowrap;
 font:500 var(--fs-prov)/1.5 var(--sans); color:var(--ink-2)}
 .has{list-style:none; margin:0; padding:0; font-size:var(--fs-small); color:var(--ink-3)}
-.has li{display:grid; grid-template-columns:14px 1fr; gap:8px; line-height:1.5; padding:1px 0}
-.has li::before{content:""; width:8px; height:1px; margin-top:.75em; background:var(--ink-3)}
+.has li{position:relative; line-height:1.5; padding:1px 0 1px 22px}
+.has li::before{content:""; position:absolute; left:0; top:calc(1px + .75em); width:8px; height:1px; background:var(--ink-3)}
 @media (max-width:900px){ .mods .mrow{grid-template-columns:minmax(0,.34fr) minmax(0,.66fr)} .mods .has{grid-column:2} }
 @media (max-width:900px){ .mods .mrow{grid-template-columns:1fr; gap:10px} .mods .has{grid-column:auto} }
 .ph .hnote{gap:10px 20px}

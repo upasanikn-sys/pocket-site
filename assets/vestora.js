@@ -1,7 +1,4 @@
-/* POCKET — shared site behaviour. Loaded by every page (defer). DOWNLOAD_URL is the public Windows build
-   (tools/site_download.py sets it); while empty, the download buttons go to the Support page instead.
-   Pricing's toggles and questions are in pricing.js (split 12 Oct 2026, SITE_TO_9.md L0); the early-access
-   dialog, the old menu, the dropdown and the coming-soon buttons were removed then, as no page used them. */
+/* Pocket: shared site behaviour, on every page (defer). DOWNLOAD_URL: tools/site_download.py; empty = Support. */
 var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.10/Pocket_3.2.10_windows_setup.exe";
 
 (function () {
@@ -10,9 +7,7 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
   var EMAIL = "support@mypocketfi.com";   // Keyur's support mailbox (6 Oct 2026)
   var root = document.documentElement;
 
-  /* --- the visitor's platform, for buttons that name it ("Download for Windows").
-     A group holds a generic <span data-for="any"> and variants <span data-for="windows|mac|linux|android|ios" hidden>;
-     the visitor's variant replaces the generic one. With no script, or an unknown platform, the generic stays. --- */
+  /* --- the visitor's platform: its <span data-for> variant replaces the group's generic data-for="any" --- */
   var ua = navigator.userAgent || "", os = "";
   if (/Android/i.test(ua)) os = "android";
   else if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) os = "ios";
@@ -21,7 +16,6 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
   else if (/Linux|X11|CrOS/i.test(ua)) os = "linux";
   if (os) {
     root.setAttribute("data-os", os);
-    // a variant is written with the hidden attribute; the visitor's replaces its group's generic [data-for=any]
     document.querySelectorAll('[data-for="' + os + '"]').forEach(function (v) {
       var any = v.parentNode && v.parentNode.querySelector('[data-for="any"]');
       if (any) any.hidden = true;
@@ -42,12 +36,14 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
     s.setAttribute("aria-hidden", "true");
   });
 
-  /* --- header state once the page has moved: a hairline, nothing floats on a shadow --- */
+  /* --- the header's hairline once the page has moved: watched, never read (scrollY forces a layout) --- */
   var hdr = document.querySelector("header");
-  if (hdr) {
-    var onScroll = function () { hdr.classList.toggle("scrolled", scrollY > 10); };
-    addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+  if (hdr && window.IntersectionObserver) {
+    var top = document.createElement("i");
+    top.style.cssText = "position:absolute;top:0;left:0;width:1px;height:10px";
+    top.setAttribute("aria-hidden", "true");
+    document.body.prepend(top);
+    new IntersectionObserver(function (e) { hdr.classList.toggle("scrolled", !e[0].isIntersecting); }).observe(top);
   }
 
   /* --- site shell phone menu (.sh-menu-btn controls #site-menu) --- */
@@ -63,7 +59,9 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && sm.classList.contains("open")) { setMenu(false); sb.focus(); }
     });
-    addEventListener("resize", function () { if (innerWidth > 900 && sm.classList.contains("open")) setMenu(false); });
+    var wide = matchMedia("(min-width: 901px)");
+    var shut = function () { if (wide.matches && sm.classList.contains("open")) setMenu(false); };
+    if (wide.addEventListener) wide.addEventListener("change", shut); else wide.addListener(shut);
   }
 
   /* --- "keep me posted" forms: never POST anywhere; they open the visitor's own email app --- */

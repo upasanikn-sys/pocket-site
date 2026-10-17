@@ -45,8 +45,8 @@ padding:12px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); 
 .sum li.tot .op{color:var(--signal)}
 .sum li.tot .v{font:600 var(--fs-fig-m)/1.1 var(--display); letter-spacing:-.02em}
 .has{list-style:none; margin:0; padding:0; font-size:var(--fs-small); color:var(--ink-3)}
-.has li{display:grid; grid-template-columns:14px 1fr; gap:8px; line-height:1.5; padding:1px 0}
-.has li::before{content:""; width:8px; height:1px; margin-top:.75em; background:var(--ink-3)}
+.has li{position:relative; line-height:1.5; padding:1px 0 1px 22px}
+.has li::before{content:""; position:absolute; left:0; top:calc(1px + .75em); width:8px; height:1px; background:var(--ink-3)}
 .ph-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:56px; align-items:center}
 .ph-device{margin:0}
 .ph-device figcaption{margin:20px auto 0; max-width:40ch; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3); text-align:center}
@@ -70,7 +70,7 @@ color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
 .answers dl{margin:0}
 .answers dl > div{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--rule)}
 .answers dt{font-size:var(--fs-small); color:var(--ink-2)}
-.answers dt a{color:inherit; text-decoration:underline; text-decoration-color:var(--rule-2); text-underline-offset:3px}
+.answers dt a{display:inline-flex; align-items:center; min-height:24px; color:inherit; text-decoration:underline; text-decoration-color:var(--rule-2); text-underline-offset:3px}
 .answers dt a:hover{color:var(--ink); text-decoration-color:var(--ink)}
 .answers dd{margin:0; text-align:right; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink);
 font-variant-numeric:tabular-nums; white-space:nowrap}
@@ -138,7 +138,7 @@ html:not(.js) .ask-qs{display:none}
 .claude h3{margin:0 0 8px; font-size:var(--fs-h3)}
 .claude p{margin:0 0 20px; color:var(--ink-2)}
 .claude .has{font-size:var(--fs-small); color:var(--ink-2)}
-.claude .has li{padding:4px 0}
+.claude .has li{padding-block:4px}
 .payload{margin:0; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
 overflow-x:auto; font:400 var(--fs-prov)/1.6 var(--mono); color:var(--ink-2); white-space:pre}
 .payload code{font:inherit}
@@ -232,7 +232,7 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .ltoc.strip .ltoc-h{flex:none; margin:0; font-size:var(--fs-small); color:var(--ink-3)}
 .ltoc.strip ol{display:flex; gap:24px; margin:0; padding:0; list-style:none; overflow-x:auto}
 .ltoc.strip li{flex:none; font-size:var(--fs-small)}
-.ltoc.strip a{display:inline-flex; align-items:center; min-height:44px; white-space:nowrap}
+.ltoc.strip a{display:inline-flex; align-items:center; justify-content:center; min-height:44px; min-width:24px; white-space:nowrap}
 .sec[id], .phase[id]{scroll-margin-top:88px}
 @media (max-width:560px){ .ltoc.strip .wrap{gap:12px} .ltoc.strip ol{gap:16px} }
 @media (max-width:900px){ .toc{padding-top:40px} .toc ol{display:flex; gap:16px; overflow-x:auto; border-left:0} .toc li{flex:none} .toc a{display:inline-flex; align-items:center; min-height:44px; padding:0; white-space:nowrap; text-decoration:underline; text-underline-offset:3px; color:var(--ink)} }
@@ -251,3 +251,13 @@ align-content:start; min-height:clamp(240px,30vh,320px); padding:24px 0}
 .mod2 > .crop{animation:beat-in linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
 }
 }
+@media (max-width:560px){ .ltoc.strip .ltoc-h{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap} .ltoc.strip ol{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); padding-right:32px} }
+.bare .wkc{display:none}
+.bare .wk .wr:not(.tot){display:none}
+html:not(.js) [data-wk]{display:none}
+.ghost[data-wk]::after{content:" \00b7  on"; color:var(--ink-3)}
+.ghost[data-wk][aria-pressed="false"]::after{content:" \00b7  off"}
+.wl .op{margin-right:6px; color:var(--ink-3)}
+.eg .fig{font-weight:600}
+.wkp{margin:12px 0 0}
+.ghost[data-wk]{background:none; border:0; cursor:pointer; font:inherit; font-weight:500; color:var(--ink); padding:12px 4px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}

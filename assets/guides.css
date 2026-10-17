@@ -29,27 +29,28 @@ font:400 var(--fs-small)/1.5 var(--sans)}
 .prose .toc ol{margin:0; padding-left:1.4em}
 .prose .toc li{margin:2px 0; font-size:var(--fs-small); line-height:1.5}
 .prose .toc a{display:inline-block; padding:4px 0}
+.prose:not(.gindex){max-width:65ch}
 @media (max-width:900px){
 .prose .toc li{margin:0}
 .prose .toc a{display:block; padding:11px 0; min-height:44px; box-sizing:border-box}
-.gindex .gjump{gap:0 4px; margin:16px -8px 8px}
-.gindex .gjump a{padding:12px 8px}
 }
 @media (max-height:700px) and (min-width:901px){ .prose{padding-top:40px} }
 @media (min-width:1280px){
 .prose .toc{float:left; position:sticky; top:96px; box-sizing:border-box; width:224px; margin:4px 0 0 -264px; padding:4px 0 4px 16px}
-.prose .toc li{margin:6px 0}
-.prose .toc a{display:inline; padding:0}
+.prose .toc li{margin:2px 0}
+.prose .toc a{display:block; padding:4px 0}
 }
 .prose .sources li{font-size:var(--fs-small); line-height:1.6; color:var(--ink-2)}
+.prose .sources a{display:inline-block; min-height:24px; padding:2px 0; box-sizing:border-box}
 .prose .related ul{margin:0; padding:0; list-style:none; border-top:1px solid var(--rule)}
 .prose .related li{border-bottom:1px solid var(--rule)}
 .prose .related a{display:block; padding:12px 0; min-height:44px; box-sizing:border-box}
 .prose.gindex{max-width:none}
 .gindex .glede{max-width:65ch; font-size:var(--fs-lede); color:var(--ink-2)}
-.gindex > p{max-width:68ch}
-.gindex .gjump{display:flex; flex-wrap:wrap; gap:4px 20px; margin:24px 0 8px}
-.gindex .gjump a{display:inline-block; padding:10px 0; font-size:var(--fs-small)}
+.gindex > p{max-width:65ch}
+.gcard .gsum{max-width:65ch}
+.gindex .gjump{display:flex; flex-wrap:wrap; gap:0 12px; margin:20px -4px 8px}
+.gindex .gjump a{display:inline-block; padding:12px 4px; font-size:var(--fs-small)}
 .gindex h2{margin-top:56px}
 .gcards{display:grid; grid-template-columns:1fr 1fr; column-gap:48px; margin:16px 0 0; padding:0; list-style:none}
 .gcard{padding:20px 0 24px; border-top:1px solid var(--rule-2)}

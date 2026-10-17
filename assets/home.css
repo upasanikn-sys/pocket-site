@@ -286,17 +286,6 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 @media (max-width:560px){:root{--sec:48px}}
 .reads-1{margin:12px 0 0;font-size:var(--fs-small);color:var(--ink-2);max-width:42em}
 @media (max-height:799px){.pinned .reads-1{display:none}}
-.rel-in{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
-.rel-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 32px}
-.rel-top p{margin:0;color:var(--ink-2)}
-.rel .rel-l{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ink)}
-.rel .rel-l li{padding:0}
-.rel .rel-l a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:baseline;min-height:56px;padding:16px 0 4px;color:var(--ink)}
-.rel .rel-l a span:last-child{grid-column:1/-1}
-.rel .rel-l a:hover span:last-child{text-decoration:underline;text-underline-offset:3px}
-.rel .rel-l h3{margin:0;font:600 var(--fs-body)/1.3 var(--display);letter-spacing:-.01em}
-.rel .rel-l span:last-child{color:var(--ink-2);font-size:var(--fs-small)}
-@media (max-width:900px){.rel .rel-l{grid-template-columns:minmax(0,1fr)}.rel .rel-l li{border-bottom:1px solid var(--rule)}.rel .rel-l a{padding:14px 0}}
 .faq-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
 .faq-in .sec-head{display:block;margin:0}
 .faq-in .sec-head p{margin-top:16px}
@@ -314,11 +303,6 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .qa p{margin:0;padding:0 40px 20px 0;color:var(--ink-2);max-width:62ch}
 .qa[open] p{animation:qa-in var(--t-ui) var(--ease-ui)}
 @keyframes qa-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-.rel-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ink)}
-.rel-l li{padding:20px 0 0}
-.rel-l h3{margin:0;font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
-.rel-l .tag{display:block;margin-top:6px}
-.rel-l p{margin:12px 0;color:var(--ink-2)}
 .close .soon{font-family:var(--sans)}
 .brand-close{text-align:left}
 .close-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px 80px;align-items:end}
@@ -338,7 +322,7 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .after span{grid-column:2;font-size:var(--fs-small);color:var(--ink-2)}
 @media (max-width:900px){.close-in{grid-template-columns:minmax(0,1fr);gap:40px}}
 @media (max-width:900px){
-.wires-in,.never-in,.try,.rel-in{grid-template-columns:minmax(0,1fr);gap:40px}
+.wires-in,.never-in,.try{grid-template-columns:minmax(0,1fr);gap:40px}
 .home-copy{grid-template-columns:minmax(0,1fr);row-gap:20px}
 .home .sub,.home-copy>*{grid-column:1;grid-row:auto}
 .tree{padding:20px 24px 24px}
@@ -351,8 +335,6 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .faq-in{grid-template-columns:minmax(0,1fr);gap:32px}
 .qa p{padding-right:0}
 .never ul{grid-template-columns:repeat(2,minmax(0,1fr))}
-.rel-l{grid-template-columns:minmax(0,1fr)}
-.rel-l li+li{border-top:1px solid var(--rule)}
 .scene .steps li{grid-template-columns:48px minmax(0,1fr)}
 .scene .steps li>.fr{grid-column:1/-1;grid-row:auto;margin:20px 0 0}
 }
@@ -382,7 +364,6 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .never ul{gap:0 16px}
 .never strong{font-size:var(--fs-body)}
 .never li span{font-size:var(--fs-small)}
-.rel-l li:nth-child(n+2){display:none}
 .never-in>div{text-align:left}
 .try-out{padding:16px}
 .try-figs>div+div{padding-left:16px}
@@ -399,4 +380,4 @@ transform:translateY(110%);visibility:hidden;transition:transform var(--t-panel)
 .rv.in{opacity:1;transform:none;transition:opacity var(--t-panel) var(--ease-ui),transform var(--t-panel) var(--ease-ui);
 transition-delay:calc(var(--i,0) * var(--t-stagger))}
 @media (min-width:901px) and (max-height:649px){ .home{padding-top:32px} .home .tree{margin-top:32px} }
-@media (max-width:560px){ .brand-close .soon,.brand-close .hbtns .btn-line{display:none} }
+@media (max-width:560px){ .brand-close .hbtns .btn-line{display:none} }

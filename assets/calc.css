@@ -4,6 +4,14 @@
 .calc-head .lede{margin:0 0 12px; font-size:var(--fs-lede); line-height:1.55; color:var(--ink-2)}
 .calcpage > .tblock{margin-top:24px}
 .calc{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:48px; align-items:start; margin:40px 0 0}
+@media (max-height:700px) and (min-width:901px){
+.calcpage{padding-top:32px}
+.calc-head{max-width:none}
+.calc-head h1{max-width:30em; margin-bottom:10px}
+.calc-head .lede{max-width:68ch; margin-bottom:8px}
+.calcpage > .tblock{margin-top:16px}
+.calc{margin-top:24px}
+}
 .calc-in fieldset{margin:8px 0 0; padding:0; border:0; min-width:0}
 .calc-in legend{padding:16px 0 4px; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .calc-in legend + .hint{margin:0 0 4px}

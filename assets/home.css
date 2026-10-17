@@ -270,7 +270,7 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .schem .k.if{opacity:0;fill:var(--ink)}
 .schem :is(g.on,g.try) .k.if{opacity:1}
 .pinned.wires{height:210vh;padding:0}
-.pinned .wires-in{position:sticky;top:73px;min-height:calc(100vh - 73px);align-content:center;padding:12px 0}
+.pinned .wires-in{position:sticky;top:73px;min-height:calc(100vh - 73px);align-content:center;padding-block:12px}
 .pinned .conn li{padding-left:12px;transition:background-color var(--t-ui) var(--ease-ui)}
 .conn li.now{background:var(--plate);box-shadow:inset 2px 0 var(--ink)}
 .count{transition:border-color var(--t-ui) var(--ease-ui)}

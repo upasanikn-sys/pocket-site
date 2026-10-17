@@ -27,8 +27,8 @@
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=6">
 <link rel="stylesheet" href="assets/observatory.css?v=14">
 <link rel="stylesheet" href="assets/site-shell.css?v=5">
-<link rel="stylesheet" href="assets/working.css?v=3">
-<link rel="stylesheet" href="assets/guides.css?v=7">
+<link rel="stylesheet" href="assets/working.css?v=5">
+<link rel="stylesheet" href="assets/guides.css?v=10">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Capital gains on mutual funds and shares, worked through","description":"Capital gains tax on mutual funds and shares for FY 2026-27, worked through: holding periods, rates, first in first out, and one year's tax.","datePublished":"2026-10-13","dateModified":"2026-10-13","inLanguage":"en-IN","mainEntityOfPage":"https://mypocketfi.com/guide-capital-gains-tax.html","image":"https://mypocketfi.com/assets/og-pocket.png","author":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"},"articleSection":"Investing","timeRequired":"PT6M","publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/","logo":{"@type":"ImageObject","url":"https://mypocketfi.com/assets/apple-touch-icon.png"}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mypocketfi.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mypocketfi.com/guides.html"},{"@type":"ListItem","position":3,"name":"Investing","item":"https://mypocketfi.com/guides.html#investing"},{"@type":"ListItem","position":4,"name":"Capital gains on mutual funds and shares, worked through","item":"https://mypocketfi.com/guide-capital-gains-tax.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en-IN","mainEntity":[{"@type":"Question","name":"Which units are sold first?","acceptedAnswer":{"@type":"Answer","text":"The oldest. Units sold are matched first in, first out, for shares and mutual-fund units alike. In the example the fund's 400 units bought on 3 Mar 2025 go first, then 100 of the 200 bought on 1 Jan 2026."}},{"@type":"Question","name":"When is a gain on an equity fund long-term?","acceptedAnswer":{"@type":"Answer","text":"When the units were held for more than 12 months: sold after the anniversary of their purchase, not on it. Long-term equity gains are taxed at 12.5% on what is above ₹1,25,000 in the year; short-term at 20%."}},{"@type":"Question","name":"How is a debt fund taxed?","acceptedAnswer":{"@type":"Answer","text":"A debt fund bought on or after 1 April 2023 is taxed at the slab rate however long it is held. Pocket counts a fund whose holdings it cannot tell as \"other\" and says so."}},{"@type":"Question","name":"Does a loss lower the tax?","acceptedAnswer":{"@type":"Answer","text":"A short-term loss is set off against any gain. A long-term loss is set off only against long-term gains. What is left can be carried forward for eight years when the return is filed in time."}}]}</script>
@@ -77,11 +77,11 @@ FY 2026-27 come to a gain of ₹63,000, taxed ₹6,110 with cess.</div>
 <nav class="toc" aria-label="Contents"><p class="toc-h">Contents</p><ol><li><a href="#rules">Rates and holding periods</a></li><li><a href="#fifo">First in, first out</a></li><li><a href="#tax">The year&#x27;s tax</a></li><li><a href="#unknown">What Pocket cannot know, and says</a></li><li><a href="#pocket">How Pocket works it out</a></li><li><a href="#questions">Questions</a></li><li><a href="#sources">Sources</a></li></ol></nav>
 
 <h2 id="rules">Rates and holding periods</h2>
-<div class="tablewrap fit" tabindex="0" role="region" aria-label="Rates and holding periods"><table class="spec"><thead><tr><th scope="col">What was sold</th><th scope="col">Long-term after</th><th scope="col">Short-term rate</th><th scope="col">Long-term rate</th></tr></thead><tbody>
-<tr><td>Listed shares, and funds and ETFs that hold Indian equity</td><td>more than 12 months</td><td>20%</td><td>12.5% above ₹1,25,000 a year</td></tr>
-<tr><td>Other listed units (a gold ETF, an exchange-traded SGB)</td><td>more than 12 months</td><td>slab rate</td><td>12.5%</td></tr>
-<tr><td>Foreign shares, international and gold funds, physical gold, the rest</td><td>more than 24 months</td><td>slab rate</td><td>12.5%</td></tr>
-<tr><td>Crypto (virtual digital assets)</td><td>no long term</td><td>30%</td><td>30%</td></tr>
+<div class="tablewrap fit stack" tabindex="0" role="region" aria-label="Rates and holding periods"><table class="spec"><thead><tr><th scope="col">What was sold</th><th scope="col">Long-term after</th><th scope="col" class="nw">Short-term rate</th><th scope="col">Long-term rate</th></tr></thead><tbody>
+<tr><td data-th="What was sold">Listed shares, and funds and ETFs that hold Indian equity</td><td data-th="Long-term after">more than 12 months</td><td class="nw" data-th="Short-term rate">20%</td><td data-th="Long-term rate">12.5% above ₹1,25,000 a year</td></tr>
+<tr><td data-th="What was sold">Other listed units (a gold ETF, an exchange-traded SGB)</td><td data-th="Long-term after">more than 12 months</td><td class="nw" data-th="Short-term rate">slab rate</td><td data-th="Long-term rate">12.5%</td></tr>
+<tr><td data-th="What was sold">Foreign shares, international and gold funds, physical gold, the rest</td><td data-th="Long-term after">more than 24 months</td><td class="nw" data-th="Short-term rate">slab rate</td><td data-th="Long-term rate">12.5%</td></tr>
+<tr><td data-th="What was sold">Crypto (virtual digital assets)</td><td data-th="Long-term after">no long term</td><td class="nw" data-th="Short-term rate">30%</td><td data-th="Long-term rate">30%</td></tr>
 </tbody></table></div>
 <p>The rates and holding periods have applied since 23 July 2024 and were left as they were by Budget 2026. A 4% cess
 is added to all of them. A gain counts in the financial year of the sale.</p>
@@ -91,32 +91,32 @@ is added to all of them. A gain counts in the financial year of the sale.</p>
 mutual-fund statement count them.</p>
 <p>So one sale can be part long-term and part short-term. A person's ledger, as Pocket
 stores it:</p>
-<div class="tablewrap" tabindex="0" role="region" aria-label="The ledger, scrolls sideways"><table class="spec"><thead><tr><th scope="col">Date</th><th scope="col">Holding</th><th scope="col">Entry</th><th scope="col" class="n">Units</th><th scope="col" class="n">Price</th></tr></thead><tbody>
-<tr><td>3 Mar 2025</td><td>Nifty 50 Index Fund</td><td>Buy</td><td class="n">400</td><td class="n">₹250</td></tr>
-<tr><td>5 Jun 2025</td><td>Gold ETF</td><td>Buy</td><td class="n">1,000</td><td class="n">₹60</td></tr>
-<tr><td>1 Jan 2026</td><td>Nifty 50 Index Fund</td><td>Sip</td><td class="n">200</td><td class="n">₹300</td></tr>
-<tr><td>10 Feb 2026</td><td>Acme Ltd</td><td>Buy</td><td class="n">100</td><td class="n">₹1,000</td></tr>
-<tr><td>15 Jul 2026</td><td>Nifty 50 Index Fund</td><td>Sell</td><td class="n">500</td><td class="n">₹320</td></tr>
-<tr><td>20 Aug 2026</td><td>Acme Ltd</td><td>Sell</td><td class="n">100</td><td class="n">₹1,180</td></tr>
-<tr><td>10 Sep 2026</td><td>Gold ETF</td><td>Sell</td><td class="n">1,000</td><td class="n">₹75</td></tr>
+<div class="tablewrap" tabindex="0" role="region" aria-label="The ledger, scrolls sideways"><table class="spec"><thead><tr><th scope="col" class="nw">Date</th><th scope="col">Holding</th><th scope="col" class="nw">Entry</th><th scope="col" class="n">Units</th><th scope="col" class="n">Price</th></tr></thead><tbody>
+<tr><td class="nw">3 Mar 2025</td><td>Nifty 50 Index Fund</td><td class="nw">Buy</td><td class="n">400</td><td class="n">₹250</td></tr>
+<tr><td class="nw">5 Jun 2025</td><td>Gold ETF</td><td class="nw">Buy</td><td class="n">1,000</td><td class="n">₹60</td></tr>
+<tr><td class="nw">1 Jan 2026</td><td>Nifty 50 Index Fund</td><td class="nw">Sip</td><td class="n">200</td><td class="n">₹300</td></tr>
+<tr><td class="nw">10 Feb 2026</td><td>Acme Ltd</td><td class="nw">Buy</td><td class="n">100</td><td class="n">₹1,000</td></tr>
+<tr><td class="nw">15 Jul 2026</td><td>Nifty 50 Index Fund</td><td class="nw">Sell</td><td class="n">500</td><td class="n">₹320</td></tr>
+<tr><td class="nw">20 Aug 2026</td><td>Acme Ltd</td><td class="nw">Sell</td><td class="n">100</td><td class="n">₹1,180</td></tr>
+<tr><td class="nw">10 Sep 2026</td><td>Gold ETF</td><td class="nw">Sell</td><td class="n">1,000</td><td class="n">₹75</td></tr>
 </tbody></table></div>
 <p>Pocket matches each sale to the lots it drew on:</p>
-<div class="tablewrap" tabindex="0" role="region" aria-label="Each lot sold, scrolls sideways"><table class="spec"><thead><tr><th scope="col">Holding</th><th scope="col">Bought</th><th scope="col">Sold</th><th scope="col" class="n">Units</th><th scope="col" class="n">Cost</th><th scope="col" class="n">Proceeds</th><th scope="col" class="n">Gain</th><th scope="col">Taxed as</th></tr></thead><tbody>
-<tr><td>Nifty 50 Index Fund</td><td>3 Mar 2025</td><td>15 Jul 2026</td><td class="n">400</td><td class="n">₹1,00,000</td><td class="n">₹1,28,000</td><td class="n">₹28,000</td><td>Equity, long-term</td></tr>
-<tr><td>Nifty 50 Index Fund</td><td>1 Jan 2026</td><td>15 Jul 2026</td><td class="n">100</td><td class="n">₹30,000</td><td class="n">₹32,000</td><td class="n">₹2,000</td><td>Equity, short-term</td></tr>
-<tr><td>Acme Ltd</td><td>10 Feb 2026</td><td>20 Aug 2026</td><td class="n">100</td><td class="n">₹1,00,000</td><td class="n">₹1,18,000</td><td class="n">₹18,000</td><td>Equity, short-term</td></tr>
-<tr><td>Gold ETF</td><td>5 Jun 2025</td><td>10 Sep 2026</td><td class="n">1,000</td><td class="n">₹60,000</td><td class="n">₹75,000</td><td class="n">₹15,000</td><td>Listed, other, long-term</td></tr>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Each lot sold, scrolls sideways"><table class="spec"><thead><tr><th scope="col">Holding</th><th scope="col" class="nw">Bought</th><th scope="col" class="nw">Sold</th><th scope="col" class="n">Units</th><th scope="col" class="n">Cost</th><th scope="col" class="n">Proceeds</th><th scope="col" class="n">Gain</th><th scope="col">Taxed as</th></tr></thead><tbody>
+<tr><td>Nifty 50 Index Fund</td><td class="nw">3 Mar 2025</td><td class="nw">15 Jul 2026</td><td class="n">400</td><td class="n">₹1,00,000</td><td class="n">₹1,28,000</td><td class="n">₹28,000</td><td>Equity, long-term</td></tr>
+<tr><td>Nifty 50 Index Fund</td><td class="nw">1 Jan 2026</td><td class="nw">15 Jul 2026</td><td class="n">100</td><td class="n">₹30,000</td><td class="n">₹32,000</td><td class="n">₹2,000</td><td>Equity, short-term</td></tr>
+<tr><td>Acme Ltd</td><td class="nw">10 Feb 2026</td><td class="nw">20 Aug 2026</td><td class="n">100</td><td class="n">₹1,00,000</td><td class="n">₹1,18,000</td><td class="n">₹18,000</td><td>Equity, short-term</td></tr>
+<tr><td>Gold ETF</td><td class="nw">5 Jun 2025</td><td class="nw">10 Sep 2026</td><td class="n">1,000</td><td class="n">₹60,000</td><td class="n">₹75,000</td><td class="n">₹15,000</td><td>Listed, other, long-term</td></tr>
 </tbody></table></div>
 <p>The fund's sale of 500 units took all 400 units from March 2025, held over 12 months, and 100 of the 200 bought in
 January 2026, held under 12 months. One sale, two terms. The 100 units left keep their January 2026 cost.</p>
 
 <h2 id="tax">The year's tax</h2>
-<div class="tablewrap fit" tabindex="0" role="region" aria-label="The year&#x27;s capital-gains tax"><table class="spec"><thead><tr><th scope="col">Bucket</th><th scope="col" class="n">Gain</th><th scope="col">Rate</th><th scope="col" class="n">Tax</th></tr></thead><tbody>
-<tr><td>Equity, short-term</td><td class="n">₹20,000</td><td>20%</td><td class="n">₹4,000</td></tr>
-<tr><td>Equity, long-term</td><td class="n">₹28,000</td><td>12.5% above ₹1,25,000</td><td class="n">₹0</td></tr>
-<tr><td>Gold ETF, long-term</td><td class="n">₹15,000</td><td>12.5%</td><td class="n">₹1,875</td></tr>
-<tr><td>Cess, 4%</td><td class="n"></td><td></td><td class="n">₹235</td></tr>
-<tr><td><b>Tax on the year's gains</b></td><td class="n"></td><td></td><td class="n"><b>₹6,110</b></td></tr>
+<div class="tablewrap fit stack" tabindex="0" role="region" aria-label="The year&#x27;s capital-gains tax"><table class="spec"><thead><tr><th scope="col">Bucket</th><th scope="col" class="n">Gain</th><th scope="col">Rate</th><th scope="col" class="n">Tax</th></tr></thead><tbody>
+<tr><td data-th="Bucket">Equity, short-term</td><td class="n" data-th="Gain">₹20,000</td><td data-th="Rate">20%</td><td class="n" data-th="Tax">₹4,000</td></tr>
+<tr><td data-th="Bucket">Equity, long-term</td><td class="n" data-th="Gain">₹28,000</td><td data-th="Rate">12.5% above ₹1,25,000</td><td class="n" data-th="Tax">₹0</td></tr>
+<tr><td data-th="Bucket">Gold ETF, long-term</td><td class="n" data-th="Gain">₹15,000</td><td data-th="Rate">12.5%</td><td class="n" data-th="Tax">₹1,875</td></tr>
+<tr><td data-th="Bucket">Cess, 4%</td><td class="n" data-th="Gain"></td><td data-th="Rate"></td><td class="n" data-th="Tax">₹235</td></tr>
+<tr><td data-th="Bucket"><b>Tax on the year's gains</b></td><td class="n" data-th="Gain"></td><td data-th="Rate"></td><td class="n" data-th="Tax"><b>₹6,110</b></td></tr>
 </tbody></table></div>
 <p>The equity long-term gain of ₹28,000 is inside the year's ₹1,25,000, so it is taxed at nil; the room it leaves is
 worked through in <a href="guide-ltcg-exemption.html">the ₹1.25 lakh LTCG room</a>.</p>
@@ -161,7 +161,7 @@ return: the Income Tax Department and a chartered accountant have the final word
 
 <nav class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="guide-advance-tax.html">Advance tax: the dates and the amounts</a></li><li><a href="guide-mutual-fund-statement.html">Track your mutual funds from a CAMS or KFintech statement</a></li></ul></nav>
 <p>Pocket is free on Windows, macOS, Linux and Android, and keeps everything on your own device: <a href="download.html">download Pocket</a>.</p>
-<div class="lnote"><a href="guides.html">All guides</a>. Pocket is a tracking and planning tool; these guides explain, they are not financial, tax or investment advice.</div>
+<div class="lnote"><a href="guides.html">All guides</a> · <a href="glossary.html">Glossary</a>. Pocket is a tracking and planning tool; these guides explain, they are not financial, tax or investment advice.</div>
 </article>
 </div>
 </main>
@@ -173,8 +173,8 @@ return: the Income Tax Department and a chartered accountant have the final word
       <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
       <p>Your figures stay on your own device.</p>
     </div>
-    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
-    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="compare.html">Compare</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a><a href="glossary.html">Glossary</a></nav>
     <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
     <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
@@ -186,6 +186,6 @@ return: the Income Tax Department and a chartered accountant have the final word
 </footer>
 
 <script src="assets/vestora.js" defer></script>
-<script src="assets/guides.js" defer></script>
+<script src="assets/guides.js?v=2" defer></script>
 </body>
 </html>

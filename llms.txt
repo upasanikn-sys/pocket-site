@@ -53,6 +53,7 @@ Facts that the pages below state:
 - [Old vs new tax regime calculator](https://mypocketfi.com/calc-tax-regime.html): income tax on your salary for FY 2026-27 under both regimes, every step shown: deductions, slabs, the ₹12 lakh rebate, surcharge and cess.
 - [SIP calculator](https://mypocketfi.com/calc-sip.html): a SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.
 - [Net worth calculator](https://mypocketfi.com/calc-net-worth.html): work out your net worth: investments, bank, EPF, PPF, NPS, gold and property, less every loan and card, added up line by line.
+- [Glossary](https://mypocketfi.com/glossary.html): 28 terms from the guides and calculators, from 80C to XIRR, each with the pages that use it.
 
 ## Policies
 

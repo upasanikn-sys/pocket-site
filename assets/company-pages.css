@@ -128,6 +128,7 @@ border-radius:var(--r-3); background:var(--card)}
 .crop picture{display:block}
 .crop img{display:block; max-width:none; height:auto; width:calc(var(--sw) / var(--w) * 100%);
 margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--w) * -100%)}
+.crop.cut img{width:100%; margin:0}
 @media (max-width:900px){ .ph-split{grid-template-columns:minmax(0,1fr); gap:40px} }
 .yes{display:inline-block; width:14px; height:8px; margin-top:2px; border-left:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink);
 transform:rotate(-45deg) translate(2px,-3px)}

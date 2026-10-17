@@ -7,6 +7,25 @@ font-size:inherit; line-height:inherit; color:inherit}
 .crumbs a{display:inline-block; padding:14px 0; color:var(--ink-3); text-decoration:none}
 .crumbs a:hover{color:var(--ink); text-decoration:underline; text-underline-offset:3px}
 .crumbs [aria-current]{color:var(--ink-2)}
+@media (max-width:900px){
+.crumbs ol{margin-left:-11px}
+.crumbs a{padding-inline:11px}
+.crumbs li:not(:last-child)::after{margin:0}
+.crumbs [aria-current]{padding-left:11px}
+}
+.spec .nw{white-space:nowrap}
+@media (max-width:560px){
+.tablewrap.stack{overflow:visible}
+.prose .tablewrap.stack table, .stack tbody, .stack tr, .stack td{display:block; min-width:0}
+.stack thead{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap}
+.stack tr{padding:14px 0; border-bottom:1px solid var(--rule)}
+.stack td, .stack td.n{display:grid; grid-template-columns:minmax(0,36%) minmax(0,1fr); gap:12px; padding:3px 0; border:0;
+text-align:left; white-space:normal}
+.stack td::before{content:attr(data-th); color:var(--ink-3); font:500 var(--fs-caption)/1.5 var(--sans)}
+.stack td:first-child{display:block; padding:0 0 6px}
+.stack td:first-child::before{content:none}
+.stack td:empty{display:none}
+}
 .tblock{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:16px 0 0; border-top:1px solid var(--ink)}
 .tblock div{min-width:0; padding:10px 12px 0; border-left:1px solid var(--rule-2)}
 .tblock div:first-child{padding-left:0; border-left:0}
@@ -36,6 +55,8 @@ margin:0; padding:7px 0; border-bottom:1px solid var(--rule); font-size:var(--fs
 .prose h2 + p.q + .plate, .prose h2 + p.q + .gshot, .prose h2 + p.q + .tablewrap{margin-top:8px}
 .gshot figcaption, .prose .sources li, .say, .say2, .calc-try{max-width:68ch}
 sup{font-size:max(12px, .75em); line-height:0}
+a.term{color:inherit; text-decoration:underline dotted; text-decoration-thickness:1px; text-underline-offset:3px}
+a.term:hover{text-decoration-style:solid}
 .prose .plate{margin:16px 0 20px}
 .prose .plate h3{margin:0 0 4px; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink)}
 .prose .plate .wk{margin:0; padding:0}

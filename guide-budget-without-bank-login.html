@@ -27,8 +27,8 @@
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=6">
 <link rel="stylesheet" href="assets/observatory.css?v=14">
 <link rel="stylesheet" href="assets/site-shell.css?v=5">
-<link rel="stylesheet" href="assets/working.css?v=3">
-<link rel="stylesheet" href="assets/guides.css?v=7">
+<link rel="stylesheet" href="assets/working.css?v=5">
+<link rel="stylesheet" href="assets/guides.css?v=10">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"A budget app that never asks for your bank login","description":"Budget from your bank statement, not your bank password: how Pocket reads HDFC, ICICI, SBI, Axis and Kotak CSV statements on your own device.","datePublished":"2026-10-11","dateModified":"2026-10-12","inLanguage":"en-IN","mainEntityOfPage":"https://mypocketfi.com/guide-budget-without-bank-login.html","image":"https://mypocketfi.com/assets/og-pocket.png","author":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"},"articleSection":"Budget","timeRequired":"PT4M","publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/","logo":{"@type":"ImageObject","url":"https://mypocketfi.com/assets/apple-touch-icon.png"}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mypocketfi.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mypocketfi.com/guides.html"},{"@type":"ListItem","position":3,"name":"Budget","item":"https://mypocketfi.com/guides.html#budget"},{"@type":"ListItem","position":4,"name":"A budget app that never asks for your bank login","item":"https://mypocketfi.com/guide-budget-without-bank-login.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en-IN","mainEntity":[{"@type":"Question","name":"Does Pocket need my net-banking password?","acceptedAnswer":{"@type":"Answer","text":"No. It reads the statement file you download from net banking, on your own device."}},{"@type":"Question","name":"Which banks' statements does Pocket read?","acceptedAnswer":{"@type":"Answer","text":"It knows the CSV layouts of HDFC, ICICI, SBI, Axis and Kotak statements, and finds the date, debit and credit columns in others."}},{"@type":"Question","name":"What happens when the same statement is imported twice?","acceptedAnswer":{"@type":"Answer","text":"A transaction already in Pocket, with the same date, amount and description, is skipped: importing the example a second time adds 0 entries."}}]}</script>
@@ -99,12 +99,12 @@ and credit columns in others. Dates are read as Indian banks write them, day fir
 05/10/26,ACH D- HDFC LTD EMI,11800.00,,200744.00
 07/10/26,ELECTRICITY BESCOM,1870.00,,198874.00</code></pre></div>
 <p>And what Pocket does with them, run through its own importer:</p>
-<div class="tablewrap" tabindex="0" role="region" aria-label="The example statement in Pocket, scrolls sideways"><table class="spec"><thead><tr><th scope="col">Date</th><th scope="col">Narration</th><th scope="col" class="n">Amount</th><th scope="col">Category</th><th scope="col">Why</th></tr></thead><tbody>
-<tr><td>1 Oct 2026</td><td>NEFT CR-ACME TECHNOLOGIES SALARY OCT</td><td class="n">+₹1,85,000.00</td><td>Income</td><td>Every credit is filed as income</td></tr>
-<tr><td>2 Oct 2026</td><td>UPI-SWIGGY-swiggy@icici-Order</td><td class="n">₹456.00</td><td>Food</td><td>Suggested from the word “swiggy”</td></tr>
-<tr><td>3 Oct 2026</td><td>NEFT-RENT OCTOBER</td><td class="n">₹32,000.00</td><td>Housing</td><td>Suggested from the word “rent”</td></tr>
-<tr><td>5 Oct 2026</td><td>ACH D- HDFC LTD EMI</td><td class="n">₹11,800.00</td><td>EMI</td><td>Suggested from the word “emi”</td></tr>
-<tr><td>7 Oct 2026</td><td>ELECTRICITY BESCOM</td><td class="n">₹1,870.00</td><td>Utilities</td><td>Suggested from the word “electricity”</td></tr>
+<div class="tablewrap" tabindex="0" role="region" aria-label="The example statement in Pocket, scrolls sideways"><table class="spec"><thead><tr><th scope="col" class="nw">Date</th><th scope="col">Narration</th><th scope="col" class="n">Amount</th><th scope="col" class="nw">Category</th><th scope="col">Why</th></tr></thead><tbody>
+<tr><td class="nw">1 Oct 2026</td><td>NEFT CR-ACME TECHNOLOGIES SALARY OCT</td><td class="n">+₹1,85,000.00</td><td class="nw">Income</td><td>Every credit is filed as income</td></tr>
+<tr><td class="nw">2 Oct 2026</td><td>UPI-SWIGGY-swiggy@icici-Order</td><td class="n">₹456.00</td><td class="nw">Food</td><td>Suggested from the word “swiggy”</td></tr>
+<tr><td class="nw">3 Oct 2026</td><td>NEFT-RENT OCTOBER</td><td class="n">₹32,000.00</td><td class="nw">Housing</td><td>Suggested from the word “rent”</td></tr>
+<tr><td class="nw">5 Oct 2026</td><td>ACH D- HDFC LTD EMI</td><td class="n">₹11,800.00</td><td class="nw">EMI</td><td>Suggested from the word “emi”</td></tr>
+<tr><td class="nw">7 Oct 2026</td><td>ELECTRICITY BESCOM</td><td class="n">₹1,870.00</td><td class="nw">Utilities</td><td>Suggested from the word “electricity”</td></tr>
 </tbody></table></div>
 <ul>
   <li><b>Credits are income;</b> the salary is filed as income straight away.</li>
@@ -129,7 +129,7 @@ category, or the 50/30/20 split of needs, wants and savings. It also shows how m
 working behind each total opens to show its entries.</p>
 
 
-<figure class="gshot phone"><div class="gpic"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-m-import-dark.avif 390w, assets/cap-m-import-dark-2x.avif 780w" sizes="(max-width: 760px) calc(100vw - 32px), 330px"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-m-import-dark.webp 390w, assets/cap-m-import-dark-2x.webp 780w" sizes="(max-width: 760px) calc(100vw - 32px), 330px"><source type="image/avif" srcset="assets/cap-m-import.avif 390w, assets/cap-m-import-2x.avif 780w" sizes="(max-width: 760px) calc(100vw - 32px), 330px"><source type="image/webp" srcset="assets/cap-m-import.webp 390w, assets/cap-m-import-2x.webp 780w" sizes="(max-width: 760px) calc(100vw - 32px), 330px"><img src="assets/cap-m-import.png" width="390" height="844" alt="Pocket on a phone: Statement import, on the sample person&#x27;s data." loading="lazy" decoding="async" onload="this.classList.add('in')" onerror="this.classList.add('in')"></picture><ol class="marks" aria-hidden="true"><li style="left:0.00%;top:13.98%">1</li><li style="left:0.00%;top:54.27%">2</li></ol></div><figcaption><ol class="notes"><li>A bank CSV: what went out becomes spending, what came in becomes income.</li><li>A CAMS or KFintech statement: its file and the password you chose when you asked for it.</li></ol>Pocket on a phone, importing a bank statement file, on its sample person, whose figures are not the example's.</figcaption></figure>
+<figure class="gshot phone"><div class="gpic"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-m-import-dark.avif 390w, assets/cap-m-import-dark-2x.avif 780w" sizes="(max-width: 361px) calc(100vw - 32px), 330px"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-m-import-dark.webp 390w, assets/cap-m-import-dark-2x.webp 780w" sizes="(max-width: 361px) calc(100vw - 32px), 330px"><source type="image/avif" srcset="assets/cap-m-import.avif 390w, assets/cap-m-import-2x.avif 780w" sizes="(max-width: 361px) calc(100vw - 32px), 330px"><source type="image/webp" srcset="assets/cap-m-import.webp 390w, assets/cap-m-import-2x.webp 780w" sizes="(max-width: 361px) calc(100vw - 32px), 330px"><img src="assets/cap-m-import.png" width="390" height="844" alt="Pocket on a phone: Statement import, on the sample person&#x27;s data." loading="lazy" decoding="async" onload="this.classList.add('in')" onerror="this.classList.add('in')"></picture><ol class="marks" aria-hidden="true"><li style="left:0.00%;top:13.98%">1</li><li style="left:0.00%;top:54.27%">2</li></ol></div><figcaption><ol class="notes"><li>A bank CSV: what went out becomes spending, what came in becomes income.</li><li>A CAMS or KFintech statement: its file and the password you chose when you asked for it.</li></ol>Pocket on a phone, importing a bank statement file, on its sample person, whose figures are not the example's.</figcaption></figure>
 
 <h2 id="questions">Questions</h2>
 <h3>Does Pocket need my net-banking password?</h3>
@@ -143,7 +143,7 @@ working behind each total opens to show its entries.</p>
 
 <nav class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="guide-net-worth-india.html">How to work out your net worth in India</a></li><li><a href="guide-mutual-fund-statement.html">Track your mutual funds from a CAMS or KFintech statement</a></li><li><a href="guide-old-vs-new-tax-regime.html">Old vs new tax regime, worked through</a></li></ul></nav>
 <p>Pocket is free on Windows, macOS, Linux and Android, and keeps everything on your own device: <a href="download.html">download Pocket</a>.</p>
-<div class="lnote"><a href="guides.html">All guides</a>. Pocket is a tracking and planning tool; these guides explain, they are not financial, tax or investment advice.</div>
+<div class="lnote"><a href="guides.html">All guides</a> · <a href="glossary.html">Glossary</a>. Pocket is a tracking and planning tool; these guides explain, they are not financial, tax or investment advice.</div>
 </article>
 </div>
 </main>
@@ -155,8 +155,8 @@ working behind each total opens to show its entries.</p>
       <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
       <p>Your figures stay on your own device.</p>
     </div>
-    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
-    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a></nav>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="compare.html">Compare</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a><a href="glossary.html">Glossary</a></nav>
     <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
     <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>
@@ -168,6 +168,6 @@ working behind each total opens to show its entries.</p>
 </footer>
 
 <script src="assets/vestora.js" defer></script>
-<script src="assets/guides.js" defer></script>
+<script src="assets/guides.js?v=2" defer></script>
 </body>
 </html>

@@ -61,3 +61,18 @@
     code.parentNode.insertBefore(b, code.nextSibling);
   });
 })();
+
+/* "keep me posted" forms (moved from vestora.js, 17 Oct 2026: only this page has one): never POST anywhere; they open
+   the visitor's own email app */
+(function () {
+  "use strict";
+  document.querySelectorAll("[data-notify-form]").forEach(function (f) {
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = f.querySelector("input"), val = input ? input.value.trim() : "";
+      window.location.href = "mailto:support@mypocketfi.com?subject=" + encodeURIComponent("Keep me posted on Pocket") +
+        "&body=" + encodeURIComponent("Please add me to the update list." + (val ? " My email: " + val : ""));
+      if (input) input.value = "";
+    });
+  });
+})();

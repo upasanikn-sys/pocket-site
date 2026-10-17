@@ -1,10 +1,9 @@
-/* Pocket: shared site behaviour, on every page (defer). DOWNLOAD_URL: tools/site_download.py; empty = Support. */
+/* Pocket: shared site behaviour, on every page (defer). DOWNLOAD_URL: the Windows file, tools/site_download.py. */
 var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.10/Pocket_3.2.10_windows_setup.exe";
 
 (function () {
   "use strict";
 
-  var EMAIL = "support@mypocketfi.com";   // Keyur's support mailbox (6 Oct 2026)
   var root = document.documentElement;
 
   /* --- the visitor's platform: its <span data-for> variant replaces the group's generic data-for="any" --- */
@@ -23,12 +22,17 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
     });
   }
 
-  /* --- the Windows download buttons (.js-dl) --- */
-  document.querySelectorAll(".js-dl").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = DOWNLOAD_URL || "contact.html";
-    });
+  /* --- Show working is one choice, remembered on every page (R1, 17 Oct 2026). A switch the visitor turns
+     stores it; each page's own switch takes it on load. The Security board's connection switches are not it --- */
+  var K = "pocket.working", S = ".sw[role=switch],[data-wk]";
+  var on = function (b) { return (b.getAttribute("aria-checked") || b.getAttribute("aria-pressed")) === "true"; };
+  document.addEventListener("click", function (e) {
+    var b = e.isTrusted && e.target.closest && e.target.closest(S);
+    if (b) try { localStorage.setItem(K, on(b) ? "on" : "off"); } catch (x) {}
+  });
+  addEventListener("DOMContentLoaded", function () {
+    var v; try { v = localStorage.getItem(K); } catch (x) {}
+    if (v) document.querySelectorAll(S).forEach(function (b) { if (on(b) !== (v === "on")) b.click(); });
   });
 
   /* --- decorative inline SVGs: hide from screen readers --- */
@@ -63,16 +67,4 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
     var shut = function () { if (wide.matches && sm.classList.contains("open")) setMenu(false); };
     if (wide.addEventListener) wide.addEventListener("change", shut); else wide.addListener(shut);
   }
-
-  /* --- "keep me posted" forms: never POST anywhere; they open the visitor's own email app --- */
-  document.querySelectorAll("[data-notify-form]").forEach(function (f) {
-    f.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var input = f.querySelector("input");
-      var val = input ? input.value.trim() : "";
-      window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Keep me posted on Pocket") +
-        "&body=" + encodeURIComponent("Please add me to the update list." + (val ? " My email: " + val : ""));
-      if (input) input.value = "";
-    });
-  });
 })();

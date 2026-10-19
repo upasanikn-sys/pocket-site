@@ -167,3 +167,7 @@ html:not(.js) [data-wk]{display:none}
 .eg .fig{font-weight:600}
 .wkp{margin:12px 0 0}
 .ghost[data-wk]{background:none; border:0; cursor:pointer; font:inherit; font-weight:500; color:var(--ink); padding:12px 4px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}
+.dl-first{margin:12px 0 0; max-width:60ch; font-size:var(--fs-small); color:var(--ink-2)}
+html[data-os="linux"] .dl-first, html[data-os="android"] .dl-first, html[data-os="ios"] .dl-first{display:none}
+.mob{display:none}
+@media (max-width:700px){ .mob{display:block} .desk, [data-mob] > .crop, .ph-split > .tour{display:none} .mob .crop{margin:0 0 16px} }

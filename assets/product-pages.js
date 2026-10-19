@@ -54,4 +54,16 @@
       });
     });
   });
+
+  /* --- Security's 0: the third-party requests this page made, counted by the browser as it loaded (as the homepage's) --- */
+  var tp = document.querySelectorAll("[data-tp]");
+  if (tp.length) {
+    var x = 0;
+    try {
+      new PerformanceObserver(function (l) {
+        l.getEntries().forEach(function (e) { if (new URL(e.name, location.href).origin !== location.origin) x += 1; });
+        tp.forEach(function (el) { el.textContent = x; });
+      }).observe({ type: "resource", buffered: true });
+    } catch (_) {}
+  }
 })();

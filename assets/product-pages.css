@@ -261,3 +261,13 @@ html:not(.js) [data-wk]{display:none}
 .eg .fig{font-weight:600}
 .wkp{margin:12px 0 0}
 .ghost[data-wk]{background:none; border:0; cursor:pointer; font:inherit; font-weight:500; color:var(--ink); padding:12px 4px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}
+:root{--fs-proof:clamp(72px, 40px + 4vw, 112px)}
+.zero-split{align-items:end}
+.zero-fig{display:flex; align-items:baseline; gap:16px; margin:0; padding-bottom:8px}
+.zero-fig b{font:600 var(--fs-proof)/.9 var(--display); letter-spacing:-.05em}
+.zero-fig span{max-width:17em; font-size:var(--fs-small); color:var(--ink-2)}
+@media (max-width:900px){ .zero-fig{padding-bottom:0} }
+.mob{display:none}
+@media (max-width:700px){ .mob{display:block} .desk, [data-mob] > .crop, .ph-split > .tour{display:none} .mob .crop{margin:0 0 16px} }
+.ph-vis{margin:0; min-width:0}
+.ph-vis figcaption{margin-top:12px; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3)}

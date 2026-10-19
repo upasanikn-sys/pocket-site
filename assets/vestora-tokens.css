@@ -63,5 +63,6 @@ outline:2px solid var(--ink); outline-offset:3px; border-radius:var(--r-1); }
 }
 @media (prefers-reduced-motion: reduce){
 html{ scroll-behavior:auto !important; }
-*,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+*,*::before,*::after{ animation-duration:.001ms !important; animation-delay:0s !important;
+transition-duration:.001ms !important; transition-delay:0s !important; }
 }

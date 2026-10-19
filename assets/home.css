@@ -164,6 +164,8 @@ html{scroll-padding-top:88px}
 .cta small{font-size:var(--fs-small);font-weight:500}
 .offer{margin:16px 0 0;font-size:var(--fs-small);color:var(--ink-2)}
 .offer a{color:var(--ink);white-space:nowrap}
+.gl{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px;cursor:help}
+.gl:hover{text-decoration-style:solid}
 .lines-all{display:none}
 .js .plate:not(.all) #lines .ln:nth-child(n+5){display:none}
 .js .plate:not(.all) #lines .ln:nth-child(4){border-bottom:0}
@@ -375,6 +377,7 @@ padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));backgro
 transform:translateY(110%);visibility:hidden;transition:transform var(--t-panel) var(--ease-ui),visibility 0s linear var(--t-panel)}
 .js .dock.up{transform:none;visibility:visible;transition:transform var(--t-panel) var(--ease-ui)}
 .dock .cta{flex:1}
+.js .dock{gap:8px} .dock .btn-line{flex:none}
 }
 .rv{opacity:0;transform:translateY(8px)}
 .rv.in{opacity:1;transform:none;transition:opacity var(--t-panel) var(--ease-ui),transform var(--t-panel) var(--ease-ui);

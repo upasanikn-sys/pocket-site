@@ -24,6 +24,8 @@ font:400 var(--fs-small)/1.5 var(--sans)}
 .prose .next b{display:block; font:600 var(--fs-h3)/1.25 var(--display); letter-spacing:-.01em; text-wrap:balance}
 .prose .next span{display:block; margin-top:4px; font-size:var(--fs-small); line-height:1.5; color:var(--ink-2)}
 .prose .next a:hover b{text-decoration:underline; text-underline-offset:3px}
+.prose .prev-g{margin:12px 0 0; font-size:var(--fs-small); line-height:1.5; color:var(--ink-3)}
+.prose .prev-g a{display:inline-block; padding:12px 0; color:var(--ink-2)}
 .prose .toc{margin:28px 0 8px; padding:4px 0 4px 20px; border-left:1px solid var(--rule-2)}
 .prose .toc-h{margin:0 0 6px; font:600 var(--fs-caption)/1.3 var(--sans); color:var(--ink-3)}
 .prose .toc ol{margin:0; padding-left:1.4em}

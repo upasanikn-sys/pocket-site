@@ -260,4 +260,11 @@ padding:1px 5px; border:1px solid var(--rule); border-radius:var(--r-1); backgro
 .nf .sub{max-width:44ch}
 .nf-links{margin-top:40px; font-size:var(--fs-small); color:var(--ink-3)}
 @media (max-width:560px){ .has.cols{columns:1} }
+.rel-old{border-top:1px solid var(--rule)}
+.rel-old>summary{display:flex; align-items:baseline; justify-content:space-between; gap:16px; min-height:44px; cursor:pointer; list-style:none}
+.rel-old>summary::-webkit-details-marker{display:none}
+.rel-old>summary h2{margin:16px 0}
+.rel-old>summary::after{content:"+"; flex:none; font:500 var(--fs-h3)/1 var(--sans); color:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui)}
+.rel-old[open]>summary::after{transform:rotate(45deg)}
+.rel-old>summary:hover h2{text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px}
 @media (max-width:560px){ .prose .ltoc ol{display:flex; gap:16px; padding:0; list-style:none; overflow-x:auto} .prose .ltoc li{flex:none} .prose .ltoc a{white-space:nowrap} }

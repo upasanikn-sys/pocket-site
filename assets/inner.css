@@ -136,8 +136,8 @@ transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ea
 .plus{margin:24px 0 10px; font-size:var(--fs-caption); color:var(--ink-3)}
 .plan > .btn-line + .has{margin-top:24px}
 .plan .has, .offer .has{font-size:var(--fs-small); color:var(--ink-2)}
-.plan .has li, .offer .has li{padding:4px 0}
-.plan .has li::before, .offer .has li::before{margin-top:.8em}
+.plan .has li, .offer .has li{padding:4px 0 4px 22px}
+.plan .has li::before, .offer .has li::before{top:calc(4px + .75em)}
 .new{margin-left:6px; font-size:var(--fs-prov); font-weight:500; color:var(--ink-2)}
 .plan-foot{margin:auto 0 0; padding-top:20px; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3)}
 .includes{display:flex; flex-wrap:wrap; gap:8px 20px; margin:20px 0 0; font-size:var(--fs-small); color:var(--ink-3)}

@@ -281,3 +281,5 @@ html:not(.js) [data-wk]{display:none}
 .cs .tp-notes li{counter-increment:note; display:grid; grid-template-columns:24px minmax(0,1fr); gap:8px; margin:0; color:var(--ink-2)}
 .cs .tp-notes li::before{content:counter(note); font:600 var(--fs-caption)/1.6 var(--sans); color:var(--ink)}
 @media (max-width:560px){ .tp-marks{display:none} }
+.gl{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px;cursor:help}
+.gl:hover{text-decoration-style:solid}

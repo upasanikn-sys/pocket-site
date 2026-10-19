@@ -182,6 +182,7 @@ html{scroll-padding-top:88px}
 .tour-tabs [aria-selected=true]{font-weight:600}
 .tour-ul{position:absolute;left:0;bottom:-1px;width:100px;height:2px;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform var(--t-ui) var(--ease-ui)}
 .tour-panels{display:grid}
+.tour-more{display:none}
 .tp+.tp{margin-top:32px}
 .js .tour-panels .tp{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity var(--t-ui) var(--ease-ui),visibility 0s linear var(--t-ui)}
 .js .tour-panels .tp.on{opacity:1;visibility:visible;transition:opacity var(--t-ui) var(--ease-ui)}
@@ -247,6 +248,8 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .try-in input:active::-webkit-slider-thumb{transform:scale(1.1)}
 .try-in input:active::-moz-range-thumb{transform:scale(1.1)}
 .try-ticks{grid-column:1/-1;height:6px;margin:-16px 10px 10px;background:linear-gradient(to right,var(--ink-3) 1px,transparent 1px) 0 0/calc((100% - 1px) / var(--n)) 100% repeat-x}
+.try-ticks[style*="--e"]{background:linear-gradient(to right,transparent calc(var(--e) * (100% - 2px)),var(--ink) 0 calc(var(--e) * (100% - 2px) + 2px),transparent 0),linear-gradient(to right,var(--ink-3) 1px,transparent 1px) 0 0/calc((100% - 1px) / var(--n)) 100% repeat-x}
+.try-edge-l{grid-column:1/-1;margin:4px 0 0;font-size:var(--fs-small);color:var(--ink-2)}
 .try-out{background:var(--card);border:1px solid var(--rule);border-radius:var(--r-3);padding:20px 24px 24px}
 .try-figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--ink)}
 .try-figs>div{display:flex;flex-direction:column;justify-content:space-between;padding:0 0 16px}
@@ -362,6 +365,12 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .never li{grid-template-columns:minmax(0,1fr);gap:4px}
 .tp.phone picture+picture{display:none}
 .tp.phone picture{flex-basis:100%}
+.tour-tabs{display:none}
+.tour-panels .tp:not(#tp-phone){display:none}
+.js .tour-panels #tp-phone{opacity:1;visibility:visible}
+#tp-phone .tp-pics{max-width:230px;margin:0 auto}
+.tour-more{display:inline-flex;margin-top:16px}
+.tour-film-say{display:none}
 .tour-tabs [role=tab]{padding:0 12px}
 .never ul{gap:0 16px}
 .never strong{font-size:var(--fs-body)}

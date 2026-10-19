@@ -240,15 +240,15 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .mods2{grid-template-columns:minmax(0,1fr)}
 .mod2{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); grid-template-rows:auto auto 1fr; gap:0 56px;
 align-content:start; min-height:clamp(240px,30vh,320px); padding:24px 0}
-.mod2 > :not(.crop){grid-column:1; max-width:46ch}
-.mod2 > .crop{grid-column:2; grid-row:1 / span 3; position:sticky; top:96px; align-self:start; margin:0}
+.mod2 > :not(.crop):not(.cs){grid-column:1; max-width:46ch}
+.mod2 > .crop, .mod2 > .cs{grid-column:2; grid-row:1 / span 3; position:sticky; top:96px; align-self:start; margin:0}
 .mod2 > h3{margin-top:0}
 .mod2 > .eg{align-self:start}
 }
 @supports (animation-timeline:view()){
 @media (min-width:1000px) and (min-height:650px) and (prefers-reduced-motion:no-preference){
 @keyframes beat-in{from{opacity:.25; transform:translateY(12px)} to{opacity:1; transform:none}}
-.mod2 > .crop{animation:beat-in linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
+.mod2 > .crop, .mod2 > .cs{animation:beat-in linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
 }
 }
 @media (max-width:560px){ .ltoc.strip .ltoc-h{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap} .ltoc.strip ol{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); padding-right:32px} }
@@ -268,6 +268,16 @@ html:not(.js) [data-wk]{display:none}
 .zero-fig span{max-width:17em; font-size:var(--fs-small); color:var(--ink-2)}
 @media (max-width:900px){ .zero-fig{padding-bottom:0} }
 .mob{display:none}
-@media (max-width:700px){ .mob{display:block} .desk, [data-mob] > .crop, .ph-split > .tour{display:none} .mob .crop{margin:0 0 16px} }
+@media (max-width:700px){ .mob{display:block} .desk, [data-mob] > .crop, [data-mob] > .cs, .ph-split > .tour{display:none} .mob .crop{margin:0 0 16px} }
 .ph-vis{margin:0; min-width:0}
 .ph-vis figcaption{margin-top:12px; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3)}
+.cs{margin:0 0 16px}
+.cs .crop{margin:0}
+.csp{position:relative}
+.tp-marks{position:absolute; inset:0; margin:0; padding:0; list-style:none; pointer-events:none}
+.tp-marks li{position:absolute; display:grid; place-items:center; width:28px; height:28px; margin:-14px 0 0 -14px; border-radius:50%; background:var(--on-ink); color:var(--ink); font:600 var(--fs-caption)/1 var(--sans); box-shadow:0 0 0 2px var(--ink)}
+@media (prefers-color-scheme: dark){ .tp-marks li{background:var(--ink); color:var(--on-ink); box-shadow:0 0 0 2px var(--on-ink)} }
+.cs .tp-notes{display:grid; gap:6px; margin:12px 0 0; padding:0; list-style:none; counter-reset:note; font-size:var(--fs-small); line-height:1.5}
+.cs .tp-notes li{counter-increment:note; display:grid; grid-template-columns:24px minmax(0,1fr); gap:8px; margin:0; color:var(--ink-2)}
+.cs .tp-notes li::before{content:counter(note); font:600 var(--fs-caption)/1.6 var(--sans); color:var(--ink)}
+@media (max-width:560px){ .tp-marks{display:none} }

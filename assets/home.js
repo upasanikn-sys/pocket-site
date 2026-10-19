@@ -2,7 +2,9 @@
 (function () {
   "use strict";
   var d = document, rm = matchMedia("(prefers-reduced-motion: reduce)").matches,
-      TRACE = "cubic-bezier(.65,0,.35,1)", UI = "cubic-bezier(.2,.8,.2,1)", IO = "IntersectionObserver" in window;
+      cs = getComputedStyle(d.documentElement), tok = function (n) { return cs.getPropertyValue("--" + n).trim(); },
+      TRACE = tok("ease-trace"), UI = tok("ease-ui"), FAST = parseFloat(tok("t-fast")), MID = parseFloat(tok("t-ui")),
+      SLOW = parseFloat(tok("t-trace")), IO = "IntersectionObserver" in window;
   function all(sel, root) { return [].slice.call((root || d).querySelectorAll(sel)); }
   function anim(el, frames, o) { if (!rm && el.animate) return el.animate(frames, o); }
   /* Show working: the tree draws itself (home.css .trace); on load the figure lands last ("first"); close 120ms */
@@ -18,7 +20,7 @@
       t.el.innerHTML = on ? t.open : t.el.getAttribute("data-r");
       var p = on && t.el.querySelector(".p");
       anim(p || t.el, [{ opacity: 0, transform: "translateY(" + (on ? 4 : -4) + "px)" }, { opacity: 1, transform: "none" }],
-        { duration: 320, easing: UI });
+        { duration: MID, easing: UI });
     });
   }
   if (sw) {
@@ -30,7 +32,7 @@
       roll(on);
       if (on) { plate.classList.remove("bare"); trace(); return; }
       all(".tr,.tnote,.lines", plate).forEach(function (p) {
-        var a = anim(p, [{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "cubic-bezier(.23,1,.32,1)" });
+        var a = anim(p, [{ opacity: 1 }, { opacity: 0 }], { duration: FAST, easing: UI });
         if (a) fades.push(a);
       });
       if (fades[0]) fades[0].onfinish = function () { plate.classList.add("bare"); }; else plate.classList.add("bare");
@@ -94,7 +96,7 @@
       g.classList.toggle(c, on);
       if (on && !was) all("path.far", g).forEach(function (f) {
         var L = f.getTotalLength(), a = L + " " + L;
-        anim(f, [{ strokeDasharray: a, strokeDashoffset: L }, { strokeDasharray: a, strokeDashoffset: 0 }], { duration: 480, easing: TRACE });
+        anim(f, [{ strokeDasharray: a, strokeDashoffset: L }, { strokeDasharray: a, strokeDashoffset: 0 }], { duration: SLOW, easing: TRACE });
       });
     });
   }
@@ -135,8 +137,8 @@
         all("[" + t + "]", b).forEach(function (r) {
           var m = at[r.getAttribute(t)], q = r.getBoundingClientRect(), y = q.top + q.height / 2;
           if (!m || !q.height) return; // clear while rows cross
-          anim(r, [{ transform: "translateY(" + ((m[0][1] + m[m.length - 1][1]) / 2 - y) + "px)", opacity: 0 }, { opacity: .15, offset: .5 }, { transform: "none", opacity: 1 }], { duration: 320, easing: UI });
-          m.forEach(function (o) { anim(o[0], [{ transform: "none" }, { transform: "translateY(" + (y - o[1]) + "px)" }], { duration: 240, easing: UI }); });
+          anim(r, [{ transform: "translateY(" + ((m[0][1] + m[m.length - 1][1]) / 2 - y) + "px)", opacity: 0 }, { opacity: .15, offset: .5 }, { transform: "none", opacity: 1 }], { duration: MID, easing: UI });
+          m.forEach(function (o) { anim(o[0], [{ transform: "none" }, { transform: "translateY(" + (y - o[1]) + "px)" }], { duration: MID, easing: UI }); });
         });
       };
     };
@@ -174,7 +176,7 @@
 
   /* wires draw once (home.css .drawn) */
   if (!rm && IO) all(".schem").forEach(function (s) {
-    all(".w", s).forEach(function (w, i) { w.style.animationDelay = i * 140 + "ms"; });
+    all(".w", s).forEach(function (w, i) { w.style.animationDelay = i * FAST + "ms"; });
     s.classList.add("wd");
     new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); s.classList.add("drawn"); } }, { threshold: .4 }).observe(s);
   });
@@ -225,7 +227,7 @@
   if (rng) {
     var T = JSON.parse(d.getElementById("try-data").textContent), box = rng.closest(".try"),
         put = function (k, v) { box.querySelector('[data-t="' + k + '"]').textContent = v; };
-    /* MO3: a regime's figure rolls from the last salary's to this one's over --t-roll (the slider is the cause, so it
+    /* MO3: a regime's figure rolls from the last salary's to this one's over --t-ui (the slider is the cause, so it
        moves only when the salary does) and lands on the engine's own text; reduced motion sets it at once */
     var num = function (s) { return +String(s).replace(/[^\d]/g, ""); }, rolls = {},
         inr = function (n) { var s = String(n), h = s.slice(0, -3); return "₹" + (h ? h.replace(/\B(?=(\d{2})+$)/g, ",") + "," + s.slice(-3) : s); },
@@ -234,7 +236,7 @@
           cancelAnimationFrame(rolls[k]);
           if (rm || a === b || !/^₹[\d,]+$/.test(v)) return put(k, v);
           var step = function (t) {
-            t0 = t0 || t; var p = Math.min(1, (t - t0) / 320), e = 1 - Math.pow(1 - p, 3);
+            t0 = t0 || t; var p = Math.min(1, (t - t0) / MID), e = 1 - Math.pow(1 - p, 3);
             el.textContent = p < 1 ? inr(Math.round(a + (b - a) * e)) : v;
             if (p < 1) rolls[k] = requestAnimationFrame(step);
           };

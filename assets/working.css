@@ -65,7 +65,7 @@ a.term:hover{text-decoration-style:solid}
 .gshot{margin:32px 0}
 .gshot .gpic{position:relative}
 .gshot img{display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:var(--r-3); background:var(--card);
-transition:opacity var(--t-roll) var(--ease-ui)}
+transition:opacity var(--t-ui) var(--ease-ui)}
 .js .gshot img:not(.in){opacity:0}
 .gshot figcaption{margin-top:12px; font-size:var(--fs-caption); line-height:1.5; color:var(--ink-3)}
 .gshot .marks{position:absolute; inset:0; margin:0; padding:0; list-style:none; pointer-events:none}

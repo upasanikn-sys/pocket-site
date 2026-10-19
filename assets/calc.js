@@ -96,12 +96,13 @@
 
   /* Show working: open, as on the homepage plate; the trace draws only when the person opens it */
   var sw = out.querySelector(".sw"), still = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var EXIT = "cubic-bezier(.23,1,.32,1)";
+  var cs = getComputedStyle(document.documentElement), tok = function (n) { return cs.getPropertyValue("--" + n).trim(); },
+      UI = tok("ease-ui"), TRACE = tok("ease-trace"), FAST = parseFloat(tok("t-fast")), MID = parseFloat(tok("t-ui")), SLOW = parseFloat(tok("t-trace"));
   if (sw) sw.addEventListener("click", function () {
     var open = sw.getAttribute("aria-checked") !== "true", work = out.querySelectorAll(".work"), moving = !still.matches && work[0].animate;
     sw.setAttribute("aria-checked", open ? "true" : "false");
     if (!open && moving) {
-      var fades = Array.prototype.map.call(work, function (w) { return w.animate([{opacity: 1}, {opacity: 0}], {duration: 120, easing: EXIT}); });
+      var fades = Array.prototype.map.call(work, function (w) { return w.animate([{opacity: 1}, {opacity: 0}], {duration: FAST, easing: UI}); });
       fades[0].onfinish = function () { out.classList.remove("open"); };
       return;
     }
@@ -109,11 +110,11 @@
     if (!open || !moving) return;
     out.querySelectorAll(".work .ld").forEach(function (ld, i) {
       if (ld.offsetWidth) ld.animate([{transform: "scaleX(0)"}, {transform: "scaleX(1)"}],
-        {duration: 480, delay: Math.min(i, 7) * 40, easing: "cubic-bezier(.65,0,.35,1)", fill: "backwards"});
+        {duration: SLOW, delay: Math.min(i, 7) * 40, easing: TRACE, fill: "backwards"});
     });
     out.querySelectorAll(".work small").forEach(function (n, i) {
       n.animate([{opacity: 0, transform: "translateY(4px)"}, {opacity: 1, transform: "none"}],
-        {duration: 200, delay: Math.min(i, 7) * 40 + 240, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards"});
+        {duration: MID, delay: Math.min(i, 7) * 40 + MID, easing: UI, fill: "backwards"});
     });
   });
 })();

@@ -117,7 +117,7 @@ border-bottom:1px solid var(--rule)}
 .defs dt{margin:0; font-weight:600; font-size:var(--fs-body); color:var(--ink)}
 .defs dd{margin:0; color:var(--ink-3); font-size:var(--fs-body); line-height:1.6}
 @media (max-width:900px){ .defs > div{grid-template-columns:1fr; gap:6px} }
-.prose{max-width:68ch; margin:0 auto; padding:76px 0 104px}
+.prose{max-width:65ch; margin:0 auto; padding:76px 0 104px}
 .prose h1{font-size:var(--fs-headline); line-height:1.08; letter-spacing:-.03em; margin:0 0 16px; text-wrap:balance}
 .prose .lede{font-size:var(--fs-lede); color:var(--ink-2); line-height:1.6; margin:0 0 10px}
 .prose .meta{font-size:var(--fs-caption); color:var(--ink-3)}

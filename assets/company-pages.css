@@ -139,7 +139,7 @@ transform:rotate(-45deg) translate(2px,-3px)}
 .cta[aria-disabled="true"], .btn-line[aria-disabled="true"], .ghost[aria-disabled="true"], .plat[aria-disabled="true"],
 .cta:disabled, .btn-line:disabled, .ghost:disabled{opacity:.45; cursor:not-allowed; pointer-events:none; transform:none}
 .fade-img{opacity:0}
-.fade-img.in{opacity:1; transition:opacity var(--t-roll) var(--ease-ui)}
+.fade-img.in{opacity:1; transition:opacity var(--t-ui) var(--ease-ui)}
 @media (prefers-reduced-motion:reduce){ .fade-img.in{transition:none} }
 .close.alt{background:var(--plate); border-top:1px solid var(--rule)}
 .ghost[data-copy]{display:block; background:none; border:0; font-family:inherit; cursor:pointer; text-align:left; min-height:44px; padding:0 4px; font-size:var(--fs-small)}

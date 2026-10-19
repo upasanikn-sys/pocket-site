@@ -32,8 +32,8 @@ src:url(fonts/jetbrainsmono-regular.woff2) format('woff2')}
 --fs-h3:20px;  --fs-lede:18px;  --fs-body:16px;  --fs-small:14px;  --fs-caption:13px;  --fs-prov:12px;
 --fs-anchor:44px;  --fs-fig-l:36px;  --fs-fig:28px;  --fs-fig-m:24px;  --fs-fig-s:18px;
 --r-1:4px;  --r-2:8px;  --r-3:12px;  --r-4:16px;
---t-fast:120ms;  --t-ui:200ms;  --t-panel:240ms;  --t-roll:320ms;  --t-trace:480ms;
---ease-ui:cubic-bezier(.2,.8,.2,1);  --ease-exit:cubic-bezier(.23,1,.32,1);  --ease-trace:cubic-bezier(.65,0,.35,1);
+--t-fast:120ms;  --t-ui:240ms;  --t-trace:480ms;
+--ease-ui:cubic-bezier(.23,1,.32,1);  --ease-trace:cubic-bezier(.65,0,.35,1);
 --maxw:1200px;  --gutter:28px;  --sec:96px;
 --z-sticky:50;  --z-overlay:100;  --z-modal:200;  --z-toast:300;
 }

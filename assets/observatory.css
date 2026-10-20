@@ -158,6 +158,12 @@ html .sw i{forced-color-adjust:none;border-color:ButtonText;background:Canvas}
 html .sw i::after{forced-color-adjust:none;background:ButtonText}
 html .sw[aria-checked="true"] i{background:Highlight;border-color:Highlight}
 html .sw[aria-checked="true"] i::after{background:HighlightText}
+html .has li::before,html .tour-ul,html .tour-bar,html .qa-i::before,html .qa-i::after,html .node::before{forced-color-adjust:none;background:CanvasText}
+html .node.here::before,html .ph-when .here::before{forced-color-adjust:none;background:Highlight}
+html .sw .track{forced-color-adjust:none;outline:1px solid ButtonText;background:Canvas}
+html .sw .track::after{forced-color-adjust:none;background:ButtonText}
+html .sw[aria-pressed="true"] .track{background:Highlight;outline-color:Highlight}
+html .sw[aria-pressed="true"] .track::after{background:HighlightText}
 html .rng::-webkit-slider-runnable-track,html .try-in input::-webkit-slider-runnable-track{forced-color-adjust:none;background:CanvasText}
 html .rng::-moz-range-track,html .try-in input::-moz-range-track{forced-color-adjust:none;background:CanvasText}
 html .try-ticks{forced-color-adjust:none;background:linear-gradient(to right,CanvasText 1px,transparent 1px) 0 0/calc((100% - 1px)/var(--n)) 100% repeat-x}

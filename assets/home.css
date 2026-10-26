@@ -282,10 +282,20 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .count{transition:border-color var(--t-ui) var(--ease-ui)}
 .count.now{border-top-color:var(--ink);box-shadow:inset 0 1px var(--ink)}
 @media (max-height:799px){
-.pinned .wires .lede{margin-top:12px}
+.pinned.wires .lede{margin-top:12px}
 .pinned .count{margin-top:20px}
 .pinned .schem{margin-top:16px}
 .pinned .conn li{padding-top:10px;padding-bottom:10px}
+}
+@media (max-height:649px){
+.pinned.wires .lede{font-size:var(--fs-small)}
+.pinned .count{margin-top:12px;padding-top:12px}
+.pinned .count p{max-width:none}
+.pinned .schem{margin-top:12px}
+.pinned .conn li{padding-top:7px;padding-bottom:7px}
+}
+@media (max-height:599px){
+.pinned.wires .lede,.pinned .count,.pinned .schem{margin-top:8px}
 }
 :root{--sec:80px;--fs-proof:clamp(72px, 40px + 4vw, 112px)}
 @media (max-width:900px){:root{--sec:64px}}

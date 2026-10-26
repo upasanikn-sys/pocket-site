@@ -65,11 +65,12 @@
 <div class="wrap">
 <article class="prose">
 <h1 class="d">Changelog</h1>
-<div class="ldate">Every published version of Pocket, newest first · 13 versions since 28 September 2026 · <a href="feed.xml">Follow with RSS</a></div>
-<div class="lsum">Each entry is the release note shipped with that build. The newest is <b>Pocket 3.2.10</b>, on the <a href="download.html">Download page</a>. What is planned next is on the <a href="roadmap.html">Roadmap</a>.</div>
+<div class="ldate">Every published version of Pocket, newest first · 14 versions since 28 September 2026 · <a href="feed.xml">Follow with RSS</a></div>
+<div class="lsum">Each entry is the release note shipped with that build. The newest is <b>Pocket 3.2.11</b>, on the <a href="download.html">Download page</a>. What is planned next is on the <a href="roadmap.html">Roadmap</a>.</div>
 <nav class="ltoc" aria-label="On this page">
 <p class="ltoc-h">On this page</p>
 <ol>
+<li><a href="#v3-2-11">3.2.11</a></li>
 <li><a href="#v3-2-10">3.2.10</a></li>
 <li><a href="#v3-2-9">3.2.9</a></li>
 <li><a href="#v3-2-8">3.2.8</a></li>
@@ -85,6 +86,27 @@
 <li><a href="#v3-0-0">3.0.0</a></li>
 </ol>
 </nav>
+<h2 id="v3-2-11">Pocket 3.2.11 <span class="ldate">· 26 October 2026</span></h2>
+<p>The HRA exemption follows the city you rent in, and a premium's due date keeps its day. Windows 10/11, 64-bit, early access; macOS, Linux and Android too. The previous build was 3.2.10 (12 October 2026).</p>
+<h3>Fixed</h3>
+<ul>
+<li><b>HRA at 50% of basic in the eight cities rule 279 names.</b> The old regime's HRA exemption is capped at 50% of basic if you rent in Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad or Bengaluru (rule 279(1)(c) of the Income-tax Rules, 2026), and 40% anywhere else. Pocket used 40% for everyone. The Tax page's HRA line now says which limit it used and why.</li>
+<li><b>Example:</b> basic ₹50,000 and HRA ₹25,000 a month, rent ₹35,000, in Mumbai. The exemption was ₹2,40,000; it is ₹3,00,000, and the old regime's tax goes from ₹82,804.80 to ₹70,324.80. The new regime's tax is ₹0 either way.</li>
+<li><b>A premium due on a month's last days keeps its day.</b> A monthly premium due 31 October, marked paid, moves to 30 November, as November has no 31st. Undo then took it back to 30 October, a day early, and paying on kept the 30th for good (30 December, 30 January). Pocket now remembers the day the premium falls on: paid and undone, it is 31 October again, and paying on goes 30 November, 31 December, 31 January, 28 February, 31 March. A yearly premium due on 29 February comes back to the 29th in the next leap year.</li>
+</ul>
+<h3>New</h3>
+<ul>
+<li><b>Settings asks the city you rent in</b> (Profile on the computer, Your profile on the phone): one of the eight cities, or elsewhere.</li>
+</ul>
+<h3>Your data</h3>
+<p>Pocket keeps using <code>%USERPROFILE%\FinOSData</code>; nothing in it changes for this update and nothing is uploaded. Until you choose a city, HRA stays at 40%, as before. A premium already moved to a shorter month keeps the date it shows; set its date once in Protection if it should fall on the 31st again. Installing this version over 3.2.10 upgrades it in place, encrypted database included.</p>
+<h3>Known limits</h3>
+<ul>
+<li>Pocket's tax figures are a planning estimate for salary income, not a tax return or tax advice.</li>
+<li>Not yet code-signed: Windows SmartScreen asks you to confirm the first run. The Mac build is not yet notarised by Apple. The Linux build runs in a terminal window.</li>
+<li>Google Play, the App Store and the Microsoft Store are coming.</li>
+<li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
+</ul>
 <h2 id="v3-2-10">Pocket 3.2.10 <span class="ldate">· 12 October 2026</span></h2>
 <p>Health insurance now counts in the old regime's tax (80D), as the law allows. Windows 10/11, 64-bit, early access; macOS, Linux and Android too. The previous build was 3.2.9 (12 October 2026).</p>
 <h3>Fixed</h3>
@@ -127,7 +149,7 @@
 <li>Google Play, the App Store and the Microsoft Store are coming.</li>
 <li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
 </ul>
-<h2 id="v3-2-8">Pocket 3.2.8 <span class="ldate">· 11 October 2026</span></h2>
+<details class="rel-old" id="v3-2-8"><summary><h2>Pocket 3.2.8 <span class="ldate">· 11 October 2026</span></h2></summary>
 <p>Pocket can now encrypt your data on your Windows computer. Windows 10/11, 64-bit, early access. The previous build was 3.2.7 (11 October 2026).</p>
 <h3>New</h3>
 <ul>
@@ -146,6 +168,7 @@
 <li>The Android app (Android 7.0 or later) is an APK on the Download page and always encrypts its database. Google Play, the App Store and the Microsoft Store are coming.</li>
 <li>Support: <a href="contact.html">mypocketfi.com/contact.html</a>, or <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a>.</li>
 </ul>
+</details>
 <details class="rel-old" id="v3-2-7"><summary><h2>Pocket 3.2.7 <span class="ldate">· 11 October 2026</span></h2></summary>
 <p>Pocket can now tell you when a newer version is out. Windows 10/11, 64-bit, early access. The previous build was 3.2.6 (11 October 2026).</p>
 <h3>New</h3>

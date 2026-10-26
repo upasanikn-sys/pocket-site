@@ -1,5 +1,5 @@
 /* Pocket: shared site behaviour, on every page (defer). DOWNLOAD_URL: the Windows file, tools/site_download.py. */
-var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.10/Pocket_3.2.10_windows_setup.exe";
+var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.11/Pocket_3.2.11_windows_setup.exe";
 
 (function () {
   "use strict";

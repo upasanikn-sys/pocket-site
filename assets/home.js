@@ -119,7 +119,7 @@
   /* scene: pins from 1000x560, with or without motion (a layout; reduced motion swaps at once); rows count in */
   var flow = d.querySelector(".scene"), mq = matchMedia("(min-width:1000px) and (min-height:560px)");
   if (flow) {
-    var steps = all(".steps li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
+    var steps = all(".steps > li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
         parts = frames.map(function (f, i) {
           return all(["tr:not([hidden]):not(.grp)", "tbody tr,tfoot tr", ".eqn tr"][i], f)
             .filter(function (r) { return !r.querySelector("button"); });

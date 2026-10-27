@@ -120,3 +120,15 @@ border-top:1px solid var(--rule); transform:translateY(110%)}
 @view-transition{navigation:auto}
 .sh{view-transition-name:site-header}
 @media (prefers-reduced-motion:reduce){ @view-transition{navigation:none} }
+.sh-more{display:none; align-items:center; gap:8px; min-height:44px; padding:0 4px; border:0; background:none;
+font:inherit; color:var(--ink-2); cursor:pointer}
+.sh-more:hover, .sh-more:focus-visible{color:var(--ink)}
+.sh-more::after{content:""; width:6px; height:6px; border:solid currentColor; border-width:0 1.5px 1.5px 0;
+transform:translateY(-2px) rotate(45deg)}
+@media (min-width:901px){ .sh-more{display:inline-flex} }
+.sh-pop{position:fixed; inset:auto; top:68px; right:max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
+margin:0; padding:8px; min-width:200px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
+color:var(--ink)}
+.sh-pop a{display:flex; align-items:center; min-height:44px; padding:0 12px; border-radius:var(--r-2); color:var(--ink-2);
+text-decoration:none}
+.sh-pop a:hover, .sh-pop a:focus-visible, .sh-pop a[aria-current]{background:var(--plate); color:var(--ink)}

@@ -142,19 +142,22 @@ html[data-os="ios"] .hbtns .cta:not(.for-ios){display:none}
 .schem.wd .w{stroke-dasharray:1;stroke-dashoffset:1}
 .schem.drawn .w{animation:wire var(--t-trace) var(--ease-trace) forwards}
 @keyframes wire{to{stroke-dashoffset:0}}
+.schem-v{display:none}
+@media (max-width:560px){
+.schem.schem-v{display:block;margin-top:24px}
+@supports (animation-timeline:view()){
+@media (prefers-reduced-motion:no-preference){
+@keyframes fr-in{from{opacity:.25;transform:translateY(16px)}to{opacity:1;transform:none}}
+.scene .steps>li>.fr{animation:fr-in linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+}
+}
+}
 .conn{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
 .conn li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--rule)}
 .conn b{font-weight:600}
 .conn span{grid-column:1;font-size:var(--fs-small);color:var(--ink-2)}
 .conn em{grid-column:2;grid-row:1;font:500 var(--fs-prov)/1.6 var(--mono);letter-spacing:.04em;text-transform:uppercase;font-style:normal;color:var(--ink-2)}
 .conn .local em{color:var(--ink)}
-.never-in{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
-.never-in>div{text-align:center}
-.never-in>div p{margin:16px 0 0;color:var(--ink-2)}
-.never ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 24px;border-top:1px solid var(--ink)}
-.never li{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:20px 0 0}
-.never strong{font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
-.never li span{color:var(--ink-2)}
 .schem rect.far{stroke:var(--rule-2);stroke-width:1;stroke-dasharray:none}
 .schem :is(g.on,g.try) rect.far{stroke:var(--ink)}
 .schem g rect.far{transition:stroke var(--t-ui) var(--ease-ui)}
@@ -296,11 +299,40 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .conn li.now{background:var(--plate);box-shadow:inset 2px 0 var(--ink)}
 .count{transition:border-color var(--t-ui) var(--ease-ui)}
 .count.now{border-top-color:var(--ink);box-shadow:inset 0 1px var(--ink)}
+.w-all{display:none;align-items:center;gap:10px;min-height:44px;margin:0 0 8px;font-size:var(--fs-small);color:var(--ink-2);cursor:pointer}
+.w-all input{width:18px;height:18px;margin:0;accent-color:var(--ink);cursor:pointer}
+@media (min-width:1000px){ .w-all{display:flex} }
+.wires:has(#w-all:checked){height:auto;padding:var(--sec) 0}
+.wires:has(#w-all:checked) .wires-in{position:static;min-height:0}
+.wires:has(#w-all:checked) .conn li[data-conn]{background:var(--plate);box-shadow:inset 2px 0 var(--ink)}
+.wires:has(#w-all:checked) .schem g[data-conn] .lv{transform:rotate(27deg)}
+.wires:has(#w-all:checked) .schem g[data-conn] .far{stroke:var(--ink-2);stroke-dasharray:none}
+.wires:has(#w-all:checked) .schem g[data-conn] rect.far{stroke:var(--ink)}
+.wires:has(#w-all:checked) .schem g[data-conn] .k:not(.if){opacity:0}
+.wires:has(#w-all:checked) .schem g[data-conn] .k.if{opacity:1}
+.never-turn{margin-top:32px;padding-top:16px;border-top:1px solid var(--ink)}
+.never-turn h3{margin:0;font:600 var(--fs-h3)/1.3 var(--display);letter-spacing:-.015em}
+.never-turn>p{margin:6px 0 0;color:var(--ink-2);font-size:var(--fs-small)}
+.never-turn ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.never-turn li{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr);gap:2px 16px;align-items:baseline}
+.never-turn strong{font:600 var(--fs-body)/1.35 var(--sans)}
+.never-turn li span{color:var(--ink-2);font-size:var(--fs-small)}
+.pinned .w-col{display:grid;grid-template-columns:minmax(0,1fr);align-content:start}
+.pinned .w-col>:is(.conn,.never-turn){grid-row:2;grid-column:1}
+.pinned .w-col>.conn{transition:opacity var(--t-ui) var(--ease-ui)}
+.pinned .never-turn{margin-top:0;align-self:start;opacity:0;visibility:hidden;transition:opacity var(--t-ui) var(--ease-ui),visibility 0s linear var(--t-ui)}
+.pinned:has(.count.now) .w-col>.conn{opacity:0;visibility:hidden}
+.pinned:has(.count.now) .never-turn{opacity:1;visibility:visible;transition:opacity var(--t-ui) var(--ease-ui)}
+.wires:has(#w-all:checked) .w-col{display:block}
+.wires:has(#w-all:checked) .w-col>:is(.conn,.never-turn){opacity:1;visibility:visible}
+.wires:has(#w-all:checked) .never-turn{margin-top:32px}
+@media (max-width:560px){ .never-turn li{grid-template-columns:minmax(0,1fr)} }
 @media (max-height:799px){
 .pinned.wires .lede{margin-top:12px}
 .pinned .count{margin-top:20px}
 .pinned .schem{margin-top:16px}
 .pinned .conn li{padding-top:10px;padding-bottom:10px}
+.pinned .w-all{min-height:24px;margin:0}
 }
 @media (max-height:649px){
 .pinned.wires .lede{font-size:var(--fs-small)}
@@ -365,7 +397,7 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .after span{grid-column:2;font-size:var(--fs-small);color:var(--ink-2)}
 @media (max-width:900px){.close-in{grid-template-columns:minmax(0,1fr);gap:40px}}
 @media (max-width:900px){
-.wires-in,.never-in,.try{grid-template-columns:minmax(0,1fr);gap:40px}
+.wires-in,.try{grid-template-columns:minmax(0,1fr);gap:40px}
 .home-copy{grid-template-columns:minmax(0,1fr);row-gap:20px}
 .home .sub,.home-copy>*{grid-column:1;grid-row:auto}
 .tree{padding:20px 24px 24px}
@@ -377,7 +409,6 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .br:last-child .tr-drop{bottom:14px}
 .faq-in{grid-template-columns:minmax(0,1fr);gap:32px}
 .qa p{padding-right:0}
-.never ul{grid-template-columns:repeat(2,minmax(0,1fr))}
 .scene .steps li{grid-template-columns:48px minmax(0,1fr)}
 .scene .steps li>.fr{grid-column:1/-1;grid-row:auto;margin:20px 0 0}
 }
@@ -395,12 +426,10 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .tblock div:nth-child(n+3){margin-top:10px;border-top:1px solid var(--rule)}
 .fr{padding:14px}
 .ledger :is(th,td):nth-child(2){display:none}
-.scene .steps li:nth-child(n+2)>.fr{display:none}
 .fr .r{white-space:normal}
 .eqn td{font-size:var(--fs-fig-s)}
 .eqn tfoot td{font-size:var(--fs-fig)}
 .schem,.ledger tbody.bal,.reads-1{display:none}
-.never li{grid-template-columns:minmax(0,1fr);gap:4px}
 .tp.phone picture+picture{display:none}
 .tp.phone picture{flex-basis:100%}
 .tour-tabs{display:none}
@@ -410,10 +439,6 @@ background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 .tour-more{display:inline-flex;margin-top:16px}
 .tour-film-say{display:none}
 .tour-tabs [role=tab]{padding:0 12px}
-.never ul{gap:0 16px}
-.never strong{font-size:var(--fs-body)}
-.never li span{font-size:var(--fs-small)}
-.never-in>div{text-align:left}
 .try-out{padding:16px}
 .try-figs>div+div{padding-left:16px}
 .try-out .fig{font-size:var(--fs-fig)}

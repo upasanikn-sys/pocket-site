@@ -24,8 +24,8 @@
 <meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=10">
 <link rel="stylesheet" href="assets/observatory.css?v=18">
-<link rel="stylesheet" href="assets/home.css?v=49">
-<link rel="stylesheet" href="assets/site-shell.css?v=9">
+<link rel="stylesheet" href="assets/home.css?v=52">
+<link rel="stylesheet" href="assets/site-shell.css?v=10">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mypocketfi.com/#org","name":"Pocket","url":"https://mypocketfi.com/","logo":"https://mypocketfi.com/assets/pocket-logo.svg","description":"An independent, India-based software project building a private personal finance app."},{"@type":"WebSite","@id":"https://mypocketfi.com/#site","name":"Pocket","url":"https://mypocketfi.com/","publisher":{"@id":"https://mypocketfi.com/#org"}},{"@type":"SoftwareApplication","name":"Pocket","url":"https://mypocketfi.com/","applicationCategory":"FinanceApplication","downloadUrl":"https://mypocketfi.com/download.html","operatingSystem":"Windows 10, Windows 11 (64-bit); macOS (Apple silicon); Linux (x86-64); Android 7.0 or later","description":"A private personal finance app for Windows, Mac, Linux and Android: net worth, investments, goals, debt and tax, computed on your device, with its working.","publisher":{"@id":"https://mypocketfi.com/#org"},"offers":{"@type":"Offer","name":"Free plan","price":"0","priceCurrency":"INR"}}]}</script>
 </head>
 <body>
@@ -41,6 +41,13 @@
       <a href="pricing.html">Pricing</a>
       <a href="guides.html">Guides</a>
     </nav>
+    <button class="sh-more" type="button" popovertarget="sh-more-pop">More</button>
+    <div class="sh-pop" id="sh-more-pop" popover>
+      <a href="ai-copilot.html">Ask Pocket</a>
+      <a href="compare.html">Compare</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
     <a class="sh-cta" href="download.html">Download free</a>
     <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
@@ -128,38 +135,35 @@
         <p class="lede">Not by default, never quietly: no Pocket account, no Pocket server. Prices, sync and the update check run only when you switch them on, and only to where you send them.</p>
         <div class="count"><b class="num" data-tp>0</b><p>third-party requests made by this page<span class="count-all" hidden>, out of <span class="num" data-all></span> requests in all</span>, counted by your own browser as it loaded. <a href="security-architecture.html#check-site">Check it yourself</a></p></div>
         <svg class="schem" viewBox="0 0 560 250" aria-hidden="true" focusable="false"><rect class="pc" x="1" y="77" width="214" height="96" rx="8"/><text class="k" x="14" y="103">THIS DEVICE</text><text class="b" x="14" y="128">Your database</text><text x="14" y="152">on this device only</text><g data-conn="prices"><path class="w" pathLength="1" d="M215 101H232V40H262"/><circle class="j" cx="262" cy="40" r="3.5"/><path class="lv" d="M262 40l30 -15"/><circle class="o" cx="298" cy="40" r="3.5"/><text class="k" x="264" y="66">OFF</text><text class="k if" x="264" y="66">IF ON</text><path class="far" d="M302 40H330"/><rect class="far" x="330" y="23" width="228" height="34" rx="6"/><text x="344" y="45">Price providers</text></g><g data-conn="sync"><path class="w" pathLength="1" d="M215 125H262"/><circle class="j" cx="262" cy="125" r="3.5"/><path class="lv" d="M262 125l30 -15"/><circle class="o" cx="298" cy="125" r="3.5"/><text class="k" x="264" y="151">OFF</text><text class="k if" x="264" y="151">IF ON</text><path class="far" d="M302 125H330"/><rect class="far" x="330" y="108" width="228" height="34" rx="6"/><text x="344" y="130">A folder you choose</text></g><g data-conn="update"><path class="w" pathLength="1" d="M215 149H232V210H262"/><circle class="j" cx="262" cy="210" r="3.5"/><path class="lv" d="M262 210l30 -15"/><circle class="o" cx="298" cy="210" r="3.5"/><text class="k" x="264" y="236">OFF</text><text class="k if" x="264" y="236">IF ON</text><path class="far" d="M302 210H330"/><rect class="far" x="330" y="193" width="228" height="34" rx="6"/><text x="344" y="215">mypocketfi.com</text></g></svg>
+        <svg class="schem schem-v" viewBox="0 0 340 250" aria-hidden="true" focusable="false"><rect class="pc" x="1" y="1" width="338" height="62" rx="8"/><text class="k" x="14" y="24">THIS DEVICE</text><text class="b" x="14" y="47">Your database</text><text x="124" y="47">on this device only</text><g data-conn="prices"><path class="w" pathLength="1" d="M24 63V100H60"/><circle class="j" cx="60" cy="100" r="3.5"/><path class="lv" d="M60 100l30 -15"/><circle class="o" cx="96" cy="100" r="3.5"/><text class="k" x="62" y="124">OFF</text><text class="k if" x="62" y="124">IF ON</text><path class="far" d="M100 100H128"/><rect class="far" x="128" y="83" width="210" height="34" rx="6"/><text x="142" y="105">Price providers</text></g><g data-conn="sync"><path class="w" pathLength="1" d="M24 63V160H60"/><circle class="j" cx="60" cy="160" r="3.5"/><path class="lv" d="M60 160l30 -15"/><circle class="o" cx="96" cy="160" r="3.5"/><text class="k" x="62" y="184">OFF</text><text class="k if" x="62" y="184">IF ON</text><path class="far" d="M100 160H128"/><rect class="far" x="128" y="143" width="210" height="34" rx="6"/><text x="142" y="165">A folder you choose</text></g><g data-conn="update"><path class="w" pathLength="1" d="M24 63V220H60"/><circle class="j" cx="60" cy="220" r="3.5"/><path class="lv" d="M60 220l30 -15"/><circle class="o" cx="96" cy="220" r="3.5"/><text class="k" x="62" y="244">OFF</text><text class="k if" x="62" y="244">IF ON</text><path class="far" d="M100 220H128"/><rect class="far" x="128" y="203" width="210" height="34" rx="6"/><text x="142" y="225">mypocketfi.com</text></g></svg>
         
       </div>
-      <div>
+      <div class="w-col">
+        <label class="w-all"><input type="checkbox" id="w-all"> Show every connection at once</label>
         <!-- sample:leave --><ul class="conn"><li class="local"><b>Your financial database</b><em>On this device</em><span>Never uploaded to Pocket. On Windows you can encrypt it, off by default; the document vault and encrypted sync are locked with a passphrase only you know. <a href="security.html">How each is encrypted</a></span></li><li data-conn="prices"><b>Live prices</b><em>Off</em><span>Symbols only, never your name, quantities, prices paid or accounts.</span><button type="button" class="more lv-b" aria-expanded="false" aria-controls="lv-prices">What would leave</button><p class="lv" id="lv-prices">For the sample person, the symbols asked for: Yahoo Finance: AAPL, INR=X, HDFCBANK.NS, NIFTYBEES.NS, GC=F; Binance: BTCUSDT; AMFI: nothing; Pocket downloads the day’s file of every fund’s NAV and finds yours in it.</p></li><li data-conn="sync"><b>Encrypted sync</b><em>Off</em><span>An encrypted copy, sealed with your passphrase, goes only to the folder you choose.</span><button type="button" class="more lv-b" aria-expanded="false" aria-controls="lv-sync">What would leave</button><p class="lv" id="lv-sync">One file: your whole database, encrypted under your passphrase and written to that folder. Pocket sends it nowhere else; whatever syncs that folder moves it.</p></li><li data-conn="update"><b>Update check</b><em>Off</em><span>Asks mypocketfi.com for the latest version number, only when you choose.</span><button type="button" class="more lv-b" aria-expanded="false" aria-controls="lv-update">What would leave</button><p class="lv" id="lv-update">One request for mypocketfi.com/latest.json, with “Pocket” as its user agent. Nothing about you or your figures.</p></li><li><b>Hosted AI</b><em>Not in this build</em><span>Ask Pocket answers from your figures on this device. No published build sends a question to an AI service.</span></li></ul><!-- /sample:leave -->
+        <div class="never-turn" aria-labelledby="never-h">
+          <h3 id="never-h">What Pocket will never do.</h3>
+          <p>Trust needs boundaries as much as it needs features.</p>
+          <ul>
+            <li><strong>No trades.</strong><span>It never executes transactions or moves real money. Planning only.</span></li>
+            <li><strong>No bank logins.</strong><span>It never asks for credentials. Imports are file-based, by design.</span></li>
+            <li><strong>No guarantees.</strong><span>Projections are illustrations with stated assumptions, never promised outcomes.</span></li>
+            <li><strong>No advice.</strong><span>Not a SEBI-registered adviser, and not a replacement for one.</span></li>
+            <li><strong>No data grab.</strong><span>Your financial database is never uploaded to Pocket servers by default.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="sec alt never" aria-labelledby="never-h">
-    <div class="wrap never-in">
-      <div>
-        <h2 id="never-h">What Pocket will never do.</h2>
-        <p>Trust needs boundaries as much as it needs features.</p>
-      </div>
-      <ul>
-        <li><strong>No trades.</strong><span>It never executes transactions or moves real money. Planning only.</span></li>
-        <li><strong>No bank logins.</strong><span>It never asks for credentials. Imports are file-based, by design.</span></li>
-        <li><strong>No guarantees.</strong><span>Projections are illustrations with stated assumptions, never promised outcomes.</span></li>
-        <li><strong>No advice.</strong><span>Not a SEBI-registered adviser, and not a replacement for one.</span></li>
-        <li><strong>No data grab.</strong><span>Your financial database is never uploaded to Pocket servers by default.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec faq" id="faq" aria-labelledby="faq-h">
+  <section class="sec alt faq" id="faq" aria-labelledby="faq-h">
     <div class="wrap faq-in">
       <div class="sec-head"><h2 id="faq-h">Asked first.</h2><p>The rest are in the <a href="guides.html">guides</a> and on <a href="contact.html">Support</a>.</p></div>
       <!-- sample:faq --><div class="faq-l"><details class="qa"><summary><h3>Is Pocket free?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>Yes. The Free plan tracks everything, with no time limit and no card. Each install starts with 14 days of Founder Pro; after that Pocket stays on Free unless you buy Founder Pro (₹499 a month or ₹4,999 a year) or Lifetime Founder (₹14,999 once).</p></details><details class="qa"><summary><h3>Does Pocket need my bank login?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>No. It reads the statements you download from your bank and your mutual-fund registrar, on your device, and never asks for a login, a password to your bank or an OTP.</p></details><details class="qa"><summary><h3>Where is my data kept?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>On your own device: in a database on your computer, which your phone can open over your own Wi-Fi, or inside the Android app. There is no Pocket server and no account, so there is nothing of yours for Pocket to see.</p></details><details class="qa"><summary><h3>Which devices does it run on?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>Windows 10 and 11 (64-bit), macOS on Apple silicon, Linux (Ubuntu 24.04, Debian 13 or newer, and an AppImage), and Android 7.0 or later. Pocket 3.2.11, published 26 October 2026.</p></details><details class="qa"><summary><h3>Is Pocket investment advice?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>No. Pocket is not registered with SEBI and gives no advice. It reports each figure, its target and the gap between them, and leaves the decision with you.</p></details></div><!-- /sample:faq -->
     </div>
   </section>
 
-  <section class="sec alt close brand-close bs" aria-labelledby="close-h">
+  <section class="sec close brand-close bs" aria-labelledby="close-h">
     <div class="wrap close-in">
       <div class="close-a">
         <img class="close-mark" src="assets/pocket-mark-dark.svg" alt="" width="50" height="48">
@@ -170,7 +174,7 @@
     </div>
   </section>
 
-  <section class="sec tight after-sec" aria-label="What it costs, and after you download">
+  <section class="sec alt tight after-sec" aria-label="What it costs, and after you download">
     <div class="wrap close-in">
       <div class="close-c"><!-- sample:offer --><p class="offer">Free forever, no card; 14 days of Founder Pro on every install, then ₹499 a month or ₹4,999 a year, or Lifetime Founder ₹14,999 once. <a href="pricing.html">What Founder Pro adds</a></p><!-- /sample:offer --></div>
       <div class="close-b">
@@ -206,6 +210,6 @@
 </footer>
 
 <script src="assets/vestora.js" defer></script>
-<script src="assets/home.js?v=15" defer></script>
+<script src="assets/home.js?v=16" defer></script>
 </body>
 </html>

@@ -13,14 +13,17 @@
   if (!go || !file || !row) return;
   row.classList.add("is-yours");
   if (row.tagName !== "A") {                       // listed, not published yet (the App Store)
-    file.textContent = "Not on " + SAY[os] + " yet: Windows, macOS, Linux and Android are below";
+    // R15-4: say what to do, and make the button do it: mail the link to open on a computer
+    file.textContent = "Not on " + SAY[os] + " yet: it runs on a Windows or Mac computer, Linux and Android";
+    go.textContent = "Email me the link";
+    go.setAttribute("href", "mailto:?subject=Pocket%20for%20my%20computer&body=Download%20Pocket%3A%20https%3A%2F%2Fmypocketfi.com%2Fdownload.html");
     return;
   }
   // CV3 (STRIPE_LEVEL, 14 Oct 2026): the visitor's platform first in the list, its checksum beside the button
   var slot = row.parentNode, list = slot && slot.parentNode;
   if (slot && list && list.classList.contains("platforms") && list.firstElementChild !== slot) list.insertBefore(slot, list.firstElementChild);
   var sha = slot && slot.querySelector(".plat-sha code"), line = document.querySelector(".dl-sha");
-  if (sha && line) { line.querySelector("code").textContent = sha.textContent; line.hidden = false; }
+  if (sha && line) { line.querySelector("code").textContent = sha.textContent; line.removeAttribute("data-wait"); }
   var href = row.getAttribute("href"), ext = href.split(".").pop();
   var size = (row.textContent.match(/\d+ MB/) || [""])[0];
   go.setAttribute("href", href);

@@ -649,19 +649,19 @@
       "file": "cap-privacy.webp",
       "width": 1012,
       "height": 344,
-      "bytes": 42670
+      "bytes": 42580
      },
      "webp_2x": {
       "file": "cap-privacy-2x.webp",
       "width": 2024,
       "height": 688,
-      "bytes": 40616
+      "bytes": 40480
      },
      "png": {
       "file": "cap-privacy.png",
       "width": 1012,
       "height": 344,
-      "bytes": 56447
+      "bytes": 56386
      }
     },
     "dark": {
@@ -669,22 +669,23 @@
       "file": "cap-privacy-dark.webp",
       "width": 1012,
       "height": 344,
-      "bytes": 43342
+      "bytes": 43330
      },
      "webp_2x": {
       "file": "cap-privacy-dark-2x.webp",
       "width": 2024,
       "height": 688,
-      "bytes": 40518
+      "bytes": 40350
      },
      "png": {
       "file": "cap-privacy-dark.png",
       "width": 1012,
       "height": 344,
-      "bytes": 57516
+      "bytes": 57545
      }
     }
    },
+   "app_version": "3.2.11",
    "width": 1012,
    "height": 344
   },
@@ -943,19 +944,19 @@
       "file": "cap-m-privacy.webp",
       "width": 390,
       "height": 620,
-      "bytes": 32628
+      "bytes": 32582
      },
      "webp_2x": {
       "file": "cap-m-privacy-2x.webp",
       "width": 780,
       "height": 1240,
-      "bytes": 42176
+      "bytes": 42066
      },
      "png": {
       "file": "cap-m-privacy.png",
       "width": 390,
       "height": 620,
-      "bytes": 44611
+      "bytes": 44557
      }
     },
     "dark": {
@@ -963,22 +964,23 @@
       "file": "cap-m-privacy-dark.webp",
       "width": 390,
       "height": 620,
-      "bytes": 29328
+      "bytes": 29282
      },
      "webp_2x": {
       "file": "cap-m-privacy-dark-2x.webp",
       "width": 780,
       "height": 1240,
-      "bytes": 41382
+      "bytes": 41282
      },
      "png": {
       "file": "cap-m-privacy-dark.png",
       "width": 390,
       "height": 620,
-      "bytes": 46546
+      "bytes": 46490
      }
     }
    },
+   "app_version": "3.2.11",
    "width": 390,
    "height": 620
   },

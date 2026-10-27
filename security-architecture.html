@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(d,u){d.classList.add("js");var o=/Android/i.test(u)?"android":/iPhone|iPad|iPod/i.test(u)||/Macintosh/.test(u)&&navigator.maxTouchPoints>1?"ios":/Windows/i.test(u)?"windows":/Macintosh|Mac OS X/i.test(u)?"mac":/Linux|X11|CrOS/i.test(u)?"linux":"";if(o)d.setAttribute("data-os",o)})(document.documentElement,navigator.userAgent)</script>
 <title>Security architecture | Pocket</title>
 <meta name="description" content="How Pocket protects your data, checked against its source: the threat model, encryption, every network connection with its payload, and the change history.">
 <link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
@@ -217,6 +217,7 @@
   <p>That is the complete list. There is no telemetry, no crash reporting and no analytics; licence keys are checked
   on your computer (section 11); the app loads nothing from another site, fonts and charts included, and a test
   fails if it ever does. This website makes no request to another site either.</p>
+  <p id="check-site"><strong>Check this website yourself.</strong> Open your browser’s developer tools (F12, or Command-Option-I on a Mac), choose Network and reload the page. Look at where each request goes (the Domain column, or hover a row): every one is mypocketfi.com. The home page counts the same requests as it loads, and says how many went anywhere else.</p>
 
   <h2 id="not">10. What is not protected: read this</h2>
   <ul>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(d,u){d.classList.add("js");var o=/Android/i.test(u)?"android":/iPhone|iPad|iPod/i.test(u)||/Macintosh/.test(u)&&navigator.maxTouchPoints>1?"ios":/Windows/i.test(u)?"windows":/Macintosh|Mac OS X/i.test(u)?"mac":/Linux|X11|CrOS/i.test(u)?"linux":"";if(o)d.setAttribute("data-os",o)})(document.documentElement,navigator.userAgent)</script>
 <title>Download Pocket: Windows, Mac, Linux, Android | Pocket</title>
 <meta name="description" content="Download Pocket free for Windows, Mac, Linux or Android: one install, no account, every file with its SHA-256. Your figures stay on your device.">
 <link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
@@ -27,7 +27,8 @@
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=10">
 <link rel="stylesheet" href="assets/observatory.css?v=18">
 <link rel="stylesheet" href="assets/inner.css?v=17">
-<link rel="stylesheet" href="assets/company-pages.css?v=16">
+<link rel="stylesheet" href="assets/company-pages.css?v=17">
+<link rel="stylesheet" href="assets/download.css?v=4">
 <link rel="stylesheet" href="assets/site-shell.css?v=9">
 </head>
 <body>
@@ -72,7 +73,7 @@
           <p class="dl-what"><span class="dl-file">Windows, macOS, Linux and Android</span> · Pocket <!-- co:version -->3.2.11<!-- /co:version --> · <!-- co:relnote --><a href="changelog.html#v3-2-11">What changed in 3.2.11</a><!-- /co:relnote --></p>
         </div>
         <p class="dl-first">Windows and macOS ask you to confirm the first open, because the builds are not signed yet. <a href="#check">Check the file's SHA-256 first.</a></p>
-        <p class="dl-sha" hidden>SHA-256 <code class="hash"></code></p>
+        <p class="dl-sha" data-wait>SHA-256 <code class="hash"></code></p>
         <div class="hnote">
           <span><b></b> Free with no time limit</span>
           <span><b></b> <!-- co:trial -->14 days<!-- /co:trial --> of Pro from the first run, no card</span>
@@ -119,6 +120,19 @@
   <section class="sec" id="check">
     <div class="wrap">
       <div class="sec-head"><h2 class="d">Check the file, then install it</h2><p><!-- co:relnote --><a href="changelog.html#v3-2-11">What changed in 3.2.11</a><!-- /co:relnote -->, or follow every release in the <a href="feed.xml">release feed (RSS)</a>.</p></div>
+      <div class="warn-how">
+        <p class="warn-what"><strong>About the warning.</strong> Windows and macOS warn about any app that is not signed and notarised by a registered publisher, and Pocket’s builds are not yet. The warning is about the signature, not about what the file does; the SHA-256 is how you check the file is the one this page lists.</p>
+        <div class="warn-os">
+          <div><h3>On Windows</h3><ol>
+            <li>In PowerShell, in the folder you saved it to: <code>Get-FileHash .\Pocket_*_windows_setup.exe</code>It prints the SHA-256 <a href="#verify">listed for Windows</a>.</li>
+            <li>Open the file. If Windows says “Windows protected your PC”, choose <b>More info</b>, then <b>Run anyway</b>.</li>
+          </ol></div>
+          <div><h3>On a Mac</h3><ol>
+            <li>In Terminal, in your Downloads folder: <code>shasum -a 256 Pocket_*_macos.dmg</code>It prints the SHA-256 <a href="#verify">listed for macOS</a>.</li>
+            <li>The first open only. macOS 14 or earlier: Control-click Pocket in Applications, then <b>Open</b>. macOS 15: open it once, then System Settings, Privacy &amp; Security, <b>Open Anyway</b>.</li>
+          </ol></div>
+        </div>
+      </div>
       <details class="dl-more" id="verify">
         <summary>Verify: the size and SHA-256 of every file</summary>
         <div class="dl-body">

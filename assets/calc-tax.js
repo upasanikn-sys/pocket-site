@@ -91,7 +91,7 @@
     C.o("say", say);
     C.o("be", be === null ? "On a salary of " + rs(g) + ", no amount of deductions brings the old regime down to the new regime's tax."
       : "On a salary of " + rs(g) + ", the old regime costs no more than the new once its deductions, beyond its standard deduction, reach " +
-        rs(be) + ". These figures have " + rs(half(od.ded - od.sd, 0)) + ".");
+        rs(be) + ". Your deductions above come to " + rs(half(od.ded - od.sd, 0)) + ".");
     C.o("new-rows", C.rows(rows(n, d))); C.o("old-rows", C.rows(rows(od, d)));
     return say;
   };

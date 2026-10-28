@@ -48,8 +48,8 @@ section.close.bs{background:var(--brand-ground); color:var(--on-brand); border-t
 section.close.bs h2{color:var(--on-brand)}
 section.close.bs p, section.close.bs .soon, section.close.bs .hnote{color:var(--on-brand-2)}
 section.close.bs :is(p,li,dd,.soon,.hnote) a:not([class*="btn"]):not(.cta):not(.ghost):not(.sh-cta){color:var(--brand); text-decoration-color:var(--brand)}
-section.close.bs .cta{background:var(--brand); border-color:var(--brand); color:var(--brand-ground)}
-section.close.bs .cta:hover{background:var(--on-brand); border-color:var(--on-brand); color:var(--brand-ground)}
+section.close.bs .cta{background:var(--on-brand); border-color:var(--on-brand); color:var(--brand-ground)}
+section.close.bs .cta:hover{background:var(--on-brand-2); border-color:var(--on-brand-2); color:var(--brand-ground)}
 section.close.bs :is(.ghost,.btn-line){color:var(--on-brand); border-color:var(--on-brand-2)}
 section.close.bs :where(a,button):focus-visible{outline-color:var(--brand)}
 figure:is(.cap-fig, .ph-vis, .tour-panel) figcaption{font:500 var(--fs-prov)/1.5 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3)}

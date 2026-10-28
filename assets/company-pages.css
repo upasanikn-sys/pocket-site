@@ -19,8 +19,8 @@ main.nf.bs .nf-go li{border-bottom-color:var(--brand-leaf)}
 main.nf.bs .nf-go b{color:var(--on-brand)}
 main.nf.bs .nf-go a:hover{background:var(--brand-ground)}
 main.nf.bs .nf-go a:hover b{text-decoration-color:var(--brand)}
-main.nf.bs .cta{background:var(--brand); border-color:var(--brand); color:var(--brand-ground)}
-main.nf.bs .cta:hover{background:var(--on-brand); border-color:var(--on-brand); color:var(--brand-ground)}
+main.nf.bs .cta{background:var(--on-brand); border-color:var(--on-brand); color:var(--brand-ground)}
+main.nf.bs .cta:hover{background:var(--on-brand-2); border-color:var(--on-brand-2); color:var(--brand-ground)}
 main.nf.bs .ghost{color:var(--on-brand); border-color:var(--on-brand-2)}
 main.nf.bs :where(a,button):focus-visible{outline-color:var(--brand)}
 .rm .phases{margin-top:0}
@@ -29,7 +29,7 @@ main.nf.bs :where(a,button):focus-visible{outline-color:var(--brand)}
 .rm-shipped{margin-top:20px}
 .rm-shipped thead th{padding-top:0}
 .rm-shipped th[scope=row]{width:84px; font:600 var(--fs-body)/1.4 var(--sans); font-variant-numeric:tabular-nums}
-.rm-shipped td:nth-child(2){width:150px; white-space:nowrap; font:400 var(--fs-prov)/1.9 var(--mono); color:var(--ink-3)}
+.rm-shipped td:nth-child(2){width:150px; white-space:nowrap; font:400 var(--fs-caption)/1.9 var(--mono); color:var(--ink-3)}
 .rm-shipped td:last-child{font-size:var(--fs-small); line-height:1.55}
 .rm-shipped td a, .rm-more a{display:inline-flex; align-items:center; min-height:24px}
 .rm-more{margin:16px 0 0; font-size:var(--fs-small)}
@@ -135,10 +135,25 @@ transform:rotate(-45deg) translate(2px,-3px)}
 @media (max-width:560px){ .ltoc.strip .ltoc-h{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap} .ltoc.strip ol{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); padding-right:32px} }
 .bare .wkc{display:none}
 .bare .wk .wr:not(.tot){display:none}
-html:not(.js) [data-wk]{display:none}
-.ghost[data-wk]::after{content:" \00b7  on"; color:var(--ink-3)}
-.ghost[data-wk][aria-pressed="false"]::after{content:" \00b7  off"}
 .wl .op{margin-right:6px; color:var(--ink-3)}
 .eg .fig{font-weight:600}
 .wkp{margin:12px 0 0}
-.ghost[data-wk]{background:none; border:0; cursor:pointer; font:inherit; font-weight:500; color:var(--ink); padding:12px 4px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}
+@media (max-width:700px){ .desk{display:none} }
+.ph.ch{padding:64px 0 24px}
+.ph.ch h1{max-width:none; margin:0 0 16px; font-size:var(--fs-headline); line-height:1.08; letter-spacing:-.03em; text-wrap:balance}
+.ph.ch .ldate{margin:0 0 28px; font-size:var(--fs-small); color:var(--ink-3)}
+.ph.ch .lsum{max-width:65ch; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
+color:var(--ink-2); line-height:1.7}
+.ph.ch .lsum b{color:var(--ink)}
+@media (max-width:900px){ .ph.ch{padding:48px 0 16px} }
+.prose .ltoc .tm-in.plain ol{list-style:none; padding-left:0}
+@media (min-width:1200px){
+.prose:has(> .ltoc > .tm-in){position:relative}
+.prose > .ltoc:has(> .tm-in){position:absolute; top:76px; bottom:104px; right:calc(100% + 40px); width:190px; margin:0; padding:0; border:0}
+.prose > .ltoc > .tm-in{position:sticky; top:96px}
+.prose > .ltoc > .tm-in .ltoc-h{margin:0 0 8px}
+.prose > .ltoc > .tm-in ol{columns:1; padding-left:1.4em}
+.prose > .ltoc > .tm-in.plain ol{padding-left:0}
+.prose > .ltoc > .tm-in li{line-height:1.35}
+.prose > .ltoc > .tm-in a{min-height:32px; padding:4px 0}
+}

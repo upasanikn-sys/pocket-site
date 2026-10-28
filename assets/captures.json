@@ -1230,6 +1230,104 @@
    "height": 800
   },
   {
+   "name": "transactions",
+   "kind": "desktop",
+   "alt": "Pocket's Transactions, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-transactions.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 50512
+     },
+     "webp_2x": {
+      "file": "cap-transactions-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 81636
+     },
+     "png": {
+      "file": "cap-transactions.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 77601
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-transactions-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 47740
+     },
+     "webp_2x": {
+      "file": "cap-transactions-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 77732
+     },
+     "png": {
+      "file": "cap-transactions-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 77929
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "inbox",
+   "kind": "desktop",
+   "alt": "Pocket's Inbox, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-inbox.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 63226
+     },
+     "webp_2x": {
+      "file": "cap-inbox-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 96284
+     },
+     "png": {
+      "file": "cap-inbox.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 95569
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-inbox-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 60226
+     },
+     "webp_2x": {
+      "file": "cap-inbox-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 94208
+     },
+     "png": {
+      "file": "cap-inbox-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 96338
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
    "name": "lock",
    "kind": "desktop",
    "alt": "Pocket's Settings, Privacy & security: the app lock, on the sample person's data.",

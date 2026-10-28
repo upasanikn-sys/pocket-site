@@ -75,7 +75,7 @@ color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
 .answers dd{margin:0; text-align:right; font:600 var(--fs-fig-s)/1.2 var(--display); letter-spacing:-.01em; color:var(--ink);
 font-variant-numeric:tabular-nums; white-space:nowrap}
 .answers dd span{display:block; font:400 var(--fs-caption)/1.4 var(--sans); letter-spacing:0; color:var(--ink-3)}
-.answers-src{margin:12px 0 0; font:500 var(--fs-prov)/1.4 var(--mono); color:var(--ink-3)}
+.answers-src{margin:12px 0 0; font:500 var(--fs-caption)/1.4 var(--mono); color:var(--ink-3)}
 @media (max-width:900px){ .ph-split{grid-template-columns:minmax(0,1fr); gap:40px} }
 @media (max-width:560px){ .answers{padding:4px 16px 12px} .answers dd span{white-space:normal} }
 .tour{margin-top:48px}
@@ -140,7 +140,7 @@ html:not(.js) .ask-qs{display:none}
 .claude .has{font-size:var(--fs-small); color:var(--ink-2)}
 .claude .has li{padding-block:4px}
 .payload{margin:0; padding:20px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
-overflow-x:auto; font:400 var(--fs-prov)/1.6 var(--mono); color:var(--ink-2); white-space:pre}
+overflow-x:auto; font:400 var(--fs-caption)/1.6 var(--mono); color:var(--ink-2); white-space:pre}
 .payload code{font:inherit}
 @media (max-width:900px){ .claude{grid-template-columns:minmax(0,1fr); gap:24px} }
 .ph .board{margin:8px 0 0}
@@ -149,26 +149,26 @@ border-radius:var(--r-3); background:var(--card); overflow:hidden}
 .board-sw{padding:24px; border-right:1px solid var(--rule)}
 .board .h3{margin:0 0 4px; font-size:var(--fs-h3); letter-spacing:-.01em}
 .board-sw > p, .board-out > p{margin:0 0 16px; font-size:var(--fs-small); color:var(--ink-3)}
-.sw{display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%; min-height:56px; padding:8px 0;
+.board .sw{display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%; min-height:56px; padding:8px 0;
 background:none; border:0; border-top:1px solid var(--rule); color:var(--ink); text-align:left; cursor:pointer;
 font:500 var(--fs-body)/1.3 var(--sans)}
-.sw:last-child{border-bottom:1px solid var(--rule)}
-.sw b{display:block; font-weight:600}
-.sw small{display:block; margin-top:2px; font-size:var(--fs-caption); font-weight:400; color:var(--ink-3)}
-.sw .track{flex:none; position:relative; width:34px; height:20px; border-radius:10px; background:var(--card);
+.board .sw:last-child{border-bottom:1px solid var(--rule)}
+.board .sw b{display:block; font-weight:600}
+.board .sw small{display:block; margin-top:2px; font-size:var(--fs-caption); font-weight:400; color:var(--ink-3)}
+.board .sw .track{flex:none; position:relative; width:34px; height:20px; border-radius:10px; background:var(--card);
 border:1px solid var(--edge); transition:background var(--t-ui) var(--ease-ui), border-color var(--t-ui) var(--ease-ui)}
-.sw .track::after{content:""; position:absolute; top:3px; left:3px; width:12px; height:12px; border-radius:50%;
+.board .sw .track::after{content:""; position:absolute; top:3px; left:3px; width:12px; height:12px; border-radius:50%;
 background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui), background var(--t-ui) var(--ease-ui)}
-.sw[aria-pressed="true"] .track{background:var(--signal); border-color:var(--signal)}
-.sw[aria-pressed="true"] .track::after{transform:translateX(14px); background:var(--card)}
-.sw:active .track{transform:translateY(1px)}
+.board .sw[aria-pressed="true"] .track{background:var(--ink); border-color:var(--ink)}
+.board .sw[aria-pressed="true"] .track::after{transform:translateX(14px); background:var(--card)}
+.board .sw:active .track{transform:translateY(1px)}
 .board-out{padding:24px; min-width:0}
 .req{margin:0; padding:0; list-style:none}
 .req li{padding:12px 0; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3); line-height:1.55;
 animation:arrive var(--t-ui) var(--ease-ui)}
 .req li:last-child{border-bottom:1px solid var(--rule)}
 .req b{display:block; font-weight:600; color:var(--ink)}
-.req code{display:block; margin:4px 0; font:400 var(--fs-prov)/1.6 var(--mono); color:var(--ink-2); overflow-wrap:anywhere; white-space:pre-wrap}
+.req code{display:block; margin:4px 0; font:400 var(--fs-caption)/1.6 var(--mono); color:var(--ink-2); overflow-wrap:anywhere; white-space:pre-wrap}
 .req .none{color:var(--ink-2); font-size:var(--fs-body)}
 @keyframes arrive{from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:none}}
 .ph .board + .ph-cap{margin-bottom:28px}
@@ -190,7 +190,7 @@ border-radius:var(--r-1); overflow-wrap:anywhere}
 .flow2{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); margin:24px 0 8px; border:1px solid var(--rule-2);
 border-radius:var(--r-3); background:var(--card); overflow:hidden}
 .flow2 .pc{padding:20px; border-right:1px solid var(--rule)}
-.flow2 .pc-h{margin:0 0 12px; font:500 var(--fs-prov)/1.3 var(--mono); color:var(--ink-3)}
+.flow2 .pc-h{margin:0 0 12px; font:500 var(--fs-caption)/1.3 var(--mono); color:var(--ink-3)}
 .flow2 .node{position:relative; margin:0; padding:10px 12px; border:1px solid var(--rule-2); border-radius:var(--r-2);
 font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .flow2 .node + .node{margin-top:20px}
@@ -201,7 +201,7 @@ font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .flow2 .outs li{display:grid; grid-template-columns:40px auto minmax(0,1fr); gap:10px; align-items:center; padding:8px 0;
 margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .flow2 .wire{height:0; border-top:1px dashed var(--ink-3)}
-.flow2 .off{font:500 var(--fs-prov)/1 var(--mono); color:var(--ink-3); padding:2px 4px; border:1px solid var(--rule-2); border-radius:var(--r-1)}
+.flow2 .off{font:500 var(--fs-caption)/1 var(--mono); color:var(--ink-3); padding:2px 4px; border:1px solid var(--rule-2); border-radius:var(--r-1)}
 .flow2 figcaption{grid-column:1 / -1; padding:12px 20px; border-top:1px solid var(--rule); font-size:var(--fs-caption); color:var(--ink-3)}
 @media (max-width:900px){
 .arch{grid-template-columns:minmax(0,1fr); gap:0}
@@ -248,19 +248,19 @@ align-content:start; min-height:clamp(240px,30vh,320px); padding:24px 0}
 @supports (animation-timeline:view()){
 @media (min-width:1000px) and (min-height:650px) and (prefers-reduced-motion:no-preference){
 @keyframes beat-in{from{opacity:.25; transform:translateY(12px)} to{opacity:1; transform:none}}
-.mod2 > .crop, .mod2 > .cs{animation:beat-in linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
+@keyframes beat-rise{from{transform:translateY(12px)} to{transform:none}}
+@keyframes beat-fade{from{opacity:.25} to{opacity:1}}
+.mod2 > .crop{animation:beat-in linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
+.mod2 > .cs{animation:beat-rise linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
+.mod2 > .cs .crop{animation:beat-fade linear both; animation-timeline:view(); animation-range:entry 0% entry 50%}
 }
 }
 @media (max-width:560px){ .ltoc.strip .ltoc-h{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap} .ltoc.strip ol{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent); padding-right:32px} }
 .bare .wkc{display:none}
 .bare .wk .wr:not(.tot){display:none}
-html:not(.js) [data-wk]{display:none}
-.ghost[data-wk]::after{content:" \00b7  on"; color:var(--ink-3)}
-.ghost[data-wk][aria-pressed="false"]::after{content:" \00b7  off"}
 .wl .op{margin-right:6px; color:var(--ink-3)}
 .eg .fig{font-weight:600}
 .wkp{margin:12px 0 0}
-.ghost[data-wk]{background:none; border:0; cursor:pointer; font:inherit; font-weight:500; color:var(--ink); padding:12px 4px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--edge)}
 :root{--fs-proof:clamp(72px, 40px + 4vw, 112px)}
 .zero-split{align-items:end}
 .zero-fig{display:flex; align-items:baseline; gap:16px; margin:0; padding-bottom:8px}
@@ -289,3 +289,47 @@ html:not(.js) [data-wk]{display:none}
 .also li>span{color:var(--ink-2);font-size:var(--fs-small)}
 @media (max-width:900px){ .also{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:560px){ .also{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:700px){
+.mod2 > .crop, .mod2 > .cs{display:none}
+#in-app .sec-body .cap-fig{display:none}
+#health .cap-fig.phone .frame, #where .cap-fig.phone .frame, #in-app .cap-fig.phone .frame{max-height:340px; -webkit-mask-image:linear-gradient(#000 calc(100% - 56px),transparent); mask-image:linear-gradient(#000 calc(100% - 56px),transparent)}
+}
+@media (max-width:560px){
+.facts.dense tr{display:flex; flex-wrap:wrap; align-items:baseline; gap:0 16px}
+.facts.dense th, .facts.dense td{width:auto}
+.facts.dense th{flex:1 1 auto}
+.facts.dense td[data-l="How"], .facts.dense td[data-l="Why"]{flex:0 0 100%}
+}
+@supports (animation-timeline:view()){
+@media (min-width:1000px) and (min-height:480px) and (prefers-reduced-motion:no-preference){
+.story{timeline-scope:--k1,--k2,--k3,--k4,--k5,--k6}
+.story > #month{view-timeline:--k1 block}
+.story > #stand{view-timeline:--k2 block}
+.story > #health{view-timeline:--k3 block}
+.story > #retire{view-timeline:--k4 block}
+.story > #tax{view-timeline:--k5 block}
+.story > #where{view-timeline:--k6 block}
+@keyframes step-lit{0%,29.9%{color:var(--ink-3); background-color:transparent} 30%,70%{color:var(--ink); background-color:var(--raised)}
+70.1%,100%{color:var(--ink-3); background-color:transparent}}
+.story .ltoc.strip a{padding:0 10px; border-radius:var(--r-1); animation:step-lit linear both; animation-range:cover}
+.story .ltoc.strip a[href="#month"]{animation-timeline:--k1}
+.story .ltoc.strip a[href="#stand"]{animation-timeline:--k2}
+.story .ltoc.strip a[href="#health"]{animation-timeline:--k3}
+.story .ltoc.strip a[href="#retire"]{animation-timeline:--k4}
+.story .ltoc.strip a[href="#tax"]{animation-timeline:--k5}
+.story .ltoc.strip a[href="#where"]{animation-timeline:--k6}
+.story .sec[id]{scroll-margin-top:100px}
+.story .with-shot > .cap-fig:not(.phone){position:sticky; top:96px}
+.story .with-shot > .cap-fig.phone .frame{max-height:calc(100svh - 230px)}
+@keyframes story-rise{from{transform:translateY(16px)} to{transform:none}}
+@keyframes story-fade{from{opacity:.25} to{opacity:1}}
+.story .cap-fig .cs{animation:story-rise linear both; animation-timeline:view(); animation-range:entry 0% entry 60%}
+.story .cap-fig .cs .crop, .story .cap-fig .frame{animation:story-fade linear both; animation-timeline:view(); animation-range:entry 0% entry 60%}
+@media (min-height:700px){
+.story .ltoc.strip{position:sticky; top:73px; z-index:calc(var(--z-sticky) - 1); background:var(--paper)}
+.story .sec[id]{scroll-margin-top:124px}
+.story .with-shot > .cap-fig:not(.phone){top:138px}
+}
+@media (min-height:800px){ .story .with-shot > .cap-fig.phone{position:sticky; top:138px} }
+}
+}

@@ -25,10 +25,10 @@
 <link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=10">
-<link rel="stylesheet" href="assets/observatory.css?v=18">
+<link rel="stylesheet" href="assets/observatory.css?v=19">
 <link rel="stylesheet" href="assets/inner.css?v=17">
-<link rel="stylesheet" href="assets/company-pages.css?v=18">
-<link rel="stylesheet" href="assets/download.css?v=5">
+<link rel="stylesheet" href="assets/company-pages.css?v=22">
+<link rel="stylesheet" href="assets/download.css?v=6">
 <link rel="stylesheet" href="assets/site-shell.css?v=10">
 </head>
 <body>
@@ -89,7 +89,7 @@
         </div>
       </div>
       <figure class="ph-vis desk">
-        <div class="crop cut" style="--x:270;--y:175;--w:980;--h:335;--sw:1280" data-cap="start"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/crop-start-270-175-980-335-dark.avif 980w, assets/crop-start-270-175-980-335-dark-2x.avif 1960w" sizes="(min-width: 901px) 628px, calc(100vw - 32px)"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-start-270-175-980-335-dark.webp 980w, assets/crop-start-270-175-980-335-dark-2x.webp 1960w" sizes="(min-width: 901px) 628px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/crop-start-270-175-980-335.webp 980w, assets/crop-start-270-175-980-335-2x.webp 1960w" sizes="(min-width: 901px) 628px, calc(100vw - 32px)"><img src="assets/crop-start-270-175-980-335.png" width="980" height="335" alt="Pocket's first run on the sample data: net worth ₹19,18,637 as investments ₹9,16,037 plus accounts ₹14,41,000 minus liabilities ₹4,38,400, and a start card: Sample data, not your money, with Import a bank statement, Add an entry, Import investments, Set your profile and Clear the sample." decoding="async"></picture></div>
+        <div class="crop cut" style="--x:270;--y:318;--w:980;--h:190;--sw:1280" data-cap="start"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/crop-start-270-318-980-190-dark.avif 980w, assets/crop-start-270-318-980-190-dark-2x.avif 1960w" sizes="(min-width: 901px) 620px, calc(100vw - 32px)"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-start-270-318-980-190-dark.webp 980w, assets/crop-start-270-318-980-190-dark-2x.webp 1960w" sizes="(min-width: 901px) 620px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/crop-start-270-318-980-190.webp 980w, assets/crop-start-270-318-980-190-2x.webp 1960w" sizes="(min-width: 901px) 620px, calc(100vw - 32px)"><img src="assets/crop-start-270-318-980-190.png" width="980" height="190" alt="Pocket's first run on the sample data: a start card, “Sample data, not your money”, with Import a bank statement, Add an entry, Import investments, Set your profile and Clear the sample." loading="lazy" decoding="async"></picture></div>
         <figcaption>What opens on first run: a sample person, and the start card's ways in.</figcaption>
       </figure>
       <figure class="ph-vis mob"><div class="crop cut" style="--x:0;--y:200;--w:390;--h:420;--sw:390" data-cap="m-start"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/crop-m-start-0-200-390-420-dark.avif 390w, assets/crop-m-start-0-200-390-420-dark-2x.avif 780w" sizes="(max-width: 700px) calc(100vw - 32px * 1.0000), 358px"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-m-start-0-200-390-420-dark.webp 390w, assets/crop-m-start-0-200-390-420-dark-2x.webp 780w" sizes="(max-width: 700px) calc(100vw - 32px * 1.0000), 358px"><source type="image/avif" srcset="assets/crop-m-start-0-200-390-420.avif 390w, assets/crop-m-start-0-200-390-420-2x.avif 780w" sizes="(max-width: 700px) calc(100vw - 32px * 1.0000), 358px"><source type="image/webp" srcset="assets/crop-m-start-0-200-390-420.webp 390w, assets/crop-m-start-0-200-390-420-2x.webp 780w" sizes="(max-width: 700px) calc(100vw - 32px * 1.0000), 358px"><img src="assets/crop-m-start-0-200-390-420.png" width="390" height="420" alt="The Android app's first screen: Start with your own numbers, with Import a bank statement and Look at the sample first." loading="lazy" decoding="async"></picture></div><figcaption>The Android app on first run.</figcaption></figure>
@@ -130,14 +130,30 @@
       <div class="warn-how">
         <p class="warn-what"><strong>About the warning.</strong> Windows and macOS warn about any app that is not signed and notarised by a registered publisher, and Pocket’s builds are not yet. The warning is about the signature, not about what the file does; the SHA-256 is how you check the file is the one this page lists.</p>
         <div class="warn-os">
-          <div><h3>On Windows</h3><ol>
+          <div class="warn-win"><h3>On Windows</h3><ol>
             <li>In PowerShell, in the folder you saved it to: <code>Get-FileHash .\Pocket_*_windows_setup.exe</code>It prints the SHA-256 <a href="#verify">listed for Windows</a>.</li>
             <li>Open the file. If Windows says “Windows protected your PC”, choose <b>More info</b>, then <b>Run anyway</b>.</li>
-          </ol></div>
-          <div><h3>On a Mac</h3><ol>
+          </ol>
+          <figure class="draw">
+            <div class="draw-pic" role="img" aria-label="A drawing of two Windows steps. First a card headed Windows protected your PC, with a More info link marked 1. Then the same card with Run anyway marked 2, beside Don't run.">
+              <div class="dr-card"><p class="dr-t">Windows protected your PC</p><p class="dr-b">It says the app is not recognised.</p><p class="dr-act"><span class="dr-link">More info<i>1</i></span></p></div>
+              <p class="dr-next" aria-hidden="true">then</p>
+              <div class="dr-card"><p class="dr-t">Windows protected your PC</p><p class="dr-b">The file's name, and its publisher: unknown.</p><p class="dr-act"><span class="dr-click on">Run anyway<i>2</i></span><span class="dr-click">Don't run</span></p></div>
+            </div>
+            <figcaption>A drawing of the two clicks, not a screenshot: your version of Windows may word and place them a little differently.</figcaption>
+          </figure></div>
+          <div class="warn-mac"><h3>On a Mac</h3><ol>
             <li>In Terminal, in your Downloads folder: <code>shasum -a 256 Pocket_*_macos.dmg</code>It prints the SHA-256 <a href="#verify">listed for macOS</a>.</li>
             <li>The first open only. macOS 14 or earlier: Control-click Pocket in Applications, then <b>Open</b>. macOS 15: open it once, then System Settings, Privacy &amp; Security, <b>Open Anyway</b>.</li>
-          </ol></div>
+          </ol>
+          <figure class="draw">
+            <div class="draw-pic" role="img" aria-label="A drawing of two macOS steps. First a card saying macOS stops the first open, with Done marked 1. Then System Settings, Privacy and Security, with Open Anyway marked 2.">
+              <div class="dr-card"><p class="dr-t">The first open: macOS stops it</p><p class="dr-b">Choose Done to close it.</p><p class="dr-act"><span class="dr-click on">Done<i>1</i></span></p></div>
+              <p class="dr-next" aria-hidden="true">then</p>
+              <div class="dr-card"><p class="dr-t">System Settings, Privacy &amp; Security</p><p class="dr-b">Pocket is listed as blocked.</p><p class="dr-act"><span class="dr-click on">Open Anyway<i>2</i></span></p></div>
+            </div>
+            <figcaption>A drawing of the two steps on macOS 15, not a screenshot. On macOS 14 or earlier it is Control-click, then Open.</figcaption>
+          </figure></div>
         </div>
       </div>
       <details class="dl-more" id="verify">
@@ -150,6 +166,7 @@
             <div><dt>macOS</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.11/Pocket_3.2.11_macos.dmg">Pocket_3.2.11_macos.dmg</a> · 63 MB (disk image) · Apple silicon (M1 or later)<br>SHA-256 <code class="hash">cb40506822c63644d0fb678e24a3a407af7e0bf0ab25cbed886312df35f2741a</code></dd></div>
             <div><dt>Linux</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.11/Pocket_3.2.11_linux_amd64.deb">Pocket_3.2.11_linux_amd64.deb</a> · 70 MB · 64-bit x86 (amd64)<br>SHA-256 <code class="hash">91aca36dbaa72df99bb99a3ec4e004c45bc28d642704cdfa41c7b8e901106b1a</code></dd></div>
             <div><dt>Android</dt><dd><a href="https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.11/Pocket_3.2.11_android.apk">Pocket_3.2.11_android.apk</a> · 74 MB (APK) · Android 7.0 or later<br>SHA-256 <code class="hash">a7f85e160b5b196431107d1346e71209249011422f07aeec082062527a8913e8</code></dd></div>
+            <div><dt>Earlier releases</dt><dd>Each version's date, files and SHA-256: <a href="changelog.html#shipping-record">the shipping record</a></dd></div>
           </dl>
           <!-- /dl:facts -->
           <ul class="limits one">

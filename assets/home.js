@@ -255,6 +255,14 @@
     if (tx) tx.form.addEventListener("submit", function (e) {
       e.preventDefault(); var v = tx.value.replace(/\D/g, ""); location.href = tx.form.action + (v ? "#salary=" + v : "");
     });
+    /* R16 (28 Oct 2026, review row 10): a salary being typed moves the slider to its nearest step, so the figures
+       follow it (the salary they are for stays shown); Enter still opens the exact salary's every step */
+    if (tx) tx.addEventListener("input", function () {
+      var v = +tx.value.replace(/\D/g, "");
+      if (v < +rng.min || v > +rng.max) return;
+      rng.value = T.from + Math.round((v - T.from) / T.step) * T.step;
+      rng.dispatchEvent(new Event("input"));
+    });
     rng.addEventListener("input", function () {
       rng.style.setProperty("--f", (rng.value - rng.min) / (rng.max - rng.min));
       var r = T.p[Math.round((rng.value - T.from) / T.step)];

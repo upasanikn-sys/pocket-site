@@ -109,7 +109,7 @@
     out.classList.toggle("open", open);
     if (!open || !moving) return;
     out.querySelectorAll(".work .ld").forEach(function (ld, i) {
-      if (ld.offsetWidth) ld.animate([{transform: "scaleX(0)"}, {transform: "scaleX(1)"}],
+      ld.animate([{transform: "scaleX(0)"}, {transform: "scaleX(1)"}],
         {duration: SLOW, delay: Math.min(i, 7) * 40, easing: TRACE, fill: "backwards"});
     });
     out.querySelectorAll(".work small").forEach(function (n, i) {

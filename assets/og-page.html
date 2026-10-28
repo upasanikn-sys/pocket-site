@@ -50,6 +50,13 @@
   .card > .foot span:last-child{color:var(--brand)}
   /* the working tree: the net worth, a stem in signal, and each part hanging from it on a leader */
   .tree{align-self:center;min-width:0;grid-column:2;grid-row:1}
+  /* R16 (28 Oct 2026): the tree on the entries sheet, the site's owned object (DESIGN.md Plate): paper in its own
+     tones, 2px leaders, a degree of tilt, running off the card's right edge */
+  .tree{--ink:var(--sheet-ink);--ink-2:var(--sheet-ink-2);--ink-3:var(--sheet-ink-3);--signal:var(--sheet-signal);
+    color:var(--ink);background:var(--sheet);border:1px solid var(--sheet-edge);border-radius:6px;box-shadow:var(--sheet-lift);
+    margin-right:-110px;padding:26px 132px 24px 30px;transform:rotate(-1.5deg)}
+  .tb > li::before,.ln li::after{border-left-width:2px}
+  .tb > li::after,.ln li::before{border-top-width:2px}
   .tk{font:500 13px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
   .tn{margin-top:8px;font:600 58px/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums lining-nums}
   .tb{list-style:none;margin:10px 0 0 10px}

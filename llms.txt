@@ -16,6 +16,7 @@ Facts that the pages below state:
 
 - [Home](https://mypocketfi.com/): what Pocket is, with its working shown on sample data
 - [Why Pocket](https://mypocketfi.com/why-pocket.html): the problem it solves
+- [Try the sample](https://mypocketfi.com/try.html): the real app on a made-up person, in the page; every figure opens its working; nothing is saved or sent
 - [Features](https://mypocketfi.com/features.html): every module
 - [AI Copilot](https://mypocketfi.com/ai-copilot.html): how the on-device answers work, and their limits
 - [Security & Privacy](https://mypocketfi.com/security.html): what stays on your device

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(d,u){d.classList.add("js");var o=/Android/i.test(u)?"android":/iPhone|iPad|iPod/i.test(u)||/Macintosh/.test(u)&&navigator.maxTouchPoints>1?"ios":/Windows/i.test(u)?"windows":/Macintosh|Mac OS X/i.test(u)?"mac":/Linux|X11|CrOS/i.test(u)?"linux":"";if(o)d.setAttribute("data-os",o)})(document.documentElement,navigator.userAgent)</script>
+<title>Try the sample: the real app on a made-up person | Pocket</title>
+<meta name="description" content="Use Pocket in this page, on a made-up sample person. Open any figure to see its working. Nothing you press is saved or sent.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mypocketfi.com/try.html">
+<meta property="og:title" content="Try the sample: the real app on a made-up person | Pocket">
+<meta property="og:description" content="Use Pocket in this page, on a made-up sample person. Open any figure to see its working. Nothing you press is saved or sent.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://mypocketfi.com/try.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mypocketfi.com/assets/og/try.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket. Try the sample Use Pocket in this page, on a made-up sample person. Open any figure to see its working. Nothing you press is saved or sent.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og/try.png">
+<link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=10">
+<link rel="stylesheet" href="assets/observatory.css?v=19">
+<link rel="stylesheet" href="assets/site-shell.css?v=10">
+<link rel="stylesheet" href="assets/try.css?v=2">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="guides.html">Guides</a>
+    </nav>
+    <button class="sh-more" type="button" popovertarget="sh-more-pop">More</button>
+    <div class="sh-pop" id="sh-more-pop" popover>
+      <a href="ai-copilot.html">Ask Pocket</a>
+      <a href="compare.html">Compare</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <a class="sh-cta" href="download.html">Download free</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
+    <a href="compare.html">Compare</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
+  </nav>
+</header>
+
+<main id="main" class="try">
+<div class="try-head wrap">
+  <div class="try-text">
+    <h1 class="d">Try the sample</h1>
+    <p class="try-lead">This is the real app with a made-up person in it. Open any figure to see its working. Nothing you press here is saved or sent.</p>
+  </div>
+  <div class="try-views" role="group" aria-label="View">
+    <button type="button" data-view="app" aria-pressed="false">Desktop view</button>
+    <button type="button" data-view="m" aria-pressed="false">Phone view</button>
+  </div>
+</div>
+<div class="try-stage" id="try-stage" data-view="app">
+  <iframe id="try-frame" class="try-frame" title="Pocket, the sample person" data-wide="try/app.html" data-narrow="try/m.html" sandbox="allow-scripts allow-same-origin" allow="camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'" referrerpolicy="no-referrer"></iframe>
+  <script>(function(f){f.src=f.getAttribute(matchMedia("(min-width:901px)").matches?"data-wide":"data-narrow")})(document.getElementById("try-frame"))</script>
+</div>
+<noscript><p class="try-fallback">The sample needs JavaScript. You can open its <a href="try/app.html">desktop view</a> or its <a href="try/m.html">phone view</a> on its own.</p></noscript>
+</main>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="./" aria-label="Pocket home"><img class="sh-logo" src="assets/pocket-logo-dark.svg" alt="" width="133" height="30"></a>
+      <p>Your figures stay on your own device.</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="compare.html">Compare</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="try.html">Try the sample</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a><a href="glossary.html">Glossary</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
+    <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <dl class="sf-base">
+    <div class="discl"><dt>Not advice</dt><dd>Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</dd></div>
+    <div><dt>Your data</dt><dd>No account · No bank logins · No trackers</dd></div>
+    <div class="sf-copy"><dt>Pocket</dt><dd>© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></dd></div>
+  </dl>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+<script src="assets/try.js?v=1" defer></script>
+</body>
+</html>

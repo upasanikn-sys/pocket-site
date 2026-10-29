@@ -1,0 +1,32 @@
+.try{display:flex; flex-direction:column; min-height:calc(100vh - 72px); min-height:calc(100svh - 72px)}
+.try-head{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 32px;
+padding-top:20px; padding-bottom:16px}
+.try-text{max-width:64ch}
+.try-text h1{font-size:clamp(28px, 24px + 1.4vw, 40px); line-height:1.1; margin:0 0 6px}
+.try-lead{margin:0; color:var(--ink-2); font-size:var(--fs-body); line-height:1.5}
+.try-views{display:none; gap:0; border:1px solid var(--edge); border-radius:var(--r-2); padding:3px; background:var(--card)}
+.try-views button{min-height:44px; padding:0 16px; border:0; border-radius:var(--r-1); background:transparent;
+color:var(--ink); font:inherit; font-size:var(--fs-small); font-weight:500; cursor:pointer}
+.try-views button[aria-pressed="true"]{background:var(--ink); color:var(--on-ink)}
+.try-views button:not([aria-pressed="true"]):hover{background:var(--raised)}
+@media (min-width:901px){ .js .try-views{display:flex} }
+.try-stage{position:relative; flex:1 1 auto; min-height:560px; border-top:1px solid var(--rule); background:var(--plate)}
+.try-frame{position:absolute; inset:0; width:100%; height:100%; border:0; background:var(--paper); color-scheme:light dark}
+@media (min-width:901px){
+.try-stage{min-height:640px}
+.try-stage[data-view="m"] .try-frame{inset:0 auto 0 50%; width:min(390px, 100%); margin-left:calc(min(390px, 100%) / -2);
+border-inline:1px solid var(--rule-2)}
+}
+@media (max-width:560px){
+.try{min-height:calc(100vh - 64px); min-height:calc(100svh - 64px)}
+.try-head{padding-top:12px; padding-bottom:12px}
+.try-lead{font-size:var(--fs-small)}
+.try-stage{min-height:320px}
+}
+.try-fallback{padding:24px var(--gutter); max-width:var(--maxw); margin:0 auto; color:var(--ink-2)}
+.try-fallback a{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){ .try-views button{transition:none} }
+@media (forced-colors:active){
+.try-views{border-color:CanvasText}
+.try-views button[aria-pressed="true"]{outline:2px solid Highlight; outline-offset:-2px; forced-color-adjust:none; background:Highlight; color:HighlightText}
+}

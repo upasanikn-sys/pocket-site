@@ -157,3 +157,5 @@ color:var(--ink-2); line-height:1.7}
 .prose > .ltoc > .tm-in li{line-height:1.35}
 .prose > .ltoc > .tm-in a{min-height:32px; padding:4px 0}
 }
+.even-t{border-collapse:collapse; font-size:var(--fs-small)}
+.even-t th,.even-t td{padding:6px 16px 6px 0; text-align:left; font-weight:400; border-top:1px solid var(--rule)}

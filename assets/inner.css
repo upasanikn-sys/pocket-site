@@ -11,40 +11,18 @@
 .defs.weighted dd:not(.w){grid-column:1 / -1}
 .defs.weighted dd.w{grid-row:1; grid-column:2}
 }
-.stages{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-top:1px solid var(--rule-2)}
-.stages li{padding:24px 18px 8px 0}
-.stages li + li{padding-left:18px; border-left:1px solid var(--rule)}
-.stages .age{display:block; margin-bottom:14px; font:600 36px/1 var(--display); letter-spacing:-.03em;
-font-variant-numeric:tabular-nums; color:var(--ink)}
-.stages h3{margin:0 0 4px; font-size:var(--fs-body); line-height:1.35}
-.stages p{margin:0; color:var(--ink-3); font-size:var(--fs-small)}
-@media (max-width:900px){
-.stages{grid-template-columns:repeat(3,minmax(0,1fr))}
-.stages li:nth-child(4){padding-left:0; border-left:0}
-.stages li:nth-child(n+4){border-top:1px solid var(--rule)}
-}
-@media (max-width:560px){
-.stages{grid-template-columns:1fr}
-.stages li, .stages li + li{display:grid; grid-template-columns:72px 1fr; gap:2px 16px; padding:18px 0; border-left:0;
-border-top:0; border-bottom:1px solid var(--rule)}
-.stages .age{grid-row:span 2; margin:0; font-size:28px}
-}
 .asks{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule-2)}
 .asks li{padding:28px 28px 28px 0; border-bottom:1px solid var(--rule); color:var(--ink);
 font:600 24px/1.25 var(--display); letter-spacing:-.02em}
 .asks li:nth-child(even){padding-left:28px; border-left:1px solid var(--rule)}
 @media (max-width:560px){ .asks{grid-template-columns:1fr} .asks li{font-size:var(--fs-h3)} .asks li:nth-child(even){padding-left:0; border-left:0} }
-.mods .mrow{grid-template-columns:minmax(0,.27fr) minmax(0,.4fr) minmax(0,.33fr); align-items:start}
 .mod-name{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px}
-.mods .mrow p{color:var(--ink-2)}
 .mod-go{color:var(--ink); white-space:nowrap}
 .tier{display:inline-block; padding:2px 8px; border:1px solid var(--rule-2); border-radius:var(--r-1); white-space:nowrap;
 font:500 var(--fs-prov)/1.5 var(--sans); color:var(--ink-2)}
 .has{list-style:none; margin:0; padding:0; font-size:var(--fs-small); color:var(--ink-3)}
 .has li{position:relative; line-height:1.5; padding:1px 0 1px 22px}
 .has li::before{content:""; position:absolute; left:0; top:calc(1px + .75em); width:8px; height:1px; background:var(--ink-3)}
-@media (max-width:900px){ .mods .mrow{grid-template-columns:minmax(0,.34fr) minmax(0,.66fr)} .mods .has{grid-column:2} }
-@media (max-width:900px){ .mods .mrow{grid-template-columns:1fr; gap:10px} .mods .has{grid-column:auto} }
 .ph .hnote{gap:10px 20px}
 .note.status{margin:0 0 36px; max-width:80ch}
 .defs .qual{margin-left:8px; font-size:var(--fs-caption); font-weight:500; color:var(--ink-3); white-space:nowrap}
@@ -67,18 +45,8 @@ border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card)
 .ex-label{margin:0 0 10px; font-size:var(--fs-caption); color:var(--ink-3)}
 .ex-a .ex-label:not(:first-child){margin-top:28px}
 .ex-ask{margin:0; font:600 28px/1.2 var(--display); letter-spacing:-.02em; color:var(--ink)}
-.ex-checks{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px}
-.ex-checks li{padding:4px 12px; border:1px solid var(--rule-2); border-radius:var(--r-1); font-size:var(--fs-caption); color:var(--ink-2)}
-.ex-score{display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center; padding:18px 0;
-border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
-.ex-fig{margin:0; line-height:1; font-variant-numeric:tabular-nums; white-space:nowrap}
-.ex-fig .n{font:600 44px/1 var(--display); letter-spacing:-.03em; color:var(--ink)}
-.ex-fig .of{margin-left:2px; font-size:var(--fs-lede); color:var(--ink-3)}
-.ex-score h3{margin:0 0 4px; font-size:var(--fs-lede)}
-.ex-score p{margin:0; color:var(--ink-2); font-size:var(--fs-small)}
 .ex-note{margin:20px 0 0; font-size:var(--fs-caption); color:var(--ink-3)}
 @media (max-width:900px){ .example{grid-template-columns:1fr; gap:28px; padding:28px 20px} .ex-ask{font-size:24px} }
-@media (max-width:560px){ .ex-score{grid-template-columns:1fr; gap:12px} }
 .promise{max-width:820px; margin:56px auto 0; text-align:center}
 .promise p{margin:0; font-size:var(--fs-h3); line-height:1.35; color:var(--ink); text-wrap:balance}
 .promise footer{margin-top:14px; padding:0; border:0; font-size:var(--fs-caption); color:var(--ink-3)}
@@ -179,23 +147,13 @@ transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ea
 .caps.three > div, .caps.three > div:nth-child(even){padding:18px 20px 18px 0; border-left:0}
 .caps.three > div:not(:nth-child(3n+1)){padding-left:20px; border-left:1px solid var(--rule)}
 .has.public{margin:20px 0 24px; font-size:var(--fs-body); color:var(--ink-2)}
-.radar h3{margin:0 0 14px; font-size:var(--fs-h3)}
-.radar-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
-.radar-list li{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0;
-border-bottom:1px solid var(--rule); font-size:var(--fs-body); color:var(--ink)}
 .radar-more{margin:16px 0 0; font-size:var(--fs-small)}
-.notifyform{display:flex; gap:10px; max-width:460px; margin:0 auto}
-.notifyform input{flex:1; min-width:0; min-height:44px; padding:0 14px; border:1px solid var(--edge); border-radius:var(--r-2);
-background:var(--card); color:var(--ink); font:400 var(--fs-body)/1.2 var(--sans)}
-.notifyform input::placeholder{color:var(--ink-3)}
-.notifyform .cta{border:0; cursor:pointer; font-family:inherit}
 @media (max-width:900px){
 .phase{grid-template-columns:1fr; gap:16px; padding:28px 0}
 .ph-when .when{font-size:28px}
 .caps.three{grid-template-columns:1fr}
 .caps.three > div, .caps.three > div:not(:nth-child(3n+1)){padding-left:0; border-left:0}
 }
-@media (max-width:560px){ .notifyform{flex-direction:column} }
 .plat-label{margin:48px 0 12px; font-size:var(--fs-caption); color:var(--ink-3)}
 .platforms{display:grid; max-width:760px; border:1px solid var(--rule-2); border-radius:var(--r-3); overflow:hidden}
 .plat{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 24px; padding:18px 22px; color:var(--ink);

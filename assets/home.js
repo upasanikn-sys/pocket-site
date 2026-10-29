@@ -293,4 +293,64 @@
     });
     [hero].concat(ends).forEach(function (t) { if (t) io.observe(t); });
   }
+  /* R16d: two holdings editable; sums in paise from the plate's own text; nothing sent */
+  (function () {
+    var inv = plate && plate.querySelector("[data-br=assets] .t"), nw = d.getElementById("nw"), eds = [], reset;
+    if (!inv || !nw) return;
+    var W = /^([\d.,]+) × ([₹$])([\d,]+\.\d\d)( × ₹([\d,]+\.\d\d))?/;
+    function n(s) { s = parseFloat(String(s).replace(/,/g, "")); return isFinite(s) && s >= 0 ? s : null; }
+    function grp(r) { var s = String(r), t = s.slice(-3), h = s.slice(0, -3); return (h ? h.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," : "") + t; }
+    function html(p) { return "₹" + grp(Math.floor(p / 100)) + '<span class="p">.' + ("0" + p % 100).slice(-2) + "</span>"; }
+    function cached(el) { return totals.filter(function (t) { return t.el === el; })[0]; }
+    function paise(el) { var t = cached(el), s = d.createElement("span"); s.innerHTML = t ? t.open : el.innerHTML; return +s.textContent.replace(/\D/g, ""); }
+    var base = [[inv, paise(inv)], [nw, paise(nw)]];
+    all("#lines > li", plate).slice(0, 2).forEach(function (li) {
+      var wk = li.querySelector(".wk"), m = wk && wk.textContent.match(W), nm = li.querySelector(".nm");
+      if (!m || !nm) return;
+      var e = { v: li.querySelector(".v"), fx: m[5] ? Math.round(n(m[5]) * 100) : 100 };
+      e.base = +e.v.textContent.replace(/\D/g, "");
+      function field(val, what) {
+        var f = d.createElement("input");
+        f.className = "ed"; f.value = f.defaultValue = val; f.setAttribute("inputmode", "decimal");
+        f.setAttribute("aria-label", nm.textContent + ", " + what); f.style.setProperty("--n", val.length);
+        f.addEventListener("click", function (ev) { ev.preventDefault(); });       // inside <summary>: no toggle
+        f.addEventListener("keydown", function (ev) { if (ev.key === " " || ev.key === "Enter") ev.stopPropagation(); if (ev.key === "Enter") ev.preventDefault(); });
+        f.addEventListener("keyup", function (ev) { if (ev.key === " ") { ev.stopPropagation(); ev.preventDefault(); } });
+        f.addEventListener("input", function () { f.style.setProperty("--n", Math.max(2, f.value.length)); sum(); });
+        return f;
+      }
+      e.q = field(m[1], "quantity"); e.p = field(m[3], m[2] === "$" ? "price in dollars" : "price in rupees");
+      var rest = (m[4] || "") + wk.textContent.slice(m[0].length);
+      wk.textContent = "";
+      wk.append(e.q, " × " + m[2], e.p, rest);
+      var det = li.querySelector("details");
+      if (det) { det.after(wk); wk.classList.add("wk-ed"); }   // no input inside <summary> (axe: nested-interactive)
+      eds.push(e);
+    });
+    if (!eds.length) return;
+    reset = d.createElement("button");
+    reset.type = "button"; reset.className = "reset"; reset.hidden = true; reset.textContent = "Reset the sample";
+    reset.addEventListener("click", function () { eds.forEach(function (e) { e.q.value = e.q.defaultValue; e.p.value = e.p.defaultValue; }); sum(); });
+    d.getElementById("lines").after(reset);
+    function sum() {
+      var dv = 0, edited = false;
+      eds.forEach(function (e) {
+        var q = n(e.q.value), p = n(e.p.value), v;
+        edited = edited || e.q.value !== e.q.defaultValue || e.p.value !== e.p.defaultValue;
+        if (q === null || p === null) return;
+        v = Math.round(q * Math.round(p * 100) * e.fx / 100);
+        dv += v - e.base; e.v.innerHTML = html(v);
+      });
+      base.forEach(function (x) {
+        var t = cached(x[0]), open = html(x[1] + dv), on = !sw || sw.getAttribute("aria-checked") === "true";
+        x[0].setAttribute("data-r", "₹" + grp(Math.floor((x[1] + dv) / 100)));
+        if (t) t.open = open;
+        if (x[0].innerHTML !== (on ? open : x[0].getAttribute("data-r"))) {
+          x[0].innerHTML = on ? open : x[0].getAttribute("data-r");
+          anim(x[0], [{ opacity: 0.4, transform: "translateY(3px)" }, { opacity: 1, transform: "none" }], { duration: MID, easing: UI });
+        }
+      });
+      reset.hidden = !edited;
+    }
+  })();
 })();

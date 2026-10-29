@@ -153,7 +153,7 @@ transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(
 .close .hbtns{justify-content:center}
 @media (max-width:560px){ .has.cols{columns:1} }
 h2,h3{text-wrap:balance}
-p,li,dd,figcaption{text-wrap:pretty}
+p,li,dd,td,figcaption{text-wrap:pretty}
 table{font-variant-numeric:tabular-nums}
 :where(button:not(:disabled),summary):active{transform:translateY(1px)}
 h1.d::after{content:""; display:block; width:96px; height:9px; margin-top:16px; border-inline:1px solid var(--ink-3);

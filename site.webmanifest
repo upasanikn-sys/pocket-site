@@ -1,7 +1,7 @@
 {
   "name": "Pocket — Private Personal Finance",
   "short_name": "Pocket",
-  "description": "A privacy-first financial operating system that runs on your own device.",
+  "description": "A private personal finance app: net worth, investments, goals, debt and tax, computed on your own device, with its working.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",

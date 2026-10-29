@@ -23,9 +23,9 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=10">
-<link rel="stylesheet" href="assets/observatory.css?v=19">
+<link rel="stylesheet" href="assets/observatory.css?v=20">
 <link rel="stylesheet" href="assets/home.css?v=54">
-<link rel="stylesheet" href="assets/site-shell.css?v=10">
+<link rel="stylesheet" href="assets/site-shell.css?v=11">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mypocketfi.com/#org","name":"Pocket","url":"https://mypocketfi.com/","logo":"https://mypocketfi.com/assets/pocket-logo.svg","description":"An independent, India-based software project building a private personal finance app."},{"@type":"WebSite","@id":"https://mypocketfi.com/#site","name":"Pocket","url":"https://mypocketfi.com/","publisher":{"@id":"https://mypocketfi.com/#org"}},{"@type":"SoftwareApplication","name":"Pocket","url":"https://mypocketfi.com/","applicationCategory":"FinanceApplication","downloadUrl":"https://mypocketfi.com/download.html","operatingSystem":"Windows 10, Windows 11 (64-bit); macOS (Apple silicon); Linux (x86-64); Android 7.0 or later","description":"A private personal finance app for Windows, Mac, Linux and Android: net worth, investments, goals, debt and tax, computed on your device, with its working.","publisher":{"@id":"https://mypocketfi.com/#org"},"offers":{"@type":"Offer","name":"Free plan","price":"0","priceCurrency":"INR"}}]}</script>
 </head>
 <body>
@@ -47,6 +47,10 @@
       <a href="compare.html">Compare</a>
       <a href="changelog.html">Changelog</a>
       <a href="roadmap.html">Roadmap</a>
+      <a href="calc-tax-regime.html">Tax regime calculator</a>
+      <a href="calc-sip.html">SIP calculator</a>
+      <a href="calc-net-worth.html">Net worth calculator</a>
+      <a href="glossary.html">Glossary</a>
     </div>
     <a class="sh-cta" href="download.html">Download free</a>
     <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -61,6 +65,10 @@
     <a href="compare.html">Compare</a>
     <a href="changelog.html">Changelog</a>
     <a href="roadmap.html">Roadmap</a>
+    <a href="calc-tax-regime.html">Tax regime calculator</a>
+    <a href="calc-sip.html">SIP calculator</a>
+    <a href="calc-net-worth.html">Net worth calculator</a>
+    <a href="glossary.html">Glossary</a>
     <a class="sh-menu-cta" href="download.html">Download free</a>
   </nav>
 </header>
@@ -74,10 +82,9 @@
         <h1 id="h1">The money app that shows <em>its working.</em></h1>
         </div>
         <div class="home-copy">
-        <p class="sub">For salaried people in India: know what you’re worth, what you’ll owe in tax and whether you’ll have enough, worked out on your own device. Every figure opens to its entries, prices and dates.</p>
-        <!-- sample:get --><div class="hbtns"><a class="cta" href="download.html"><span data-for="any">Download free</span><span data-for="windows" hidden>Download free for Windows <small>· 50 MB</small></span><span data-for="mac" hidden>Download free for Mac <small>· 63 MB</small></span><span data-for="linux" hidden>Download free for Linux <small>· 70 MB</small></span><span data-for="android" hidden>Download free for Android <small>· 74 MB</small></span></a><a class="cta for-ios" href="mailto:?subject=Pocket%20for%20my%20computer&amp;body=Download%20Pocket%3A%20https%3A%2F%2Fmypocketfi.com%2Fdownload.html">Email me the link <small>· for your computer</small></a><a class="btn-line" href="try.html">Try the sample</a></div>
-<p class="offer">Free forever · 14-day Founder Pro trial, no card · <a href="pricing.html">Founder Pro ₹499 a month</a></p><!-- /sample:get -->
-        <p class="trust">No account. No bank logins. <a href="#wires">This page made <span class="num" data-tp>0</span> third-party requests</a>.</p>
+        <p class="sub">For salaried people in India: know what you’re worth, what you’ll owe in tax and whether you’ll have enough, worked out on your own device, with no account. Every figure opens to its entries, prices and dates.</p>
+        <!-- sample:get --><div class="hbtns"><a class="cta" href="download.html"><span data-for="any">Download free</span><span data-for="windows" hidden>Download free for Windows <small>· 50 MB</small></span><span data-for="mac" hidden>Download free for Mac <small>· 63 MB</small></span><span data-for="linux" hidden>Download free for Linux <small>· 70 MB</small></span><span data-for="android" hidden>Download free for Android <small>· 74 MB</small></span></a><a class="cta for-ios" href="mailto:?subject=Pocket%20for%20my%20computer&amp;body=Download%20Pocket%3A%20https%3A%2F%2Fmypocketfi.com%2Fdownload.html">Email me the link <small>· for your computer</small></a><a class="btn-line" href="try.html">Try the sample</a></div><!-- /sample:get -->
+        <p class="trust">For Windows, Mac, Linux and Android. No bank logins. <a href="#wires">This page made <span class="num" data-tp>0</span> third-party requests</a>.</p>
         </div>
       </div>
       <figure class="plate tree" id="plate" aria-labelledby="plate-cap">
@@ -199,7 +206,8 @@
       <p>Your figures stay on your own device.</p>
     </div>
     <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="compare.html">Compare</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
-    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="try.html">Try the sample</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a><a href="guides.html">Guides</a><a href="glossary.html">Glossary</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="try.html">Try the sample</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a></nav>
+    <nav class="sf-col" aria-label="Learn"><p class="sf-h">Learn</p><a href="guides.html">Guides</a><a href="calc-tax-regime.html">Tax regime calculator</a><a href="calc-sip.html">SIP calculator</a><a href="calc-net-worth.html">Net worth calculator</a><a href="glossary.html">Glossary</a></nav>
     <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
     <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
   </div>

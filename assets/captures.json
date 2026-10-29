@@ -944,19 +944,19 @@
       "file": "cap-m-privacy.webp",
       "width": 390,
       "height": 620,
-      "bytes": 32582
+      "bytes": 32338
      },
      "webp_2x": {
       "file": "cap-m-privacy-2x.webp",
       "width": 780,
-      "height": 1240,
+      "height": 1241,
       "bytes": 42066
      },
      "png": {
       "file": "cap-m-privacy.png",
       "width": 390,
       "height": 620,
-      "bytes": 44557
+      "bytes": 45753
      }
     },
     "dark": {
@@ -964,19 +964,19 @@
       "file": "cap-m-privacy-dark.webp",
       "width": 390,
       "height": 620,
-      "bytes": 29282
+      "bytes": 29240
      },
      "webp_2x": {
       "file": "cap-m-privacy-dark-2x.webp",
       "width": 780,
-      "height": 1240,
+      "height": 1241,
       "bytes": 41282
      },
      "png": {
       "file": "cap-m-privacy-dark.png",
       "width": 390,
       "height": 620,
-      "bytes": 46490
+      "bytes": 48904
      }
     }
    },
@@ -1615,6 +1615,153 @@
       "width": 390,
       "height": 844,
       "bytes": 32164
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-ask",
+   "kind": "phone",
+   "alt": "Ask Pocket on a phone answering “how am I doing?”, from the figures on the phone, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-ask.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 40694
+     },
+     "webp_2x": {
+      "file": "cap-m-ask-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 57748
+     },
+     "png": {
+      "file": "cap-m-ask.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 55078
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-ask-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 38422
+     },
+     "webp_2x": {
+      "file": "cap-m-ask-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 57418
+     },
+     "png": {
+      "file": "cap-m-ask-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 57437
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-ask-goal",
+   "kind": "phone",
+   "alt": "Ask Pocket on a phone answering “goal status”, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-ask-goal.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 41012
+     },
+     "webp_2x": {
+      "file": "cap-m-ask-goal-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 55554
+     },
+     "png": {
+      "file": "cap-m-ask-goal.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 55237
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-ask-goal-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 40010
+     },
+     "webp_2x": {
+      "file": "cap-m-ask-goal-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 54808
+     },
+     "png": {
+      "file": "cap-m-ask-goal-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 57894
+     }
+    }
+   },
+   "width": 390,
+   "height": 844
+  },
+  {
+   "name": "m-ask-rebalance",
+   "kind": "phone",
+   "alt": "Ask Pocket on a phone answering “rebalance plan”: the gaps, not trades, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-m-ask-rebalance.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 35622
+     },
+     "webp_2x": {
+      "file": "cap-m-ask-rebalance-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 55324
+     },
+     "png": {
+      "file": "cap-m-ask-rebalance.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 51491
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-m-ask-rebalance-dark.webp",
+      "width": 390,
+      "height": 844,
+      "bytes": 34372
+     },
+     "webp_2x": {
+      "file": "cap-m-ask-rebalance-dark-2x.webp",
+      "width": 780,
+      "height": 1688,
+      "bytes": 54240
+     },
+     "png": {
+      "file": "cap-m-ask-rebalance-dark.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 53303
      }
     }
    },

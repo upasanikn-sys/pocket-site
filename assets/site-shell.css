@@ -25,6 +25,11 @@ font:600 var(--fs-small)/1 var(--sans); white-space:nowrap;
 transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
 .sh-cta:hover{background:var(--raised)}
 .sh-cta:active{transform:translateY(1px)}
+.sh-search{display:inline-flex; align-items:center; justify-content:center; flex:none; width:44px; height:44px; margin-right:-16px;
+border-radius:var(--r-2); color:var(--ink-2); transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui)}
+.sh-search:hover{background:var(--raised); color:var(--ink)}
+.sh-search:active{transform:translateY(1px)}
+.sh-search svg{width:20px; height:20px}
 .sh-menu-btn{display:none; width:44px; height:44px; align-items:center; justify-content:center; flex:none;
 background:transparent; color:var(--ink); border:1px solid var(--edge);
 border-radius:var(--r-2); cursor:pointer;
@@ -47,6 +52,7 @@ background:var(--ink); color:var(--on-ink); font-weight:600}
 @media (max-width:900px){
 .sh-links{display:none}
 .sh-menu-btn{display:inline-flex}
+.sh-search{margin-right:0}
 .sh-bar{height:64px; gap:12px}
 html:not(.js) .sh-menu{display:grid}
 html:not(.js) .sh-menu-btn{display:none}

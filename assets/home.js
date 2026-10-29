@@ -7,7 +7,7 @@
       SLOW = parseFloat(tok("t-trace")), IO = "IntersectionObserver" in window;
   function all(sel, root) { return [].slice.call((root || d).querySelectorAll(sel)); }
   function anim(el, frames, o) { if (!rm && el.animate) return el.animate(frames, o); }
-  /* Show working: the tree draws itself (home.css .trace); on load the figure lands last ("first"); close 120ms */
+  /* Show working: the tree draws itself; the figure lands last */
   var plate = d.getElementById("plate"), sw = plate && plate.querySelector(".sw");
   function trace(first) {
     plate.classList.remove("trace", "first"); void plate.offsetWidth;
@@ -89,7 +89,7 @@
       swing(k, "on", on);
     });
   });
-  /* a switch shown shut, by a press (on) or a turn (try); its far wire draws when it first shuts */
+  /* a switch shown shut; its far wire draws when it first shuts */
   function swing(k, c, on) {
     all('.schem g[data-conn="' + k + '"]').forEach(function (g) {
       var was = g.classList.contains("on") || g.classList.contains("try");
@@ -116,7 +116,7 @@
     });
   });
 
-  /* scene: pins from 1000x560, with or without motion (a layout; reduced motion swaps at once); rows count in */
+  /* scene: pins from 1000x560; rows count in */
   var flow = d.querySelector(".scene"), mq = matchMedia("(min-width:1000px) and (min-height:560px)");
   if (flow) {
     var steps = all(".steps > li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
@@ -126,7 +126,7 @@
         });
     stage.className = "stage";
     flow.querySelector(".scene-in").appendChild(stage);
-    /* MO2: rows travel to what they become (data-to) and back to what they came from (data-k); pinned only */
+    /* MO2: rows travel to what they become and back; pinned only */
     var travel = function (a, b, f) {
       var s = f ? "data-to" : "data-k", t = f ? "data-k" : "data-to", c = a.getBoundingClientRect(), at = {};
       all("[" + s + "]", a).forEach(function (r) {
@@ -198,8 +198,7 @@
     }
   } catch (_) {}
 
-  /* S2: the privacy section pins where it fits, on wide windows; each connection takes a turn (its row ticked, its
-     switch shown shut), then the section ends on its 0. Reduced motion pins too; the states change at once. */
+  /* S2: the privacy section pins on wide windows, a turn per connection, ending on its 0 */
   var ws = d.getElementById("wires"), wq = matchMedia("(min-width:1000px)");
   if (ws && cnt) {
     var win = ws.querySelector(".wires-in"), wr = all(".conn li[data-conn]", ws), turn = -1;
@@ -222,13 +221,12 @@
     wmode(); addEventListener("resize", wmode);
   }
 
-  /* salary tool: each step's words and figures are the engine's (tools/site_home.py) */
+  /* salary tool: words and figures are the engine's (site_home.py) */
   var rng = d.getElementById("try-g");
   if (rng) {
     var T = JSON.parse(d.getElementById("try-data").textContent), box = rng.closest(".try"),
         put = function (k, v) { box.querySelector('[data-t="' + k + '"]').textContent = v; };
-    /* MO3: a regime's figure rolls from the last salary's to this one's over --t-ui (the slider is the cause, so it
-       moves only when the salary does) and lands on the engine's own text; reduced motion sets it at once */
+    /* MO3: a figure rolls to the new salary's over --t-ui; reduced motion sets it */
     var num = function (s) { return +String(s).replace(/[^\d]/g, ""); }, rolls = {},
         inr = function (n) { var s = String(n), h = s.slice(0, -3); return "₹" + (h ? h.replace(/\B(?=(\d{2})+$)/g, ",") + "," + s.slice(-3) : s); },
         rollFig = function (k, v) {   // not "roll": that name is the switch's totals (16 Oct 2026 bug)
@@ -250,13 +248,12 @@
       rng.value = Math.min(+rng.max, Math.max(+rng.min, +rng.value + k * T.tick));
       rng.dispatchEvent(new Event("input"));
     });
-    /* D1: an exact salary goes to the tax calculator in the fragment, never sent (calc.js reads #salary=) */
+    /* D1: an exact salary goes to the calculator in the fragment */
     var tx = d.getElementById("try-x");
     if (tx) tx.form.addEventListener("submit", function (e) {
       e.preventDefault(); var v = tx.value.replace(/\D/g, ""); location.href = tx.form.action + (v ? "#salary=" + v : "");
     });
-    /* R16 (28 Oct 2026, review row 10): a salary being typed moves the slider to its nearest step, so the figures
-       follow it (the salary they are for stays shown); Enter still opens the exact salary's every step */
+    /* R16: a typed salary moves the slider to its nearest step */
     if (tx) tx.addEventListener("input", function () {
       var v = +tx.value.replace(/\D/g, "");
       if (v < +rng.min || v > +rng.max) return;
@@ -273,8 +270,7 @@
     });
   }
 
-  /* MO1: each section's heading and its first line rise 8px once as the section comes in, 40ms apart (home.css .rv);
-     reduced motion, or no observer, leaves them as they are */
+  /* MO1: headings rise 8px once as a section comes in (home.css .rv) */
   if (!rm && IO) all("main .sec").forEach(function (s) {
     var rv = all("h2, h2 + p, .sec-head > p", s).slice(0, 3);
     rv.forEach(function (e, i) { e.classList.add("rv"); e.style.setProperty("--i", i); });
@@ -284,7 +280,7 @@
     }, { threshold: .15 }).observe(s);
   });
 
-  /* phone download bar: up past the hero's button, down at the last one or the footer */
+  /* phone download bar: past the hero's button, down at the last */
   var dock = d.querySelector(".dock"), hero = d.querySelector(".home .cta"), ends = [d.querySelector(".close .cta"), d.querySelector(".sf")], seen = {};
   if (dock && hero && IO) {
     var io = new IntersectionObserver(function (es) {
@@ -293,7 +289,7 @@
     });
     [hero].concat(ends).forEach(function (t) { if (t) io.observe(t); });
   }
-  /* R16d: two holdings editable; sums in paise from the plate's own text; nothing sent */
+  /* R16d: two holdings editable, in paise; nothing sent */
   (function () {
     var inv = plate && plate.querySelector("[data-br=assets] .t"), nw = d.getElementById("nw"), eds = [], reset;
     if (!inv || !nw) return;

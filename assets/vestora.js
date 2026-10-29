@@ -50,6 +50,23 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
     new IntersectionObserver(function (e) { hdr.classList.toggle("scrolled", !e[0].isIntersecting); }).observe(top);
   }
 
+  /* --- site search: "/" or the header's Search (a link to search.html) loads search.js, which opens itself --- */
+  var sq = document.querySelector("[data-search]");
+  if (sq && !document.getElementById("search-list")) {
+    var ask = function (e) {
+      e.preventDefault();
+      if (window.PocketSearch) return PocketSearch.open();
+      var s = document.createElement("script");
+      s.src = "assets/search.js?v=1";
+      s.onerror = function () { location.href = sq.href; };
+      document.head.appendChild(s);
+    };
+    sq.onclick = ask;
+    addEventListener("keydown", function (e) {
+      if (e.key === "/" && !(e.ctrlKey || e.metaKey || e.altKey) && !e.target.closest("input,textarea,select,[contenteditable]")) ask(e);
+    });
+  }
+
   /* --- site shell phone menu (.sh-menu-btn controls #site-menu) --- */
   var sb = document.querySelector(".sh-menu-btn"), sm = document.getElementById("site-menu");
   if (sb && sm) {

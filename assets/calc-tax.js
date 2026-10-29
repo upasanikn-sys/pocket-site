@@ -1,5 +1,4 @@
-/* The tax regime calculator: tax_india.tax_new_regime and tax_old_regime, each step kept for the working, and
-   site_guides.break_even. The slabs, rebates, surcharge, cess and caps are the page's JSON (calc.js). */
+/* The tax regime calculator: tax_india's two regimes, each step kept for the working. */
 (function () {
   "use strict";
   var C = window.PocketCalc;
@@ -14,7 +13,7 @@
     }
     return tax;
   }
-  function surcharge(taxable, base, slabs, table) {          // _surcharge_with_relief
+  function surcharge(taxable, base, slabs, table) {  // _surcharge_with_relief
     for (var i = 0; i < table.length; i++) {
       var thr = table[i][0], r = table[i][1];
       if (taxable > thr) {

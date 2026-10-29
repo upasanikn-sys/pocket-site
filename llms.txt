@@ -59,6 +59,7 @@ Facts that the pages below state:
 ## Policies
 
 - [Privacy Policy](https://mypocketfi.com/privacy.html)
+- [Accessibility](https://mypocketfi.com/accessibility.html): what every page is held to before it is published, and what is not yet known
 - [Terms of Service](https://mypocketfi.com/terms.html)
 - [Refund Policy](https://mypocketfi.com/refunds.html)
 - [License Terms](https://mypocketfi.com/license.html)

@@ -1,20 +1,18 @@
-/* Pocket's calculators, shared (SITE_TO_9.md, Stream 6). The rules are the page's JSON, from the engine
-   (tools/site_calculators.py); calc-*.js run them as the engine does. No request: nothing typed leaves the page. */
+/* Pocket's calculators, shared. No request: nothing typed leaves the page. */
 (function () {
   "use strict";
   var src = document.getElementById("calc-rules");
   if (!src) return;
   var C = window.PocketCalc = {R: JSON.parse(src.textContent), RUN: {}};
 
-  /* numbers, rounded as Python and money.py round them */
   C.top = function (v) { return v === null ? Infinity : v; };
-  // round(x, nd): a tie (an exact half: x * 2^(nd+1) is an odd integer) goes to the even digit
+  // round(x, nd): a tie (x * 2^(nd+1) is an odd integer) goes to the even digit
   C.pyRound = function (x, nd) {
     var t = x * Math.pow(2, nd + 1), k = Math.pow(10, nd);
     if (Number.isInteger(t) && t % 2) { var n = Math.floor(x * k); return (n % 2 ? n + 1 : n) / k; }
     return Number(x.toFixed(nd));
   };
-  // Decimal(str(x)) rounded half away from zero (money.rupees): a count of rupees (nd 0) or paise (nd 2)
+  // money.rupees: half away from zero, in rupees (nd 0) or paise (nd 2)
   C.half = function (x, nd) {
     var s = String(Math.abs(x));
     if (s.indexOf("e") >= 0) return Math.round(x * Math.pow(10, nd));
@@ -32,7 +30,7 @@
   C.pc = function (r) { return String(C.pyRound(r * 100, 2)) + "%"; };
   C.plural = function (n, w) { return n + " " + w + (n === 1 ? "" : "s"); };
 
-  /* typed values: an amount in paise, half up at the third decimal (working.paise); null when it is not one */
+  /* typed values: paise, half up at the third decimal (working.paise), or null */
   var paise = C.paise = function (s) {
     s = String(s).replace(/[\s,₹]/g, "");
     if (s === "") return 0;
@@ -44,7 +42,7 @@
   C.rate = function (s) { s = String(s).trim().replace(/%$/, ""); return /^\d{1,2}(\.\d{1,2})?$/.test(s) ? Number(s) / 100 : null; };
   C.whole = function (s) { s = String(s).trim(); return /^\d{1,3}$/.test(s) ? Number(s) : null; };
 
-  /* a line of the working: its label and detail, the leader, its amount (paise, or words) */
+  /* a line of the working: label, leader, amount */
   C.rows = function (rows) {
     return rows.map(function (r) {
       return '<li class="wr' + (r[3] ? " " + r[3] : "") + '"><span class="wl">' + r[0] + (r[1] ? "<small>" + r[1] + "</small>" : "") +
@@ -64,7 +62,7 @@
     err.textContent = msg || ""; err.hidden = !msg;
     return !!msg;
   };
-  // a money field in paise; `need` refuses zero; `rupees` refuses paise
+  // a money field in paise; need: not zero; rupees: no paise
   C.money = function (name, need, rupees) {
     var p = paise(C.val(name));
     var msg = p === null ? "Type an amount in rupees, like 18,00,000." : need && !p ? "Type an amount above zero."
@@ -83,7 +81,7 @@
   C.start = function () {
     form.addEventListener("submit", function (e) { e.preventDefault(); C.run(true); });
     form.addEventListener("input", function () { C.run(true); });
-    form.addEventListener("change", function (e) {        // regroup an amount once the person leaves its field
+    form.addEventListener("change", function (e) {  // regroup an amount when its field is left
       var t = e.target, p = paise(t.value);
       if (t.getAttribute("data-kind") === "money" && p !== null && String(t.value).trim()) t.value = p % 100 ? ps(p).slice(1) : grp(p / 100);
     });
@@ -94,7 +92,6 @@
     C.run(false);
   };
 
-  /* Show working: open, as on the homepage plate; the trace draws only when the person opens it */
   var sw = out.querySelector(".sw"), still = window.matchMedia("(prefers-reduced-motion: reduce)");
   var cs = getComputedStyle(document.documentElement), tok = function (n) { return cs.getPropertyValue("--" + n).trim(); },
       UI = tok("ease-ui"), TRACE = tok("ease-trace"), FAST = parseFloat(tok("t-fast")), MID = parseFloat(tok("t-ui")), SLOW = parseFloat(tok("t-trace"));

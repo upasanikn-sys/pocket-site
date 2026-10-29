@@ -3,7 +3,7 @@
    an image that fails, it simply shows. */
 (function () {
   "use strict";
-  var imgs = document.querySelectorAll(".crop img, .frame img, .capture img");
+  var imgs = document.querySelectorAll(".crop img, .frame img, .capture img, .gshot img");
   Array.prototype.forEach.call(imgs, function (img) {
     if (img.complete || img.loading !== "lazy") return;   // an eager image is above the fold: it shows as it loads (PF3)
     img.classList.add("fade-img");

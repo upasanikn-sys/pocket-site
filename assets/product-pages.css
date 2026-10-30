@@ -96,7 +96,7 @@ transform:scaleX(0); transition:transform var(--t-ui) var(--ease-ui)}
 transition:opacity var(--t-ui) var(--ease-ui), visibility var(--t-ui) var(--ease-ui)}
 .js .tour-panel.on{opacity:1; visibility:visible}
 html:not(.js) .tour-tabs{display:none}
-.mods2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px; border-top:1px solid var(--rule-2)}
+.mods2{display:grid; grid-template-columns:minmax(0,1fr); border-top:1px solid var(--rule-2)}
 .mod2{padding:24px 0; border-bottom:1px solid var(--rule); scroll-margin-top:88px}
 .mod2 h3{margin:0 0 8px; font-size:var(--fs-h3)}
 .crop{margin:0 0 16px; overflow:hidden; aspect-ratio:calc(var(--w) / var(--h)); border:1px solid var(--rule-2);
@@ -110,7 +110,21 @@ margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--
 .mod2 .eg{margin-top:12px; padding-left:12px; border-left:2px solid var(--rule-2); color:var(--ink); font-size:var(--fs-small);
 font-variant-numeric:tabular-nums}
 .limits.coming{margin-top:32px}
-@media (max-width:900px){ .mods2{grid-template-columns:minmax(0,1fr)} }
+.mod2 .crop{max-width:calc(var(--w) * 1px + 2px)}
+.mod2 .cs{max-width:calc(var(--cw) * 1px + 2px)}
+@media (min-width:1000px){
+.mod2{display:grid; grid-template-columns:minmax(320px,1fr) minmax(0,720px); grid-template-rows:auto auto 1fr; gap:0 56px;
+align-content:start; min-height:clamp(240px,30vh,320px)}
+.mod2 > :not(.crop):not(.cs){grid-column:1; max-width:46ch}
+.mod2 > .crop, .mod2 > .cs{grid-column:2; grid-row:1 / span 3; align-self:start; margin:0}
+.mod2 > h3{margin-top:0}
+.mod2 > .eg{align-self:start}
+.mod2.wide{grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto auto 1fr; min-height:0}
+.mod2.wide > .crop, .mod2.wide > .cs{grid-column:1 / -1; grid-row:1; margin:0 0 20px}
+.mod2.wide > h3{grid-row:2}
+.mod2.wide > p:not(.eg){grid-row:3}
+.mod2.wide > .eg{grid-column:2; grid-row:2 / span 2; margin-top:0}
+}
 .askdemo{display:grid; grid-template-columns:minmax(0,.36fr) minmax(0,.64fr); gap:40px; align-items:start}
 .ask-qs{display:flex; flex-direction:column; border-top:1px solid var(--rule-2)}
 .ask-qs [role="tab"]{min-height:52px; padding:0 16px 0 14px; text-align:left; background:none; border:0; border-bottom:1px solid var(--rule);
@@ -237,13 +251,7 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 @media (max-width:560px){ .ltoc.strip .wrap{gap:12px} .ltoc.strip ol{gap:16px} }
 @media (max-width:900px){ .toc{padding-top:40px} .toc ol{display:flex; gap:16px; overflow-x:auto; border-left:0} .toc li{flex:none} .toc a{display:inline-flex; align-items:center; min-height:44px; padding:0; white-space:nowrap; text-decoration:underline; text-underline-offset:3px; color:var(--ink)} }
 @media (min-width:1000px) and (min-height:650px) and (prefers-reduced-motion:no-preference){
-.mods2{grid-template-columns:minmax(0,1fr)}
-.mod2{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); grid-template-rows:auto auto 1fr; gap:0 56px;
-align-content:start; min-height:clamp(240px,30vh,320px); padding:24px 0}
-.mod2 > :not(.crop):not(.cs){grid-column:1; max-width:46ch}
-.mod2 > .crop, .mod2 > .cs{grid-column:2; grid-row:1 / span 3; position:sticky; top:96px; align-self:start; margin:0}
-.mod2 > h3{margin-top:0}
-.mod2 > .eg{align-self:start}
+.mod2:not(.wide) > .crop, .mod2:not(.wide) > .cs{position:sticky; top:96px}
 }
 @supports (animation-timeline:view()){
 @media (min-width:1000px) and (min-height:650px) and (prefers-reduced-motion:no-preference){

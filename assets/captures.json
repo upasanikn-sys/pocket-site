@@ -346,6 +346,55 @@
    "height": 800
   },
   {
+   "name": "cashflow-all",
+   "kind": "desktop",
+   "alt": "Pocket's Cash flow, Every category, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-cashflow-all.webp",
+      "width": 820,
+      "height": 356,
+      "bytes": 6688
+     },
+     "webp_2x": {
+      "file": "cap-cashflow-all-2x.webp",
+      "width": 1640,
+      "height": 712,
+      "bytes": 9424
+     },
+     "png": {
+      "file": "cap-cashflow-all.png",
+      "width": 820,
+      "height": 356,
+      "bytes": 9546
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-cashflow-all-dark.webp",
+      "width": 820,
+      "height": 356,
+      "bytes": 6520
+     },
+     "webp_2x": {
+      "file": "cap-cashflow-all-dark-2x.webp",
+      "width": 1640,
+      "height": 712,
+      "bytes": 9102
+     },
+     "png": {
+      "file": "cap-cashflow-all-dark.png",
+      "width": 820,
+      "height": 356,
+      "bytes": 9531
+     }
+    }
+   },
+   "width": 820,
+   "height": 356
+  },
+  {
    "name": "protection",
    "kind": "desktop",
    "alt": "Pocket's Protection page, on the sample person's data.",
@@ -2061,6 +2110,55 @@
    },
    "width": 1280,
    "height": 800
+  },
+  {
+   "name": "cashflow-all-wk",
+   "kind": "desktop",
+   "alt": "Pocket's Cash flow, Every category with its working open, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-cashflow-all-wk.webp",
+      "width": 820,
+      "height": 356,
+      "bytes": 26190
+     },
+     "webp_2x": {
+      "file": "cap-cashflow-all-wk-2x.webp",
+      "width": 1640,
+      "height": 712,
+      "bytes": 31676
+     },
+     "png": {
+      "file": "cap-cashflow-all-wk.png",
+      "width": 820,
+      "height": 356,
+      "bytes": 38631
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-cashflow-all-wk-dark.webp",
+      "width": 820,
+      "height": 356,
+      "bytes": 25376
+     },
+     "webp_2x": {
+      "file": "cap-cashflow-all-wk-dark-2x.webp",
+      "width": 1640,
+      "height": 712,
+      "bytes": 31370
+     },
+     "png": {
+      "file": "cap-cashflow-all-wk-dark.png",
+      "width": 820,
+      "height": 356,
+      "bytes": 39215
+     }
+    }
+   },
+   "width": 820,
+   "height": 356
   }
  ]
 }

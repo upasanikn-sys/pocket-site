@@ -8,6 +8,7 @@
 html[data-os="ios"] .hbtns .for-ios{display:inline-flex}
 html[data-os="ios"] .hbtns .cta:not(.for-ios){display:none}
 .home-h .eyebrow{margin:0 0 16px}
+.home .job{margin:12px 0 0;font:500 var(--fs-lede)/1.35 var(--sans);letter-spacing:-.01em;color:var(--ink)}
 .home .sub{grid-column:1;grid-row:1/span 3;margin:0;max-width:36em}
 .trust{margin:16px 0 0;font-size:var(--fs-small);color:var(--ink-3)}
 .plate{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-3);padding:20px 24px}
@@ -91,18 +92,19 @@ html[data-os="ios"] .hbtns .cta:not(.for-ios){display:none}
 }
 @media (min-width:1100px) and (max-height:799px){
 .home{padding-top:32px}
-.trust{margin-top:24px}
+.trust{margin-top:24px;padding-top:6px}
+.trust>span:not(:last-child){display:inline;padding:0;border:0}
+.trust>span:last-child{margin-top:6px;border-top:1px solid var(--rule)}
 }
-@media (min-width:1100px) and (max-height:719px){
+@media (min-width:1100px) and (max-height:739px){
 .home{padding-top:16px}
 .home-h .eyebrow{margin-bottom:10px}
-.home h1{font-size:min(clamp(48px, 12px + 3.3vw, 64px), max(40px, 7.4vh))}
+.home h1{font-size:37px}
+.home .job{margin-top:8px}
 .home-copy{margin-top:16px}
 .home .sub{font-size:var(--fs-body);line-height:1.5}
 .home-copy .hbtns{margin-top:20px}
-.trust{margin-top:20px;padding-top:6px}
-.trust>span:not(:last-child){display:inline;padding:0;border:0}
-.trust>span:last-child{margin-top:6px;border-top:1px solid var(--rule)}
+.trust{margin-top:20px}
 }
 .sw{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;border:0;background:none;font:500 var(--fs-caption)/1 var(--sans);color:var(--ink);cursor:pointer}
 .sw i{position:relative;flex:none;width:34px;height:20px;box-sizing:border-box;border:1px solid var(--edge);border-radius:999px;background:var(--card);transition:background var(--t-ui),border-color var(--t-ui)}
@@ -481,6 +483,7 @@ section.close.bs .close-sheet :is(.tag,.sheet-rest){color:var(--sheet-ink-3)}
 }
 @media (max-width:560px){
 .home{padding-top:24px}
+.home .job{font-size:min(var(--fs-lede), 4.4vw)}
 .home .hbtns{flex-direction:column;align-items:stretch}
 .plate{padding:16px}
 .tree .fig-a{font-size:var(--fs-anchor)}

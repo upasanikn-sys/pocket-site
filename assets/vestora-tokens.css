@@ -15,6 +15,20 @@ src:url(fonts/instrumentsans-latin-wght.woff2) format('woff2-variations'),
 url(fonts/instrumentsans-latin-wght.woff2) format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:400;
 src:url(fonts/jetbrainsmono-regular.woff2) format('woff2')}
+@font-face{font-family:'Inter Fallback';font-weight:400;src:local('Arial'),local('Liberation Sans'),local('Arimo');
+size-adjust:107.5%;ascent-override:90.1%;descent-override:22.4%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2212}
+@font-face{font-family:'Inter Fallback';font-weight:500;src:local('Arial'),local('Liberation Sans'),local('Arimo');
+size-adjust:108.6%;ascent-override:89.2%;descent-override:22.2%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2212}
+@font-face{font-family:'Inter Fallback';font-weight:600 700;src:local('Arial Bold'),local('Liberation Sans Bold'),local('Arimo Bold');
+size-adjust:101.8%;ascent-override:95.2%;descent-override:23.7%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2212}
+@font-face{font-family:'Instrument Sans Fallback';font-weight:400;src:local('Arial'),local('Liberation Sans'),local('Arimo');
+size-adjust:103.2%;ascent-override:94%;descent-override:24.2%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2212}
+@font-face{font-family:'Instrument Sans Fallback';font-weight:500;src:local('Arial'),local('Liberation Sans'),local('Arimo');
+size-adjust:104.8%;ascent-override:92.6%;descent-override:23.9%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2212}
+@font-face{font-family:'Instrument Sans Fallback';font-weight:600 700;src:local('Arial Bold'),local('Liberation Sans Bold'),local('Arimo Bold');
+size-adjust:98.9%;ascent-override:98.1%;descent-override:25.3%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2212}
+@font-face{font-family:'JetBrains Mono Fallback';font-weight:400;src:local('Courier New'),local('Liberation Mono');
+size-adjust:100%;ascent-override:102%;descent-override:30%;line-gap-override:0%;unicode-range:U+20-7E,U+A0,U+B7,U+2013-2014,U+2018-201E,U+2022,U+2026,U+2212}
 :root{color-scheme:light;
 --paper:#F2F4F6;  --plate:#E7EBEF;  --card:#FCFDFD;  --raised:#DCE2E8;
 --rule:rgba(19,26,34,.11);  --rule-2:rgba(19,26,34,.22);  --edge:#6D7985;
@@ -28,9 +42,9 @@ src:url(fonts/jetbrainsmono-regular.woff2) format('woff2')}
 --c5:#A47807; --c6:#006C93; --c7:#767700; --c8:#953A83;
 --lift:0 1px 2px rgba(19,26,34,.06),0 10px 28px -14px rgba(19,26,34,.22);
 --scrim:rgba(15,20,25,.40);
---display:'Instrument Sans','Inter',system-ui,sans-serif;
---sans:'Inter',system-ui,'Segoe UI',Arial,sans-serif;
---mono:'JetBrains Mono','Inter',ui-monospace,monospace;
+--display:'Instrument Sans','Instrument Sans Fallback','Inter','Inter Fallback',system-ui,sans-serif;
+--sans:'Inter','Inter Fallback',system-ui,'Segoe UI',Arial,sans-serif;
+--mono:'JetBrains Mono','JetBrains Mono Fallback','Inter','Inter Fallback',ui-monospace,monospace;
 --fs-display:clamp(40px, 31.8px + 2.1vw, 62px);
 --fs-headline:clamp(30px, 25.5px + 1.143vw, 42px);
 --fs-h3:20px;  --fs-lede:18px;  --fs-body:16px;  --fs-small:14px;  --fs-caption:13px;  --fs-prov:12px;

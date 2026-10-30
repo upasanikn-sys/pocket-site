@@ -26,21 +26,14 @@ text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:
 .hnote b{width:4px; height:4px; border-radius:50%; background:var(--ink-3)}
 .shot{position:relative; margin-top:44px; border-radius:var(--r-3); overflow:hidden; border:1px solid var(--rule-2)}
 .shot img{width:100%; height:auto}
-.shotcap{margin-top:12px; font-size:var(--fs-caption); color:var(--ink-3); text-align:right}
 @media (max-width:560px){
 .shot{max-width:250px; margin:40px auto 0; padding:0; border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card)}
 .shot img{border-radius:0}
-.shotcap{text-align:center}
 }
 @media (max-width:900px){ .shot{margin-top:44px} }
 h2{font-size:var(--fs-headline); line-height:1.08; letter-spacing:-.03em; margin:0}
 h3{line-height:1.3; letter-spacing:-.01em}
-.mlist{border-top:1px solid var(--rule-2)}
-.mrow{display:grid; grid-template-columns:minmax(0,.34fr) minmax(0,.66fr); gap:36px; padding:24px 4px;
-border-bottom:1px solid var(--rule)}
-.mrow h3{margin:0; font-size:var(--fs-h3)}
-.mrow p{margin:0; color:var(--ink-3); font-size:var(--fs-body); line-height:1.6}
-@media (max-width:900px){ .mrow{grid-template-columns:1fr; gap:8px} }
+@media (max-width:900px){ }
 .close{padding:var(--sec) 0; text-align:center}
 .close h2{max-width:20ch; margin:0 auto 16px; text-wrap:balance}
 .close p{color:var(--ink-2); max-width:48ch; margin:0 auto 32px}
@@ -55,10 +48,6 @@ section.close.bs :where(a,button):focus-visible{outline-color:var(--brand)}
 figure:is(.cap-fig, .ph-vis, .tour-panel) figcaption{font:500 var(--fs-prov)/1.5 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3)}
 .soon{margin-top:20px; font-size:var(--fs-caption); color:var(--ink-3)}
 footer{border-top:1px solid var(--rule); padding:40px 0; font-size:var(--fs-caption); color:var(--ink-3)}
-.frow{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
-.frow .grow{flex:1}
-.frow a{color:var(--ink-2)} .frow a:hover{color:var(--ink)}
-.disc{margin-top:16px; font-size:var(--fs-prov); color:var(--ink-3); max-width:78ch; line-height:1.6}
 .skip{position:absolute; left:-9999px}
 .skip:focus{left:16px; top:12px; z-index:var(--z-toast); background:var(--card); color:var(--ink);
 border:1px solid var(--rule-2); padding:0 16px; min-height:44px; display:flex; align-items:center; border-radius:var(--r-2)}
@@ -66,7 +55,6 @@ border:1px solid var(--rule-2); padding:0 16px; min-height:44px; display:flex; a
 .ph .wrap{position:relative}
 .ph h1{margin:0 0 24px; max-width:17ch}
 .ph .sub{max-width:52ch}
-.ph-proof{margin-top:52px}
 @media (max-width:900px){ .ph{padding:64px 0 44px} }
 .sec{padding:var(--sec) 0; border-top:1px solid var(--rule)}
 .sec.alt{background:var(--plate)}
@@ -79,14 +67,11 @@ border:1px solid var(--rule-2); padding:0 16px; min-height:44px; display:flex; a
 .pair{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule-2)}
 .pair > div{padding:28px 36px 4px 0}
 .pair > div + div{padding:28px 0 4px 36px; border-left:1px solid var(--rule)}
-.pair .ours{box-shadow:inset 0 2px 0 var(--ink)}
 .pair h3{margin:0 0 12px; font-size:var(--fs-h3)}
 .pair ul{list-style:none; margin:0; padding:0}
 .pair li{display:grid; grid-template-columns:18px 1fr; gap:10px; padding:12px 0; border-top:1px solid var(--rule);
 color:var(--ink-2); font-size:var(--fs-body); line-height:1.5}
 .pair li::before{content:""; width:10px; height:1px; margin-top:.78em; background:var(--ink-3)}
-.pair .ours li{color:var(--ink)}
-.pair .ours li::before{background:var(--ink)}
 @media (max-width:900px){
 .pair{grid-template-columns:1fr}
 .pair > div, .pair > div + div{padding:24px 0 4px; border-left:0}
@@ -106,14 +91,6 @@ padding:24px 0; border-bottom:1px solid var(--rule)}
 .spec .n{text-align:right}
 .tablewrap{overflow-x:auto}
 .faq{border-top:1px solid var(--rule-2)}
-.faq-item{border-bottom:1px solid var(--rule)}
-.faq-q{position:relative; padding:20px 44px 20px 0; font:600 var(--fs-lede)/1.45 var(--sans); color:var(--ink); cursor:pointer}
-.faq-q::before, .faq-q::after{content:""; position:absolute; right:6px; top:50%; width:14px; height:1.5px;
-background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui)}
-.faq-q::after{transform:rotate(90deg)}
-.faq-item.open .faq-q::after{transform:rotate(0deg)}
-.faq-a{display:none; padding:0 0 24px; color:var(--ink-2); font-size:var(--fs-body); line-height:1.65; max-width:70ch}
-.faq-item.open .faq-a{display:block}
 .figure{margin:0}
 .figure img{width:100%; height:auto}
 .figure figcaption{margin-top:12px; font-size:var(--fs-caption); color:var(--ink-3); text-align:right}

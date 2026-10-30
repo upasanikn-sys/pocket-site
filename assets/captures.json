@@ -1963,6 +1963,104 @@
    },
    "width": 390,
    "height": 844
+  },
+  {
+   "name": "overview-wk",
+   "kind": "desktop",
+   "alt": "Pocket's Overview with its working open, on the sample person's data: Investments, 12 months, Needs a look, Next 14 days.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-overview-wk.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 81076
+     },
+     "webp_2x": {
+      "file": "cap-overview-wk-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 122844
+     },
+     "png": {
+      "file": "cap-overview-wk.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 113805
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-overview-wk-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 76276
+     },
+     "webp_2x": {
+      "file": "cap-overview-wk-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 118470
+     },
+     "png": {
+      "file": "cap-overview-wk-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 115716
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
+  },
+  {
+   "name": "goals-wk",
+   "kind": "desktop",
+   "alt": "Pocket's Goals & retirement with its working open, on the sample person's data.",
+   "files": {
+    "light": {
+     "webp": {
+      "file": "cap-goals-wk.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 75408
+     },
+     "webp_2x": {
+      "file": "cap-goals-wk-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 113238
+     },
+     "png": {
+      "file": "cap-goals-wk.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 107025
+     }
+    },
+    "dark": {
+     "webp": {
+      "file": "cap-goals-wk-dark.webp",
+      "width": 1280,
+      "height": 800,
+      "bytes": 71380
+     },
+     "webp_2x": {
+      "file": "cap-goals-wk-dark-2x.webp",
+      "width": 2560,
+      "height": 1600,
+      "bytes": 110270
+     },
+     "png": {
+      "file": "cap-goals-wk-dark.png",
+      "width": 1280,
+      "height": 800,
+      "bytes": 107670
+     }
+    }
+   },
+   "width": 1280,
+   "height": 800
   }
  ]
 }

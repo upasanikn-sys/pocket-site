@@ -281,6 +281,16 @@ align-content:start; min-height:clamp(240px,30vh,320px); padding:24px 0}
 .cs .tp-notes li{counter-increment:note; display:grid; grid-template-columns:24px minmax(0,1fr); gap:8px; margin:0; color:var(--ink-2)}
 .cs .tp-notes li::before{content:counter(note); font:600 var(--fs-caption)/1.6 var(--sans); color:var(--ink)}
 @media (max-width:560px){ .tp-marks{display:none} }
+.csp.two{display:grid}
+.csp.two > .cv{grid-area:1/1; min-width:0}
+.cvp{position:relative}
+.csp.two > .cv-c{visibility:hidden; opacity:0}
+.bare .csp.two > .cv-c{visibility:visible; opacity:1}
+.bare .csp.two > .cv-o{visibility:hidden; opacity:0}
+@media (prefers-reduced-motion: no-preference){
+.csp.two > .cv-o, .bare .csp.two > .cv-c{transition:opacity var(--t-ui) var(--ease-ui), visibility 0s}
+.csp.two > .cv-c, .bare .csp.two > .cv-o{transition:opacity var(--t-ui) var(--ease-ui), visibility 0s linear var(--t-ui)}
+}
 .gl{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px;cursor:help}
 .gl:hover{text-decoration-style:solid}
 .also{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ink)}

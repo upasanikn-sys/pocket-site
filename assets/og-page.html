@@ -74,6 +74,11 @@
   .ln li::after{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid var(--signal)}
   .ln li:last-child::after{bottom:auto;height:13px}
   .ln li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* R16l: the sheet alone (#only=1), the tax section's own picture of the working (tools/site_sheets.py) */
+  html.only,html.only body{width:auto;height:auto;overflow:visible;background:transparent}
+  .only .copy,.only .foot{display:none}
+  .only .card{display:block;height:auto;padding:32px}
+  .only .tree{width:480px;margin:0;padding:26px 30px 24px;transform:none;box-shadow:none}   /* the page draws its shadow */
 </style>
 </head>
 <body>
@@ -89,6 +94,7 @@
   </div>
   <script>
     var q = new URLSearchParams(location.hash.slice(1)), t = q.get("t") || "", h = document.getElementById("t");
+    if (q.get("only")) document.documentElement.className = "only";
     h.textContent = t;
     var fig = q.get("fig"), n = t.length;
     h.className = fig ? (n > 54 ? "xl" : n > 40 ? "l" : "m") : (n > 64 ? "xl" : n > 50 ? "l" : n > 30 ? "m" : "");
@@ -107,7 +113,7 @@
     if (T) {
       var box = document.getElementById("tree");
       function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
-      box.appendChild(el("div", "tk", "Net worth · sample person · " + T.asof));
+      box.appendChild(el("div", "tk", T.k || ("Net worth · sample person · " + T.asof)));   // R16l: a tree may name itself
       box.appendChild(el("div", "tn", T.nw));
       var ul = el("ul", "tb");
       T.parts.forEach(function (p) {

@@ -104,7 +104,7 @@ margin-left:calc(var(--x) / var(--w) * -100%); margin-top:calc(var(--y) / var(--
 .mod2 .eg{margin-top:12px; padding-left:12px; border-left:2px solid var(--rule-2); color:var(--ink); font-size:var(--fs-small);
 font-variant-numeric:tabular-nums}
 .limits.coming{margin-top:32px}
-.mod2 .crop{max-width:calc(var(--w) * 1px + 2px)}
+.mod2 .crop, .with-shot:not(.phone) .cap-fig:not(.mob) .crop, .ph-vis:not(.mob) .crop{max-width:calc(var(--w) * 1px + 2px)}
 .mod2 .cs{max-width:calc(var(--cw) * 1px + 2px)}
 @media (min-width:1000px){
 .mod2{display:grid; grid-template-columns:minmax(320px,1fr) minmax(0,720px); grid-template-rows:auto auto 1fr; gap:0 56px;
@@ -344,7 +344,6 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 @media (min-height:800px){ .story .with-shot > .cap-fig.phone{position:sticky; top:138px} }
 }
 }
-.with-shot:not(.phone) .cap-fig:not(.mob) .crop{max-width:calc(var(--w) * 1px + 2px)}
 .with-shot:not(.phone) .cs{max-width:calc(var(--cw) * 1px + 2px)}
 @media (min-width:901px){
 .with-shot:not(.phone){grid-template-columns:minmax(0,1fr); gap:32px}
@@ -353,7 +352,6 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .with-shot:not(.phone) > .sec-body > .plate{grid-column:2; grid-row:1 / span 3; margin-top:0}
 .story .with-shot:not(.phone) > .cap-fig:not(.phone){position:static}
 }
-.ph-vis:not(.mob) .crop{max-width:calc(var(--w) * 1px + 2px)}
 :is(.tour-panel, .cap-fig .frame):has(img[width="1280"][height="800"])::before{content:"Pocket" / ""; display:block; height:30px; padding-left:34px; color:var(--ink-2); font:500 var(--fs-caption)/30px var(--sans);
 background:url(win-ctl.svg) right 12px center/52px 10px no-repeat, url(pocket-mark.svg) 12px 50%/14px auto no-repeat, var(--plate)}
 .tour-panel:has(img[width="1280"][height="800"])::before{border:1px solid var(--rule-2); border-bottom:0; border-radius:var(--r-3) var(--r-3) 0 0}
@@ -361,3 +359,8 @@ background:url(win-ctl.svg) right 12px center/52px 10px no-repeat, url(pocket-ma
 .cap-fig .frame:has(img[width="1280"][height="800"])::before{border-bottom:1px solid var(--rule)}
 .cap-fig .frame:has(img[width="390"][height="844"]){border:8px solid var(--device); border-radius:32px}
 @media (prefers-color-scheme:dark){ :is(.tour-panel, .cap-fig .frame):has(img[width="1280"][height="800"])::before{background-image:url(win-ctl-dark.svg), url(pocket-mark-dark.svg)} }
+.sheet-fig{display:grid; grid-template-columns:auto minmax(0,1fr); gap:0 40px; align-items:center; margin:0 0 40px}
+.sheet-fig img{height:auto; border-radius:6px; box-shadow:var(--sheet-lift)}
+.sheet-fig figcaption{max-width:36ch; color:var(--ink-3); font-size:var(--fs-caption)}
+@media (max-width:900px){ .sheet-fig{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:700px){ .sheet-fig{display:none} }

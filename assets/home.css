@@ -526,7 +526,7 @@ transform:translateY(110%);visibility:hidden;transition:transform var(--t-ui) va
 transition-delay:calc(var(--i,0) * var(--t-stagger))}
 @media (min-width:901px) and (max-height:649px){ .home{padding-top:32px} .home .tree{margin-top:32px} }
 @media (max-width:560px){ .brand-close .hbtns .btn-line{display:none} }
-.ed{font:inherit;color:inherit;width:calc(var(--n,4) * 1ch + 2px);min-width:24px;padding:4px 0;margin:-4px 0;border:0;border-radius:0;background:linear-gradient(90deg,var(--ink-3) 3px,transparent 3px) 0 calc(100% - 3px)/6px 1px repeat-x;line-height:inherit}
+.ed{font:inherit;color:inherit;width:calc(var(--n,4) * 1ch + 2px);min-width:24px;padding:4px 0;margin:-4px 0;border:0;border-radius:0;background:linear-gradient(90deg,var(--ink-3) 3px,transparent 3px) 0 calc(100% - 6px)/6px 1px repeat-x;line-height:inherit}
 .ed:hover{background-image:linear-gradient(90deg,var(--ink) 3px,transparent 3px)}
 .ed:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .plate .wk-ed{display:block;margin:2px 0 0}

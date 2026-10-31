@@ -38,10 +38,12 @@ size-adjust:100%;ascent-override:102%;descent-override:30%;line-gap-override:0%;
 --sheet-rule:rgba(19,26,34,.12);  --sheet-rule-2:rgba(19,26,34,.24);  --sheet-edge:rgba(19,26,34,.14);
 --sheet-lift:0 1px 2px rgba(19,26,34,.06), 0 24px 56px rgba(19,26,34,.12);
 --brand-ground:#042844;  --brand:#22CFA4;  --brand-leaf:#029665;  --on-brand:#FCFDFD;  --on-brand-2:#A9BCCF;
+--cta:#042844;  --cta-hover:#0D3A5C;  --cta-ink:#FCFDFD;
+--on-brand-wash:rgba(252,253,253,.12);
 --c1:#427FD8; --c2:#6E3692; --c3:#0791A0; --c4:#5C52B4;
 --c5:#A47807; --c6:#006C93; --c7:#767700; --c8:#953A83;
 --lift:0 1px 2px rgba(19,26,34,.06),0 10px 28px -14px rgba(19,26,34,.22);
---scrim:rgba(15,20,25,.40);
+--scrim:rgba(15,20,25,.40);  --scrim-deep:rgba(15,20,25,.86);     --device:#131A22;
 --display:'Instrument Sans','Instrument Sans Fallback','Inter','Inter Fallback',system-ui,sans-serif;
 --sans:'Inter','Inter Fallback',system-ui,'Segoe UI',Arial,sans-serif;
 --mono:'JetBrains Mono','JetBrains Mono Fallback','Inter','Inter Fallback',ui-monospace,monospace;
@@ -65,10 +67,12 @@ size-adjust:100%;ascent-override:102%;descent-override:30%;line-gap-override:0%;
 --sheet-rule:rgba(19,26,34,.12);  --sheet-rule-2:rgba(19,26,34,.24);  --sheet-edge:rgba(19,26,34,.14);
 --sheet-lift:0 1px 2px rgba(0,0,0,.4), 0 28px 64px rgba(0,0,0,.45);
 --brand-ground:#042844;  --brand:#22CFA4;  --brand-leaf:#029665;  --on-brand:#FCFDFD;  --on-brand-2:#A9BCCF;
+--cta:#22CFA4;  --cta-hover:#5BDDB9;  --cta-ink:#042844;
+--on-brand-wash:rgba(252,253,253,.12);
 --c1:#5C95EA; --c2:#8A57AE; --c3:#09A8BA; --c4:#756FCD;
 --c5:#AF8008; --c6:#0288B8; --c7:#767700; --c8:#AF599D;
 --lift:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.6);
---scrim:rgba(0,0,0,.55);
+--scrim:rgba(0,0,0,.55);  --scrim-deep:rgba(0,0,0,.86);  --device:#3A4552;
 }
 }
 @media (max-width:900px){ :root{ --sec:72px; } }

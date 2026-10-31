@@ -1,40 +1,40 @@
 .sh{
 position:sticky; top:0; z-index:var(--z-sticky);
-background:var(--paper);
+background:var(--brand-ground);
 border-bottom:1px solid transparent;
 transition:border-color var(--t-ui) var(--ease-ui);
 }
-.sh.scrolled{border-bottom-color:var(--rule)}
+.sh.scrolled{border-bottom-color:var(--brand-ground)}
 .sh-bar{
 max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter);
 height:72px; display:flex; align-items:center; gap:32px;
 }
-.sh-brand{display:flex; align-items:center; gap:12px; margin-right:auto; color:var(--ink);
+.sh-brand{display:flex; align-items:center; gap:12px; margin-right:auto; color:var(--on-brand);
 text-decoration:none; border-radius:var(--r-2); min-height:44px}
 .sh-logo{display:block; height:30px; width:auto}
 .sh-links{display:flex; align-items:center; gap:28px}
 .sh-links a{position:relative; display:inline-flex; align-items:center; min-height:44px; font:500 var(--fs-small)/1 var(--sans);
-color:var(--ink-2); text-decoration:none; transition:color var(--t-fast) var(--ease-ui)}
-.sh-links a:hover{color:var(--ink)}
-.sh-links a[aria-current="page"]{color:var(--ink); font-weight:600}
+color:var(--on-brand-2); text-decoration:none; transition:color var(--t-fast) var(--ease-ui)}
+.sh-links a:hover{color:var(--on-brand)}
+.sh-links a[aria-current="page"]{color:var(--on-brand); font-weight:600}
 .sh-links a[aria-current="page"]::after{content:""; position:absolute; left:0; right:0; bottom:2px; height:2px;
-background:var(--ink)}
+background:var(--brand)}
 .sh-cta{display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:var(--r-2);
-border:1px solid var(--edge); color:var(--ink); background:transparent; text-decoration:none;
+border:1px solid var(--on-brand-2); color:var(--on-brand); background:transparent; text-decoration:none;
 font:600 var(--fs-small)/1 var(--sans); white-space:nowrap;
 transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
-.sh-cta:hover{background:var(--raised)}
+.sh-cta:hover{background:var(--on-brand-wash)}
 .sh-cta:active{transform:translateY(1px)}
 .sh-search{display:inline-flex; align-items:center; justify-content:center; flex:none; width:44px; height:44px; margin-right:-16px;
-border-radius:var(--r-2); color:var(--ink-2); transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui)}
-.sh-search:hover{background:var(--raised); color:var(--ink)}
+border-radius:var(--r-2); color:var(--on-brand-2); transition:background var(--t-fast) var(--ease-ui), color var(--t-fast) var(--ease-ui)}
+.sh-search:hover{background:var(--on-brand-wash); color:var(--on-brand)}
 .sh-search:active{transform:translateY(1px)}
 .sh-search svg{width:20px; height:20px}
 .sh-menu-btn{display:none; width:44px; height:44px; align-items:center; justify-content:center; flex:none;
-background:transparent; color:var(--ink); border:1px solid var(--edge);
+background:transparent; color:var(--on-brand); border:1px solid var(--on-brand-2);
 border-radius:var(--r-2); cursor:pointer;
 transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(--ease-ui)}
-.sh-menu-btn:hover{background:var(--raised)}
+.sh-menu-btn:hover{background:var(--on-brand-wash)}
 .sh-menu-btn:active{transform:translateY(1px)}
 .sh-menu-btn svg{width:20px; height:20px}
 .sh-menu-btn .sh-x{display:none}
@@ -45,7 +45,7 @@ transition:background var(--t-fast) var(--ease-ui), transform var(--t-fast) var(
 font:500 var(--fs-body)/1.2 var(--sans); color:var(--ink-2); text-decoration:none}
 .sh-menu a[aria-current="page"]{color:var(--ink); font-weight:600}
 .sh-menu a.sh-menu-cta{justify-content:center; margin-top:20px; border:0; border-radius:var(--r-2);
-background:var(--ink); color:var(--on-ink); font-weight:600}
+background:var(--cta); color:var(--cta-ink); font-weight:600}
 .sh-menu a.sh-menu-cta:active{transform:translateY(1px)}
 .sh-menu.open{display:grid; animation:sh-menu-in var(--t-ui) var(--ease-ui)}
 @keyframes sh-menu-in{from{opacity:.4; transform:translateY(-4px)} to{opacity:1; transform:none}}
@@ -127,8 +127,8 @@ border-top:1px solid var(--rule); transform:translateY(110%)}
 .sh{view-transition-name:site-header}
 @media (prefers-reduced-motion:reduce){ @view-transition{navigation:none} }
 .sh-more{display:none; align-items:center; gap:8px; min-height:44px; padding:0 4px; border:0; background:none;
-font:inherit; color:var(--ink-2); cursor:pointer}
-.sh-more:hover, .sh-more:focus-visible{color:var(--ink)}
+font:inherit; color:var(--on-brand-2); cursor:pointer}
+.sh-more:hover, .sh-more:focus-visible{color:var(--on-brand)}
 .sh-more::after{content:""; width:6px; height:6px; border:solid currentColor; border-width:0 1.5px 1.5px 0;
 transform:translateY(-2px) rotate(45deg)}
 @media (min-width:901px){ .sh-more{display:inline-flex} }
@@ -138,3 +138,4 @@ color:var(--ink)}
 .sh-pop a{display:flex; align-items:center; min-height:44px; padding:0 12px; border-radius:var(--r-2); color:var(--ink-2);
 text-decoration:none}
 .sh-pop a:hover, .sh-pop a:focus-visible, .sh-pop a[aria-current]{background:var(--plate); color:var(--ink)}
+.sh-bar > :where(a, button):focus-visible, .sh-links a:focus-visible{outline-color:var(--brand)}

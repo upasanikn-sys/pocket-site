@@ -47,12 +47,6 @@ padding:12px 0; border-bottom:1px solid var(--rule); font-size:var(--fs-small); 
 .has{list-style:none; margin:0; padding:0; font-size:var(--fs-small); color:var(--ink-3)}
 .has li{position:relative; line-height:1.5; padding:1px 0 1px 22px}
 .has li::before{content:""; position:absolute; left:0; top:calc(1px + .75em); width:8px; height:1px; background:var(--ink-3)}
-.ph-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:56px; align-items:center}
-.ph-device{margin:0}
-.ph-device figcaption{margin:20px auto 0; max-width:40ch; font-size:var(--fs-caption); line-height:1.6; color:var(--ink-3); text-align:center}
-.capture{width:250px; margin:0 auto; border:1px solid var(--rule); border-radius:var(--r-4); overflow:hidden; background:var(--card)}
-.capture img{display:block; width:100%; height:auto}
-@media (max-width:900px){ .ph-grid{grid-template-columns:1fr; gap:48px} .capture{width:230px} }
 .limits{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule-2)}
 .limits li{position:relative; padding:20px 0 20px 26px; border-bottom:1px solid var(--rule); max-width:96ch;
 color:var(--ink-2); font-size:var(--fs-body); line-height:1.65}
@@ -268,7 +262,6 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .bare .wk .wr:not(.tot){display:none}
 .wl .op{margin-right:6px; color:var(--ink-3)}
 .eg .fig{font-weight:600}
-.wkp{margin:12px 0 0}
 :root{--fs-proof:clamp(72px, 40px + 4vw, 112px)}
 .zero-split{align-items:end}
 .zero-fig{display:flex; align-items:baseline; gap:16px; margin:0; padding-bottom:8px}
@@ -351,3 +344,20 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 @media (min-height:800px){ .story .with-shot > .cap-fig.phone{position:sticky; top:138px} }
 }
 }
+.with-shot:not(.phone) .cap-fig:not(.mob) .crop{max-width:calc(var(--w) * 1px + 2px)}
+.with-shot:not(.phone) .cs{max-width:calc(var(--cw) * 1px + 2px)}
+@media (min-width:901px){
+.with-shot:not(.phone){grid-template-columns:minmax(0,1fr); gap:32px}
+.with-shot:not(.phone) > .sec-body{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 56px; align-items:start}
+.with-shot:not(.phone) > .sec-body > *{grid-column:1}
+.with-shot:not(.phone) > .sec-body > .plate{grid-column:2; grid-row:1 / span 3; margin-top:0}
+.story .with-shot:not(.phone) > .cap-fig:not(.phone){position:static}
+}
+.ph-vis:not(.mob) .crop{max-width:calc(var(--w) * 1px + 2px)}
+:is(.tour-panel, .cap-fig .frame):has(img[width="1280"][height="800"])::before{content:"Pocket" / ""; display:block; height:30px; padding-left:34px; color:var(--ink-2); font:500 var(--fs-caption)/30px var(--sans);
+background:url(win-ctl.svg) right 12px center/52px 10px no-repeat, url(pocket-mark.svg) 12px 50%/14px auto no-repeat, var(--plate)}
+.tour-panel:has(img[width="1280"][height="800"])::before{border:1px solid var(--rule-2); border-bottom:0; border-radius:var(--r-3) var(--r-3) 0 0}
+.tour-panel:has(img[width="1280"][height="800"]) img{border-radius:0 0 var(--r-3) var(--r-3)}
+.cap-fig .frame:has(img[width="1280"][height="800"])::before{border-bottom:1px solid var(--rule)}
+.cap-fig .frame:has(img[width="390"][height="844"]){border:8px solid var(--device); border-radius:32px}
+@media (prefers-color-scheme:dark){ :is(.tour-panel, .cap-fig .frame):has(img[width="1280"][height="800"])::before{background-image:url(win-ctl-dark.svg), url(pocket-mark-dark.svg)} }

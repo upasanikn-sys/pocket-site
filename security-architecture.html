@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0F1419" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#042844" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#042844" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://mypocketfi.com/security-architecture.html">
 <meta property="og:title" content="Security architecture | Pocket">
 <meta property="og:description" content="How Pocket protects your data, checked against its source: the threat model, encryption, every network connection with its payload, and the change history.">
@@ -26,10 +26,10 @@
 <meta name="twitter:image" content="https://mypocketfi.com/assets/og/security-architecture.png">
 <link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=11">
-<link rel="stylesheet" href="assets/observatory.css?v=21">
-<link rel="stylesheet" href="assets/product-pages.css?v=29">
-<link rel="stylesheet" href="assets/site-shell.css?v=12">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=12">
+<link rel="stylesheet" href="assets/observatory.css?v=22">
+<link rel="stylesheet" href="assets/product-pages.css?v=30">
+<link rel="stylesheet" href="assets/site-shell.css?v=13">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -37,7 +37,7 @@
 <!-- NAV -->
 <header class="sh">
   <div class="sh-bar">
-    <a class="sh-brand" href="./" aria-label="Pocket home"><picture><source srcset="assets/pocket-logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="sh-logo" src="assets/pocket-logo.svg" alt="" width="133" height="30"></picture></a>
+    <a class="sh-brand" href="./" aria-label="Pocket home"><img class="sh-logo" src="assets/pocket-logo-dark.svg" alt="" width="133" height="30"></a>
     <nav class="sh-links" aria-label="Primary">
       <a href="why-pocket.html">Why Pocket</a>
       <a href="features.html">Features</a>
@@ -110,7 +110,7 @@
     connections exist, each off until you turn it on, and section 9 lists exactly what each sends.
   </div>
 
-  <figure class="ph-vis desk"><div class="crop cut" style="--x:0;--y:0;--w:1012;--h:344;--sw:1012" data-cap="privacy"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/crop-privacy-0-0-1012-344-dark.avif 1012w, assets/crop-privacy-0-0-1012-344-dark-2x.avif 2024w" sizes="(min-width: 901px) 684px, calc(100vw - 32px)"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-privacy-0-0-1012-344-dark.webp 1012w, assets/crop-privacy-0-0-1012-344-dark-2x.webp 2024w" sizes="(min-width: 901px) 684px, calc(100vw - 32px)"><source type="image/avif" srcset="assets/crop-privacy-0-0-1012-344.avif 1012w, assets/crop-privacy-0-0-1012-344-2x.avif 2024w" sizes="(min-width: 901px) 684px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/crop-privacy-0-0-1012-344.webp 1012w, assets/crop-privacy-0-0-1012-344-2x.webp 2024w" sizes="(min-width: 901px) 684px, calc(100vw - 32px)"><img src="assets/crop-privacy-0-0-1012-344.png" width="1012" height="344" alt="Settings, Privacy and security in Pocket on the sample data: where your data is (on this device only, in ~/FinOSData), live market prices off, the update check off, Ask Pocket answered on the device." loading="lazy" decoding="async"></picture></div><figcaption>Settings, Privacy &amp; security: each connection off.</figcaption></figure><figure class="cap-fig phone mob">
+  <figure class="ph-vis desk"><div class="crop cut" style="--x:0;--y:0;--w:785;--h:344;--sw:1012" data-cap="privacy"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/crop-privacy-0-0-785-344-dark.avif 785w, assets/crop-privacy-0-0-785-344-dark-2x.avif 1570w" sizes="(min-width: 966px) 654px, (min-width: 901px) calc(100vw - 314px), (min-width: 712px) 654px, calc(100vw - 58px)"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/crop-privacy-0-0-785-344-dark.webp 785w, assets/crop-privacy-0-0-785-344-dark-2x.webp 1570w" sizes="(min-width: 966px) 654px, (min-width: 901px) calc(100vw - 314px), (min-width: 712px) 654px, calc(100vw - 58px)"><source type="image/avif" srcset="assets/crop-privacy-0-0-785-344.avif 785w, assets/crop-privacy-0-0-785-344-2x.avif 1570w" sizes="(min-width: 966px) 654px, (min-width: 901px) calc(100vw - 314px), (min-width: 712px) 654px, calc(100vw - 58px)"><source type="image/webp" srcset="assets/crop-privacy-0-0-785-344.webp 785w, assets/crop-privacy-0-0-785-344-2x.webp 1570w" sizes="(min-width: 966px) 654px, (min-width: 901px) calc(100vw - 314px), (min-width: 712px) 654px, calc(100vw - 58px)"><img src="assets/crop-privacy-0-0-785-344.png" width="785" height="344" alt="Settings, Privacy and security in Pocket on the sample data: where your data is (on this device only, in ~/FinOSData), live market prices off, the update check off, Ask Pocket answered on the device." loading="lazy" decoding="async"></picture></div><figcaption>Settings, Privacy &amp; security: each connection off.</figcaption></figure><figure class="cap-fig phone mob">
         <div class="frame"><picture><source media="(prefers-color-scheme: dark)" type="image/avif" srcset="assets/cap-m-privacy-dark.avif 390w, assets/cap-m-privacy-dark-2x.avif 780w" sizes="(min-width: 1200px) 270px, (min-width: 901px) calc(25vw - 30px), 278px"><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/cap-m-privacy-dark.webp 390w, assets/cap-m-privacy-dark-2x.webp 780w" sizes="(min-width: 1200px) 270px, (min-width: 901px) calc(25vw - 30px), 278px"><source type="image/avif" srcset="assets/cap-m-privacy.avif 390w, assets/cap-m-privacy-2x.avif 780w" sizes="(min-width: 1200px) 270px, (min-width: 901px) calc(25vw - 30px), 278px"><source type="image/webp" srcset="assets/cap-m-privacy.webp 390w, assets/cap-m-privacy-2x.webp 780w" sizes="(min-width: 1200px) 270px, (min-width: 901px) calc(25vw - 30px), 278px"><img src="assets/cap-m-privacy.png" width="390" height="620" loading="lazy" decoding="async" alt="Pocket on a phone, sample data: Security and privacy, data on this device only, live market prices off, the update check off, Ask Pocket answered on this device."></picture></div>
         <figcaption>The phone's Security &amp; privacy.</figcaption>
       </figure>
@@ -310,5 +310,6 @@
 
 <script src="assets/vestora.js" defer></script>
 <script src="assets/img-fade.js?v=3" defer></script>
+<script src="assets/cap-zoom.js?v=1" defer></script>
 </body>
 </html>

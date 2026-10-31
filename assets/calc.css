@@ -100,3 +100,9 @@ overflow:visible !important; margin:20px 0 0 !important; padding:4px 0 0 !import
 .prose .tablewrap.fit table{min-width:0}
 .prose td, .prose th{color:var(--ink-2); font-size:var(--fs-small); line-height:1.55}
 .prose tbody td:first-child{color:var(--ink); font-weight:500}
+.gshot:has(img[width="1280"][height="800"])::before{content:"Pocket" / ""; display:block; height:30px; padding-left:34px; color:var(--ink-2); font:500 var(--fs-caption)/30px var(--sans);
+background:url(win-ctl.svg) right 12px center/52px 10px no-repeat, url(pocket-mark.svg) 12px 50%/14px auto no-repeat, var(--plate);
+border:1px solid var(--rule); border-bottom:0; border-radius:var(--r-3) var(--r-3) 0 0}
+.gshot:has(img[width="1280"][height="800"]) img{border-radius:0 0 var(--r-3) var(--r-3)}
+.gshot img[width="390"][height="844"]{border:8px solid var(--device); border-radius:32px}
+@media (prefers-color-scheme:dark){ .gshot:has(img[width="1280"][height="800"])::before{background-image:url(win-ctl-dark.svg), url(pocket-mark-dark.svg)} }

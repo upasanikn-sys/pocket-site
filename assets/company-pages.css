@@ -159,3 +159,4 @@ color:var(--ink-2); line-height:1.7}
 }
 .even-t{border-collapse:collapse; font-size:var(--fs-small)}
 .even-t th,.even-t td{padding:6px 16px 6px 0; text-align:left; font-weight:400; border-top:1px solid var(--rule)}
+.ph-vis:not(.mob) .crop{max-width:calc(var(--w) * 1px + 2px)}

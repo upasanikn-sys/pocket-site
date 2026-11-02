@@ -24,10 +24,10 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#042844" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#042844" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="assets/vestora-tokens.css?v=12">
-<link rel="stylesheet" href="assets/observatory.css?v=22">
-<link rel="stylesheet" href="assets/home.css?v=64">
-<link rel="stylesheet" href="assets/site-shell.css?v=13">
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=16">
+<link rel="stylesheet" href="assets/observatory.css?v=24">
+<link rel="stylesheet" href="assets/home.css?v=72">
+<link rel="stylesheet" href="assets/site-shell.css?v=18">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mypocketfi.com/#org","name":"Pocket","url":"https://mypocketfi.com/","logo":"https://mypocketfi.com/assets/pocket-logo.svg","description":"An independent, India-based software project building a private personal finance app."},{"@type":"WebSite","@id":"https://mypocketfi.com/#site","name":"Pocket","url":"https://mypocketfi.com/","publisher":{"@id":"https://mypocketfi.com/#org"}},{"@type":"SoftwareApplication","name":"Pocket","url":"https://mypocketfi.com/","applicationCategory":"FinanceApplication","downloadUrl":"https://mypocketfi.com/download.html","operatingSystem":"Windows 10, Windows 11 (64-bit); macOS (Apple silicon); Linux (x86-64); Android 7.0 or later","description":"A private personal finance app for Windows, Mac, Linux and Android: net worth, investments, goals, debt and tax, computed on your device, with its working.","publisher":{"@id":"https://mypocketfi.com/#org"},"offers":{"@type":"Offer","name":"Free plan","price":"0","priceCurrency":"INR"}}]}</script>
 </head>
 <body>
@@ -45,14 +45,23 @@
     </nav>
     <button class="sh-more" type="button" popovertarget="sh-more-pop">More</button>
     <div class="sh-pop" id="sh-more-pop" popover>
-      <a href="ai-copilot.html">Ask Pocket</a>
-      <a href="compare.html">Compare</a>
-      <a href="changelog.html">Changelog</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="calc-tax-regime.html">Tax regime calculator</a>
-      <a href="calc-sip.html">SIP calculator</a>
-      <a href="calc-net-worth.html">Net worth calculator</a>
-      <a href="glossary.html">Glossary</a>
+      <div role="group" aria-labelledby="sh-g-product">
+        <span class="sh-gh" id="sh-g-product">Product</span>
+        <a href="ai-copilot.html">Ask Pocket</a>
+        <a href="compare.html">Compare</a>
+      </div>
+      <div role="group" aria-labelledby="sh-g-tools">
+        <span class="sh-gh" id="sh-g-tools">Tools</span>
+        <a href="calc-tax-regime.html">Tax regime calculator</a>
+        <a href="calc-sip.html">SIP calculator</a>
+        <a href="calc-net-worth.html">Net worth calculator</a>
+        <a href="glossary.html">Glossary</a>
+      </div>
+      <div role="group" aria-labelledby="sh-g-company">
+        <span class="sh-gh" id="sh-g-company">Company</span>
+        <a href="changelog.html">Changelog</a>
+        <a href="roadmap.html">Roadmap</a>
+      </div>
     </div>
     <a class="sh-search" href="search.html" data-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></a>
     <a class="sh-cta" href="download.html">Download free</a>
@@ -66,12 +75,12 @@
     <a href="guides.html">Guides</a>
     <a href="ai-copilot.html">Ask Pocket</a>
     <a href="compare.html">Compare</a>
-    <a href="changelog.html">Changelog</a>
-    <a href="roadmap.html">Roadmap</a>
     <a href="calc-tax-regime.html">Tax regime calculator</a>
     <a href="calc-sip.html">SIP calculator</a>
     <a href="calc-net-worth.html">Net worth calculator</a>
     <a href="glossary.html">Glossary</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="roadmap.html">Roadmap</a>
     <a class="sh-menu-cta" href="download.html">Download free</a>
   </nav>
 </header>
@@ -96,7 +105,7 @@
         <!-- sample:plate --><p class="fig-a num" id="nw" data-r="₹19,18,637">₹19,18,637<span class="p">.36</span></p>
 <div class="eq branches"><span class="tr tr-stem" aria-hidden="true"></span><span class="tr tr-bus" aria-hidden="true"></span>
 <div class="br" data-br="assets"><span class="tr tr-drop" style="--i:1" aria-hidden="true"></span><div class="term"><span class="op" aria-hidden="true">=</span><span class="t num" data-r="₹9,16,037">₹9,16,037<span class="p">.36</span></span><span class="tnote" style="--i:1"><b>Investments</b>7 lines, at the last prices you entered</span></div>
-<ol class="lines" id="lines" aria-label="Investments, line by line"><li class="ln" style="--i:0"><details><summary class="ln-r"><span class="nm">HDFC Bank</span><span class="wk">120 × ₹1,540.00 · entered 4 Sep 2025</span><span class="v num">₹1,84,800<span class="p">.00</span></span></summary><ol class="ents"><li><span class="num">4 Sep 2025</span><span>Buy 120 @ ₹1,540.00 · fee ₹180.00</span></li></ol></details></li><li class="ln" style="--i:1"><details><summary class="ln-r"><span class="nm">Apple Inc.</span><span class="wk">12 × $182.00 × ₹83.20 · entered 5 Sep 2025</span><span class="v num">₹1,81,708<span class="p">.80</span></span></summary><ol class="ents"><li><span class="num">5 Sep 2025</span><span>Buy 12 @ $182.00 · ₹83.20/$ · fee ₹240.00</span></li></ol></details></li><li class="ln" style="--i:2"><details><summary class="ln-r"><span class="nm">Investing cash</span><span class="wk">deposits − purchases − fees · 1 deposit and 28 purchases</span><span class="v num">₹1,34,106<span class="p">.58</span></span></summary><ol class="ents"><li><span>Deposits · 1</span><span class="num">₹9,00,000<span class="p">.00</span></span></li><li><span>Purchases · 28</span><span class="num">−₹7,65,263<span class="p">.42</span></span></li><li><span>Fees · 15</span><span class="num">−₹630<span class="p">.00</span></span></li></ol></details></li><li class="ln" style="--i:3"><details><summary class="ln-r"><span class="nm">Nippon India Nifty 50 BeES</span><span class="wk">444.88 × ₹286.10 · entered 5 Sep 2026</span><span class="v num">₹1,27,280<span class="p">.17</span></span></summary><ol class="ents"><li><span class="num">5 Oct 2025</span><span>SIP 39.22 @ ₹255.00 · fee ₹5.00</span></li><li><span class="num">5 Nov 2025</span><span>SIP 38.7 @ ₹258.40 · fee ₹5.00</span></li><li><span class="num">5 Dec 2025</span><span>SIP 38.15 @ ₹262.10 · fee ₹5.00</span></li><li><span class="num">5 Jan 2026</span><span>SIP 38.49 @ ₹259.80 · fee ₹5.00</span></li><li><span class="num">5 Feb 2026</span><span>SIP 37.55 @ ₹266.30 · fee ₹5.00</span></li><li><span class="num">5 Mar 2026</span><span>SIP 36.91 @ ₹270.90 · fee ₹5.00</span></li><li><span class="num">5 Apr 2026</span><span>SIP 37.29 @ ₹268.20 · fee ₹5.00</span></li><li><span class="num">5 May 2026</span><span>SIP 36.42 @ ₹274.60 · fee ₹5.00</span></li><li><span class="num">5 Jun 2026</span><span>SIP 35.8 @ ₹279.30 · fee ₹5.00</span></li><li><span class="num">5 Jul 2026</span><span>SIP 36.13 @ ₹276.80 · fee ₹5.00</span></li><li><span class="num">5 Aug 2026</span><span>SIP 35.27 @ ₹283.50 · fee ₹5.00</span></li><li><span class="num">5 Sep 2026</span><span>SIP 34.95 @ ₹286.10 · fee ₹5.00</span></li></ol></details></li><li class="ln" style="--i:4"><details><summary class="ln-r"><span class="nm">Sovereign Gold Bond 2030</span><span class="wk">20 × ₹6,100.00 · entered 8 Oct 2025</span><span class="v num">₹1,22,000<span class="p">.00</span></span></summary><ol class="ents"><li><span class="num">8 Oct 2025</span><span>Buy 20 @ ₹6,100.00</span></li></ol></details></li><li class="ln" style="--i:5"><details><summary class="ln-r"><span class="nm">Parag Parikh Flexi Cap Fund</span><span class="wk">1,226.843 × ₹85.90 · entered 5 Sep 2026</span><span class="v num">₹1,05,385<span class="p">.81</span></span></summary><ol class="ents"><li><span class="num">5 Oct 2025</span><span>SIP 110.957 @ ₹72.10</span></li><li><span class="num">5 Nov 2025</span><span>SIP 108.992 @ ₹73.40</span></li><li><span class="num">5 Dec 2025</span><span>SIP 106.88 @ ₹74.85</span></li><li><span class="num">5 Jan 2026</span><span>SIP 107.817 @ ₹74.20</span></li><li><span class="num">5 Feb 2026</span><span>SIP 104.031 @ ₹76.90</span></li><li><span class="num">5 Mar 2026</span><span>SIP 102.106 @ ₹78.35</span></li><li><span class="num">5 Apr 2026</span><span>SIP 103.093 @ ₹77.60</span></li><li><span class="num">5 May 2026</span><span>SIP 99.875 @ ₹80.10</span></li><li><span class="num">5 Jun 2026</span><span>SIP 97.029 @ ₹82.45</span></li><li><span class="num">5 Jul 2026</span><span>SIP 97.919 @ ₹81.70</span></li><li><span class="num">5 Aug 2026</span><span>SIP 95.012 @ ₹84.20</span></li><li><span class="num">5 Sep 2026</span><span>SIP 93.132 @ ₹85.90</span></li></ol></details></li><li class="ln" style="--i:6"><details><summary class="ln-r"><span class="nm">Bitcoin</span><span class="wk">0.012 × $61,000.00 × ₹83.00 · entered 11 Nov 2025</span><span class="v num">₹60,756<span class="p">.00</span></span></summary><ol class="ents"><li><span class="num">11 Nov 2025</span><span>Buy 0.012 @ $61,000.00 · ₹83.00/$ · fee ₹150.00</span></li></ol></details></li></ol><button type="button" class="more lines-all" aria-expanded="false" aria-controls="lines">Show every line</button></div>
+<ol class="lines" id="lines" aria-label="Investments, line by line"><li class="ln" style="--i:0"><details><summary class="ln-r"><span class="nm">HDFC Bank</span><span class="v num">₹1,84,800<span class="p">.00</span></span></summary><ol class="ents"><li><span class="num">4 Sep 2025</span><span>Buy 120 @ ₹1,540.00 · fee ₹180.00</span></li></ol></details><span class="wk wk-ed">120 × ₹1,540.00 · entered 4 Sep 2025</span></li><li class="ln" style="--i:1"><details><summary class="ln-r"><span class="nm">Apple Inc.</span><span class="v num">₹1,81,708<span class="p">.80</span></span></summary><ol class="ents"><li><span class="num">5 Sep 2025</span><span>Buy 12 @ $182.00 · ₹83.20/$ · fee ₹240.00</span></li></ol></details><span class="wk wk-ed">12 × $182.00 × ₹83.20 · entered 5 Sep 2025</span></li><li class="ln" style="--i:2"><details><summary class="ln-r"><span class="nm">Investing cash</span><span class="wk">deposits − purchases − fees · 1 deposit and 28 purchases</span><span class="v num">₹1,34,106<span class="p">.58</span></span></summary><ol class="ents"><li><span>Deposits · 1</span><span class="num">₹9,00,000<span class="p">.00</span></span></li><li><span>Purchases · 28</span><span class="num">−₹7,65,263<span class="p">.42</span></span></li><li><span>Fees · 15</span><span class="num">−₹630<span class="p">.00</span></span></li></ol></details></li><li class="ln" style="--i:3"><details><summary class="ln-r"><span class="nm">Nippon India Nifty 50 BeES</span><span class="wk">444.88 × ₹286.10 · entered 5 Sep 2026</span><span class="v num">₹1,27,280<span class="p">.17</span></span></summary><ol class="ents"><li><span class="num">5 Oct 2025</span><span>SIP 39.22 @ ₹255.00 · fee ₹5.00</span></li><li><span class="num">5 Nov 2025</span><span>SIP 38.7 @ ₹258.40 · fee ₹5.00</span></li><li><span class="num">5 Dec 2025</span><span>SIP 38.15 @ ₹262.10 · fee ₹5.00</span></li><li><span class="num">5 Jan 2026</span><span>SIP 38.49 @ ₹259.80 · fee ₹5.00</span></li><li><span class="num">5 Feb 2026</span><span>SIP 37.55 @ ₹266.30 · fee ₹5.00</span></li><li><span class="num">5 Mar 2026</span><span>SIP 36.91 @ ₹270.90 · fee ₹5.00</span></li><li><span class="num">5 Apr 2026</span><span>SIP 37.29 @ ₹268.20 · fee ₹5.00</span></li><li><span class="num">5 May 2026</span><span>SIP 36.42 @ ₹274.60 · fee ₹5.00</span></li><li><span class="num">5 Jun 2026</span><span>SIP 35.8 @ ₹279.30 · fee ₹5.00</span></li><li><span class="num">5 Jul 2026</span><span>SIP 36.13 @ ₹276.80 · fee ₹5.00</span></li><li><span class="num">5 Aug 2026</span><span>SIP 35.27 @ ₹283.50 · fee ₹5.00</span></li><li><span class="num">5 Sep 2026</span><span>SIP 34.95 @ ₹286.10 · fee ₹5.00</span></li></ol></details></li><li class="ln" style="--i:4"><details><summary class="ln-r"><span class="nm">Sovereign Gold Bond 2030</span><span class="wk">20 × ₹6,100.00 · entered 8 Oct 2025</span><span class="v num">₹1,22,000<span class="p">.00</span></span></summary><ol class="ents"><li><span class="num">8 Oct 2025</span><span>Buy 20 @ ₹6,100.00</span></li></ol></details></li><li class="ln" style="--i:5"><details><summary class="ln-r"><span class="nm">Parag Parikh Flexi Cap Fund</span><span class="wk">1,226.843 × ₹85.90 · entered 5 Sep 2026</span><span class="v num">₹1,05,385<span class="p">.81</span></span></summary><ol class="ents"><li><span class="num">5 Oct 2025</span><span>SIP 110.957 @ ₹72.10</span></li><li><span class="num">5 Nov 2025</span><span>SIP 108.992 @ ₹73.40</span></li><li><span class="num">5 Dec 2025</span><span>SIP 106.88 @ ₹74.85</span></li><li><span class="num">5 Jan 2026</span><span>SIP 107.817 @ ₹74.20</span></li><li><span class="num">5 Feb 2026</span><span>SIP 104.031 @ ₹76.90</span></li><li><span class="num">5 Mar 2026</span><span>SIP 102.106 @ ₹78.35</span></li><li><span class="num">5 Apr 2026</span><span>SIP 103.093 @ ₹77.60</span></li><li><span class="num">5 May 2026</span><span>SIP 99.875 @ ₹80.10</span></li><li><span class="num">5 Jun 2026</span><span>SIP 97.029 @ ₹82.45</span></li><li><span class="num">5 Jul 2026</span><span>SIP 97.919 @ ₹81.70</span></li><li><span class="num">5 Aug 2026</span><span>SIP 95.012 @ ₹84.20</span></li><li><span class="num">5 Sep 2026</span><span>SIP 93.132 @ ₹85.90</span></li></ol></details></li><li class="ln" style="--i:6"><details><summary class="ln-r"><span class="nm">Bitcoin</span><span class="wk">0.012 × $61,000.00 × ₹83.00 · entered 11 Nov 2025</span><span class="v num">₹60,756<span class="p">.00</span></span></summary><ol class="ents"><li><span class="num">11 Nov 2025</span><span>Buy 0.012 @ $61,000.00 · ₹83.00/$ · fee ₹150.00</span></li></ol></details></li></ol><button type="button" class="more lines-all" aria-expanded="false" aria-controls="lines">Show every line</button></div>
 <div class="br" data-br="accounts"><span class="tr tr-drop" style="--i:2" aria-hidden="true"></span><div class="term"><span class="op" aria-hidden="true">+</span><span class="t num" data-r="₹14,41,000">₹14,41,000<span class="p">.00</span></span><span class="tnote" style="--i:2"><b>Accounts</b>5 accounts: bank, EPF and PPF balances you entered</span></div>
 <ol class="lines" aria-label="Accounts, balance by balance"><li class="ln" style="--i:0"><div class="ln-r"><span class="nm">Employees&#x27; Provident Fund</span><span class="wk">Retirement · on 10 Aug 2026</span><span class="v num">₹8,14,000<span class="p">.00</span></span></div></li><li class="ln" style="--i:1"><div class="ln-r"><span class="nm">Public Provident Fund</span><span class="wk">Retirement · on 30 May 2026</span><span class="v num">₹3,22,000<span class="p">.00</span></span></div></li><li class="ln" style="--i:2"><div class="ln-r"><span class="nm">HDFC Savings</span><span class="wk">Cash &amp; bank · on 25 Sep 2026</span><span class="v num">₹2,42,000<span class="p">.00</span></span></div></li><li class="ln" style="--i:3"><div class="ln-r"><span class="nm">ICICI Salary account</span><span class="wk">Cash &amp; bank · on 25 Sep 2026</span><span class="v num">₹61,500<span class="p">.00</span></span></div></li><li class="ln" style="--i:4"><div class="ln-r"><span class="nm">Old Paytm wallet</span><span class="wk">Cash &amp; bank</span><span class="v num">₹1,500<span class="p">.00</span></span></div></li></ol></div>
 <div class="br" data-br="liabilities"><span class="tr tr-drop" style="--i:3" aria-hidden="true"></span><div class="term"><span class="op" aria-hidden="true">−</span><span class="t num" data-r="₹4,38,400">₹4,38,400<span class="p">.00</span></span><span class="tnote" style="--i:3"><b>Liabilities</b>2 balances you entered</span></div>
@@ -144,7 +153,7 @@
       <div>
         <h2 id="w-h">Your financial data never leaves your device.</h2>
         <p class="lede">Not by default, never quietly: no Pocket account, no Pocket server. Prices, sync and the update check run only when you switch them on, and only to where you send them.</p>
-        <div class="count"><b class="num" data-tp>0</b><p>third-party requests made by this page<span class="count-all" hidden>, out of <span class="num" data-all></span> requests in all</span>, counted by your own browser as it loaded. <a href="security-architecture.html#check-site">Check it yourself</a></p></div>
+        <div class="count"><b class="num" data-tp>0</b><p>third-party requests made by this page<span class="count-all" hidden>, out of <span class="num" data-all></span> requests in all</span>, counted by your own browser as it loaded: requests to any site other than mypocketfi.com. Your browser&rsquo;s Network panel shows each one (<a href="security-architecture.html#connections">Security architecture, section 9</a>).</p></div>
         <svg class="schem" viewBox="0 0 560 250" aria-hidden="true" focusable="false"><rect class="pc" x="1" y="77" width="214" height="96" rx="8"/><text class="k" x="14" y="103">THIS DEVICE</text><text class="b" x="14" y="128">Your database</text><text x="14" y="152">on this device only</text><g data-conn="prices"><path class="w" pathLength="1" d="M215 101H232V40H262"/><circle class="j" cx="262" cy="40" r="3.5"/><path class="lv" d="M262 40l30 -15"/><circle class="o" cx="298" cy="40" r="3.5"/><text class="k" x="264" y="66">OFF</text><text class="k if" x="264" y="66">IF ON</text><path class="far" d="M302 40H330"/><rect class="far" x="330" y="23" width="228" height="34" rx="6"/><text x="344" y="45">Price providers</text></g><g data-conn="sync"><path class="w" pathLength="1" d="M215 125H262"/><circle class="j" cx="262" cy="125" r="3.5"/><path class="lv" d="M262 125l30 -15"/><circle class="o" cx="298" cy="125" r="3.5"/><text class="k" x="264" y="151">OFF</text><text class="k if" x="264" y="151">IF ON</text><path class="far" d="M302 125H330"/><rect class="far" x="330" y="108" width="228" height="34" rx="6"/><text x="344" y="130">A folder you choose</text></g><g data-conn="update"><path class="w" pathLength="1" d="M215 149H232V210H262"/><circle class="j" cx="262" cy="210" r="3.5"/><path class="lv" d="M262 210l30 -15"/><circle class="o" cx="298" cy="210" r="3.5"/><text class="k" x="264" y="236">OFF</text><text class="k if" x="264" y="236">IF ON</text><path class="far" d="M302 210H330"/><rect class="far" x="330" y="193" width="228" height="34" rx="6"/><text x="344" y="215">mypocketfi.com</text></g></svg>
         <svg class="schem schem-v" viewBox="0 0 340 250" aria-hidden="true" focusable="false"><rect class="pc" x="1" y="1" width="338" height="62" rx="8"/><text class="k" x="14" y="24">THIS DEVICE</text><text class="b" x="14" y="47">Your database</text><text x="124" y="47">on this device only</text><g data-conn="prices"><path class="w" pathLength="1" d="M24 63V100H60"/><circle class="j" cx="60" cy="100" r="3.5"/><path class="lv" d="M60 100l30 -15"/><circle class="o" cx="96" cy="100" r="3.5"/><text class="k" x="62" y="124">OFF</text><text class="k if" x="62" y="124">IF ON</text><path class="far" d="M100 100H128"/><rect class="far" x="128" y="83" width="210" height="34" rx="6"/><text x="142" y="105">Price providers</text></g><g data-conn="sync"><path class="w" pathLength="1" d="M24 63V160H60"/><circle class="j" cx="60" cy="160" r="3.5"/><path class="lv" d="M60 160l30 -15"/><circle class="o" cx="96" cy="160" r="3.5"/><text class="k" x="62" y="184">OFF</text><text class="k if" x="62" y="184">IF ON</text><path class="far" d="M100 160H128"/><rect class="far" x="128" y="143" width="210" height="34" rx="6"/><text x="142" y="165">A folder you choose</text></g><g data-conn="update"><path class="w" pathLength="1" d="M24 63V220H60"/><circle class="j" cx="60" cy="220" r="3.5"/><path class="lv" d="M60 220l30 -15"/><circle class="o" cx="96" cy="220" r="3.5"/><text class="k" x="62" y="244">OFF</text><text class="k if" x="62" y="244">IF ON</text><path class="far" d="M100 220H128"/><rect class="far" x="128" y="203" width="210" height="34" rx="6"/><text x="142" y="225">mypocketfi.com</text></g></svg>
         
@@ -170,7 +179,31 @@
   <section class="sec alt faq" id="faq" aria-labelledby="faq-h">
     <div class="wrap faq-in">
       <div class="sec-head"><h2 id="faq-h">Asked first.</h2><p>The rest are in the <a href="guides.html">guides</a> and on <a href="contact.html">Support</a>.</p></div>
+      <div class="faq-r">
       <!-- sample:faq --><div class="faq-l"><details class="qa"><summary><h3>Is Pocket free?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>Yes. The Free plan tracks everything, with no time limit and no card. Each install starts with 14 days of Founder Pro; after that Pocket stays on Free unless you buy Founder Pro (₹499 a month or ₹4,999 a year) or Lifetime Founder (₹14,999 once).</p></details><details class="qa"><summary><h3>Does Pocket need my bank login?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>No. It reads the statements you download from your bank and your mutual-fund registrar, on your device, and never asks for a login, a password to your bank or an OTP.</p></details><details class="qa"><summary><h3>Where is my data kept?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>On your own device: in a database on your computer, which your phone can open over your own Wi-Fi, or inside the Android app. There is no Pocket server and no account, so there is nothing of yours for Pocket to see.</p></details><details class="qa"><summary><h3>Which devices does it run on?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>Windows 10 and 11 (64-bit), macOS on Apple silicon, Linux (Ubuntu 24.04, Debian 13 or newer, and an AppImage), and Android 7.0 or later. Pocket 3.2.11, published 26 October 2026.</p></details><details class="qa"><summary><h3>Is Pocket investment advice?</h3><span class="qa-i" aria-hidden="true"></span></summary><p>No. Pocket is not registered with SEBI and gives no advice. It reports each figure, its target and the gap between them, and leaves the decision with you.</p></details></div><!-- /sample:faq -->
+      <div class="not-for">
+        <h3>Not for you if</h3>
+        <ul>
+          <li>you want your bank linked to it: Pocket reads the statement files you download, and never asks for a bank login.</li>
+          <li>you only use an iPhone: the iPhone app comes with its App Store listing; today it is Windows, macOS, Linux and Android.</li>
+          <li>you need its database encrypted on a Mac or Linux: that is Windows only so far (Android always encrypts), so use FileVault or full-disk encryption meanwhile.</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight after-sec" aria-label="What it costs, and after you download">
+    <div class="wrap close-in">
+      <div class="close-c"><!-- sample:offer --><p class="offer">Free forever, no card; 14 days of Founder Pro on every install, then ₹499 a month or ₹4,999 a year, or Lifetime Founder ₹14,999 once. <a href="pricing.html">What Founder Pro adds</a></p><!-- /sample:offer --></div>
+      <div class="close-b">
+        <h3 class="tag" id="after-h">After you download</h3>
+        <ol class="after" aria-labelledby="after-h">
+          <li><b>Install one file</b><span>No account and no sign-in. Windows and macOS warn on its first run, as the builds are not code-signed yet: check it against its SHA‑256 on the <a href="download.html">Download page</a> first.</span></li>
+          <li><b>Start on the sample</b><span>Pocket opens on the sample person from this page, labelled as a sample.</span></li>
+          <li><b>Add your own numbers</b><span>Import a bank or mutual-fund statement, or type an entry. The sample goes once your own figures are in.</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -183,20 +216,6 @@
 <p class="soon">Pocket 3.2.11 · 26 October 2026 · <a href="changelog.html">14 releases since 28 September 2026</a> · Windows, macOS, Linux and Android</p><!-- /sample:close -->
       </div>
       <!-- sample:closesheet --><div class="close-sheet" aria-hidden="true"><p class="tag">Entries you made · sample</p><ol><li>HDFC Bank</li><li>Apple Inc.</li><li>Nippon India Nifty 50 BeES</li><li>Employees&#x27; Provident Fund</li><li>Public Provident Fund</li><li>Car loan</li></ol><p class="sheet-rest">and 8 more lines, each opening to its entries</p></div><!-- /sample:closesheet -->
-    </div>
-  </section>
-
-  <section class="sec alt tight after-sec" aria-label="What it costs, and after you download">
-    <div class="wrap close-in">
-      <div class="close-c"><!-- sample:offer --><p class="offer">Free forever, no card; 14 days of Founder Pro on every install, then ₹499 a month or ₹4,999 a year, or Lifetime Founder ₹14,999 once. <a href="pricing.html">What Founder Pro adds</a></p><!-- /sample:offer --></div>
-      <div class="close-b">
-        <h3 class="tag" id="after-h">After you download</h3>
-        <ol class="after" aria-labelledby="after-h">
-          <li><b>Install one file</b><span>No account and no sign-in. Windows and macOS warn on its first run, as the builds are not code-signed yet: check it against its SHA‑256 on the <a href="download.html">Download page</a> first.</span></li>
-          <li><b>Start on the sample</b><span>Pocket opens on the sample person from this page, labelled as a sample.</span></li>
-          <li><b>Add your own numbers</b><span>Import a bank or mutual-fund statement, or type an entry. The sample goes once your own figures are in.</span></li>
-        </ol>
-      </div>
     </div>
   </section>
   <div class="dock" inert><!-- sample:dock --><a class="cta" href="download.html">Download free</a><a class="btn-line" href="mailto:?subject=Pocket%20for%20my%20computer&amp;body=Download%20Pocket%3A%20https%3A%2F%2Fmypocketfi.com%2Fdownload.html">Email me the link</a><!-- /sample:dock --></div>
@@ -223,6 +242,6 @@
 </footer>
 
 <script src="assets/vestora.js" defer></script>
-<script src="assets/home.js?v=20" defer></script>
+<script src="assets/home.js?v=21" defer></script>
 </body>
 </html>

@@ -318,8 +318,6 @@
       var rest = (m[4] || "") + wk.textContent.slice(m[0].length);
       wk.textContent = "";
       wk.append(e.q, " × " + m[2], e.p, rest);
-      var det = li.querySelector("details");
-      if (det) { det.after(wk); wk.classList.add("wk-ed"); }   // no input inside <summary> (axe: nested-interactive)
       eds.push(e);
     });
     if (!eds.length) return;

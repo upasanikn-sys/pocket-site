@@ -1,4 +1,4 @@
-/* Pocket: shared site behaviour, on every page (defer). DOWNLOAD_URL: the Windows file, tools/site_download.py. */
+/* Pocket: shared site behaviour (defer). DOWNLOAD_URL: tools/site_download.py. */
 var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/download/v3.2.11/Pocket_3.2.11_windows_setup.exe";
 
 (function () {
@@ -22,8 +22,7 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
     });
   }
 
-  /* --- Show working is one choice, remembered on every page (R1, 17 Oct 2026). A switch the visitor turns
-     stores it; each page's own switch takes it on load. The Security board's connection switches are not it --- */
+  /* --- Show working: one remembered choice (R1). The Security board's switches are not it --- */
   var K = "pocket.working", S = ".sw[role=switch],[data-wk]";
   var on = function (b) { return (b.getAttribute("aria-checked") || b.getAttribute("aria-pressed")) === "true"; };
   document.addEventListener("click", function (e) {
@@ -57,13 +56,15 @@ var DOWNLOAD_URL = "https://github.com/upasanikn-sys/pocket-site/releases/downlo
       e.preventDefault();
       if (window.PocketSearch) return PocketSearch.open();
       var s = document.createElement("script");
-      s.src = "assets/search.js?v=1";
+      s.src = "assets/search.js?v=2";
       s.onerror = function () { location.href = sq.href; };
       document.head.appendChild(s);
     };
     sq.onclick = ask;
     addEventListener("keydown", function (e) {
-      if (e.key === "/" && !(e.ctrlKey || e.metaKey || e.altKey) && !e.target.closest("input,textarea,select,[contenteditable]")) ask(e);
+      if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey || e.target.closest("input,textarea,select,[contenteditable]")) return;
+      var off; try { off = localStorage.getItem("pocket.slash") === "off"; } catch (x) {}   // WCAG 2.1.4: it can be turned off
+      if (!off) ask(e);
     });
   }
 

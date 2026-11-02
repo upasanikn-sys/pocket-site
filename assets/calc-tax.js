@@ -76,6 +76,7 @@
     return out;
   }
 
+  C.taxRows = rows;
   var F = ["salary", "c80", "d80s", "d80p", "other"];
   C.RUN.tax = function () {
     var p = F.map(function (n, i) { return C.money(n, !i, true); });
@@ -94,5 +95,5 @@
     C.o("new-rows", C.rows(rows(n, d))); C.o("old-rows", C.rows(rows(od, d)));
     return say;
   };
-  C.start();
+  if (C.start) C.start();
 })();

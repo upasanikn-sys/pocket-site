@@ -18,6 +18,10 @@ html[data-os="linux"] .dl-first, html[data-os="android"] .dl-first, html[data-os
 .dl-main .cta{min-height:56px; padding:0 28px; font-size:var(--fs-lede)}
 .dl-what{margin:0; font-size:var(--fs-small); color:var(--ink-3); font-variant-numeric:tabular-nums}
 .dl-file{color:var(--ink-2)}
+.dl-started{flex-basis:100%; margin:4px 0 0; padding:14px 16px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card); font-size:var(--fs-small); line-height:1.6; color:var(--ink-2)}
+.dl-started:empty{display:none}
+.dl-started b{color:var(--ink)}
+.slot > .dl-started{margin-top:12px}
 .platforms{max-width:none; grid-template-columns:repeat(5,minmax(0,1fr))}
 .slot{display:flex; flex-direction:column; min-width:0}
 .slot + .slot{border-left:1px solid var(--rule)}

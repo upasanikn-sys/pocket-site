@@ -1,3 +1,4 @@
+html{scroll-padding:88px 0 96px}
 .ph-caption{margin:52px 0 10px; font-size:var(--fs-caption); color:var(--ink-3)}
 .pair h2{margin:0; font-size:24px; line-height:1.15; letter-spacing:-.02em}
 .pair-sub{margin:10px 0 16px; font-size:var(--fs-caption); color:var(--ink-3)}
@@ -189,7 +190,7 @@ color:var(--ink-2); font-size:var(--fs-body); line-height:1.7}
 .prose .phnote{color:var(--ink-3); font-size:var(--fs-small)}
 .prose p.phnote{margin:14px 0; padding-left:14px; border-left:1px solid var(--rule-2)}
 .prose .lnote{margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3)}
-.prose h2[id]{scroll-margin-top:96px}
+.prose h2[id]{scroll-margin-top:8px}
 .prose .ltoc{margin:0 0 40px; padding-top:16px; border-top:1px solid var(--rule)}
 .prose .ltoc-h{margin:0 0 4px; font-size:var(--fs-small); color:var(--ink-3)}
 .prose .ltoc ol{margin:0; padding-left:1.6em; columns:2 240px; column-gap:40px}

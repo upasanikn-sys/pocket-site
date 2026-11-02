@@ -1,3 +1,4 @@
+html{scroll-padding:88px 0 96px}
 .ph-cap{margin:16px 0 0; font-size:var(--fs-caption); color:var(--ink-3); max-width:68ch; line-height:1.6}
 .proof{margin:16px 0 0; font-size:var(--fs-small); color:var(--ink-3); line-height:1.6; max-width:68ch}
 .sec-body{max-width:62ch; min-width:0}
@@ -91,7 +92,7 @@ transition:opacity var(--t-ui) var(--ease-ui), visibility var(--t-ui) var(--ease
 .js .tour-panel.on{opacity:1; visibility:visible}
 html:not(.js) .tour-tabs{display:none}
 .mods2{display:grid; grid-template-columns:minmax(0,1fr); border-top:1px solid var(--rule-2)}
-.mod2{padding:24px 0; border-bottom:1px solid var(--rule); scroll-margin-top:88px}
+.mod2{padding:24px 0; border-bottom:1px solid var(--rule)}
 .mod2 h3{margin:0 0 8px; font-size:var(--fs-h3)}
 .crop{margin:0 0 16px; overflow:hidden; aspect-ratio:calc(var(--w) / var(--h)); border:1px solid var(--rule-2);
 border-radius:var(--r-3); background:var(--card)}
@@ -169,6 +170,7 @@ border:1px solid var(--edge); transition:background var(--t-ui) var(--ease-ui), 
 background:var(--ink-2); transition:transform var(--t-ui) var(--ease-ui), background var(--t-ui) var(--ease-ui)}
 .board .sw[aria-pressed="true"] .track{background:var(--ink); border-color:var(--ink)}
 .board .sw[aria-pressed="true"] .track::after{transform:translateX(14px); background:var(--card)}
+.board .sw:hover .track{border-color:var(--ink-2)}
 .board .sw:active .track{transform:translateY(1px)}
 .board-out{padding:24px; min-width:0}
 .req{margin:0; padding:0; list-style:none}
@@ -189,7 +191,6 @@ animation:arrive var(--t-ui) var(--ease-ui)}
 .toc ol{margin:0; padding:0; list-style:none; border-left:1px solid var(--rule-2)}
 .toc a{display:block; padding:6px 0 6px 14px; color:var(--ink-3); line-height:1.4; text-decoration:none}
 .toc a:hover{color:var(--ink)}
-.prose [id]{scroll-margin-top:88px}
 .prose code{font:400 var(--fs-prov)/1.5 var(--mono); color:var(--ink); background:var(--plate); padding:1px 4px;
 border-radius:var(--r-1); overflow-wrap:anywhere}
 .prose table.conns td, .prose table.history td{font-size:var(--fs-small)}
@@ -241,7 +242,6 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .ltoc.strip ol{display:flex; gap:24px; margin:0; padding:0; list-style:none; overflow-x:auto}
 .ltoc.strip li{flex:none; font-size:var(--fs-small)}
 .ltoc.strip a{display:inline-flex; align-items:center; justify-content:center; min-height:44px; min-width:24px; white-space:nowrap}
-.sec[id], .phase[id]{scroll-margin-top:88px}
 @media (max-width:560px){ .ltoc.strip .wrap{gap:12px} .ltoc.strip ol{gap:16px} }
 @media (max-width:900px){ .toc{padding-top:40px} .toc ol{display:flex; gap:16px; overflow-x:auto; border-left:0} .toc li{flex:none} .toc a{display:inline-flex; align-items:center; min-height:44px; padding:0; white-space:nowrap; text-decoration:underline; text-underline-offset:3px; color:var(--ink)} }
 @media (min-width:1000px) and (min-height:650px) and (prefers-reduced-motion:no-preference){
@@ -295,7 +295,7 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .gl{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px;cursor:help}
 .gl:hover{text-decoration-style:solid}
 .also{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ink)}
-.also li{display:grid;align-content:start;gap:4px;padding:16px 0;border-bottom:1px solid var(--rule);scroll-margin-top:88px}
+.also li{display:grid;align-content:start;gap:4px;padding:16px 0;border-bottom:1px solid var(--rule)}
 .also strong{font:600 var(--fs-body)/1.35 var(--sans)}
 .also li>span{color:var(--ink-2);font-size:var(--fs-small)}
 @media (max-width:900px){ .also{grid-template-columns:repeat(2,minmax(0,1fr))} }
@@ -329,7 +329,6 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .story .ltoc.strip a[href="#retire"]{animation-timeline:--k4}
 .story .ltoc.strip a[href="#tax"]{animation-timeline:--k5}
 .story .ltoc.strip a[href="#where"]{animation-timeline:--k6}
-.story .sec[id]{scroll-margin-top:100px}
 .story .with-shot > .cap-fig:not(.phone){position:sticky; top:96px}
 .story .with-shot > .cap-fig.phone .frame{max-height:calc(100svh - 230px)}
 @keyframes story-rise{from{transform:translateY(16px)} to{transform:none}}
@@ -338,7 +337,7 @@ margin:0; font-size:var(--fs-small); color:var(--ink); line-height:1.4}
 .story .cap-fig .cs .crop, .story .cap-fig .frame{animation:story-fade linear both; animation-timeline:view(); animation-range:entry 0% entry 60%}
 @media (min-height:700px){
 .story .ltoc.strip{position:sticky; top:73px; z-index:calc(var(--z-sticky) - 1); background:var(--paper)}
-.story .sec[id]{scroll-margin-top:124px}
+html:has(.story){scroll-padding-top:124px}
 .story .with-shot > .cap-fig:not(.phone){top:138px}
 }
 @media (min-height:800px){ .story .with-shot > .cap-fig.phone{position:sticky; top:138px} }

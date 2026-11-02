@@ -253,16 +253,15 @@
     if (tx) tx.form.addEventListener("submit", function (e) {
       e.preventDefault(); var v = tx.value.replace(/\D/g, ""); location.href = tx.form.action + (v ? "#salary=" + v : "");
     });
-    /* R16: a typed salary moves the slider to its nearest step */
+    /* R16m: a typed salary is worked out by the calculator's own code, loaded on the first typing */
     if (tx) tx.addEventListener("input", function () {
-      var v = +tx.value.replace(/\D/g, "");
-      if (v < +rng.min || v > +rng.max) return;
-      rng.value = T.from + Math.round((v - T.from) / T.step) * T.step;
-      rng.dispatchEvent(new Event("input"));
-    });
+      ["calc.js", "calc-tax.js", "try-exact.js?v=1"].forEach(function (f) {
+        var s = d.createElement("script"); s.async = false; s.src = "assets/" + f; d.head.appendChild(s);
+      });
+    }, { once: true });
     rng.addEventListener("input", function () {
       rng.style.setProperty("--f", (rng.value - rng.min) / (rng.max - rng.min));
-      var r = T.p[Math.round((rng.value - T.from) / T.step)];
+      var r = rng.x || T.p[Math.round((rng.value - T.from) / T.step)];
       box.querySelector(".try-g").textContent = r[0]; rollFig("new", r[1]); rollFig("old", r[2]);
       put("say", r[3] ? T.lower.replace("%w", r[3]).replace("%d", r[4]) : T.same);
       put("be", T.be[r[5]] || T.be[2].replace("%s", r[5]));

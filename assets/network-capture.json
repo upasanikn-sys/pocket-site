@@ -1,0 +1,39 @@
+{
+ "about": "A recorded run of Pocket's server on the sample person's data, with every connection at its default (off), under Python's audit hook. Made by tools/net_capture.py; the Security architecture page explains it.",
+ "control": {
+  "asked": "POST /api/update/check, the update check, which is off until asked",
+  "events": [
+   "urllib.Request"
+  ],
+  "outside_events": 1,
+  "outside_hosts": [
+   "mypocketfi.com"
+  ],
+  "status": 200,
+  "stopped_by_the_recorder": true
+ },
+ "default": {
+  "events_watched": 14,
+  "outside_events": 0,
+  "outside_hosts": [],
+  "requests": 14,
+  "routes": [
+   "/",
+   "/api/ask",
+   "/api/backups",
+   "/api/export",
+   "/api/phone",
+   "/api/state",
+   "/chart.js",
+   "/icon-192.png",
+   "/icon-512.png",
+   "/icon.svg",
+   "/m",
+   "/manifest.json",
+   "/sw.js"
+  ],
+  "server_errors": []
+ },
+ "pocket": "3.2.11",
+ "recorded": "2026-11-01"
+}

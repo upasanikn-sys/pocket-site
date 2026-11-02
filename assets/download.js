@@ -17,6 +17,17 @@
     file.textContent = "Not on " + SAY[os] + " yet: it runs on a Windows or Mac computer, Linux and Android";
     go.textContent = "Email me the link";
     go.setAttribute("href", "mailto:?subject=Pocket%20for%20my%20computer&body=Download%20Pocket%3A%20https%3A%2F%2Fmypocketfi.com%2Fdownload.html");
+    // R16n: a phone with no mail app opens nothing, so the link is there to copy as well; with no clipboard it is written out
+    var cp = document.createElement("button"), say = document.createElement("span"), page = location.origin + location.pathname;
+    cp.type = "button"; cp.className = "ghost"; cp.setAttribute("data-copy", ""); cp.textContent = "Or copy the link";
+    say.className = "sr"; say.setAttribute("role", "status"); say.setAttribute("aria-live", "polite");
+    cp.addEventListener("click", function () {
+      (navigator.clipboard ? navigator.clipboard.writeText(page) : Promise.reject()).then(function () {
+        cp.textContent = "Link copied"; say.textContent = "Link copied";
+      }, function () { cp.textContent = page.replace(/^https?:\/\//, ""); say.textContent = "Copy this address: " + cp.textContent; });
+    });
+    go.parentNode.insertBefore(cp, go.nextSibling);
+    go.parentNode.insertBefore(say, cp.nextSibling);
     return;
   }
   // CV3 (STRIPE_LEVEL, 14 Oct 2026): the visitor's platform first in the list, its checksum beside the button
@@ -65,17 +76,35 @@
   });
 })();
 
-/* "keep me posted" forms (moved from vestora.js, 17 Oct 2026: only this page has one): never POST anywhere; they open
-   the visitor's own email app */
+/* After a download link is pressed, say what comes next beside that link (R16n, REVIEW_29OCT_R16G Conversion: "a short your-first-
+   five-minutes confirmation after the download starts"). The box is in the page, empty, with role="status", so what is put in it
+   is heard; it takes no focus and says nothing about whether the browser began the file, which it cannot know. */
 (function () {
   "use strict";
-  document.querySelectorAll("[data-notify-form]").forEach(function (f) {
-    f.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var input = f.querySelector("input"), val = input ? input.value.trim() : "";
-      window.location.href = "mailto:support@mypocketfi.com?subject=" + encodeURIComponent("Keep me posted on Pocket") +
-        "&body=" + encodeURIComponent("Please add me to the update list." + (val ? " My email: " + val : ""));
-      if (input) input.value = "";
-    });
+  var box = document.getElementById("dl-started");
+  if (!box) return;
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="/releases/download/"]');
+    if (!a) return;
+    (a.closest(".dl-main, .slot") || a.parentNode).appendChild(box);
+    box.innerHTML = "<b>Your download is on its way.</b> If nothing arrived, press the link again. Windows and macOS " +
+      'ask you to confirm the first open, because the builds are not signed yet. <a href="#first-minutes">Your first 5 minutes</a> · ' +
+      '<a href="#check">Check the file\'s SHA-256</a>';
   });
+})();
+
+/* The "0 third-party requests" promise above the downloads is counted by the visitor's own browser as the page loads, as
+   Security's is (R16n, REVIEW_29OCT_R16G Detail: the number next to its definition). With no script the promise stands as
+   written; with one it shows the count and says who counted. */
+(function () {
+  "use strict";
+  var line = Array.prototype.filter.call(document.querySelectorAll(".hnote span"), function (s) { return /third-party/.test(s.textContent); })[0];
+  if (!line || !window.PerformanceObserver) return;
+  var n = 0;
+  try {
+    new PerformanceObserver(function (l) {
+      l.getEntries().forEach(function (e) { if (new URL(e.name, location.href).origin !== location.origin) n += 1; });
+      line.lastChild.textContent = " This page made " + n + " third-party request" + (n === 1 ? "" : "s") + ", counted by your browser as it loaded";
+    }).observe({ type: "resource", buffered: true });
+  } catch (x) {}
 })();

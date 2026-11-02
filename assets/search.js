@@ -3,7 +3,7 @@
    same list, in the same order, one file from this origin. What you type never leaves the page and is kept nowhere. */
 (function () {
   "use strict";
-  var V = "1", list = document.getElementById("search-list"), rows = null, loading = null;
+  var V = "2", list = document.getElementById("search-list"), rows = null, loading = null;
 
   /* the words you typed, each of which a result must contain; the title counts for more than what the entry says */
   function tokens(q) { return q.toLowerCase().split(/\s+/).filter(Boolean); }
@@ -48,7 +48,8 @@
     box.form.addEventListener("submit", function (e) { e.preventDefault(); });
     box.addEventListener("keydown", function (e) { if (e.key === "Escape" && box.value) { box.value = ""; narrow(); } });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey && !typing(e)) { e.preventDefault(); box.focus(); }
+      var off; try { off = localStorage.getItem("pocket.slash") === "off"; } catch (x) {}     // WCAG 2.1.4: it can be turned off
+      if (e.key === "/" && !off && !e.ctrlKey && !e.metaKey && !e.altKey && !typing(e)) { e.preventDefault(); box.focus(); }
     });
     var q0 = new URLSearchParams(location.search).get("q");
     if (q0) { box.value = q0; narrow(); }

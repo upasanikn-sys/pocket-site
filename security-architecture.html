@@ -28,7 +28,7 @@
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=12">
 <link rel="stylesheet" href="assets/observatory.css?v=22">
-<link rel="stylesheet" href="assets/product-pages.css?v=31">
+<link rel="stylesheet" href="assets/product-pages.css?v=33">
 <link rel="stylesheet" href="assets/site-shell.css?v=13">
 </head>
 <body>
@@ -100,7 +100,7 @@
 </nav>
 <article class="prose">
   <h1 class="d">Security architecture</h1>
-  <div class="ldate">Updated 26 October 2026 · describes Pocket 3.2.11, checked against its source code</div>
+  <div class="ldate">Updated 1 November 2026 · describes Pocket 3.2.11, checked against its source code</div>
 
   <div class="lsum">
     <b>In short:</b> Pocket runs on your computer and has no server, so there is no central copy of anyone's
@@ -239,6 +239,10 @@
   on your computer (section 11); the app loads nothing from another site, fonts and charts included, and a test
   fails if it ever does. This website makes no request to another site either.</p>
   <p id="check-site"><strong>Check this website yourself.</strong> Open your browser’s developer tools (F12, or Command-Option-I on a Mac), choose Network and reload the page. Look at where each request goes (the Domain column, or hover a row): every one is mypocketfi.com. The home page counts the same requests as it loads, and says how many went anywhere else.</p>
+
+  <!-- netcap -->
+  <p id="recorded-run"><strong>A recorded run.</strong> Pocket's server was started on the sample person's data with every connection at its default, which is off, and a listener told of every network connection and every name it looked up (Python's audit hook). It was then asked for every page and answer it gives to a plain request, 13 routes in 14 requests: the dashboard, the phone view, their state, the on-device answers, the backup list, the export, and the files those pages load from it. It opened <b>0</b> connections to anywhere but this computer. As a control, the update check, which is off until asked, was then asked for once: the listener saw the server build a request to <code>mypocketfi.com</code> and stopped it there, so the listener is known to see what it is meant to. The record is <a href="assets/network-capture.json" download>network-capture.json</a> (recorded 1 November 2026, Pocket 3.2.11); <code>python tools/net_capture.py</code> makes it again. It covers the server process, not a browser (the Security page counts what your browser loads), it was made on the sample, not on anyone's own figures, and it is one run by the people who wrote the program: no one outside has repeated it.</p>
+  <!-- /netcap -->
 
   <h2 id="not">10. What is not protected: read this</h2>
   <ul>

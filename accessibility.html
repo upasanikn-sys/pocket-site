@@ -28,7 +28,7 @@
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=12">
 <link rel="stylesheet" href="assets/observatory.css?v=22">
-<link rel="stylesheet" href="assets/inner.css?v=18">
+<link rel="stylesheet" href="assets/inner.css?v=19">
 <link rel="stylesheet" href="assets/site-shell.css?v=13">
 </head>
 <body>
@@ -80,11 +80,12 @@
 </header>
 
 <main id="main">
-<link rel="stylesheet" href="assets/company-pages.css?v=24">
+<link rel="stylesheet" href="assets/company-pages.css?v=25">
+<link rel="stylesheet" href="assets/a11y.css?v=5">
 <div class="wrap">
 <article class="prose">
   <h1 class="d">Accessibility</h1>
-  <div class="ldate">Checked before every publish · Written 29 October 2026 · Applies to this website</div>
+  <div class="ldate">Checked before every publish · Written 29 October 2026 · Updated 1 November 2026 · Applies to this website</div>
 
   <div class="lsum">
     <b>In short:</b> this website aims to meet WCAG 2.2 at level AA. Before any change is published, Pocket's own
@@ -97,6 +98,8 @@
     <div class="tm-in"><p class="ltoc-h">On this page</p>
     <ol>
       <li><a href="#held">What every page is held to</a></li>
+      <li><a href="#criteria">Every criterion, one row each</a></li>
+      <li><a href="#keys">The one keyboard shortcut</a></li>
       <li><a href="#limits">What is not yet known</a></li>
       <li><a href="#tell">Tell us what got in the way</a></li>
       <li><a href="#history">Version history</a></li>
@@ -122,7 +125,105 @@
     <li><b>Film.</b> The product film has captions, and it plays only when you press play.</li>
   </ul>
 
-  <h2 id="limits">2. What is not yet known</h2>
+  <h2 id="criteria">2. Every criterion, one row each</h2>
+  <p>WCAG 2.2 has 55 criteria at levels A and AA. Each has a row: what the website does about it, and what checks that. A
+    row says <b>Held, by a script</b> only when it names a test tool that exists in Pocket's own repository, and these
+    rows are read back against the standard before every publish. It says <b>Held, by hand</b> when the site is built
+    that way and a person has looked, but no script checks it. This is not a claim of conformance: that is for people who
+    rely on assistive technology to say, and none has yet.</p>
+  <!-- wcag:table -->
+<p class="wcag-sum">Of the 55 criteria at levels A and AA in WCAG 2.2: <b>24</b> held and checked by a script, <b>21</b> held and checked by hand, <b>9</b> do not apply to a site like this, <b>1</b> not yet known. A script is one of Pocket's own test tools; a person who uses a screen reader every day has not yet checked any of it.</p>
+<h3 id="wcag-perceivable">Perceivable</h3>
+<table class="wcag" role="table">
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Criterion</th><th scope="col" role="columnheader">Level</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">How it is held, and what checks it</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.1.1</span> Non-text content</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every image has an alt: a picture of the app or of the tax sheet says what it shows, a decorative one has an empty alt. Every control and figure has a name a screen reader can read. <span class="wcag-by">Checked by <code>inner_probe</code>, <code>visual_qa</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.2.1</span> Audio-only and video-only (prerecorded)</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The one film is silent. Its captions say what each step shows, and a written transcript sits under it on the home page.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.2.2</span> Captions (prerecorded)</th><td role="cell">A</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">The film has no speech or sound to caption. Its on-screen captions are covered under 1.2.1.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.2.3</span> Audio description or media alternative (prerecorded)</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The transcript under the film is its text alternative (see 1.2.1).</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.2.4</span> Captions (live)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">Nothing on the site is live.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.2.5</span> Audio description (prerecorded)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">The film has no sound track, so it is not synchronized media; what each step shows is in its captions and transcript (1.2.1).</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.3.1</span> Info and relationships</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Headings, lists, tables, landmarks and form labels are real elements, not styled text. axe checks them on every page, light and dark, and a test holds the heading levels. <span class="wcag-by">Checked by <code>visual_qa</code>, <code>test_headings_never_skip_a_level</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.3.2</span> Meaningful sequence</th><td role="cell">A</td><td role="cell"><span class="wcag-st open">Not yet known</span></td><td role="cell">No style rule uses the CSS order property to move content. Nobody has yet read every page's source order against what is drawn.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.3.3</span> Sensory characteristics</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">A test reads every page's text for an instruction that names a control by its colour, shape or side of the screen ("the red button", "the link at the top right") and finds none. It cannot find every wording, and it does not read the captures. <span class="wcag-by">Checked by <code>test_no_instruction_names_a_control_by_colour_shape_or_place</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.3.4</span> Orientation</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">No page locks to portrait or landscape: the web manifest names no orientation and no style rule keys on it.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.3.5</span> Identify input purpose</th><td role="cell">AA</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">The site has no field that asks for a person's own details; its fields are a search box and the calculators' figures.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.1</span> Use of colour</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">A link in running text is underlined, not only coloured.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.2</span> Audio control</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Nothing plays sound by itself: the film is silent and starts only when pressed.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.3</span> Contrast (minimum)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Text reaches 4.5:1 against what is behind it, and 5:1 when it is 14px or smaller, measured as the browser paints it on every page, light and dark, at desktop and phone sizes. A scroll-motion run checks the dimmed first frame of a reveal as well. <span class="wcag-by">Checked by <code>contrast_probe</code>, <code>motion_axe_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.4</span> Resize text</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every page holds together at 200% zoom: 640px wide is a 1280px window at 200%, and nothing scrolls sideways there. Zooming the text alone, without the page, is not separately tested. <span class="wcag-by">Checked by <code>site_reflow</code>, <code>inner_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.5</span> Images of text</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Text is text. The exceptions are the logo and pictures of the app and of the tax sheet, where how the text looks is the point; each has an alt that says what it shows.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.10</span> Reflow</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">No page scrolls sideways from 320 to 1728px wide (320px is 1280px at 400%), light and dark. A table or a capture may scroll inside a region of its own that has a name. <span class="wcag-by">Checked by <code>site_reflow</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.11</span> Non-text contrast</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">A control's border or track reaches 3:1 against what is around it, and a mark drawn in colour survives Windows' contrast themes. The border check runs by hand on the inner pages, the guides and the calculators after a change. <span class="wcag-by">Checked by <code>inner_contrast</code>, <code>contrast_audit</code>, <code>forced_colors_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.12</span> Text spacing</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">With line height 1.5, paragraph spacing 2, letter spacing 0.12 and word spacing 0.16 (times the font size) put over every element, no text is cut off and no page scrolls sideways, at desktop and phone sizes. <span class="wcag-by">Checked by <code>spacing_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">1.4.13</span> Content on hover or focus</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">A term's definition in a guide appears on hover or focus, stays while the pointer is on it, and closes on Escape. The Enlarge tag on a capture only repeats its button's name. The menus open when pressed and close with Escape.</td></tr>
+</tbody>
+</table>
+<h3 id="wcag-operable">Operable</h3>
+<table class="wcag" role="table">
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Criterion</th><th scope="col" role="columnheader">Level</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">How it is held, and what checks it</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.1.1</span> Keyboard</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">A walk with Tab reaches every link and control on the inner pages, the search dialog runs on keys alone, and the sample page has every control pressed by a script. <span class="wcag-by">Checked by <code>inner_probe</code>, <code>search_probe</code>, <code>try_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.1.2</span> No keyboard trap</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">The same walk moves on from every stop and fails if focus sticks; the search dialog and the capture viewer close with Escape. <span class="wcag-by">Checked by <code>inner_probe</code>, <code>search_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.1.4</span> Character key shortcuts</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">The site has one: the / key opens search. It does nothing while you type in a field, and you can turn it off on this page, below. The choice is kept in your browser only. <span class="wcag-by">Checked by <code>search_probe</code>, <code>test_the_slash_key_can_be_turned_off</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.2.1</span> Timing adjustable</th><td role="cell">A</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">The site has no time limit and no session.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.2.2</span> Pause, stop, hide</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Nothing moves by itself for more than five seconds: no animation repeats, no carousel turns, no timer runs.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.3.1</span> Three flashes or below threshold</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Nothing flashes. Every animation is a single movement, and Reduce motion turns it off.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.1</span> Bypass blocks</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every page starts with a Skip to content link that goes to its main content. <span class="wcag-by">Checked by <code>test_every_page_starts_with_a_skip_link</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.2</span> Page titled</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every page has its own title, written to one pattern. <span class="wcag-by">Checked by <code>test_head_essentials_on_every_real_page</code>, <code>test_every_title_follows_one_pattern</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.3</span> Focus order</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">No element has a positive tabindex, so focus follows the page's source order; the keyboard walk shows it keeps moving. <span class="wcag-by">Checked by <code>inner_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.4</span> Link purpose (in context)</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every link has a name, and none is only "here", "read more" or "more" without an aria-label that says where it goes. <span class="wcag-by">Checked by <code>label_probe</code>, <code>visual_qa</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.5</span> Multiple ways</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">A header with search, a footer that lists every page, a contents list on long pages and a sitemap. <span class="wcag-by">Checked by <code>test_every_page_is_in_the_footer</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.6</span> Headings and labels</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">One h1 on a page, no skipped heading level, and a name on every field are tested. That a heading's words describe what follows is the writer's judgement. <span class="wcag-by">Checked by <code>test_headings_never_skip_a_level</code>, <code>inner_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.7</span> Focus visible</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every stop on the keyboard walk draws a visible ring, light and dark. <span class="wcag-by">Checked by <code>inner_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.4.11</span> Focus not obscured (minimum)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">A control that takes focus is never entirely under the sticky header or a phone's download bar: the page scrolls it clear (88px at the top, 96px at the bottom), walking forward and back, at desktop and phone sizes. <span class="wcag-by">Checked by <code>focus_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.5.1</span> Pointer gestures</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Nothing needs a pinch, a swipe or a path: everything works with one press.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.5.2</span> Pointer cancellation</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Controls act on the press's release (click), never on its start, so a press can be moved off and cancelled.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.5.3</span> Label in name</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">A link or button named by an aria-label contains the words it shows. <span class="wcag-by">Checked by <code>label_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.5.4</span> Motion actuation</th><td role="cell">A</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">Nothing on the site responds to moving or tilting the device.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.5.7</span> Dragging movements</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Every slider is a native range input: a press on its track sets it without a drag, and the arrow keys step it. The calculators' figures can also be typed.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">2.5.8</span> Target size (minimum)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every button and control is at least 24 by 24 pixels, and nearly all are 44; a link inside a sentence takes the size of its text. <span class="wcag-by">Checked by <code>contrast_probe</code>.</span></td></tr>
+</tbody>
+</table>
+<h3 id="wcag-understandable">Understandable</h3>
+<table class="wcag" role="table">
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Criterion</th><th scope="col" role="columnheader">Level</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">How it is held, and what checks it</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.1.1</span> Language of page</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every page declares lang="en". <span class="wcag-by">Checked by <code>test_head_essentials_on_every_real_page</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.1.2</span> Language of parts</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Every page is in English; no passage is in another language.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.2.1</span> On focus</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Taking focus moves nothing but the page's scroll and, on a guide's term, shows its definition; no script opens, moves or submits anything on focus. <span class="wcag-by">Checked by <code>inner_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.2.2</span> On input</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">Typing in a field or moving a slider updates the figures beside it; no change event submits a form or moves you to another page.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.2.3</span> Consistent navigation</th><td role="cell">AA</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">One header and one footer, written to every page from one source, in one order. <span class="wcag-by">Checked by <code>site_shell</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.2.4</span> Consistent identification</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The header, the footer, search and the download button are written from one source, so each carries one name on every page; the repeated controls inside pages (Show working, Copy) each come from one script. <span class="wcag-by">Checked by <code>site_shell</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.2.6</span> Consistent help</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">The support address is in the footer of every page, in the same place. <span class="wcag-by">Checked by <code>site_shell</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.3.1</span> Error identification</th><td role="cell">A</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">A calculator names the field that cannot be used and says why in text beside it, marks it invalid for a screen reader, and shows no figures until it is fixed.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.3.2</span> Labels or instructions</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">Every field has a label; the walk and axe fail a field with none. <span class="wcag-by">Checked by <code>inner_probe</code>, <code>visual_qa</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.3.3</span> Error suggestion</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The message beside a calculator field says what it needs: "Whole years, 1 to 50." or "Type an amount in rupees, like 18,00,000."</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.3.4</span> Error prevention (legal, financial, data)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">The website takes no payment and stores nothing: a purchase happens on the store's own page.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.3.7</span> Redundant entry</th><td role="cell">A</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">No page asks for the same thing twice.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">3.3.8</span> Accessible authentication (minimum)</th><td role="cell">AA</td><td role="cell"><span class="wcag-st na">Does not apply</span></td><td role="cell">There is no sign-in: Pocket has no account.</td></tr>
+</tbody>
+</table>
+<h3 id="wcag-robust">Robust</h3>
+<table class="wcag" role="table">
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Criterion</th><th scope="col" role="columnheader">Level</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">How it is held, and what checks it</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">4.1.2</span> Name, role, value</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">axe finds no serious or critical problem on any page, light and dark; each custom switch, tab and dialog carries its role and state. <span class="wcag-by">Checked by <code>visual_qa</code>, <code>inner_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">4.1.3</span> Status messages</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The search count, the Copy button's Copied, a calculator's result and the Security board's list are announced politely, without taking focus. <span class="wcag-by">Checked by <code>search_probe</code>.</span></td></tr>
+</tbody>
+</table>
+<!-- /wcag:table -->
+
+  <h2 id="keys">3. The one keyboard shortcut</h2>
+  <p>Pressing <kbd>/</kbd> anywhere on the site opens search, as it does on many sites. It does nothing while you are typing
+    in a field. Speech-input and some switch users find a one-key shortcut can fire by mistake, so it can be turned off
+    here. The choice is kept in this browser only; nothing is sent.</p>
+  <div class="keys" hidden data-slash>
+    <label for="slash-key"><input type="checkbox" id="slash-key" checked> The / key opens search</label>
+    <p class="keys-say" id="slash-say" role="status"></p>
+  </div>
+
+  <h2 id="limits">4. What is not yet known</h2>
   <ul>
     <li>No one who relies on NVDA, VoiceOver or TalkBack has walked the site yet, and no full screen-reader pass has
       been recorded. Automated checks catch much, not all.</li>
@@ -132,11 +233,13 @@
       here.</li>
   </ul>
 
-  <h2 id="tell">3. Tell us what got in the way</h2>
+  <h2 id="tell">5. Tell us what got in the way</h2>
   <p>Email <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a> with the page and what stopped you, and
     the setup you used if you can (browser, screen reader, zoom). Every email is read and answered by the founder.</p>
 
-  <h2 id="history">4. Version history</h2>
+  <h2 id="history">6. Version history</h2>
+  <p>1 November 2026: the table of every criterion at A and AA, each row with what checks it; the / key can be turned off; a
+    control that takes focus is no longer left under the sticky header or a phone's download bar.</p>
   <p>29 October 2026: first published.</p>
 </article>
 </div>
@@ -164,5 +267,6 @@
 </footer>
 
 <script src="assets/vestora.js" defer></script>
+<script src="assets/keys.js?v=1" defer></script>
 </body>
 </html>

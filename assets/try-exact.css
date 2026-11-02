@@ -1,0 +1,21 @@
+.tx{margin:16px 0 0;border-top:1px solid var(--rule-2);font-size:var(--fs-small)}
+.tx summary{display:flex;align-items:center;gap:8px;min-height:44px;font-weight:600;cursor:pointer;list-style:none}
+.tx summary::-webkit-details-marker{display:none}
+.tx summary::after{content:"+";color:var(--ink-3);font-weight:400}
+.tx[open] summary::after{content:"−"}
+.tx summary:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.tx-h{margin:12px 0 2px;font-weight:600;color:var(--ink)}
+.tx-h small{display:block;margin-top:2px;font:400 var(--fs-caption)/1.4 var(--sans);color:var(--ink-3)}
+.txw{margin:0;padding:0;list-style:none}
+.tx .wr{display:grid;grid-template-columns:minmax(8em,auto) minmax(12px,1fr) auto;column-gap:10px;align-items:start;padding:7px 0;border-bottom:1px solid var(--rule);line-height:1.4}
+.tx .wr:last-child{border-bottom:0}
+.tx .wl{color:var(--ink)}
+.tx .wl small{display:block;margin-top:2px;font:400 var(--fs-prov)/1.4 var(--mono);color:var(--ink-2)}
+.tx .wa{color:var(--ink);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.ld{align-self:start;height:1px;margin-top:.72em;background:var(--signal)}
+.tx .wr.tot{grid-template-columns:minmax(0,1fr) auto;font-weight:600}
+.tx .wr.tot .ld{display:none}
+.tx .wr.tot .wl::before{content:"= ";color:var(--ink-3);font-weight:400}
+.tx .wr.na .wa{color:var(--ink-3)}
+.tx-n{margin:12px 0 0;color:var(--ink-2)}
+.tx-e{flex:1 0 100%;margin:0;color:var(--loss)}

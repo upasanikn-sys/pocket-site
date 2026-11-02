@@ -93,6 +93,7 @@ overflow:visible !important; margin:20px 0 0 !important; padding:4px 0 0 !import
 .calc-notes > :not(.lnote){display:none}
 .fld{break-inside:avoid}
 }
+html{scroll-padding:88px 0 96px}
 .prose b{color:var(--ink); font-weight:600}
 .prose .lnote{margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); font-size:var(--fs-small); color:var(--ink-3)}
 .prose .tablewrap{margin:16px 0}

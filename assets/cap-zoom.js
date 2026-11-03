@@ -1,9 +1,8 @@
-/* POCKET - a capture opens larger (R16k, DESIGN.md "Capture viewer"; REVIEW_29OCT_R16G Product imagery: "one
-   full-width, enlargeable capture"). Each capture's picture (.crop, .frame, .gpic, a tour's picture) gets a real
-   button laid over it: a press, Enter or Space opens a modal <dialog> holding the same picture at up to twice its
-   size, so the app's own type reads at 14px and more; Esc, Close or a press outside closes it and focus goes back to
-   that button. Its styles load with it (cap-zoom.css), so a page without captures carries none. No script: the
-   picture is simply shown. */
+/* POCKET - a capture opens larger (R16k, DESIGN.md "Capture viewer"). Each capture's picture (.crop, .frame, .gpic, a
+   tour's picture) gets a real button laid over it: a press, Enter or Space opens a modal <dialog> holding the same
+   picture at up to twice its size; Esc, Close or a press outside closes it and focus goes back to that button. Its
+   styles load with it (cap-zoom.css), and the buttons are laid on once they are in (R16p): one added sooner sat in
+   the flow under a clipped crop and jumped over it (Features, CLS 0.075). No script: the picture is simply shown. */
 (function () {
   "use strict";
   var pics = document.querySelectorAll(".crop, .frame, .gpic, .tour-panel > picture");
@@ -11,6 +10,7 @@
   var css = document.createElement("link");
   css.rel = "stylesheet";
   css.href = "assets/cap-zoom.css?v=1";
+  css.onload = css.onerror = function () { Array.prototype.forEach.call(pics, lay); };
   document.head.appendChild(css);
 
   var dlg = document.createElement("dialog"), back = null;
@@ -57,7 +57,7 @@
   });
   dlg.addEventListener("close", function () { box.textContent = ""; if (back) back.focus(); });
 
-  Array.prototype.forEach.call(pics, function (el) {
+  function lay(el) {
     var img = el.querySelector("img");
     if (!img || el.closest("a, button") || el.querySelector(".zoom-b")) return;
     var btn = document.createElement("button");
@@ -68,5 +68,5 @@
     btn.addEventListener("click", function () { open(el, btn); });
     el.classList.add("zoomable");
     el.appendChild(btn);
-  });
+  }
 })();

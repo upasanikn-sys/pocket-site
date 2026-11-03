@@ -247,7 +247,7 @@
   <p>That is the complete list. There is no telemetry, no crash reporting and no analytics; licence keys are checked
   on your computer (section 11); the app loads nothing from another site, fonts and charts included, and a test
   fails if it ever does. This website makes no request to another site either.</p>
-  <p id="check-site"><strong>Check this website yourself.</strong> Open your browser’s developer tools (F12, or Command-Option-I on a Mac), choose Network and reload the page. Look at where each request goes (the Domain column, or hover a row): every one is mypocketfi.com. The home page counts the same requests as it loads, and says how many went anywhere else.</p>
+  <p id="check-site"><strong>Check this website yourself.</strong> Open your browser’s developer tools (F12, or Command-Option-I on a Mac), choose Network and reload the page. Look at where each request goes (the Domain column, or hover a row): every one is mypocketfi.com. The home page counts the requests its own view loaded, so its total differs from view to view (it grows as you scroll down to the captures, a phone draws fewer of them, and a file your browser kept from an earlier visit still counts) and says how many went anywhere else.</p>
 
   <!-- netcap -->
   <p id="recorded-run"><strong>A recorded run.</strong> Pocket's server was started on the sample person's data with every connection at its default, which is off, and a listener told of every network connection and every name it looked up (Python's audit hook). It was then asked for every page and answer it gives to a plain request, 13 routes in 14 requests: the dashboard, the phone view, their state, the on-device answers, the backup list, the export, and the files those pages load from it. It opened <b>0</b> connections to anywhere but this computer. As a control, the update check, which is off until asked, was then asked for once: the listener saw the server build a request to <code>mypocketfi.com</code> and stopped it there, so the listener is known to see what it is meant to. The record is <a href="assets/network-capture.json" download>network-capture.json</a> (recorded 1 November 2026, Pocket 3.2.11); <code>python tools/net_capture.py</code> makes it again. It covers the server process, not a browser (the Security page counts what your browser loads), it was made on the sample, not on anyone's own figures, and it is one run by the people who wrote the program: no one outside has repeated it.</p>
@@ -323,6 +323,6 @@
 
 <script src="assets/vestora.js" defer></script>
 <script src="assets/img-fade.js?v=3" defer></script>
-<script src="assets/cap-zoom.js?v=1" defer></script>
+<script src="assets/cap-zoom.js?v=2" defer></script>
 </body>
 </html>

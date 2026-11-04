@@ -20,6 +20,7 @@ html[data-os="linux"] .dl-first, html[data-os="android"] .dl-first, html[data-os
 .dl-file{color:var(--ink-2)}
 .dl-started{flex-basis:100%; margin:4px 0 0; padding:14px 16px; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card); font-size:var(--fs-small); line-height:1.6; color:var(--ink-2)}
 .dl-started:empty{display:none}
+.dl-said{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 .dl-started b{color:var(--ink)}
 .slot > .dl-started{margin-top:12px}
 .platforms{max-width:none; grid-template-columns:repeat(5,minmax(0,1fr))}

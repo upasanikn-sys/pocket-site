@@ -76,12 +76,10 @@
   });
 })();
 
-/* After a download link is pressed, say what comes next beside that link (R16n, REVIEW_29OCT_R16G Conversion: "a short your-first-
-   five-minutes confirmation after the download starts"). The box is in the page, empty, with role="status", so what is put in it
-   is heard; it takes no focus and says nothing about whether the browser began the file, which it cannot know. */
+/* After a download link is pressed, say what comes next beside it (R16n). The box takes no focus and does not claim the file began. */
 (function () {
   "use strict";
-  var box = document.getElementById("dl-started");
+  var box = document.getElementById("dl-started"), said = document.getElementById("dl-said"), timer;
   if (!box) return;
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href*="/releases/download/"]');
@@ -90,6 +88,11 @@
     box.innerHTML = "<b>Your download is on its way.</b> If nothing arrived, press the link again. Windows and macOS " +
       'ask you to confirm the first open, because the builds are not signed yet. <a href="#first-minutes">Your first 5 minutes</a> · ' +
       '<a href="#check">Check the file\'s SHA-256</a>';
+    if (said) {                                     // a live region moved or shown with its words in it is not read (NVDA, 3 Nov 2026)
+      said.textContent = "";
+      clearTimeout(timer);
+      timer = setTimeout(function () { said.textContent = box.textContent; }, 120);
+    }
   });
 })();
 

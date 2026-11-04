@@ -68,17 +68,18 @@ background:var(--card); box-shadow:inset 0 0 0 1px var(--rule-2); transition:tra
 .plan .price-alt{min-height:44px; line-height:1.5}
 .family{margin:24px 0 0; max-width:80ch; font-size:var(--fs-body); color:var(--ink-2)}
 .family b{color:var(--ink); font-weight:600}
-.cmp3 .cmp-group th{padding:28px 0 10px; font:600 var(--fs-h3)/1.2 var(--display); letter-spacing:-.01em;
+.cmp3 .cmp-group td{padding:28px 0 10px; font:600 var(--fs-h3)/1.2 var(--display); letter-spacing:-.01em;
 border-bottom:1px solid var(--rule-2)}
-.cmp3 .cmp-group a{color:var(--ink); text-decoration:none}
-.cmp3 .cmp-group a:hover{text-decoration:underline; text-underline-offset:3px}
+.cmp3 .cmp-group td::before{content:none}
+.cmp3 .cmp-group a:not([class*="btn"]):not(.cta):not(.ghost):not(.sh-cta){color:var(--ink); text-decoration:none}
+.cmp3 .cmp-group a:not([class*="btn"]):not(.cta):not(.ghost):not(.sh-cta):hover{text-decoration:underline; text-underline-offset:3px}
 .cmp3 .cmp-price td, .cmp3 .cmp-price th{font-weight:600; color:var(--ink)}
 .qa{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 56px; border-top:1px solid var(--rule-2)}
 .qa > div{padding:24px 0; border-bottom:1px solid var(--rule)}
 .qa h3{margin:0 0 8px; font:600 var(--fs-lede)/1.35 var(--sans); letter-spacing:-.005em; color:var(--ink)}
 .qa p{margin:0; max-width:60ch; color:var(--ink-2); line-height:1.6}
 @media (max-width:900px){ .qa{grid-template-columns:1fr} }
-@media (max-width:560px){ .cmp3 .cmp-group{padding-top:20px; border-bottom:0} .cmp3 .cmp-group th{padding:0 0 4px; border:0} }
+@media (max-width:560px){ .cmp3 .cmp-group{padding-top:20px; border-bottom:0} .cmp3 .cmp-group td{grid-column:1 / -1; padding:0 0 4px; border:0} }
 .plan .even{margin:12px 0 0; padding:10px 12px; border:1px solid var(--rule); border-radius:var(--r-2); background:var(--card);
 font-size:var(--fs-caption); line-height:1.5; color:var(--ink-2); font-variant-numeric:tabular-nums}
 .plan .even + .has{margin-top:24px}

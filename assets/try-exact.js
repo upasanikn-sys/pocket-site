@@ -10,6 +10,7 @@
   var C = window.PocketCalc, tx = document.getElementById("try-x"), rng = document.getElementById("try-g");
   if (!C || !C.taxRows || !tx || !rng) return;
   var D = JSON.parse(document.getElementById("try-data").textContent).ded, form = tx.form, MAX = 99999999, wk, err, wait,
+      said = document.getElementById("try-said"), out = form.closest(".try").querySelector(".try-out"),
       css = document.createElement("link");
   css.rel = "stylesheet"; css.href = "assets/try-exact.css?v=1"; document.head.appendChild(css);
 
@@ -25,6 +26,7 @@
   /* the field is empty again, or the slider moved: its step's figures, no working */
   function back() {
     if (wk) { wk.remove(); wk = null; }
+    if (said) said.textContent = "";
     ok("");
   }
   function sum() {
@@ -40,6 +42,13 @@
     rng.value = g;                                  // the thumb goes to its nearest step; home.js shows rng.x
     rng.dispatchEvent(new Event("input"));
     rng.x = null;
+    /* R16r (the NVDA pass, 3 Nov 2026): said aloud, politely, as home.js shows them: each regime and its figure, then
+       the sentences under them (the slider's own step is said by its aria-valuetext) */
+    if (said) said.textContent = C.rs(g) + ": " + [].map.call(out.querySelectorAll(".try-figs .fig"), function (f) {
+      return f.previousElementSibling.firstChild.textContent.trim() + " " + f.textContent;
+    }).join(", ") + ". " + [].map.call(out.querySelectorAll("[data-t=say],[data-t=be]"), function (p) {
+      return p.hidden ? "" : p.textContent;
+    }).join(" ");
     if (!wk) {
       wk = document.createElement("details"); wk.className = "tx";
       wk.innerHTML = '<summary></summary><p class="tx-h">New regime</p><ol class="txw"></ol>' +

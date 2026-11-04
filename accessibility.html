@@ -89,17 +89,18 @@
 </header>
 
 <main id="main">
-<link rel="stylesheet" href="assets/company-pages.css?v=25">
+<link rel="stylesheet" href="assets/company-pages.css?v=27">
 <link rel="stylesheet" href="assets/a11y.css?v=5">
 <div class="wrap">
 <article class="prose">
   <h1 class="d">Accessibility</h1>
-  <div class="ldate">Checked before every publish · Written 29 October 2026 · Updated 1 November 2026 · Applies to this website</div>
+  <div class="ldate">Checked before every publish · Written 29 October 2026 · Updated 3 November 2026 · Applies to this website</div>
 
   <div class="lsum">
     <b>In short:</b> this website aims to meet WCAG 2.2 at level AA. Before any change is published, Pocket's own
     test tools check every page, in light and dark and at phone and desktop sizes, against the standards below, and
-    nothing ships while one fails. The checks are automated. Nobody who uses a screen reader every day has tested the
+    nothing ships while one fails. The checks are automated. The authors have also run one automated pass with the NVDA
+    screen reader, which is not a test by people who use one. Nobody who uses a screen reader every day has tested the
     site yet; that is the next step, and the limits below say what is not yet known.
   </div>
 
@@ -141,7 +142,7 @@
     that way and a person has looked, but no script checks it. This is not a claim of conformance: that is for people who
     rely on assistive technology to say, and none has yet.</p>
   <!-- wcag:table -->
-<p class="wcag-sum">Of the 55 criteria at levels A and AA in WCAG 2.2: <b>24</b> held and checked by a script, <b>21</b> held and checked by hand, <b>9</b> do not apply to a site like this, <b>1</b> not yet known. A script is one of Pocket's own test tools; a person who uses a screen reader every day has not yet checked any of it.</p>
+<p class="wcag-sum">Of the 55 criteria at levels A and AA in WCAG 2.2: <b>24</b> held and checked by a script, <b>21</b> held and checked by hand, <b>9</b> do not apply to a site like this, <b>1</b> not yet known. A script is one of Pocket's own test tools; a person who uses a screen reader every day has not yet checked any of it. The authors' one NVDA pass (3 November 2026) was a script pressing keys, not such a person; <a href="#limits">what it covered</a> is below.</p>
 <h3 id="wcag-perceivable">Perceivable</h3>
 <table class="wcag" role="table">
 <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Criterion</th><th scope="col" role="columnheader">Level</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">How it is held, and what checks it</th></tr></thead>
@@ -218,7 +219,7 @@
 <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Criterion</th><th scope="col" role="columnheader">Level</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">How it is held, and what checks it</th></tr></thead>
 <tbody role="rowgroup">
 <tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">4.1.2</span> Name, role, value</th><td role="cell">A</td><td role="cell"><span class="wcag-st script">Held, by a script</span></td><td role="cell">axe finds no serious or critical problem on any page, light and dark; each custom switch, tab and dialog carries its role and state. <span class="wcag-by">Checked by <code>visual_qa</code>, <code>inner_probe</code>.</span></td></tr>
-<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">4.1.3</span> Status messages</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The search count, the Copy button's Copied, a calculator's result and the Security board's list are announced politely, without taking focus. <span class="wcag-by">Checked by <code>search_probe</code>.</span></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><span class="wcag-n">4.1.3</span> Status messages</th><td role="cell">AA</td><td role="cell"><span class="wcag-st hand">Held, by hand</span></td><td role="cell">The search count, the Copy button's Copied, a calculator's result, the Security board's list and the figures for a salary typed on the home page are announced politely, without taking focus. The NVDA pass of 3 November 2026 heard the search count and the Download page's message, but not that salary's figures; they have been given a polite live region since, which NVDA has not yet been run against. <span class="wcag-by">Checked by <code>search_probe</code>.</span></td></tr>
 </tbody>
 </table>
 <!-- /wcag:table -->
@@ -234,8 +235,20 @@
 
   <h2 id="limits">4. What is not yet known</h2>
   <ul>
-    <li>No one who relies on NVDA, VoiceOver or TalkBack has walked the site yet, and no full screen-reader pass has
-      been recorded. Automated checks catch much, not all.</li>
+    <li>No one who relies on NVDA, VoiceOver or TalkBack has walked the site yet. Automated checks catch much, not all.</li>
+    <li>On 3 November 2026 the authors ran one automated NVDA pass: NVDA 2026.3 with Chrome on Windows, a script pressing the
+      keys while NVDA's speech was written to a log, which was then read. It is not a test by people who use a screen reader,
+      and it left out VoiceOver, TalkBack, Safari, Firefox, phones and every other screen reader. It went through the
+      home, Features, Pricing, Download and Try the sample pages by keyboard (the controls in order, the headings, the
+      landmarks and a read-through of each) and the Changelog's open-and-close. It found two things on other pages that
+      are fixed: the Download page said nothing aloud when a release link was pressed, and Pricing's table read every
+      group name as a column header. It also found three things on the home page, fixed since but not yet heard by NVDA
+      again: the three "What would leave" buttons shared one name (each now names its connection), the questions under
+      "Asked first" did not announce opening or closing (each held a heading, which took the place of its state; they no
+      longer do), and the figures for a salary typed into "Your exact salary" were not spoken (they are now, politely,
+      once you pause; the slider's always were).</li>
+    <li>The one-key shortcuts (<kbd>/</kbd> for search) do not reach the page while NVDA is in browse mode, which keeps
+      the key for itself; the Search link in the header does the same job, and the shortcut can be turned off above.</li>
     <li><a href="try.html">Try the sample</a> shows the app's own screens, which keep the app's floor of 4.5:1 for all
       text rather than this site's 5:1 for small text.</li>
     <li>This page is about the website. The Pocket app has checks of its own, and its accessibility is not described
@@ -247,6 +260,10 @@
     the setup you used if you can (browser, screen reader, zoom). Every email is read and answered by the founder.</p>
 
   <h2 id="history">6. Version history</h2>
+  <p>3 November 2026: one automated NVDA pass by the authors (not a test by people who use a screen reader). The Download
+    page now says aloud that a download is on its way, and Pricing's table no longer reads each group name as a column
+    header. On the home page, each "What would leave" button names its connection, the questions under "Asked first"
+    announce opening and closing, and a typed salary's figures are spoken; NVDA has not been run on these since.</p>
   <p>1 November 2026: the table of every criterion at A and AA, each row with what checks it; the / key can be turned off; a
     control that takes focus is no longer left under the sticky header or a phone's download bar.</p>
   <p>29 October 2026: first published.</p>

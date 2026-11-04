@@ -101,12 +101,12 @@
     });
   }
 
-  /* ledger: five rows, then "… N more" */
-  all("table.ledger").forEach(function (t) {
+  /* ledger: five rows, then "… N more"; the lines: three, as the tape (R16r) */
+  all(".fr table").forEach(function (t) {
     var rest = all("tr[data-more]", t);
     if (!rest.length) return;
     var row = d.createElement("tr");
-    row.innerHTML = '<td colspan="4"><button type="button" class="more" aria-expanded="false">… ' + rest.length + " more</button></td>";
+    row.innerHTML = '<td colspan="' + t.rows[0].cells.length + '"><button type="button" class="more" aria-expanded="false">… ' + rest.length + " more</button></td>";
     rest[0].parentNode.insertBefore(row, rest[0]);
     rest.forEach(function (r) { r.hidden = true; });
     row.querySelector("button").addEventListener("click", function () {
@@ -121,7 +121,7 @@
   if (flow) {
     var steps = all(".steps > li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
         parts = frames.map(function (f, i) {
-          return all(["tr:not([hidden]):not(.grp)", "tbody tr,tfoot tr", ".eqn tr"][i], f)
+          return all(i < 2 ? "tr:not([hidden]):not(.grp)" : ".eqn tr", f)
             .filter(function (r) { return !r.querySelector("button"); });
         });
     stage.className = "stage";
@@ -255,7 +255,7 @@
     });
     /* R16m: a typed salary is worked out by the calculator's own code, loaded on the first typing */
     if (tx) tx.addEventListener("input", function () {
-      ["calc.js", "calc-tax.js", "try-exact.js?v=1"].forEach(function (f) {
+      ["calc.js", "calc-tax.js", "try-exact.js?v=2"].forEach(function (f) {
         var s = d.createElement("script"); s.async = false; s.src = "assets/" + f; d.head.appendChild(s);
       });
     }, { once: true });

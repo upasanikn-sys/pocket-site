@@ -28,7 +28,7 @@ border-radius:var(--r-1); font:500 var(--fs-caption)/1.5 var(--sans); letter-spa
 .cap-fig{margin:0; min-width:0}
 .cap-fig .frame{border:1px solid var(--rule-2); border-radius:var(--r-3); overflow:hidden; background:var(--card)}
 .cap-fig .frame img{display:block; width:100%; height:auto}
-.cap-fig.phone .frame{max-width:280px; margin:0 auto; border-radius:var(--r-4)}
+.cap-fig.phone .frame{max-width:280px; margin:0 auto; border:8px solid var(--device); border-radius:32px}
 .cap-fig figcaption{margin-top:12px; font-size:var(--fs-caption); color:var(--ink-3); line-height:1.6}
 .cap-fig.phone figcaption{max-width:280px; margin-left:auto; margin-right:auto}
 .cap-fig picture{display:block}
@@ -356,7 +356,6 @@ background:url(win-ctl.svg) right 12px center/52px 10px no-repeat, url(pocket-ma
 .tour-panel:has(img[width="1280"][height="800"])::before{border:1px solid var(--rule-2); border-bottom:0; border-radius:var(--r-3) var(--r-3) 0 0}
 .tour-panel:has(img[width="1280"][height="800"]) img{border-radius:0 0 var(--r-3) var(--r-3)}
 .cap-fig .frame:has(img[width="1280"][height="800"])::before{border-bottom:1px solid var(--rule)}
-.cap-fig .frame:has(img[width="390"][height="844"]){border:8px solid var(--device); border-radius:32px}
 @media (prefers-color-scheme:dark){ :is(.tour-panel, .cap-fig .frame):has(img[width="1280"][height="800"])::before{background-image:url(win-ctl-dark.svg), url(pocket-mark-dark.svg)} }
 .sheet-fig{display:grid; grid-template-columns:auto minmax(0,1fr); gap:0 40px; align-items:center; margin:0 0 40px}
 .sheet-fig img{height:auto; border-radius:6px; box-shadow:var(--sheet-lift)}

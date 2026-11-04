@@ -64,7 +64,7 @@ a.term:hover{text-decoration-style:solid}
 .prose .wk .wr:last-child{border-bottom:0}
 .gshot{margin:32px 0}
 .gshot .gpic{position:relative}
-.gshot img{display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:var(--r-3); background:var(--card);
+.gshot img{display:block; width:100%; height:auto; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card);
 transition:opacity var(--t-ui) var(--ease-ui)}
 .gshot img.fade-img:not(.in){opacity:0}
 @media (prefers-reduced-motion:reduce){ .gshot img{transition:none} }

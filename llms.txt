@@ -51,6 +51,7 @@ Facts that the pages below state:
 - [The SIP a goal needs, worked through](https://mypocketfi.com/guide-goal-sip.html): a goal's cost grown with inflation, the money already set aside, and the monthly SIP that reaches it.
 - [An emergency fund in months, worked through](https://mypocketfi.com/guide-emergency-fund-months.html): essential spending as a target, the months a fund covers, how long it takes to fill, and what prices do to it.
 - [Paying off loans: snowball and avalanche, worked through](https://mypocketfi.com/guide-loan-snowball-avalanche.html): smallest balance first or highest rate first: what each order costs in interest and months, month by month.
+- [Check your download is the real one](https://mypocketfi.com/guide-verify-download.html): the SHA-256 of each file on the Download page, and the command that prints it on Windows, Mac and Linux.
 - [Old vs new tax regime calculator](https://mypocketfi.com/calc-tax-regime.html): income tax on your salary for FY 2026-27 under both regimes, every step shown: deductions, slabs, the ₹12 lakh rebate, surcharge and cess.
 - [SIP calculator](https://mypocketfi.com/calc-sip.html): a SIP calculator that shows its working: start-of-month instalments, a yearly step-up, year-by-year values and the cost of starting late.
 - [Net worth calculator](https://mypocketfi.com/calc-net-worth.html): work out your net worth: investments, bank, EPF, PPF, NPS, gold and property, less every loan and card, added up line by line.

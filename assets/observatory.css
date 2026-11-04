@@ -104,7 +104,6 @@ border-bottom:1px solid var(--rule)}
 .defs dd{margin:0;color:var(--ink-3);font-size:var(--fs-body);line-height:1.6}
 @media (max-width:900px){ .defs > div{grid-template-columns:1fr;gap:6px} }
 .prose{max-width:65ch;margin:0 auto;padding:76px 0 104px}
-.prose h1{font-size:var(--fs-headline);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
 .prose .lede{font-size:var(--fs-lede);color:var(--ink-2);line-height:1.6;margin:0 0 10px}
 .prose .meta{font-size:var(--fs-caption);color:var(--ink-3)}
 .prose h2{font-size:24px;line-height:1.2;letter-spacing:-.02em;
@@ -136,6 +135,11 @@ table{font-variant-numeric:tabular-nums}
 h1.d::after{content:"";display:block;width:96px;height:9px;margin-top:16px;border-inline:1px solid var(--ink-3);
 background:linear-gradient(var(--ink-3),var(--ink-3)) center/100% 1px no-repeat}
 @media (max-height:649px){ h1.d::after{display:none} }
+.ptape{position:relative;display:flex;align-items:center;gap:12px;box-sizing:border-box;width:min(100%,440px);margin:0 0 32px;padding:11px 14px;background:var(--sheet);color:var(--sheet-ink-2);box-shadow:var(--sheet-lift);font:500 var(--fs-caption)/1 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.ptape::before,.ptape::after{content:"";position:absolute;left:0;right:0;bottom:100%;height:8px;background:conic-gradient(from 135deg at 50% 0,var(--sheet) 90deg,transparent 0) 0 0/16px 8px}
+.ptape::after{top:100%;bottom:auto;transform:scaleY(-1)}
+.ptape i{flex:1;height:2px;background:var(--sheet-signal)}
+.ptape+h1.d::after{display:none}
 @media (forced-colors:active){
 html .cta{border:1px solid ButtonText}
 html .tr,html .ld,html .term::before,html .ln::before{forced-color-adjust:none;background:CanvasText}
@@ -154,3 +158,4 @@ html .rng::-webkit-slider-runnable-track,html .try-in input::-webkit-slider-runn
 html .rng::-moz-range-track,html .try-in input::-moz-range-track{forced-color-adjust:none;background:CanvasText}
 html .try-ticks{forced-color-adjust:none;background:linear-gradient(to right,CanvasText 1px,transparent 1px) 0 0/calc((100% - 1px)/var(--n)) 100% repeat-x}
 }
+@media (forced-colors:active){ html .ptape i{forced-color-adjust:none;background:CanvasText} }

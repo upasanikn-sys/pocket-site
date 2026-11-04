@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-K8JSLPMt0m9W2m9onLpnmzwbbBFyQfsMKRFaG8kaLjA=' 'sha256-P+HV9+bZssaYdgX5hAOuDKB0AIx8pXTkaH/VNlcoBLQ=' 'sha256-T+kMrhzZHz1T7d/ZJ0/U+XV9Czm9h5yN6haxY3mbDdQ='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'self'; manifest-src 'self'; worker-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(d,u){d.classList.add("js");var o=/Android/i.test(u)?"android":/iPhone|iPad|iPod/i.test(u)||/Macintosh/.test(u)&&navigator.maxTouchPoints>1?"ios":/Windows/i.test(u)?"windows":/Macintosh|Mac OS X/i.test(u)?"mac":/Linux|X11|CrOS/i.test(u)?"linux":"";if(o)d.setAttribute("data-os",o)})(document.documentElement,navigator.userAgent)</script>
+<title>Check your download is the real one | Pocket</title>
+<meta name="description" content="How to check a Pocket download against the SHA-256 on the Download page: PowerShell&#x27;s Get-FileHash on Windows, shasum -a 256 on a Mac and on Linux.">
+<link rel="icon" href="assets/pocket-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#042844" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#042844" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mypocketfi.com/guide-verify-download.html">
+<meta property="og:title" content="Check your download is the real one | Pocket">
+<meta property="og:description" content="How to check a Pocket download against the SHA-256 on the Download page: PowerShell&#x27;s Get-FileHash on Windows, shasum -a 256 on a Mac and on Linux.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Pocket">
+<meta property="og:url" content="https://mypocketfi.com/guide-verify-download.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mypocketfi.com/assets/og/guide-verify-download.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pocket. Check your download is the real one 7 files each listed with its SHA-256 on the Download page The sample person&#x27;s net worth drawn beside it as its working, part by part.">
+<meta name="twitter:image" content="https://mypocketfi.com/assets/og/guide-verify-download.png">
+<link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vestora-tokens.css?v=18">
+<link rel="stylesheet" href="assets/observatory.css?v=25">
+<link rel="stylesheet" href="assets/site-shell.css?v=18">
+<link rel="stylesheet" href="assets/working.css?v=13">
+<link rel="stylesheet" href="assets/guides.css?v=19">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Check your download is the real one","description":"How to check a Pocket download against the SHA-256 on the Download page: PowerShell's Get-FileHash on Windows, shasum -a 256 on a Mac and on Linux.","datePublished":"2026-11-04","dateModified":"2026-11-04","inLanguage":"en-IN","mainEntityOfPage":"https://mypocketfi.com/guide-verify-download.html","image":"https://mypocketfi.com/assets/og-pocket.png","author":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/"},"articleSection":"Security","timeRequired":"PT4M","publisher":{"@type":"Organization","name":"Pocket","url":"https://mypocketfi.com/","logo":{"@type":"ImageObject","url":"https://mypocketfi.com/assets/apple-touch-icon.png"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mypocketfi.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mypocketfi.com/guides.html"},{"@type":"ListItem","position":3,"name":"Security","item":"https://mypocketfi.com/guides.html#security"},{"@type":"ListItem","position":4,"name":"Check your download is the real one","item":"https://mypocketfi.com/guide-verify-download.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en-IN","mainEntity":[{"@type":"Question","name":"What is a SHA-256?","acceptedAnswer":{"@type":"Answer","text":"A 64-digit fingerprint worked out from every byte of a file. The same file always gives the same one, and any change to the file gives a different one."}},{"@type":"Question","name":"The hash PowerShell prints is in capitals and the page's is not. Is that a match?","acceptedAnswer":{"@type":"Answer","text":"Yes. Hexadecimal digits are the same in capitals or small letters; PowerShell prints capitals, shasum small letters."}},{"@type":"Question","name":"Does a match mean Pocket is signed?","acceptedAnswer":{"@type":"Answer","text":"No. Pocket's builds are not signed yet, which is why Windows and macOS warn at the first open. A match shows the file is the one published on the page it came from."}},{"@type":"Question","name":"Where are the hashes of earlier releases?","acceptedAnswer":{"@type":"Answer","text":"In the shipping record , each version with its date, files and SHA-256."}}]}</script>
+</head>
+<body>
+<!-- PLACEHOLDER: Final legal review required before accepting payments. Supply: legal entity/proprietor name, business address, GST details, payment processor, grievance contact. -->
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="sh">
+  <div class="sh-bar">
+    <a class="sh-brand" href="./" aria-label="Pocket home"><img class="sh-logo" src="assets/pocket-logo-dark.svg" alt="" width="133" height="30"></a>
+    <nav class="sh-links" aria-label="Primary">
+      <a href="why-pocket.html">Why Pocket</a>
+      <a href="features.html">Features</a>
+      <a href="security.html">Security</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+    </nav>
+    <button class="sh-more" type="button" popovertarget="sh-more-pop">More</button>
+    <div class="sh-pop" id="sh-more-pop" popover>
+      <div role="group" aria-labelledby="sh-g-product">
+        <span class="sh-gh" id="sh-g-product">Product</span>
+        <a href="ai-copilot.html">Ask Pocket</a>
+        <a href="compare.html">Compare</a>
+      </div>
+      <div role="group" aria-labelledby="sh-g-tools">
+        <span class="sh-gh" id="sh-g-tools">Tools</span>
+        <a href="calc-tax-regime.html">Tax regime calculator</a>
+        <a href="calc-sip.html">SIP calculator</a>
+        <a href="calc-net-worth.html">Net worth calculator</a>
+        <a href="glossary.html">Glossary</a>
+      </div>
+      <div role="group" aria-labelledby="sh-g-company">
+        <span class="sh-gh" id="sh-g-company">Company</span>
+        <a href="changelog.html">Changelog</a>
+        <a href="roadmap.html">Roadmap</a>
+      </div>
+    </div>
+    <a class="sh-search" href="search.html" data-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></a>
+    <a class="sh-cta" href="download.html">Download free</a>
+    <button class="sh-menu-btn" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><svg class="sh-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="sh-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-menu" id="site-menu" aria-label="Menu">
+    <a href="why-pocket.html">Why Pocket</a>
+    <a href="features.html">Features</a>
+    <a href="security.html">Security</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="guides.html" aria-current="page">Guides</a>
+    <a href="ai-copilot.html">Ask Pocket</a>
+    <a href="compare.html">Compare</a>
+    <a href="calc-tax-regime.html">Tax regime calculator</a>
+    <a href="calc-sip.html">SIP calculator</a>
+    <a href="calc-net-worth.html">Net worth calculator</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a class="sh-menu-cta" href="download.html">Download free</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="wrap">
+<article class="prose" data-print="Pocket · mypocketfi.com/guide-verify-download.html">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="guides.html">Guides</a></li><li><a href="guides.html#security">Security</a></li><li aria-current="page">Check your download is the real one</li></ol></nav>
+<div class="ptape" aria-hidden="true"><span>Pocket</span><i></i><span>Guide</span></div>
+<h1 class="d">Check your download is the real one</h1>
+<dl class="tblock gby"><div><dt>Category</dt><dd>Security</dd></div><div><dt>By</dt><dd>Pocket</dd></div><div><dt>Reviewed</dt><dd><time datetime="2026-11-04">4 Nov 2026</time></dd></div><div><dt>Read</dt><dd>4 min</dd></div></dl>
+<div class="lsum"><b>In short:</b> every file on the Download page is listed with its SHA-256, a 64-character
+fingerprint of the file's exact bytes. Windows, macOS and Linux each have a built-in command that prints the
+fingerprint of a file. When it is the page's, the file is the one that was published, byte for byte; change one byte
+and the fingerprint is a different one.</div>
+<nav class="toc" aria-label="Contents"><p class="toc-h">Contents</p><ol><li><a href="#what-the-number-is">What the number is</a></li><li><a href="#on-windows-in-powershell">On Windows, in PowerShell</a></li><li><a href="#on-a-mac-in-terminal">On a Mac, in Terminal</a></li><li><a href="#on-linux-in-a-terminal">On Linux, in a terminal</a></li><li><a href="#every-file-and-its-sha-256">Every file and its SHA-256</a></li><li><a href="#what-a-match-shows-and-what-it-does-not">What a match shows, and what it does not</a></li><li><a href="#questions">Questions</a></li><li><a href="#sources">Sources</a></li></ol></nav>
+
+<h2 id="what-the-number-is">What the number is</h2>
+<p class="q">A SHA-256 is worked out from every byte of a file and is always 64 digits (0 to 9 and a to f).</p>
+<p>It cannot be read
+back into the file. A download that stopped part-way, a file edited after it was published and a file of another
+version each print a different one. The Download page lists one for each file, taken from the record of what was
+published, version 3.2.11 of 26 October 2026.</p>
+
+<h2 id="on-windows-in-powershell">On Windows, in PowerShell</h2>
+<ol>
+  <li>Open PowerShell in the folder the file was saved to, usually Downloads.</li>
+  <li>The command below prints the file's SHA-256 in the Hash column. PowerShell writes the digits in capitals and
+  the page in small letters; they are the same digits.
+  <div class="tablewrap" tabindex="0" role="region" aria-label="A command, scrolls sideways"><pre><code>Get-FileHash .\Pocket_3.2.11_windows_setup.exe -Algorithm SHA256</code></pre></div>
+  For the published installer it prints a table like this, the path being the file's own:
+  <div class="tablewrap" tabindex="0" role="region" aria-label="What PowerShell prints for the published file, scrolls sideways"><pre><code>Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          0CB574461375D1A18C18D693C1EF47CF539B1C16185D69B8C3EB9EEA59574CDD       C:\Users\you\Downloads\Pocket_3.2.11_windows_setup.exe</code></pre></div></li>
+  <li>To have PowerShell compare, the same command with the page's hash after <code>-eq</code> prints
+  <code>True</code> or <code>False</code>.
+  <div class="tablewrap" tabindex="0" role="region" aria-label="A command, scrolls sideways"><pre><code>(Get-FileHash .\Pocket_3.2.11_windows_setup.exe -Algorithm SHA256).Hash -eq &quot;0cb574461375d1a18c18d693c1ef47cf539b1c16185d69b8c3eb9eea59574cdd&quot;</code></pre></div></li>
+</ol>
+
+<h2 id="on-a-mac-in-terminal">On a Mac, in Terminal</h2>
+<ol>
+  <li>Open Terminal and go to the folder the file was saved to, usually Downloads.</li>
+  <li>The command below prints the file's SHA-256, then its name.
+  <div class="tablewrap" tabindex="0" role="region" aria-label="A command, scrolls sideways"><pre><code>shasum -a 256 Pocket_3.2.11_macos.dmg</code></pre></div></li>
+  <li>Passing the page's hash and the file's name, two spaces apart, to <code>shasum -a 256 -c</code> has the Mac
+  compare them: it prints the name with <code>OK</code>, or <code>FAILED</code>.
+  <div class="tablewrap" tabindex="0" role="region" aria-label="A command, scrolls sideways"><pre><code>echo &quot;cb40506822c63644d0fb678e24a3a407af7e0bf0ab25cbed886312df35f2741a  Pocket_3.2.11_macos.dmg&quot; | shasum -a 256 -c</code></pre></div></li>
+</ol>
+
+<h2 id="on-linux-in-a-terminal">On Linux, in a terminal</h2>
+<ol>
+  <li>Open a terminal in the folder the file was saved to.</li>
+  <li>The command below prints the file's SHA-256, then its name. <code>sha256sum</code>, which comes with most
+  distributions, prints the same.
+  <div class="tablewrap" tabindex="0" role="region" aria-label="A command, scrolls sideways"><pre><code>shasum -a 256 Pocket_3.2.11_linux_amd64.deb</code></pre></div></li>
+  <li>Passing the page's hash and the file's name, two spaces apart, to <code>shasum -a 256 -c</code> has it compare
+  them: it prints the name with <code>OK</code>, or <code>FAILED</code>.
+  <div class="tablewrap" tabindex="0" role="region" aria-label="A command, scrolls sideways"><pre><code>echo &quot;91aca36dbaa72df99bb99a3ec4e004c45bc28d642704cdfa41c7b8e901106b1a  Pocket_3.2.11_linux_amd64.deb&quot; | shasum -a 256 -c</code></pre></div></li>
+</ol>
+
+<h2 id="every-file-and-its-sha-256">Every file and its SHA-256</h2>
+<p class="q">The same 7 files, with the hashes the Download page lists, as published. The Android file is checked the same
+way on a computer before it is copied to a phone.</p>
+<div class="tablewrap fit stack" tabindex="0" role="region" aria-label="Every file and its SHA-256, scrolls sideways"><table class="spec"><thead><tr><th scope="col">File</th><th scope="col">For</th><th scope="col" class="nw">Size</th><th scope="col">SHA-256</th></tr></thead><tbody>
+<tr><td data-th="File">Pocket_3.2.11_windows_setup.exe</td><td data-th="For">Windows installer</td><td class="nw" data-th="Size">50 MB</td><td data-th="SHA-256"><code class="hash">0cb574461375d1a18c18d693c1ef47cf539b1c16185d69b8c3eb9eea59574cdd</code></td></tr>
+<tr><td data-th="File">Pocket_3.2.11_windows.zip</td><td data-th="For">Windows, portable zip</td><td class="nw" data-th="Size">67 MB</td><td data-th="SHA-256"><code class="hash">0c8a89d542ca7886440585f3a4283ae26229bbb18d2e667660fd3daac85f9408</code></td></tr>
+<tr><td data-th="File">Pocket_3.2.11_macos.dmg</td><td data-th="For">macOS disk image</td><td class="nw" data-th="Size">63 MB</td><td data-th="SHA-256"><code class="hash">cb40506822c63644d0fb678e24a3a407af7e0bf0ab25cbed886312df35f2741a</code></td></tr>
+<tr><td data-th="File">Pocket_3.2.11_linux_amd64.deb</td><td data-th="For">Linux, .deb</td><td class="nw" data-th="Size">70 MB</td><td data-th="SHA-256"><code class="hash">91aca36dbaa72df99bb99a3ec4e004c45bc28d642704cdfa41c7b8e901106b1a</code></td></tr>
+<tr><td data-th="File">Pocket_3.2.11_linux_x86_64.AppImage</td><td data-th="For">Linux, AppImage</td><td class="nw" data-th="Size">87 MB</td><td data-th="SHA-256"><code class="hash">3de6f23f745181affacc7fdbf7d6d3ffc05e2c6e782d23d26073f23ac51bfe1e</code></td></tr>
+<tr><td data-th="File">Pocket_3.2.11_linux.tar.gz</td><td data-th="For">Linux, tar.gz</td><td class="nw" data-th="Size">94 MB</td><td data-th="SHA-256"><code class="hash">c7520063d49bd521bee987b70776db6b1377f00797f146b7bc502bf3a4c7f11a</code></td></tr>
+<tr><td data-th="File">Pocket_3.2.11_android.apk</td><td data-th="For">Android APK</td><td class="nw" data-th="Size">74 MB</td><td data-th="SHA-256"><code class="hash">a7f85e160b5b196431107d1346e71209249011422f07aeec082062527a8913e8</code></td></tr>
+</tbody></table></div>
+
+<h2 id="what-a-match-shows-and-what-it-does-not">What a match shows, and what it does not</h2>
+<p class="q">A match shows the file on your computer is the one published: it was not cut short and nothing changed it on the
+way.</p>
+<p>It does not show who made it. Pocket's builds are not signed yet, which is why Windows and macOS warn at the
+first open; a fingerprint listed beside the file shows the file is unchanged, not who published it. A fingerprint that
+differs shows the file is not the one published. Earlier releases' hashes are kept in
+<a href="changelog.html#shipping-record">the shipping record</a>.</p>
+
+
+<h2 id="questions">Questions</h2>
+<h3>What is a SHA-256?</h3>
+<p>A 64-digit fingerprint worked out from every byte of a file. The same file always gives the same one, and any change to the file gives a different one.</p>
+<h3>The hash PowerShell prints is in capitals and the page&#x27;s is not. Is that a match?</h3>
+<p>Yes. Hexadecimal digits are the same in capitals or small letters; PowerShell prints capitals, shasum small letters.</p>
+<h3>Does a match mean Pocket is signed?</h3>
+<p>No. Pocket's builds are not signed yet, which is why Windows and macOS warn at the first open. A match shows the file is the one published on the page it came from.</p>
+<h3>Where are the hashes of earlier releases?</h3>
+<p>In <a href="changelog.html#shipping-record">the shipping record</a>, each version with its date, files and SHA-256.</p>
+
+<h2 id="sources">Sources</h2>
+<ul class="sources">
+  <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash" rel="noopener">Microsoft Learn: <code>Get-FileHash</code></a></li>
+  <li><a href="https://csrc.nist.gov/pubs/fips/180-4/upd1/final" rel="noopener">NIST: FIPS 180-4, the Secure Hash Standard, which defines SHA-256</a></li>
+</ul>
+
+<nav class="next" aria-label="Next guide"><p class="next-h">Next guide</p><a href="guide-net-worth-india.html"><b>How to work out your net worth in India</b><span>What counts, where each figure comes from, and a full example with the mistakes that move the number.</span></a></nav>
+<p class="prev-g">Previous guide: <a href="guide-loan-snowball-avalanche.html">Paying off loans: snowball and avalanche, worked through</a></p>
+
+<nav class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="guide-budget-without-bank-login.html">A budget app that never asks for your bank login</a></li><li><a href="guide-mutual-fund-statement.html">Track your mutual funds from a CAMS or KFintech statement</a></li></ul></nav>
+
+<div class="lnote"><a href="guides.html">All guides</a> · <a href="glossary.html">Glossary</a>. Pocket is a tracking and planning tool; these guides explain, they are not financial, tax or investment advice.</div>
+</article>
+</div>
+<section class="close bs see-it">
+  <div class="wrap">
+    <h2 class="d">See it in Pocket, on your own figures.</h2>
+    <p>Pocket works this out from what you enter, on your own device, and every figure opens its working. Free has no time limit.</p>
+    <div class="hbtns"><a class="cta" href="download.html">Download free</a><a class="btn-line" href="try.html">Try the sample</a></div>
+    <p class="soon">Windows, macOS, Linux and Android. On an iPhone, try the sample in Safari.</p>
+  </div>
+</section>
+</main>
+
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sh-brand" href="./" aria-label="Pocket home"><img class="sh-logo" src="assets/pocket-logo-dark.svg" alt="" width="133" height="30"></a>
+      <p>Your figures stay on your own device.</p>
+    </div>
+    <nav class="sf-col" aria-label="Product"><p class="sf-h">Product</p><a href="why-pocket.html">Why Pocket</a><a href="compare.html">Compare</a><a href="features.html">Features</a><a href="ai-copilot.html">Ask Pocket</a><a href="security.html">Security</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a></nav>
+    <nav class="sf-col" aria-label="Get Pocket"><p class="sf-h">Get Pocket</p><a href="download.html">Download free</a><a href="try.html">Try the sample</a><a href="download.html#alternatives">Alternative downloads</a><a href="changelog.html">Changelog</a><a href="feed.xml">Release feed (RSS)</a></nav>
+    <nav class="sf-col" aria-label="Learn"><p class="sf-h">Learn</p><a href="guides.html">Guides</a><a href="calc-tax-regime.html">Tax regime calculator</a><a href="calc-sip.html">SIP calculator</a><a href="calc-net-worth.html">Net worth calculator</a><a href="glossary.html">Glossary</a><a href="search.html">Search</a></nav>
+    <nav class="sf-col" aria-label="Company"><p class="sf-h">Company</p><a href="about.html">About</a><a href="contact.html">Support</a><a href="contact.html#known-issues">Known issues</a><a href="security-architecture.html">Security architecture</a></nav>
+    <nav class="sf-col" aria-label="Legal"><p class="sf-h">Legal</p><a href="privacy.html">Privacy Policy</a><a href="accessibility.html">Accessibility</a><a href="terms.html">Terms of Service</a><a href="refunds.html">Refund Policy</a><a href="license.html">License Terms</a></nav>
+  </div>
+  <dl class="sf-base">
+    <div class="discl"><dt>Not advice</dt><dd>Pocket is a personal tracking &amp; planning tool — not SEBI-registered investment advice, and it never moves real money. Live prices, when you switch them on, are delayed and unofficial.</dd></div>
+    <div><dt>Your data</dt><dd>No account · No bank logins · No trackers</dd></div>
+    <div class="sf-copy"><dt>Pocket</dt><dd>© 2026 Pocket · Made in India · <a href="mailto:support@mypocketfi.com">support@mypocketfi.com</a></dd></div>
+  </dl>
+  <div class="sf-dock"><a class="cta" href="download.html">Download free</a><a class="btn-line" href="mailto:?subject=Pocket%20for%20my%20computer&amp;body=Download%20Pocket%3A%20https%3A%2F%2Fmypocketfi.com%2Fdownload.html">Email me the link</a></div>
+</footer>
+
+<script src="assets/vestora.js" defer></script>
+<script src="assets/guides.js?v=2" defer></script>
+</body>
+</html>

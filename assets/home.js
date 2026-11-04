@@ -120,8 +120,8 @@
   var flow = d.querySelector(".scene"), mq = matchMedia("(min-width:1000px) and (min-height:560px)");
   if (flow) {
     var steps = all(".steps > li", flow), frames = all(".steps .fr", flow), stage = d.createElement("div"), cur = 0,
-        parts = frames.map(function (f, i) {
-          return all(i < 2 ? "tr:not([hidden]):not(.grp)" : ".eqn tr", f)
+        parts = frames.map(function (f) {
+          return all("tr:not([hidden]):not(.grp)", f)
             .filter(function (r) { return !r.querySelector("button"); });
         });
     stage.className = "stage";

@@ -27,9 +27,9 @@
 <link rel="preload" href="assets/fonts/instrumentsans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vestora-tokens.css?v=18">
-<link rel="stylesheet" href="assets/observatory.css?v=24">
+<link rel="stylesheet" href="assets/observatory.css?v=25">
 <link rel="stylesheet" href="assets/inner.css?v=19">
-<link rel="stylesheet" href="assets/company-pages.css?v=27">
+<link rel="stylesheet" href="assets/company-pages.css?v=28">
 <link rel="stylesheet" href="assets/download.css?v=8">
 <link rel="stylesheet" href="assets/site-shell.css?v=18">
 </head>
@@ -93,6 +93,7 @@
   <section class="ph">
     <div class="wrap ph-split ph-wide">
       <div>
+        <div class="ptape" aria-hidden="true"><span>Pocket</span><i></i><span>Download</span></div>
         <h1 class="d">Pocket, free, on your own device.</h1>
         <p class="sub">For salaried people in India. One install, no account. Your figures stay on your computer or phone, and nothing leaves unless you turn something on.</p>
         <div class="dl-main">
@@ -101,7 +102,7 @@
           <div class="dl-started" id="dl-started"></div>
           <div class="dl-said" id="dl-said" role="status"></div>
         </div>
-        <p class="dl-first">Windows and macOS ask you to confirm the first open, because the builds are not signed yet. <a href="#check">Check the file's SHA-256 first.</a></p>
+        <p class="dl-first">Windows and macOS ask you to confirm the first open, because the builds are not signed yet. <a href="#check">Check the file's SHA-256 first.</a> <a href="guide-verify-download.html">The guide, step by step.</a></p>
         <p class="dl-sha" data-wait>SHA-256 <code class="hash"></code></p>
         <div class="hnote">
           <span><b></b> Free with no time limit</span>
@@ -149,7 +150,7 @@
 
   <section class="sec" id="check">
     <div class="wrap">
-      <div class="sec-head"><h2 class="d">Check the file, then install it</h2><p><!-- co:relnote --><a href="changelog.html#v3-2-11">What changed in 3.2.11</a><!-- /co:relnote -->, or follow every release in the <a href="feed.xml">release feed (RSS)</a>.</p></div>
+      <div class="sec-head"><h2 class="d">Check the file, then install it</h2><p><!-- co:relnote --><a href="changelog.html#v3-2-11">What changed in 3.2.11</a><!-- /co:relnote -->, or follow every release in the <a href="feed.xml">release feed (RSS)</a>. A file's SHA-256, checked step by step: <a href="guide-verify-download.html">check your download is the real one</a>.</p></div>
       <div class="warn-how">
         <p class="warn-what"><strong>About the warning.</strong> Windows and macOS warn about any app that is not signed and notarised by a registered publisher, and Pocket’s builds are not yet. The warning is about the signature, not about what the file does; the SHA-256 is how you check the file is the one this page lists.</p>
         <div class="warn-os">
@@ -193,7 +194,7 @@
           </dl>
           <!-- /dl:facts -->
           <ul class="limits one">
-            <li><strong>Not yet code-signed.</strong> Windows SmartScreen may warn on first run ("More info", then "Run anyway"); macOS asks once. Download only from this page and check the SHA-256.</li>
+            <li><strong>Not yet code-signed.</strong> Windows SmartScreen may warn on first run ("More info", then "Run anyway"); macOS asks once. Download only from this page and check the SHA-256: <a href="guide-verify-download.html">the steps for Windows, Mac and Linux</a>.</li>
             <li><strong>Update check, from 3.2.7.</strong> Check now, or once a day if you turn that on, asks mypocketfi.com for the latest version number and sends nothing about you. Off until you ask. See the <a href="privacy.html">Privacy Policy</a>.</li>
           </ul>
         </div>

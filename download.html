@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="assets/observatory.css?v=26">
 <link rel="stylesheet" href="assets/inner.css?v=19">
 <link rel="stylesheet" href="assets/company-pages.css?v=28">
-<link rel="stylesheet" href="assets/download.css?v=8">
+<link rel="stylesheet" href="assets/download.css?v=9">
 <link rel="stylesheet" href="assets/site-shell.css?v=18">
 </head>
 <body>
@@ -103,6 +103,7 @@
           <div class="dl-said" id="dl-said" role="status"></div>
         </div>
         <p class="dl-first">Windows and macOS ask you to confirm the first open, because the builds are not signed yet. <a href="#check">Check the file's SHA-256 first.</a> <a href="guide-verify-download.html">The guide, step by step.</a></p>
+          <p class="dl-first-a">Android warns about any app installed from outside a store: tap <b>Download anyway</b>, then allow your browser to install it. <a href="#android-warnings">What each prompt says.</a></p>
         <p class="dl-sha" data-wait>SHA-256 <code class="hash"></code></p>
         <div class="hnote">
           <span><b></b> Free with no time limit</span>
@@ -212,7 +213,7 @@
           </ol>
           <p class="ph-foot"><b>On a Mac:</b> drag Pocket to Applications. Not yet notarised, so macOS blocks the first open: on macOS 15 or later, click Done, then System Settings → Privacy &amp; Security → Open Anyway; on macOS 14 or earlier, Control-click Pocket.app and choose Open. Data lives in <code>~/FinOSData</code>.</p>
           <p class="ph-foot"><b>On Linux:</b> on Debian or Ubuntu, <code>sudo apt install ./Pocket_3.2.11_linux_amd64.deb</code>, then open Pocket from your applications menu; on another distribution, run the AppImage under Alternative downloads. Pocket runs in a terminal window: leave it open. Data lives in <code>~/FinOSData</code>.</p>
-          <p class="ph-foot"><b>On an Android phone:</b> open the APK; the first time, Android asks you to allow your browser to install apps. Data stays on the phone, encrypted, and Pocket asks for no internet access. To update, install the next APK over it.</p>
+          <p class="ph-foot" id="android-warnings"><b>On an Android phone:</b> Android warns about every app installed from outside a store, so expect up to three prompts, each once. Chrome says the file may be harmful: tap <b>Download anyway</b>. Opening the APK, Android asks to let your browser install apps: tap <b>Settings</b>, turn on <b>Allow from this source</b>, then go back. Play Protect may say it does not recognise the developer, since Pocket is not on Google Play: tap <b>More details</b>, then <b>Install anyway</b>. The words differ a little between phones. Data stays on the phone, encrypted, and Pocket asks for no internet access. To update, install the next APK over it.</p>
           <!-- /dl:flow -->
         </div>
       </details>

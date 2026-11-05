@@ -6,6 +6,8 @@
 html:not(.js) .dl-sha, html[data-os="ios"] .dl-sha{display:none}
 .dl-first{margin:12px 0 0; max-width:60ch; font-size:var(--fs-small); color:var(--ink-2)}
 html[data-os="linux"] .dl-first, html[data-os="android"] .dl-first, html[data-os="ios"] .dl-first{display:none}
+.dl-first-a{display:none; margin:12px 0 0; max-width:60ch; font-size:var(--fs-small); color:var(--ink-2)}
+html[data-os="android"] .dl-first-a{display:block}
 .warn-how{margin:0 0 32px; padding:20px 24px; border:1px solid var(--rule); border-radius:var(--r-2); background:var(--card)}
 .warn-what{margin:0 0 16px; max-width:68ch; color:var(--ink-2)}
 .warn-os{display:grid; grid-template-columns:minmax(0,1fr); gap:28px}

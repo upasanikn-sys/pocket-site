@@ -22,5 +22,5 @@
 .prose kbd{padding:1px 7px; border:1px solid var(--rule-2); border-radius:var(--r-1); background:var(--plate); font:500 var(--fs-caption)/1.5 var(--mono); color:var(--ink)}
 .keys{margin:16px 0 0}
 .keys label{display:inline-flex; align-items:center; gap:12px; min-height:44px; font-size:var(--fs-body); color:var(--ink); cursor:pointer}
-.keys input{width:20px; height:20px; margin:0; accent-color:var(--ink)}
+.keys input{width:24px; height:24px; margin:0; accent-color:var(--ink)}
 .keys-say{min-height:1.6em; margin:4px 0 0; font-size:var(--fs-small); color:var(--ink-2)}

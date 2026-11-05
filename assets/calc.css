@@ -40,7 +40,7 @@ html:not(.js) .rng{display:none}
 .err{margin:6px 0 0; font-size:var(--fs-caption); line-height:1.4; color:var(--loss)}
 .chk{display:flex; align-items:center; gap:10px; min-height:44px; margin:4px 0 0; font-size:var(--fs-small); color:var(--ink-2); cursor:pointer}
 .chk:hover{color:var(--ink)}
-.chk input{width:18px; height:18px; margin:0; accent-color:var(--ink)}
+.chk input{width:24px; height:24px; margin:0; accent-color:var(--ink)}
 .calc-act{margin:24px 0 0}
 .reset{min-height:44px; padding:0; border:0; background:none; color:var(--ink); cursor:pointer;
 font:500 var(--fs-small)/1 var(--sans); text-decoration:underline 1px; text-underline-offset:3px}

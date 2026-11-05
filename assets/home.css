@@ -202,7 +202,7 @@ html{scroll-padding-bottom:150px}
 .schem.schem-v{display:block;margin-top:16px}
 @supports (animation-timeline:view()){
 @media (prefers-reduced-motion:no-preference){
-@keyframes fr-in{from{opacity:.25;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fr-in{from{transform:translateY(16px)}}
 .scene .steps>li>.fr{animation:fr-in linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
 }
 }
@@ -353,7 +353,7 @@ html:not(.js) .try-in :is(input,.try-ends,.try-ticks){display:none}
 .count{transition:border-color var(--t-ui) var(--ease-ui)}
 .count.now{border-top-color:var(--ink);box-shadow:inset 0 1px var(--ink)}
 .w-all{display:none;align-items:center;gap:10px;min-height:44px;margin:0 0 8px;font-size:var(--fs-small);color:var(--ink-2);cursor:pointer}
-.w-all input{width:18px;height:18px;margin:0;accent-color:var(--ink);cursor:pointer}
+.w-all input{width:24px;height:24px;margin:0;accent-color:var(--ink);cursor:pointer}
 @media (min-width:1000px){ .w-all{display:flex} }
 .wires:has(#w-all:checked){height:auto;padding:var(--sec) 0}
 .wires:has(#w-all:checked) .wires-in{position:static;min-height:0}

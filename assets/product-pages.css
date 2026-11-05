@@ -83,6 +83,7 @@ font:500 var(--fs-body)/1 var(--sans); cursor:pointer; transition:color var(--t-
 transform:scaleX(0); transition:transform var(--t-ui) var(--ease-ui)}
 .tour-panels{margin-top:24px}
 .tour-panel{margin:0 0 24px}
+.tour-panel figure{margin:0}
 .tour-panel img{display:block; width:100%; height:auto; border:1px solid var(--rule-2); border-radius:var(--r-3); background:var(--card)}
 .tour-panel figcaption{margin-top:12px; font-size:var(--fs-caption); color:var(--ink-3)}
 .tour-panel figcaption a{color:var(--ink-2)}

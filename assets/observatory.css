@@ -45,7 +45,7 @@ section.close.bs .cta{background:var(--on-brand);border-color:var(--on-brand);co
 section.close.bs .cta:hover{background:var(--on-brand-2);border-color:var(--on-brand-2);color:var(--brand-ground)}
 section.close.bs :is(.ghost,.btn-line){color:var(--on-brand);border-color:var(--on-brand-2)}
 section.close.bs :where(a,button):focus-visible{outline-color:var(--brand)}
-figure:is(.cap-fig, .ph-vis, .tour-panel) figcaption{font:500 var(--fs-prov)/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+:is(figure.cap-fig, figure.ph-vis, .tour-panel > figure) figcaption{font:500 var(--fs-prov)/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .soon{margin-top:20px;font-size:var(--fs-caption);color:var(--ink-3)}
 footer{border-top:1px solid var(--rule);padding:40px 0;font-size:var(--fs-caption);color:var(--ink-3)}
 .skip{position:absolute;left:-9999px}

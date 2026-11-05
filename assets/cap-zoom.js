@@ -5,7 +5,7 @@
    the flow under a clipped crop and jumped over it (Features, CLS 0.075). No script: the picture is simply shown. */
 (function () {
   "use strict";
-  var pics = document.querySelectorAll(".crop, .frame, .gpic, .tour-panel > picture");
+  var pics = document.querySelectorAll(".crop, .frame, .gpic, .tour-panel picture");
   if (!pics.length || typeof HTMLDialogElement !== "function") return;
   var css = document.createElement("link");
   css.rel = "stylesheet";
